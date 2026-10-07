@@ -155,7 +155,7 @@ strong { font-weight:600; }
 .q-shortcode code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:20px; }
 
 /* ===== Cases ===== */
-.q-cases { padding-top:0; overflow:hidden; }
+.q-cases { padding-top:0; overflow:visible; }
 .q-heading-row { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; }
 .q-heading-row .q-section-header { margin-bottom:0; }
 .q-slider-controls { display:flex; gap:10px; flex-shrink:0; }
@@ -310,3 +310,4 @@ strong { font-weight:600; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } .q-reveal { opacity:1; transform:none; } }
 .q-guide-corner { padding:72px 64px; width:100%; }
+.q-faq-section>.q-corner { top:calc(var(--q-space-section) - 40px); }
