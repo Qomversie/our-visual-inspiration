@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { ArrowRight, ArrowUp, Check, Plus, Smile, Star } from 'lucide-react';
+import { ArrowRight, ArrowUp, Check, Plus, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function Stars() {
@@ -7,8 +7,13 @@ export function Stars() {
 }
 export function Google() { return <span className="q-google" aria-label="Google">G</span>; }
 
-export function SectionHeader({ label, title, statement = false, children }: { label?: string; title: string; statement?: boolean; children?: ReactNode }) {
-  return <div className="q-section-header">{label && <p className="q-label">{label}</p>}<h2 className={statement ? 'q-statement' : 'q-h2'}>{title}</h2>{children}</div>;
+export function SmileMark({ className = 'q-smile' }: { className?: string }) {
+  return <svg className={className} viewBox="0 0 20 20" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" /></svg>;
+}
+export function Label({ children }: { children: ReactNode }) { return <p className="q-label"><SmileMark />{children}</p>; }
+
+export function SectionHeader({ label, title, children }: { label?: string; title: string; children?: ReactNode }) {
+  return <div className="q-section-header">{label && <Label>{label}</Label>}<h2 className="q-h2">{title}</h2>{children}</div>;
 }
 
 export function CtaBlock({ children = 'Gratis adviesgesprek', variant = 'primary', href = '#contact', note }: { children?: ReactNode; variant?: 'primary' | 'secondary'; href?: string; note?: string }) {
@@ -18,7 +23,7 @@ export function CtaBlock({ children = 'Gratis adviesgesprek', variant = 'primary
 }
 
 export function RotatingBadge({ text = 'GRATIS ADVIESGESPREK • 30 MINUTEN • ', href = '#contact', id = 'badge-circle' }: { text?: string; href?: string; id?: string }) {
-  return <a className="q-badge-rotate" href={href} aria-label="Gratis adviesgesprek van 30 minuten"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id={id} d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs><text><textPath href={`#${id}`} textLength="237">{text}</textPath></text></svg><Smile aria-hidden="true" strokeWidth="1.5" /></a>;
+  return <a className="q-badge-rotate" href={href} aria-label="Gratis adviesgesprek van 30 minuten"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id={id} d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs><text><textPath href={`#${id}`} textLength="237">{text}</textPath></text></svg><SmileMark className="q-smile-badge" /></a>;
 }
 
 export function CheckList({ items }: { items: string[] }) {

@@ -1,6 +1,7 @@
 import caseCowboy from '@/assets/case-cowboy-magic.png.asset.json';
 import caseGroeicollectief from '@/assets/case-groeicollectief.png.asset.json';
 import caseHoogterp from '@/assets/case-hoogterp.png.asset.json';
+import caseJoke from '@/assets/case-joke-bleijerveld.jpg.asset.json';
 
 export const faqs = [
   { question: 'Wat kost het?', answer: 'De exacte prijs hangt af van wat er nodig is. Staat je website al? Dan alleen een aanvraagtool. Maar wellicht kunnen we beter alles goed aanpakken. Dat bepalen we samen in het gratis adviesgesprek. Geen verrassingen achteraf.' },
@@ -43,14 +44,15 @@ export const cases = [
   { name: 'Cowboy Magic Europe', line: '40% meer conversie in 2 maanden', image: caseCowboy.url },
   { name: 'Het Groeicollectief', line: 'Nieuwe webshop, klaar om te groeien', image: caseGroeicollectief.url },
   { name: 'Hoogterp Verf', line: '83% tijdsbesparing met AI', image: caseHoogterp.url },
+  { name: 'Joke Bleijerveld', line: '33 uur per maand bespaard met AI', image: caseJoke.url },
 ];
 
 export const clients = ['Cowboy Magic', 'Hoogterp Verf', 'Het Groeicollectief', 'Studio Noeske'];
 
 export const designVariables = [
   ['--q-sand', '#F3EDE5'], ['--q-white', '#FFFFFF'], ['--q-ink', '#212934'], ['--q-ginger', '#FF6700'], ['--q-blue', '#0D5EE4'], ['--q-sand-dark', '#E9E1D6'],
-  ['--q-font-heading', "'Lora', serif"], ['--q-font-body', "'Inter', sans-serif"], ['--q-radius', '20px'], ['--q-space-section', '120px / mobiel 72px'], ['--q-container', '1200px'],
-  ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '44px / mobiel 32px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-statement', '56px / mobiel 40px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
+  ['--q-font-heading', "'Lora', serif"], ['--q-font-body', "'Inter', sans-serif"], ['--q-radius', '20px'], ['--q-space-section', '120px / mobiel 72px'], ['--q-container', '1200px'], ['--q-gutter', '48px / mobiel 20px'], ['--q-frame', 'min(1200px, 100% - 64px) / mobiel 100% - 32px'],
+  ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '48px / mobiel 32px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
 ] as const;
 
-export const designClasses = ['q-section', 'q-section--white', 'q-section--blue', 'q-section--dark', 'q-container', 'q-has-pattern', 'q-pattern', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-statement', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-bento', 'q-bento-video', 'q-faq'];
+export const designClasses = ['q-section', 'q-section--white', 'q-section--blue', 'q-section--dark', 'q-container', 'q-cross', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-bento', 'q-bento-video', 'q-faq'];

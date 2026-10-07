@@ -6,3 +6,10 @@
 - [ ] Client logos — waiting for owner (row shows pending placeholders).
 - [ ] Conversion-chart screenshot for the Cowboy Magic Europe card — waiting for owner.
 - [ ] Play supplied video — supplied URL returns HTML instead of a video; waiting for a working URL or uploaded video.
+
+## Ronde 4 (klaar)
+- [x] SmileMark (logo-segment) in labels en stickertje
+- [x] Golvend patroon weg; lijnensysteem q-section/q-container/q-cross
+- [x] Koppen Lora 500 Zwartig, geen oranje behalve "mooie"
+- [x] Cases 480×600, track tot schermrand, 4e case Joke Bleijerveld
+- [x] Styleguide bijgewerkt
