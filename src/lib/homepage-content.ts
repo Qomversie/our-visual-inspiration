@@ -1,3 +1,7 @@
+import caseCowboy from '@/assets/case-cowboy-magic.png.asset.json';
+import caseGroeicollectief from '@/assets/case-groeicollectief.png.asset.json';
+import caseHoogterp from '@/assets/case-hoogterp.png.asset.json';
+
 export const faqs = [
   { question: 'Wat kost het?', answer: 'De exacte prijs hangt af van wat er nodig is. Staat je website al? Dan alleen een aanvraagtool. Maar wellicht kunnen we beter alles goed aanpakken. Dat bepalen we samen in het gratis adviesgesprek. Geen verrassingen achteraf.' },
   { question: 'Wat is het gratis adviesgesprek precies?', answer: 'Een gratis gesprek van 30 minuten, op locatie of via videocall. We analyseren je huidige website en aanvraagproces. Je krijgt een concreet plan en eerlijk advies, ook als het antwoord is dat je ons nu niet nodig hebt. Geen verplichtingen.' },
@@ -25,10 +29,20 @@ export const aboutChecks = [
   'Volgens Trustindex "best beoordeelde service"',
 ];
 
+export const steps = [
+  { title: 'Gratis adviesgesprek', meta: '30 minuten · Op locatie of videocall', text: 'We analyseren je huidige website en aanvraagproces. Je krijgt een concreet plan en een eerlijk advies.' },
+  { title: 'Bouw', meta: 'Na 30 dagen meten we samen het resultaat', blocks: [
+    { word: 'Strategie', line: 'propositie aanscherpen, focus bepalen' },
+    { word: 'Bouwen', line: 'website + aanvraagtool' },
+    { word: 'Activeren', line: 'alles live, meten, finetunen' },
+  ] },
+  { title: 'Onderhoud', meta: 'Optioneel · Maandelijks opzegbaar', text: 'Daarna kies jij, zelf beheren of het aan ons overlaten. Kies je voor ons, dan onderhouden en optimaliseren wij je website en aanvraagtool continu. Vast maandtarief zonder contract, stoppen kan altijd.' },
+];
+
 export const cases = [
-  { name: 'Cowboy Magic Europe', line: '40% meer conversie in 2 maanden' },
-  { name: 'Het Groeicollectief', line: 'Nieuwe webshop, klaar om te groeien' },
-  { name: 'Hoogterp Verf', line: '83% tijdsbesparing met AI' },
+  { name: 'Cowboy Magic Europe', line: '40% meer conversie in 2 maanden', image: caseCowboy.url },
+  { name: 'Het Groeicollectief', line: 'Nieuwe webshop, klaar om te groeien', image: caseGroeicollectief.url },
+  { name: 'Hoogterp Verf', line: '83% tijdsbesparing met AI', image: caseHoogterp.url },
 ];
 
 export const clients = ['Cowboy Magic', 'Hoogterp Verf', 'Het Groeicollectief', 'Studio Noeske'];
@@ -39,4 +53,4 @@ export const designVariables = [
   ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '44px / mobiel 32px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-statement', '56px / mobiel 40px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
 ] as const;
 
-export const designClasses = ['q-section', 'q-section--white', 'q-section--blue', 'q-section--dark', 'q-container', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-statement', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-band', 'q-case-card', 'q-check-list', 'q-step', 'q-faq'];
+export const designClasses = ['q-section', 'q-section--white', 'q-section--blue', 'q-section--dark', 'q-container', 'q-has-pattern', 'q-pattern', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-statement', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-bento', 'q-bento-video', 'q-faq'];

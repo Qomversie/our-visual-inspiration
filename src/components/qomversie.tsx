@@ -40,13 +40,3 @@ export function CaseCard({ name, line, image }: { name: string; line: string; im
     <div className="q-case-caption"><h3>{name}</h3><p><ArrowUp aria-hidden="true" />{line}</p></div>
   </article>;
 }
-
-function Band({ text, tone }: { text: string; tone: 'ink' | 'ginger' }) {
-  const parts = text.split('✦').map(s => s.trim()).filter(Boolean);
-  const row = parts.map(p => <span key={p}>{p} <b>✦</b> </span>);
-  return <div className={`q-band q-band--${tone}`}><div className="q-band-track">{[0, 1, 2, 3].map(i => <span key={i}>{row}</span>)}</div></div>;
-}
-
-export function SlantedBands({ first = 'Meer aanvragen ✦ Minder offertes tikken ✦ Korte lijntjes ✦ Nuchter en Fries ✦ Resultaatgarantie ✦', second = 'Website die klanten oplevert ✦ Eerst begrijpen, dan bouwen ✦ Geen gedoe ✦ Gewoon resultaat ✦' }: { first?: string; second?: string }) {
-  return <div className="q-bands" role="presentation" aria-hidden="true"><Band text={second} tone="ginger" /><Band text={first} tone="ink" /></div>;
-}
