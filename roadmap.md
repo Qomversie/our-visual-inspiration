@@ -13,3 +13,10 @@
 - [x] Koppen Lora 500 Zwartig, geen oranje behalve "mooie"
 - [x] Cases 480×600, track tot schermrand, 4e case Joke Bleijerveld
 - [x] Styleguide bijgewerkt
+
+## Ronde 5 (klaar)
+- [x] CornerMark weg; LineAccent (q-lines) in hero, over ons, werkwijze, donkere CTA
+- [x] Blauw vlak weg; Sand/wit afwisseling, kaarten volgen achtergrond, footer wit met lijn
+- [x] Succesverhalen opnieuw: bento met browserkader, donkere videokaart, voorheen/nu-balk
+- [x] Styleguide bijgewerkt
+- [ ] Videostill voor Joke — wacht op aanlevering
