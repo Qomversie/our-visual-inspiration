@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { designVariables, designClasses, faqs, aboutChecks } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, SlantedBands, RotatingBadge, ShortcodeBlock, FaqItem, CheckList } from '@/components/qomversie';
+import { designVariables, designClasses, faqs, aboutChecks, steps } from '@/lib/homepage-content';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList } from '@/components/qomversie';
 
 export const Route = createFileRoute('/styleguide')({
   head: () => ({ meta: [
@@ -28,8 +28,11 @@ function Styleguide() {
       <h3 className="q-h3">ShortcodeBlock</h3><ShortcodeBlock code="reviews" note="Hier komt de reviews-widget"/>
       <h3 className="q-h3">CaseCard</h3><div className="q-case-track"><CaseCard name="Voorbeeldcase" line="Resultaatregel"/></div>
       <h3 className="q-h3">FaqItem</h3><div className="q-faq-list"><FaqItem {...faqs[0]}/></div>
-      <h3 className="q-h3">SlantedBands</h3>
+      <h3 className="q-h3">Tijdlijn (q-steps)</h3>
+      <div className="q-steps">{steps.map((s, i) => <article className="q-step" key={s.title}><span className="q-step-dot" aria-hidden="true">{i + 1}</span><div className="q-step-body"><div className="q-step-head"><h3 className="q-h3">{s.title}</h3><span className="q-step-pill">{s.meta}</span></div>{'blocks' in s && s.blocks ? <div className="q-step-blocks">{s.blocks.map(b => <div key={b.word}><strong>{b.word}</strong><span>{b.line}</span></div>)}</div> : <p className="q-text">{s.text}</p>}</div></article>)}</div>
+      <h3 className="q-h3">Achtergrondpatroon (q-pattern)</h3>
+      <p className="q-note">SVG-bestand: <code>src/assets/contour-pattern.svg</code> — gebruik in Elementor als achtergrondafbeelding, 1px contourlijnen, kleur en dekking per sectie (zwart 6% / wit 10% / zwart 5% / sand 8%).</p>
+      <div className="q-guide-pattern"><div className="q-pattern q-pattern--tr" aria-hidden="true"/></div>
     </section>
-    <SlantedBands/>
   </main>;
 }
