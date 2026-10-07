@@ -269,6 +269,10 @@ strong { font-weight:600; }
 .q-guide .q-case-track { padding:0; width:100%; }
 .q-guide .q-faq-list { width:100%; }
 .q-guide-badge { padding:10px; }
+.q-guide-smile { width:48px; height:48px; }
+.q-guide-code { white-space:pre-wrap; word-break:break-all; font-size:13px; width:100%; }
+.q-guide-lines { width:100%; overflow:hidden; border-radius:var(--q-radius); }
+.q-guide-lines-inner { padding:48px; min-height:120px; }
 
 @media(max-width:1000px) {
  .q-hero { gap:40px; } .q-benefits { gap:15px; } .q-benefits .q-card { padding:24px; }
