@@ -345,3 +345,7 @@ strong { font-weight:600; }
 .q-guide-lines .q-lines { left:calc(50% - 220px); }
 .q-guide-scheme { width:100%; border-collapse:collapse; font-size:14px; }
 .q-guide-scheme td { padding:8px 12px; border-bottom:1px solid var(--q-ink-10); }
+.q-res-client { font-family:var(--q-font-body); line-height:1.4; }
+.q-browser { flex:1; display:flex; }
+.q-browser-frame { flex:1; display:flex; flex-direction:column; }
+.q-browser-screen { flex:1; min-height:260px; }
