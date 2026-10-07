@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { designVariables, designClasses, faqs, aboutChecks, steps } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, Label } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, Label, CornerMark } from '@/components/qomversie';
 
 export const Route = createFileRoute('/styleguide')({
   head: () => ({ meta: [
@@ -34,9 +34,9 @@ function Styleguide() {
       <div className="q-actions"><SmileMark/><SmileMark className="q-smile q-guide-smile"/></div>
       <pre className="q-card q-guide-code">{'<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="#FF6700"/></svg>'}</pre>
       <p className="q-note">Labels: 14×14px, 10px tot de tekst, altijd Ginger. Stickertje: 28×28px wit.</p>
-      <h3 className="q-h3">Lijnensysteem (q-section · q-container · q-cross)</h3>
-      <p className="q-note">.q-section: 1px bovenrand over volle breedte. .q-container: 1200px, 1px rand links/rechts, 48px binnenruimte (mobiel: lijnen 16px van de rand, 20px binnenruimte). .q-cross: 7×7px Ginger vierkantje op elk kruispunt. Lijnkleur: Zwartig 12% op Sand/wit, wit 20% in blauw, Sand 15% in donker.</p>
-      <div className="q-guide-lines"><div className="q-section q-section--flush"><div className="q-guide-lines-inner">Sectie</div></div><div className="q-section q-section--flush q-section--blue"><div className="q-guide-lines-inner">Blauwe sectie</div></div></div>
+      <h3 className="q-h3">CornerMark (q-corner)</h3>
+      <p className="q-note">Subtiele L-hoek linksboven, alleen bij Cases, Wat wil je bereiken? en Veelgestelde vragen. 40px links van de content en 40px boven het label. Verticale lijn 1px, 220px (mobiel 140px), horizontale lijn 1px, 96px, beide vervagend naar transparant; Zwartig 18%. Hoekpunt: 7×7px Ginger. Mobiel 12px van de schermrand. Geef de container class q-has-corner.</p>
+      <div className="q-card q-guide-corner"><div className="q-has-corner"><CornerMark/><Label>LABEL</Label><p className="q-h2">Sectiekop</p></div></div>
     </section>
   </main>;
 }
