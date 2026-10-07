@@ -293,9 +293,12 @@ strong { font-weight:600; }
  .q-services { grid-template-columns:1fr; gap:18px; } .q-services .q-card { padding:30px; } .q-services .q-h3 { font-size:30px; } .q-service-arrow { top:32px; right:30px; }
  .q-promises { grid-template-columns:1fr; } .q-promises-intro { position:static; } .q-promises-intro .q-statement { font-size:var(--q-fs-statement); }
  .q-promise-grid { grid-template-columns:1fr; } .q-promise:nth-child(2) { border-top:1px solid var(--q-ink-10); padding-top:30px; }
- .q-steps { grid-template-columns:1fr; gap:40px; }
- .q-step { padding:0 0 0 32px; } .q-step::before { top:6px; bottom:-40px; left:5px; right:auto; width:1px; height:auto; } .q-step:last-child::before { bottom:0; }
- .q-step::after { left:0; top:6px; } .q-step-number { font-size:52px; padding:0; margin-bottom:20px; }
+  .q-step { padding-left:60px; } .q-step+.q-step { margin-top:48px; }
+  .q-step::before { left:16px; top:38px; }
+  .q-step-dot { width:34px; height:34px; font-size:14px; }
+  .q-step-head .q-h3 { font-size:var(--q-fs-h3); }
+  .q-step-pill { white-space:normal; }
+  .q-step-blocks { grid-template-columns:1fr; }
  .q-faq-section { grid-template-columns:1fr; gap:10px; } .q-faq summary { font-size:16px; padding-block:20px; }
  .q-contact-wrap { padding-bottom:70px; } .q-contact { padding:45px 20px 35px; } .q-shortcode { height:240px; padding:20px; } .q-shortcode code { font-size:16px; }
  .q-footer-grid { grid-template-columns:1fr 1fr; gap:35px 20px; } .q-footer-links { font-size:12px; overflow-wrap:anywhere; } .q-footer .q-logo { width:135px; } .q-rating { flex-wrap:wrap; gap:8px; }
