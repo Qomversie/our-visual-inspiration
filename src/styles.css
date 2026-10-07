@@ -54,7 +54,7 @@ strong { font-weight:600; }
 .q-has-corner { position:relative; }
 .q-corner { --q-corner-line:color-mix(in oklab,var(--q-ink) 18%,transparent); position:absolute; left:-40px; top:-40px; width:96px; height:220px; pointer-events:none;
  background:linear-gradient(var(--q-ginger),var(--q-ginger)) 0 0/7px 7px no-repeat, linear-gradient(to right,var(--q-corner-line),transparent) 3px 3px/93px 1px no-repeat, linear-gradient(to bottom,var(--q-corner-line),transparent) 3px 3px/1px 217px no-repeat; }
-@media(max-width:760px){ .q-corner { left:-11px; height:140px; background-size:7px 7px,93px 1px,1px 137px; } }
+@media(max-width:760px){ .q-corner { left:-8px; height:140px; background-size:7px 7px,93px 1px,1px 137px; } }
 .q-section--white { background:var(--q-white); }
 .q-section--blue { background:var(--q-blue); color:var(--q-white); }
 .q-section--blue :is(h2,h3,.q-h2,.q-h3) { color:var(--q-white); }
