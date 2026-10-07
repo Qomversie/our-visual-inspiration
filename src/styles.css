@@ -17,9 +17,9 @@
  --radius-lg: var(--radius); --radius-md: var(--radius); --radius-sm: 8px;
 }
 :root {
- --background: oklch(0.949 0.012 73.4); --foreground: oklch(0.28 0.023 258);
- --white: oklch(1 0 0); --card: var(--white); --primary: oklch(0.695 0.202 44.1);
- --blue: oklch(0.517 0.218 260.2); --muted-foreground: color-mix(in oklab,var(--foreground) 74%,var(--background));
+ --background: oklch(0.94857310 0.01249144 75.36540580); --foreground: oklch(0.27819358 0.02336572 256.42149526);
+ --white: oklch(1 0 0); --card: var(--white); --primary: oklch(0.69706090 0.20348966 43.80362920);
+ --blue: oklch(0.52609862 0.21588271 260.94806050); --muted-foreground: color-mix(in oklab,var(--foreground) 74%,var(--background));
  --border: color-mix(in oklab,var(--foreground) 13%,transparent);
  --radius: 20px; --pill: 999px; --content-width: 1200px; --section-space: 120px;
  --shadow-soft: 0 12px 35px color-mix(in oklab,var(--foreground) 4%,transparent);

@@ -48,9 +48,9 @@ const promises = [
 ];
 const clients = ['Cowboy Magic','Hoogterp Verf','Het Groeicollectief','Studio Noeske'];
 const caseData = [
- {name:'Cowboy Magic Europe',title:'Shopify CRO voor Cowboy Magic Europe',subtitle:'Conversie-optimalisatie'},
- {name:'Het Groeicollectief',title:'Webshop voor Het Groeicollectief',subtitle:'Een webshop die meegroeit'},
- {name:'Hoogterp Verf',title:'Webshop + AI-assistent voor Hoogterp Verf',subtitle:'Slimmer werken met AI'},
+ {name:'Cowboy Magic Europe',title:'Shopify CRO voor Cowboy Magic Europe',subtitle:'Cowboy Magic Europe'},
+ {name:'Het Groeicollectief',title:'Webshop voor Het Groeicollectief',subtitle:'Het Groeicollectief'},
+ {name:'Hoogterp Verf',title:'Webshop + AI-assistent voor Hoogterp Verf',subtitle:'Hoogterp Verf'},
 ];
 function Index() {
  const [scrolled,setScrolled]=useState(false);const [pastHero,setPastHero]=useState(false);const dialogRef=useRef<HTMLDialogElement>(null);const videoRef=useRef<HTMLVideoElement>(null);
