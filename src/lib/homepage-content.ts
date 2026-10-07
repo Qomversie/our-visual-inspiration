@@ -24,3 +24,19 @@ export const aboutChecks = [
   '5 review sterren op Google',
   'Volgens Trustindex "best beoordeelde service"',
 ];
+
+export const cases = [
+  { name: 'Cowboy Magic Europe', line: '40% meer conversie in 2 maanden' },
+  { name: 'Het Groeicollectief', line: 'Nieuwe webshop, klaar om te groeien' },
+  { name: 'Hoogterp Verf', line: '83% tijdsbesparing met AI' },
+];
+
+export const clients = ['Cowboy Magic', 'Hoogterp Verf', 'Het Groeicollectief', 'Studio Noeske'];
+
+export const designVariables = [
+  ['--q-sand', '#F3EDE5'], ['--q-white', '#FFFFFF'], ['--q-ink', '#212934'], ['--q-ginger', '#FF6700'], ['--q-blue', '#0D5EE4'], ['--q-sand-dark', '#E9E1D6'],
+  ['--q-font-heading', "'Lora', serif"], ['--q-font-body', "'Inter', sans-serif"], ['--q-radius', '20px'], ['--q-space-section', '120px / mobiel 72px'], ['--q-container', '1200px'],
+  ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '44px / mobiel 32px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-statement', '56px / mobiel 40px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
+] as const;
+
+export const designClasses = ['q-section', 'q-section--white', 'q-section--blue', 'q-section--dark', 'q-container', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-statement', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-band', 'q-case-card', 'q-check-list', 'q-step', 'q-faq'];

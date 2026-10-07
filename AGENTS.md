@@ -13,3 +13,5 @@
 - Keep the homepage as a single semantic route with reusable section controls and content data in a browser-safe module, so the design remains simple to reproduce in Elementor.
 - Keep all visual values in the central stylesheet and use Button variants for controls, so brand styling is consistent.
 - Missing booking/review content must be visibly pending rather than simulated, so visitors are never shown false confirmations or invented endorsements.
+- Homepage building blocks (SectionHeader, CtaBlock, CaseCard, SlantedBands, RotatingBadge, ShortcodeBlock, FaqItem, CheckList) live in one shared components module and reuse the fixed q-* class set, so they map 1:1 to Elementor Components and global Classes.
+- Design values are exposed as --q-* CSS variables and documented on the unlinked /styleguide route, which serves as the Elementor build blueprint.
