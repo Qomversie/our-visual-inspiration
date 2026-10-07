@@ -267,6 +267,8 @@ strong { font-weight:600; }
 .q-guide .q-shortcode { width:100%; }
 .q-guide .q-case-track { padding:0; width:100%; }
 .q-guide .q-faq-list { width:100%; }
+.q-guide-pattern { position:relative; overflow:hidden; width:100%; max-width:420px; height:240px; border:1px solid var(--q-ink-10); border-radius:var(--q-radius); }
+.q-guide-pattern .q-pattern { top:-80px; right:-80px; }
 .q-guide-badge { padding:10px; }
 
 @media(max-width:1000px) {
