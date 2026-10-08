@@ -2,8 +2,6 @@ import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode, type T
 import { ArrowLeft, ArrowRight, ArrowUp, Check, Play, Plus, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { caseHoverNote, clients, experienceStats, headingLines, results, steps } from '@/lib/homepage-content';
-import graph from '@/assets/conversiegrafiek.png.asset.json';
-import still from '@/assets/videostill-joke.jpg.asset.json';
 import bank from '@/assets/E-mail_header_2.png.asset.json';
 
 export function Stars() {
@@ -14,8 +12,9 @@ export function Google() { return <span className="q-google" aria-label="Google"
 export function SmileMark({ className = 'q-smile' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 20 20" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" /></svg>;
 }
-export function SmileOutline({ front = false }: { front?: boolean }) {
-  return <svg className={`q-smile-outline${front ? ' q-smile-outline--front' : ''}`} viewBox="-0.2 -0.2 20.4 20.4" preserveAspectRatio="none" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" vectorEffect="non-scaling-stroke" /></svg>;
+/* SmileArc: outer edge of the logo smile; render twice (rear + front) around media for the weave. */
+export function SmileArc({ front = false }: { front?: boolean }) {
+  return <svg className={`q-arc${front ? ' q-arc--front' : ''}`} viewBox="0 0 560 560" fill="none" aria-hidden="true"><path d="M558 2A556 556 0 0 1 2 558" stroke="currentColor" strokeWidth="3" strokeLinecap="round" vectorEffect="non-scaling-stroke"/></svg>;
 }
 export function Label({ children }: { children: ReactNode }) { return <p className="q-label"><SmileMark />{children}</p>; }
 
@@ -94,47 +93,55 @@ export function HeroStats() {
 
 /* Wide photo panel: the smile outline wraps the whole block, behind at the top edge and in front at the bottom-right corner. */
 export function PhotoCta() {
-  return <section className="q-photo-cta q-smile-outline-host" aria-labelledby="photo-cta-title">
+  return <section className="q-photo-cta q-arc-host" aria-labelledby="photo-cta-title">
     <div className="q-photo-cta-frame">
       <img src={bank.url} alt="Bouke van Qomversie met een collega op de bank"/>
       <div className="q-photo-cta-shade" aria-hidden="true"/>
       <div className="q-photo-cta-copy"><Label>KLAAR VOOR DE VOLGENDE STAP?</Label><h2 id="photo-cta-title" className="q-h2" aria-label="Geen gedoe, gewoon resultaat."><span className="q-h2-outline">Geen gedoe,</span><br/>gewoon resultaat.</h2><p className="q-text">In 30 minuten weet je wat jouw website kan opleveren. Gratis en vrijblijvend.</p><CtaBlock/></div>
     </div>
-    <SmileOutline/>
-    <SmileOutline front/>
+    <SmileArc/>
+    <SmileArc front/>
   </section>;
 }
 
-/* Results grid: header with page arrows, masonry of result blocks loaded from the results list; 6 per page. */
-export function ResultsGrid({ onPlay }: { onPlay?: () => void }) {
-  const perPage = 6;
-  const pages = Math.max(1, Math.ceil(results.length / perPage));
-  const [page, setPage] = useState(0);
-  const items = results.slice(page * perPage, page * perPage + perPage);
+/* ResultsCarousel: one project per slide from the results list; arrows, counter, keyboard and swipe. */
+export function ResultsCarousel({ onPlay }: { onPlay?: (src: string) => void }) {
+  const [index, setIndex] = useState(0);
+  const touch = useRef<number | null>(null);
+  const last = results.length - 1;
+  const go = (d: number) => setIndex(i => Math.max(0, Math.min(last, i + d)));
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const onKey = (e: KeyboardEvent) => { if (e.key === 'ArrowLeft') go(-1); if (e.key === 'ArrowRight') go(1); };
+  const onEnd = (e: TouchEvent) => { if (touch.current === null) return; const dx = e.changedTouches[0].clientX - touch.current; if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1); touch.current = null; };
   return <div className="q-container q-results">
-    <div className="q-results-head">
-      <div className="q-results-heading">
-        <Label>WAT ONZE KLANTEN BEREIKEN</Label>
-        <h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2>
-        <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
-      </div>
-      <div className="q-results-nav">
-        <Button variant="round" onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0} aria-label="Vorige pagina resultaten"><ArrowLeft aria-hidden="true"/></Button>
-        <span className="q-results-count" aria-live="polite">{page + 1} / {pages}</span>
-        <Button variant="round" onClick={() => setPage(p => Math.min(pages - 1, p + 1))} disabled={page >= pages - 1} aria-label="Volgende pagina resultaten"><ArrowRight aria-hidden="true"/></Button>
+    <div className="q-results-heading">
+      <Label>WAT ONZE KLANTEN BEREIKEN</Label>
+      <h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2>
+      <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
+    </div>
+    <div className="q-results-viewport" role="region" aria-roledescription="carrousel" aria-label="Succesverhalen" tabIndex={0} onKeyDown={onKey} onTouchStart={e => { touch.current = e.touches[0].clientX; }} onTouchEnd={onEnd}>
+      <div className="q-results-track" style={{ transform: `translateX(-${index * 100}%)` }}>
+        {results.map((r, i) => <article className="q-result-slide" key={r.id} aria-roledescription="slide" aria-label={`${i + 1} van ${results.length}: ${r.client}`} aria-hidden={i !== index} inert={i !== index}>
+          <div className="q-result-copy">
+            <p className="q-result-client">{r.client}</p>
+            <h3 className="q-result-title">{r.title}</h3>
+            <p className="q-result-text">{r.text}</p>
+            <ul className="q-result-tags">{r.tags.map(t => <li key={t}>{t}</li>)}</ul>
+          </div>
+          <div className="q-result-stage">
+            {r.media.length === 0 ? <div className="q-result-brand" role="img" aria-label={`Logo ${r.client} volgt`}><strong>{r.client}</strong><small>KLANTLOGO VOLGT</small></div>
+              : <div className={`q-result-media${r.media.length > 1 ? ' q-result-media--duo' : ''}`}>{r.media.map((m, k) => m.type === 'video'
+                ? <Button key={k} variant="ghost" className="q-result-video" onClick={() => onPlay?.(m.src)} disabled={!onPlay} aria-label={`${m.alt} afspelen`}><img src={m.poster} alt="" loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button>
+                : m.src ? <img key={k} src={m.src} alt={m.alt} loading="lazy"/> : <div key={k} className="q-result-placeholder" role="img" aria-label={m.alt}>PROJECTFOTO VOLGT</div>)}</div>}
+            <div className="q-result-badges">{r.badges.map(b => <div className="q-result-badge" key={b.value}><p><ArrowUp aria-hidden="true"/>{b.value}</p><span>{b.label}</span></div>)}</div>
+          </div>
+        </article>)}
       </div>
     </div>
-    <div className="q-results-grid">
-      {items.map(result => <article className={`q-result-block${result.media === 'none' ? ' q-result-block--text' : ''}`} key={result.id}>
-        {result.media === 'video' && <Button variant="ghost" className="q-result-media q-result-video" onClick={onPlay} disabled={!onPlay} aria-label={`Videoreview van ${result.name} afspelen`}><img src={still.url} alt={result.name} loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button>}
-        {result.media === 'graph' && <div className="q-result-media"><img src={graph.url} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div>}
-        <div className="q-result-body">
-          <p className="q-result-client">{result.name}</p>
-          <p className="q-result-number"><ArrowUp aria-hidden="true"/><CountUp value={result.value} suffix={result.suffix}/></p>
-          <p className="q-result-description">{result.description}</p>
-        </div>
-        <span className="q-result-featured"><span aria-hidden="true">✦</span>{result.kind}</span>
-      </article>)}
+    <div className="q-results-nav">
+      <Button variant="round" onClick={() => go(-1)} disabled={index === 0} aria-label="Vorig succesverhaal"><ArrowLeft aria-hidden="true"/></Button>
+      <span className="q-results-count" aria-live="polite">{pad(index + 1)} / {pad(results.length)}</span>
+      <Button variant="round" onClick={() => go(1)} disabled={index === last} aria-label="Volgend succesverhaal"><ArrowRight aria-hidden="true"/></Button>
     </div>
   </div>;
 }
