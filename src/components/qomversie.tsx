@@ -112,14 +112,14 @@ export function ResultsCarousel({ onPlay }: { onPlay?: (src: string) => void }) 
   const go = (d: number) => setIndex(i => Math.max(0, Math.min(last, i + d)));
   const pad = (n: number) => String(n).padStart(2, '0');
   const onKey = (e: KeyboardEvent) => { if (e.key === 'ArrowLeft') go(-1); if (e.key === 'ArrowRight') go(1); };
-  const onEnd = (e: TouchEvent) => { if (touch.current === null) return; const dx = e.changedTouches[0].clientX - touch.current; if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1); touch.current = null; };
+  const onEnd = (e: TouchEvent) => { if (touch.current === null) return; const dx = (e.changedTouches[0]?.clientX ?? touch.current) - touch.current; if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1); touch.current = null; };
   return <div className="q-container q-results">
     <div className="q-results-heading">
       <Label>WAT ONZE KLANTEN BEREIKEN</Label>
       <h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2>
       <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
     </div>
-    <div className="q-results-viewport" role="region" aria-roledescription="carrousel" aria-label="Succesverhalen" tabIndex={0} onKeyDown={onKey} onTouchStart={e => { touch.current = e.touches[0].clientX; }} onTouchEnd={onEnd}>
+    <div className="q-results-viewport" role="region" aria-roledescription="carrousel" aria-label="Succesverhalen" tabIndex={0} onKeyDown={onKey} onTouchStart={e => { touch.current = e.touches[0]?.clientX ?? null; }} onTouchEnd={onEnd}>
       <div className="q-results-track" style={{ transform: `translateX(-${index * 100}%)` }}>
         {results.map((r, i) => <article className="q-result-slide" key={r.id} aria-roledescription="slide" aria-label={`${i + 1} van ${results.length}: ${r.client}`} aria-hidden={i !== index} inert={i !== index}>
           <div className="q-result-copy">
