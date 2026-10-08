@@ -410,8 +410,9 @@ strong { font-weight:600; }
 .q-h2-outline { color:transparent; -webkit-text-stroke:var(--q-outline-width) var(--q-sand); }
 /* The smile line slips behind the media at both ends: a conic mask fades the two flat caps instead of cutting them off. */
 .q-photo-cta .q-smile-outline,.q-cases-carousel .q-smile-outline,.q-reviews-block .q-smile-outline { clip-path:none; -webkit-mask-image:conic-gradient(from 0deg at 0% 0%,transparent 0 104deg,#000 120deg,#000 150deg,transparent 166deg 360deg); mask-image:conic-gradient(from 0deg at 0% 0%,transparent 0 104deg,#000 120deg,#000 150deg,transparent 166deg 360deg); }
-.q-photo-cta .q-smile-outline:not(.q-smile-outline--front) { display:none; }
-.q-cases-carousel .q-smile-outline--front { z-index:5; }
+/* The line only reads as intentional on the reviews block; kept out of the cases row and photo panel until there is a reference for how it should sit there. */
+.q-photo-cta .q-smile-outline,.q-cases-carousel .q-smile-outline { display:none; }
+
 
 .q-photo-cta .q-smile-outline { width:760px; height:760px; top:auto; left:auto; bottom:-220px; right:-220px; }
 
