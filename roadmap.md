@@ -11,3 +11,6 @@
 - [x] SuccessTabs vervangen door donker ResultsPanel met eenmalig optellende cijfers.
 - [x] Plannerlijnen en footerlijnen verwijderen; stijlgids en controles bijwerken.
 - [x] Briefing 7: hero-kaarten op de rand + cijferrij, succesverhalen-carrousel, nieuwe volgorde, cases zonder voortgangslijn, PhotoCta, styleguide.
+- [x] Briefing 8: PhotoCta-lijn buiten het fotovlak, smile-omlijsting om cases en reviews, ResultsSlider met verticale blokken, hero-notie weg, styleguide.
+
+- [x] Briefing 8: ResultsSlider (verticaal, één verhaal), PhotoCta, hero-notitie weg; smile-lijn alleen rond het reviewsblok (cases en fotopanel lezen niet als geheel, lijnen daar verborgen).
