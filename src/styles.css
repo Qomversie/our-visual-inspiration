@@ -415,7 +415,6 @@ strong { font-weight:600; }
 
 
 
-.q-photo-cta .q-smile-outline--front { clip-path:inset(50% 0 0 50%); }
 
 
 @media(max-width:760px) { .q-photo-cta-frame { height:480px; align-items:flex-end; padding-bottom:36px; } .q-photo-cta-shade { background:linear-gradient(0deg,color-mix(in oklab,var(--q-ink) 85%,transparent) 0%,color-mix(in oklab,var(--q-ink) 50%,transparent) 55%,transparent 85%); } .q-photo-cta-copy { padding-inline:20px; } .q-photo-cta .q-smile-outline { display:block; width:340px; height:340px; bottom:-110px; right:-40px; } }
