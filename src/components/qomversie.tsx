@@ -11,10 +11,21 @@ export function Google() { return <span className="q-google" aria-label="Google"
 export function SmileMark({ className = 'q-smile' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 20 20" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" /></svg>;
 }
-export function SmileDots({ id = 'dots-a', className = 'q-dots' }: { id?: string; className?: string }) {
-  return <svg className={className} aria-hidden="true" focusable="false">
-    <defs><pattern id={id} width="30" height="30" patternUnits="userSpaceOnUse"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" transform="scale(.7)" /></pattern></defs>
-    <rect width="100%" height="100%" fill={`url(#${id})`} />
+/* DotSmile: groot stippenraster (tech-halftoon) waarbij de smile van Qomversie in Ginger stippen is uitgetekend. */
+export function DotSmile({ className = 'q-matrix' }: { className?: string }) {
+  const size = 560, step = 26, cx = size, cy = 0, rMid = 268;
+  const grid: { x: number; y: number; o: number; plus: boolean }[] = [];
+  for (let y = step / 2; y <= size; y += step) for (let x = step / 2; x <= size; x += step) {
+    const d = Math.hypot(x - cx, y - cy);
+    grid.push({ x, y, o: .06 + .1 * Math.exp(-((d - rMid) ** 2) / (2 * 62 * 62)), plus: (x * 7 + y * 13) % 101 < 4 });
+  }
+  const arc: { x: number; y: number }[] = [];
+  for (let a = Math.PI / 2; a <= Math.PI + 1e-9; a += 16 / rMid) arc.push({ x: cx + rMid * Math.cos(a), y: cy + rMid * Math.sin(a) });
+  return <svg className={className} viewBox={`0 0 ${size} ${size}`} aria-hidden="true" focusable="false">
+    {grid.map((g, i) => g.plus
+      ? <path key={i} d={`M${g.x - 5} ${g.y}h10M${g.x} ${g.y - 5}v10`} stroke="currentColor" strokeWidth={1.2} fill="none" opacity={Math.min(.2, g.o + .05)} />
+      : <circle key={i} cx={g.x} cy={g.y} r={2.1} fill="currentColor" opacity={g.o} />)}
+    {arc.map((p, i) => <circle key={`s${i}`} cx={p.x} cy={p.y} r={4.6} fill="var(--q-ginger)" opacity={.85} />)}
   </svg>;
 }
 export function Label({ children }: { children: ReactNode }) { return <p className="q-label"><SmileMark />{children}</p>; }
