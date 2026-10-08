@@ -279,7 +279,6 @@ strong { font-weight:600; }
 @keyframes rotate { to { transform:rotate(360deg); } }
 @keyframes slide-left { to { transform:translateX(-50%); } }
 
-/* DotSmile: groot transparant stippenraster; de smile van Qomversie is uitgetekend in Ginger stippen. */
 .q-panel--dark 
 /* ===== Styleguide ===== */
 .q-guide>section { margin-top:60px; display:flex; flex-direction:column; gap:16px; align-items:flex-start; }
