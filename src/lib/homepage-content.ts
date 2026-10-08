@@ -12,11 +12,13 @@ export const faqs = [
   { question: 'Kan ik ook alleen een website of aanvraagtool kiezen?', answer: 'Ja apart is ook mogelijk. Dan maken we alleen je website conversiegericht. Of bouwen we alleen een slimme aanvraagtool op je bestaande website.' },
 ];
 
+/* One wide block per customer in the vertical ResultsSlider; quotes are placeholders until the owner supplies them. */
 export const results = [
-  { id: 'cowboy', value: 40, suffix: '%', description: 'Meer conversie in de Shopify webshop binnen 2 maanden', number: '40%', name: 'Cowboy Magic Europe', tab: '40% meer conversie', text: '40% stijging in het conversiepercentage van de Shopify webshop binnen 2 maanden.' },
-  { id: 'joke', value: 33, suffix: ' uur', description: 'Per maand bespaard door e-mails en rapportages te automatiseren met AI', number: '33 uur', name: 'Joke Bleijerveld', tab: '33 uur per maand bespaard', text: '33 uur per maand bespaard door e-mails en rapportages te automatiseren met AI.' },
-  { id: 'hoogterp', value: 83, suffix: '%', description: 'Tijdsbesparing: 2 weken werk teruggebracht naar 1 dag', number: '83%', name: 'Hoogterp Verf', tab: '83% tijdsbesparing', text: '2 weken werk teruggebracht naar 1 dag.' },
-];
+  { id: 'cowboy', name: 'Cowboy Magic Europe', kind: 'Shopify webshop', media: 'graph', value: 40, suffix: '%', description: 'Meer conversie in de Shopify webshop binnen 2 maanden.', quote: 'Korte quote van Cowboy Magic volgt.' },
+  { id: 'joke', name: 'Joke Bleijerveld', kind: 'AI-automatisering', media: 'video', value: 33, suffix: ' uur', description: 'Per maand bespaard door e-mails en rapportages te automatiseren met AI.', quote: 'Korte quote van Joke Bleijerveld volgt.' },
+  { id: 'hoogterp', name: 'Hoogterp Verf', kind: 'AI-assistent', media: 'none', value: 83, suffix: '%', description: 'Tijdsbesparing: 2 weken werk teruggebracht naar 1 dag.', quote: 'Korte quote van Hoogterp Verf volgt.' },
+] as const;
+
 
 export const services = [
   { title: 'Meer klanten', subtitle: 'Website of webshop', text: 'Je online zichtbaarheid levert weinig op. Klanten komen voornamelijk via-via. Voor de ondernemer die meer wil verkopen.', checks: ['Duidelijke strategie', 'Conversiegericht', 'Leads binnenhalen'] },
@@ -61,7 +63,7 @@ export const designVariables = [
   ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '64px / mobiel 38px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
 ] as const;
 
-export const designClasses = ['q-section', 'q-section--white', 'q-section--sand', 'q-container', 'q-panel', 'q-panel--dark', 'q-smile-outline', 'q-smile-outline-host', 'q-about-split', 'q-planner', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-workflow', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-logo-strip', 'q-results-panel', 'q-result-tile', 'q-experience', 'q-browser', 'q-time', 'q-case-tag', 'q-case-progress', 'q-about', 'q-faq'];
+export const designClasses = ['q-section', 'q-section--white', 'q-section--sand', 'q-container', 'q-panel', 'q-panel--dark', 'q-smile-outline', 'q-smile-outline-host', 'q-about-split', 'q-planner', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-workflow', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-logo-strip', 'q-results', 'q-results-head', 'q-results-nav', 'q-results-count', 'q-results-viewport', 'q-results-track', 'q-result-block', 'q-result-media', 'q-result-body', 'q-result-client', 'q-result-number', 'q-result-description', 'q-result-quote', 'q-photo-cta', 'q-photo-cta-frame', 'q-photo-cta-copy', 'q-cases-carousel', 'q-reviews-block', 'q-case-tag', 'q-about', 'q-faq'];
 
 
 export const headingLines: Record<string, readonly [string, string]> = {
