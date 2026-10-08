@@ -297,20 +297,7 @@ strong { font-weight:600; }
 .q-guide-smile { width:48px; height:48px; }
 .q-guide-code { white-space:pre-wrap; word-break:break-all; font-size:13px; width:100%; }
 
-/* Smile circles are isolated behind content and clipped to their section. */
-.q-circles-host { isolation:isolate; overflow:hidden; }
-.q-circles-host>.q-container { position:relative; z-index:1; }
-.q-circles { position:absolute; width:var(--q-circles-size); height:var(--q-circles-size); pointer-events:none; z-index:0; fill:none; }
-.q-circles-rings { stroke:var(--q-circles-line); stroke-width:var(--q-circles-ring-width); }
-.q-panel--dark .q-circles-rings { stroke:var(--q-circles-dark-line); }
-.q-circles-smile { stroke:var(--q-ginger); stroke-width:var(--q-circles-smile-width); }
-.q-circles--hero { top:-100px; right:-170px; }
-.q-circles--about { --q-circles-size:540px; right:-40px; bottom:-40px; }
-.q-circles--services { --q-circles-size:480px; left:-200px; top:-300px; }
-.q-circles--contact { right:-220px; top:50%; transform:translateY(-50%); }
-.q-guide-circles { min-height:400px; }
-
-@media(max-width:1000px) {
+/* ===== Styleguide ===== */
  .q-hero { gap:40px; } .q-benefits { gap:15px; } .q-benefits .q-card { padding:24px; }
  .q-trust { gap:35px; } .q-about,.q-promises { gap:45px; } .q-footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; }
  .q-faq-section { gap:40px; } .q-results { grid-template-columns:1fr; } .q-res--main,.q-res--video,.q-res--time { grid-column:auto; grid-row:auto; } .q-res-number { font-size:72px; }
