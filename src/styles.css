@@ -404,7 +404,7 @@ strong { font-weight:600; }
 .q-podium-number { font-family:var(--q-font-heading); font-weight:500; font-size:120px; line-height:1; }
 .q-podium-text { font-size:18px; max-width:52ch; margin:16px 0 32px; }
 .q-browser-img { display:block; width:100%; height:auto; }
-.q-podium-video { position:relative; display:grid; place-items:center; width:100%; aspect-ratio:16/10; padding:0; border:0; overflow:hidden; cursor:pointer; background:var(--q-ink); border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-photo) var(--q-radius); }
+.q-podium-video { position:relative; display:grid; place-items:center; width:100%; aspect-ratio:4/3; padding:0; border:0; overflow:hidden; cursor:pointer; background:var(--q-ink); border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-photo) var(--q-radius); }
 .q-podium-video img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%; }
 .q-podium-video .q-video-play { position:relative; }
 .q-podium-video:hover .q-video-play { transform:scale(1.06); }
