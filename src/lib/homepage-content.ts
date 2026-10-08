@@ -13,9 +13,9 @@ export const faqs = [
 ];
 
 export const results = [
-  { id: 'cowboy', number: '40%', name: 'Cowboy Magic Europe', tab: '40% meer conversie', text: '40% stijging in het conversiepercentage van de Shopify webshop binnen 2 maanden.' },
-  { id: 'joke', number: '33 uur', name: 'Joke Bleijerveld', tab: '33 uur per maand bespaard', text: '33 uur per maand bespaard door e-mails en rapportages te automatiseren met AI.' },
-  { id: 'hoogterp', number: '83%', name: 'Hoogterp Verf', tab: '83% tijdsbesparing', text: '2 weken werk teruggebracht naar 1 dag.' },
+  { id: 'cowboy', value: 40, suffix: '%', description: 'Meer conversie in de Shopify webshop binnen 2 maanden', number: '40%', name: 'Cowboy Magic Europe', tab: '40% meer conversie', text: '40% stijging in het conversiepercentage van de Shopify webshop binnen 2 maanden.' },
+  { id: 'joke', value: 33, suffix: ' uur', description: 'Per maand bespaard door e-mails en rapportages te automatiseren met AI', number: '33 uur', name: 'Joke Bleijerveld', tab: '33 uur per maand bespaard', text: '33 uur per maand bespaard door e-mails en rapportages te automatiseren met AI.' },
+  { id: 'hoogterp', value: 83, suffix: '%', description: 'Tijdsbesparing: 2 weken werk teruggebracht naar 1 dag', number: '83%', name: 'Hoogterp Verf', tab: '83% tijdsbesparing', text: '2 weken werk teruggebracht naar 1 dag.' },
 ];
 
 export const services = [
@@ -49,17 +49,19 @@ export const cases = [
 
 export const caseHoverNote = 'Korte omschrijving van het project volgt.';
 
-export const sectionOrder = ['Hero (cijfers, logo’s, brede foto) · Sand', 'Succesverhalen · wit', 'Cases · Sand', 'Over ons · wit', 'Wat wil je bereiken? · Sand', 'Vertrouwd door onze klanten · wit', 'Groeien zonder risico · Sand', 'Veelgestelde vragen · wit', 'Afsluitende CTA · Sand', 'Footer · wit met dunne lijn'];
+export const sectionOrder = ['Hero met drie kaarten · Sand', 'Klantlogo-strook · wit', 'Succesverhalen + cijfers · Zwartig (enige donkere vlak)', 'Wat wil je bereiken? · Sand', 'Cases · wit, zonder vlak', 'Over ons · Sand', 'Vertrouwd door onze klanten · wit', 'Groeien zonder risico · Sand', 'Veelgestelde vragen · wit', 'Afsluitende CTA met planner · Sand', 'Footer · wit, zonder lijnen'];
+
+export const experienceStats = [{ value: 12, label: 'JAAR ERVARING IN HET VAK' }, { value: 50, label: 'PROJECTEN OPGELEVERD' }];
 
 export const clients = ['Cowboy Magic', 'Hoogterp Verf', 'Het Groeicollectief', 'Studio Noeske'];
 
 export const designVariables = [
-  ['--q-sand', '#F3EDE5'], ['--q-white', '#FFFFFF'], ['--q-ink', '#212934'], ['--q-ginger', '#FF6700'], ['--q-blue', '#0D5EE4'], ['--q-sand-dark', '#E9E1D6'],
+  ['--q-sand', '#F3EDE5'], ['--q-white', '#FFFFFF'], ['--q-ink', '#212934'], ['--q-ginger', '#FF6700'], ['--q-blue', '#0D5EE4'], ['--q-sand-dark', '#E9E1D6'], ['--q-result-surface', 'ink + 5% white'],
   ['--q-font-heading', "'Lora', serif"], ['--q-font-body', "'Inter', sans-serif"], ['--q-radius', '20px'], ['--q-radius-panel', '40px / mobiel 32px'], ['--q-radius-smile-panel', '160px / mobiel 80px'], ['--q-radius-smile-photo', '96px / mobiel 56px'], ['--q-radius-smile-card', '56px'], ['--q-panel-inset', '24px / mobiel 12px'], ['--q-space-section', '120px / mobiel 72px'], ['--q-container', '1360px'],
   ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '64px / mobiel 38px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
 ] as const;
 
-export const designClasses = ['q-section', 'q-section--white', 'q-section--sand', 'q-container', 'q-panel', 'q-panel--dark', 'q-smile-outline', 'q-smile-outline-host', 'q-about-split', 'q-planner', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-workflow', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-tabs', 'q-tab', 'q-tab-progress', 'q-podium', 'q-browser', 'q-time', 'q-case-tag', 'q-case-progress', 'q-about', 'q-faq'];
+export const designClasses = ['q-section', 'q-section--white', 'q-section--sand', 'q-container', 'q-panel', 'q-panel--dark', 'q-smile-outline', 'q-smile-outline-host', 'q-about-split', 'q-planner', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-workflow', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-logo-strip', 'q-results-panel', 'q-result-tile', 'q-experience', 'q-browser', 'q-time', 'q-case-tag', 'q-case-progress', 'q-about', 'q-faq'];
 
 
 export const headingLines: Record<string, readonly [string, string]> = {
