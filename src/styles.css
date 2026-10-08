@@ -454,7 +454,7 @@ strong { font-weight:600; }
 @media(max-width:760px) { .q-results { gap:32px; } .q-results-track { gap:16px; } .q-result-block { padding:18px; gap:22px; } .q-result-number { font-size:56px; } .q-result-description { font-size:16px; } .q-result-quote { font-size:14px; } }
 
 /* The same smile line wraps the cases carousel and the reviews block, each in its own orientation. */
-.q-cases-carousel .q-smile-outline { width:640px; height:640px; top:auto; left:auto; bottom:-190px; right:-60px; }
+.q-cases-carousel .q-smile-outline { width:640px; height:640px; top:auto; left:auto; bottom:-190px; right:60px; }
 
 
 .q-reviews-block { padding:24px 0; }
