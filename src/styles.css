@@ -309,8 +309,8 @@ strong { font-weight:600; }
 .q-panel--dark .q-circles-rings { stroke:var(--q-circles-dark-line); }
 .q-circles-smile { stroke:var(--q-ginger); stroke-width:var(--q-circles-smile-width); }
 .q-circles--hero { top:-100px; right:-170px; }
-.q-circles--about { --q-circles-size:540px; right:-160px; bottom:-180px; }
-.q-circles--services { --q-circles-size:480px; left:-200px; top:-120px; }
+.q-circles--about { --q-circles-size:540px; right:-40px; bottom:-40px; }
+.q-circles--services { --q-circles-size:480px; left:-200px; top:-300px; }
 .q-circles--contact { right:-220px; top:50%; transform:translateY(-50%); }
 .q-guide-circles { min-height:400px; }
 
