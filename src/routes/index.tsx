@@ -65,7 +65,6 @@ function Index() {
   <header className={`q-header ${scrolled?'scrolled':''}`}><div className="q-container q-header-inner"><a href="#hero" aria-label="Qomversie, naar boven"><img className="q-logo" src={logo.url} alt="Qomversie logo, websites bouwen in Friesland" width="1920" height="528"/></a><div className="q-header-actions"><a className="q-phone" href="tel:+31653509763"><Phone aria-hidden="true"/>06-53509763</a><CtaBlock/></div></div></header>
   <main>
    <div className="q-panel q-hero-panel q-dots-host">
-   <SmileDots id="dots-hero" className="q-dots q-dots--hero"/>
    <section id="hero" className="q-section q-section--flush q-container q-hero">
     
     <div className="q-hero-copy">
@@ -76,6 +75,7 @@ function Index() {
      <p className="q-text">Zo ontvang je niet alleen sneller, maar vooral betere aanvragen en bel jij alleen nog met serieuze mensen. Dat scheelt je uren aan offertes die niks opleveren.</p>
      <div className="q-actions"><CtaBlock/><CtaBlock variant="secondary" href="#cases">Ons werk bekijken</CtaBlock></div>
      <p className="q-note">Gratis · 30 minuten · vrijblijvend</p>
+     <SmileDots id="dots-hero" className="q-dots q-dots--hero"/>
     </div>
     <div className="q-hero-photo"><img className="q-portrait" src={portrait.url} alt="Bouke van Qomversie, website laten bouwen in Friesland" width="540" height="750"/><RotatingBadge id="hero-badge"/></div>
    </section>

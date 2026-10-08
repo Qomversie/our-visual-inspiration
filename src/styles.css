@@ -289,7 +289,7 @@ strong { font-weight:600; }
 .q-dots-host { isolation:isolate; overflow:hidden; }
 .q-dots-host>.q-container { position:relative; z-index:1; }
 .q-dots { position:absolute; width:230px; height:150px; color:var(--q-ginger); opacity:.9; pointer-events:none; z-index:0; }
-.q-dots--hero { top:44px; right:44px; }
+.q-dots--hero { left:0; bottom:-186px; top:auto; right:auto; }
 .q-dots--services { width:200px; height:140px; bottom:-34px; left:-26px; }
 .q-dots--contact { opacity:.55; right:44px; top:52px; }
 
