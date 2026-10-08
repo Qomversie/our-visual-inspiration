@@ -20,7 +20,7 @@ export function Label({ children }: { children: ReactNode }) { return <p classNa
 
 export function SectionHeader({ label, title, children }: { label?: string; title: string; children?: ReactNode }) {
   const lines = headingLines[title];
-  return <div className="q-section-header">{label && <Label>{label}</Label>}<h2 aria-label={title} className={`q-h2${title === 'Succesverhalen' ? ' q-h2--joined' : ''}`}>{lines ? <>{lines[0]}{title !== 'Succesverhalen' && <br/>}{lines[1]}</> : title}</h2>{children}</div>;
+  return <div className="q-section-header">{label && <Label>{label}</Label>}<h2 aria-label={title} className="q-h2">{lines ? <>{lines[0]}<br/>{lines[1]}</> : title}</h2>{children}</div>;
 }
 
 export function CtaBlock({ children = 'Gratis adviesgesprek', variant = 'primary', href = '#contact', note }: { children?: ReactNode; variant?: 'primary' | 'secondary'; href?: string; note?: string }) {
@@ -59,7 +59,7 @@ export function CaseCard({ name, line, image, tag, featured = false }: { name: s
 }
 
 export function LogoStrip() {
-  return <section id="klantlogos" className="q-section q-section--white q-logo-strip" aria-label="Onze klanten"><div className="q-container q-logo-strip-inner"><Label>Vertrouwd door 50+ Friese ondernemers</Label><div className="q-client-window"><div className="q-client-track">{[0, 1].map(copy => <div className="q-client-group" key={copy} aria-hidden={copy === 1}>{clients.map(name => <div className="q-client" key={name}>{name}<small>KLANTLOGO VOLGT</small></div>)}</div>)}</div></div></div></section>;
+  return <section id="klantlogos" className="q-section q-section--white q-logo-strip" aria-label="Onze klanten"><div className="q-logo-strip-inner"><div className="q-client-window"><div className="q-client-track">{[0, 1].map(copy => <div className="q-client-group" key={copy} aria-hidden={copy === 1}>{clients.map(name => <div className="q-client" key={name}>{name}<small>KLANTLOGO VOLGT</small></div>)}</div>)}</div></div></div></section>;
 }
 
 export function CountUp({ value, suffix = '' }: { value: number; suffix?: string }) {
@@ -95,9 +95,8 @@ export function HeroStats() {
 export function PhotoCta() {
   return <section className="q-photo-cta" aria-labelledby="photo-cta-title">
     <div className="q-photo-cta-frame">
-      <img src={bank.url} alt="Bouke van Qomversie met een collega op de bank"/>
-      <div className="q-photo-cta-shade" aria-hidden="true"/>
       <div className="q-photo-cta-copy"><Label>KLAAR VOOR DE VOLGENDE STAP?</Label><h2 id="photo-cta-title" className="q-h2" aria-label="Geen gedoe, gewoon resultaat."><span className="q-h2-outline">Geen gedoe,</span><br/>gewoon resultaat.</h2><p className="q-text">In 30 minuten weet je wat jouw website kan opleveren. Gratis en vrijblijvend.</p><CtaBlock/></div>
+      <div className="q-photo-cta-photo q-smile-outline-host"><SmileOutline/><img src={bank.url} alt="Bouke van Qomversie met een collega op de bank" loading="lazy"/><SmileOutline front/></div>
     </div>
   </section>;
 }
@@ -139,7 +138,7 @@ export function ResultCards() {
     <div className="q-results-head">
       <div className="q-results-heading">
         <Label>WAT ONZE KLANTEN BEREIKEN</Label>
-        <h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2>
+        <h2 className="q-h2 q-results-title">Succesverhalen</h2>
       </div>
       <div className="q-results-side">
         <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
