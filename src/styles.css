@@ -330,10 +330,10 @@ strong { font-weight:600; }
 @media(max-width:1000px) { .q-contact { grid-template-columns:1fr; } }
 @media(max-width:760px) {
  .q-smile-outline { display:none; }
+ .q-about-photo.q-smile-outline-host,
+ .q-hero-photo.q-smile-outline-host { width:calc(100% - 48px); margin-inline:auto; justify-self:center; }
  .q-about-photo.q-smile-outline-host .q-smile-outline,
- .q-hero-photo.q-smile-outline-host .q-smile-outline { display:block; width:84%; top:28%; right:0; }
- .q-about-photo .q-smile-outline--front,
- .q-hero-photo .q-smile-outline--front { clip-path:none; }
+ .q-hero-photo.q-smile-outline-host .q-smile-outline { display:block; width:120%; top:8%; right:-14%; }
  .q-planner { min-height:640px; padding:8px; } .q-planner .q-shortcode { min-height:620px; }
 }
 
