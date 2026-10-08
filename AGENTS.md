@@ -21,4 +21,5 @@
 - Count-up figures render final values for SSR and accessible labels, then animate once through IntersectionObserver with reduced-motion opt-out, so values remain readable without animation.
 - Keep the inactive Workflow component available only in the styleguide, so it can be restored without duplicating its content or layout.
 
-- ResultCards owns its video lightbox and derives each media variant and three-item page from the shared results data, so homepage and styleguide behave identically without duplicate media logic.
+- ResultCards owns its video lightbox and one-card-step slider, deriving each media variant from the shared results data, so homepage and styleguide behave identically.
+- SiteFooter lives in the shared components module, so homepage and styleguide render the same footer.

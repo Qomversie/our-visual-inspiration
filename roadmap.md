@@ -18,3 +18,8 @@
 - [x] Briefing 10: ResultsGrid masonry, PhotoCta tekst + smile-positie
 
 - [x] Briefing 12: ResultCards met drie horizontale kaarten, videolightbox, mobiel swipen; PhotoCta-boog verwijderen; styleguide en controles.
+
+## Briefing 13
+- [x] Succesverhalen: twee kaarten naast elkaar, slider per kaart
+- [x] Footer als afgerond wit vlak
+- [x] Styleguide bijgewerkt
