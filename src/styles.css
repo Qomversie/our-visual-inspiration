@@ -13,9 +13,7 @@
  --q-muted:color-mix(in oklab,var(--q-ink) 62%,var(--q-sand));
  --q-shadow:0 12px 35px color-mix(in oklab,var(--q-ink) 5%,transparent);
  --q-pill:999px;
- --q-outline-color:color-mix(in oklab,var(--q-ink) 85%,transparent); --q-outline-width:1px;
- --q-circles-line:color-mix(in oklab,var(--q-ink) 6%,transparent); --q-circles-dark-line:color-mix(in oklab,var(--q-sand) 8%,transparent);
- --q-circles-size:640px; --q-circles-ring-width:1.5px; --q-circles-smile-width:8px;
+
 
  /* shadcn mapping */
  --background:var(--q-white); --foreground:var(--q-ink); --card:var(--q-white); --primary:var(--q-ginger); --blue:var(--q-blue); --white:var(--q-white);
@@ -69,8 +67,6 @@ strong { font-weight:600; }
 .q-h1 em { font-style:italic; color:var(--q-ginger); }
 .q-smile { width:14px; height:14px; flex-shrink:0; color:var(--q-ginger); fill:currentColor; }
 .q-h2 { font-family:var(--q-font-heading); font-weight:600; font-style:normal; font-size:var(--q-fs-h2); color:var(--q-ink); line-height:1.05; }
-.q-outline { color:transparent; -webkit-text-stroke:var(--q-outline-width) var(--q-outline-color); }
-.q-panel--dark .q-outline { color:transparent; -webkit-text-stroke:1px var(--q-sand); }
 .q-h3 { font-family:var(--q-font-heading); font-weight:500; font-style:normal; font-size:var(--q-fs-h3); }
 .q-text { font-size:var(--q-fs-body); }
 .q-text+.q-text { margin-top:16px; }
@@ -301,19 +297,6 @@ strong { font-weight:600; }
 .q-guide-smile { width:48px; height:48px; }
 .q-guide-code { white-space:pre-wrap; word-break:break-all; font-size:13px; width:100%; }
 
-/* Smile circles are isolated behind content and clipped to their section. */
-.q-circles-host { isolation:isolate; overflow:hidden; }
-.q-circles-host>.q-container { position:relative; z-index:1; }
-.q-circles { position:absolute; width:var(--q-circles-size); height:var(--q-circles-size); pointer-events:none; z-index:0; fill:none; }
-.q-circles-rings { stroke:var(--q-circles-line); stroke-width:var(--q-circles-ring-width); }
-.q-panel--dark .q-circles-rings { stroke:var(--q-circles-dark-line); }
-.q-circles-smile { stroke:var(--q-ginger); stroke-width:var(--q-circles-smile-width); }
-.q-circles--hero { top:-100px; right:-170px; }
-.q-circles--about { --q-circles-size:540px; right:-40px; bottom:-40px; }
-.q-circles--services { --q-circles-size:480px; left:-200px; top:-300px; }
-.q-circles--contact { right:-220px; top:50%; transform:translateY(-50%); }
-.q-guide-circles { min-height:400px; }
-
 @media(max-width:1000px) {
  .q-hero { gap:40px; } .q-benefits { gap:15px; } .q-benefits .q-card { padding:24px; }
  .q-trust { gap:35px; } .q-about,.q-promises { gap:45px; } .q-footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; }
@@ -353,9 +336,6 @@ strong { font-weight:600; }
  .q-footer-lead { grid-template-columns:1fr; gap:28px; padding-bottom:40px; }
  .q-footer-phone { font-size:30px; } .q-footer-email { font-size:26px; }
  .q-footer-grid { grid-template-columns:1fr; gap:32px; padding-block:36px; } .q-footer-links { font-size:13px; } .q-footer .q-logo { width:155px; } .q-rating { flex-wrap:wrap; gap:8px; }
- .q-outline { --q-outline-width:.75px; }
- .q-circles { display:none; }
- .q-circles--hero { display:block; --q-circles-size:300px; top:80px; right:-130px; }
  .q-footer-bottom { padding-bottom:95px; } .q-mobile-cta.active { position:fixed; bottom:0; left:0; right:0; z-index:25; display:flex; padding:12px 20px max(12px,env(safe-area-inset-bottom)); background:var(--q-white); border-top:1px solid var(--q-ink-15); } .q-mobile-cta .q-btn { width:100%; height:48px; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } .q-reveal { opacity:1; transform:none; } }
@@ -380,13 +360,6 @@ strong { font-weight:600; }
  .q-res-body { padding:28px; }
  .q-shortcode { border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-card) var(--q-radius); }
  .q-guide-panel { padding:28px; }
-}
-
-/* Responsive fixes for large outlined headings */
-.q-h2 {
-  overflow-wrap: break-word; 
-  hyphens: auto; 
-  max-width: 100%;
 }
 
 .q-h2--joined { white-space:nowrap; }
