@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { designVariables, designClasses, faqs, aboutChecks, steps } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, SmileCircles, Label } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, Label } from '@/components/qomversie';
 
 export const Route = createFileRoute('/styleguide')({
   head: () => ({ meta: [
@@ -19,7 +19,7 @@ function Styleguide() {
     <h1 className="q-h1">Styleguide</h1>
     <section><h2 className="q-h2">Variabelen</h2><div className="q-guide-grid">{designVariables.map(([name, value]) => <div className="q-card" key={name}>{name.startsWith('--q-') && value.startsWith('#') && <span className="q-swatch" style={{ background: `var(${name})` }} />}<code>{name}</code><p className="q-note">{value}</p></div>)}</div></section>
     <section><h2 className="q-h2">Classes</h2><div className="q-guide-grid">{designClasses.map(c => <code className="q-card" key={c}>.{c}</code>)}</div></section>
-    <section><h2 className="q-h2">Typografie</h2><Label>LABEL</Label><p className="q-h1">H1 Meer dan een <em>mooie</em> website.</p><SectionHeader title="Cases waar we trots op zijn"/><p className="q-h3">H3 kop</p><p className="q-note">H2: Lora 600, 64px / mobiel 38px, regelhoogte 1.05. Eerste regel q-outline: transparant met 1px Zwartig op 85% dekking (mobiel 0.75px); tweede regel gevuld. In donker altijd 1px Sand, ook mobiel. Variabelen: --q-outline-width en --q-outline-color. H3: Lora 500. Alleen "mooie" in de H1 is Lora Italic Ginger.</p><p className="q-text">Bodytekst in Inter.</p></section>
+    <section><h2 className="q-h2">Typografie</h2><Label>LABEL</Label><p className="q-h1">H1 Meer dan een <em>mooie</em> website.</p><SectionHeader title="Cases waar we trots op zijn"/><p className="q-h3">H3 kop</p><p className="q-note">H2: Lora 600, 64px / mobiel 38px, regelhoogte 1.05, gevuld in Zwartig; in het donkere vlak Sand. Regelafbrekingen staan in de contentdata (homepage-content.ts). H3: Lora 500. Alleen "mooie" in de H1 is Lora Italic Ginger.</p><p className="q-text">Bodytekst in Inter.</p></section>
     <section><h2 className="q-h2">Componenten</h2>
       <h3 className="q-h3">SectionHeader</h3><SectionHeader label="LABEL" title="Sectiekop"/>
       <h3 className="q-h3">CtaBlock</h3><div className="q-actions"><CtaBlock/><CtaBlock variant="secondary">Secundair</CtaBlock></div><CtaBlock note="30 minuten · vrijblijvend"/>
@@ -41,10 +41,6 @@ function Styleguide() {
        <h3 className="q-h3">Smile-hoek voor foto's</h3><div className="q-guide-photo"/>
        <p className="q-note">Foto's, portret, casekaarten en video: hoeken 20px; rechtsonder 96px / mobiel 56px. Knoppen en kleine elementen behouden hun vorm. Contentbreedte maximaal 1360px; tekst maximaal 65ch.</p>
        <SectionHeader title="Succesverhalen"/>
-       <h3 className="q-h3">SmileCircles / q-circles</h3>
-       <div className="q-panel q-guide-panel q-circles-host q-guide-circles"><SmileCircles placement="hero"/><div className="q-container"><SectionHeader title="Even sparren?"/></div></div>
-       <p className="q-note">Vijf concentrische ringen, 400–640px. Dunne lijnen: Zwartig op 6% op Sand en wit; Sand op 8% in het donkere vlak. Eén kwart rechtsonder is de Ginger smile op volle dekking. Variabelen: --q-circles-size, --q-circles-line, --q-circles-dark-line, --q-circles-ring-width en --q-circles-smile-width.</p>
-       <p className="q-note">Plaatsing: hero rechtsboven achter de portretfoto (640px), Over ons rechtsonder (540px), Wat wil je bereiken? linksboven (480px), donkere CTA rechts (640px). Op mobiel alleen hero, 300px. q-circles-host: overflow hidden en isolation isolate; content boven de cirkels, pointer-events none. Geen cirkels in de footer.</p>
        <h3 className="q-h3">Kleurschema per sectie</h3>
        <table className="q-guide-scheme"><tbody>{[['Hero → cijfers/logo’s → foto met kaarten','Eén Sand-vlak (q-panel)'],['Succesverhalen','Wit (q-section--white)'],['Vertrouwd door onze klanten','Sand'],['Cases','Wit'],['Over ons','Sand'],['Wat wil je bereiken?','Wit'],['Groeien zonder risico','Sand'],['Werkwijze','Wit'],['Veelgestelde vragen','Sand'],['Afsluitende CTA','q-panel q-panel--dark op wit'],['Footer','Sand q-panel met smile-hoek; Even / sparren?, grote contactlinks, kolommen en ronde socialknoppen']].map(([a, b]) => <tr key={a}><td>{a}</td><td>{b}</td></tr>)}</tbody></table>
       <p className="q-note">Kaarten volgen de achtergrond: op Sand wit, op wit Sand. Blauw alleen voor tekstlinks.</p>
