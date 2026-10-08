@@ -94,7 +94,7 @@ export function HeroStats() {
 
 export function PhotoCta() {
   return <section className="q-photo-cta" aria-labelledby="photo-cta-title">
-    <img src={bank.url} alt="Bouke van Qomversie met een collega op de bank" loading="lazy"/>
+    <img src={bank.url} alt="Bouke van Qomversie met een collega op de bank"/>
     <div className="q-photo-cta-shade" aria-hidden="true"/>
     <div className="q-photo-cta-copy"><Label>KLAAR VOOR DE VOLGENDE STAP?</Label><h2 id="photo-cta-title" className="q-h2" aria-label="Geen gedoe, gewoon resultaat."><span className="q-h2-outline">Geen gedoe,</span><br/>gewoon resultaat.</h2><p className="q-text">In 30 minuten weet je wat jouw website kan opleveren. Gratis en vrijblijvend.</p><CtaBlock/></div>
     <SmileOutline front/>
