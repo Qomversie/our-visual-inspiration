@@ -7,7 +7,7 @@
 :root {
  --q-sand:#F3EDE5; --q-white:#FFFFFF; --q-ink:#212934; --q-ginger:#FF6700; --q-blue:#0D5EE4; --q-sand-dark:#E9E1D6;
  --q-font-heading:'Lora', serif; --q-font-body:'Inter', sans-serif;
- --q-radius:20px; --q-space-section:120px; --q-container:1360px;
+ --q-radius:20px; --q-radius-smile:0 0 80px 0; --q-space-section:120px; --q-container:1360px;
  --q-fs-h1:72px; --q-fs-h2:64px; --q-fs-h3:24px; --q-fs-statement:56px; --q-fs-body:18px; --q-fs-label:13px;
  --q-ink-10:color-mix(in oklab,var(--q-ink) 10%,transparent); --q-ink-15:color-mix(in oklab,var(--q-ink) 15%,transparent);
  --q-muted:color-mix(in oklab,var(--q-ink) 62%,var(--q-sand));
@@ -268,7 +268,7 @@ strong { font-weight:600; }
 /* ===== Motion & dialog ===== */
 .q-reveal { opacity:0; transform:translateY(20px); transition:opacity .5s,transform .5s; }
 .q-reveal.visible { opacity:1; transform:none; }
-.q-video-dialog { padding:0; width:min(900px,calc(100% - 32px)); border:0; background:var(--q-ink); border-radius:var(--q-radius); }
+.q-video-dialog { padding:0; width:min(900px,calc(100% - 32px)); border:0; background:var(--q-ink); border-radius:var(--q-radius-smile); }
 .q-video-dialog::backdrop { background:color-mix(in oklab,var(--q-ink) 80%,transparent); }
 .q-video-dialog video { display:block; width:100%; max-height:75vh; }
 .q-video-dialog video[hidden] { display:none; }
@@ -299,7 +299,7 @@ strong { font-weight:600; }
  .q-promises-intro { position:static; }
 }
 @media(max-width:760px) {
- .q-container { width:calc(100% - 40px); }
+ .q-container { width:calc(100% - 48px); }
 
  .q-header-inner { height:78px; gap:15px; } .q-logo { width:136px; } .q-header-actions { gap:0; } .q-header-actions>.q-phone { display:none; }
  .q-header .q-btn { height:39px; padding:0 13px; font-size:12px; gap:6px; } .q-header .q-btn svg { width:13px; }
@@ -350,4 +350,15 @@ strong { font-weight:600; }
  .q-res-body { padding:28px; }
  .q-shortcode { border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-card) var(--q-radius); }
  .q-guide-panel { padding:28px; }
+}
+
+/* Responsive fixes for large outlined headings */
+.q-h2 { 
+  overflow-wrap: break-word; 
+  hyphens: auto; 
+  max-width: 100%;
+}
+
+@media(min-width: 761px) and (max-width: 1200px) {
+  :root { --q-fs-h2: clamp(38px, 5vw, 64px); }
 }
