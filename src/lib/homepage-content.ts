@@ -1,3 +1,4 @@
+import reviewVideo from '@/assets/videoreview-joke.mp4.asset.json';
 import graph from '@/assets/conversiegrafiek.png.asset.json';
 import still from '@/assets/videostill-joke.jpg.asset.json';
 import caseCowboy from '@/assets/case-cowboy-magic.png.asset.json';
@@ -17,7 +18,7 @@ export const faqs = [
 /* Add one item to expose a new card; missing media uses the shared trending-up icon. */
 export const results = [
   { id: 'cowboy', name: 'Cowboy Magic Europe', kind: 'Webshop', title: '40% meer conversie', value: 40, description: 'In de Shopify webshop, binnen 2 maanden.', image: graph.url },
-  { id: 'joke', name: 'Joke Bleijerveld', kind: 'AI-automatisering', title: '33 uur per maand bespaard', value: 33, description: 'Door e-mails en rapportages te automatiseren met AI.', video: 'https://www.qomv.nl/wp-content/uploads/2026/05/Videoreview-Joke-Bleijerveld.mp4', poster: still.url },
+  { id: 'joke', name: 'Joke Bleijerveld', kind: 'AI-automatisering', title: '33 uur per maand bespaard', value: 33, description: 'Door e-mails en rapportages te automatiseren met AI.', video: reviewVideo.url, poster: still.url },
   { id: 'hoogterp', name: 'Hoogterp Verf', kind: 'AI-assistent', title: '83% tijdsbesparing', value: 83, description: '2 weken werk teruggebracht naar 1 dag.' },
 ] satisfies Array<{ id: string; name: string; kind: string; title: string; value: number; description: string; image?: string; video?: string; poster?: string }>;
 

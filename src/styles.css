@@ -251,6 +251,7 @@ strong { font-weight:600; }
 .q-video-dialog video { display:block; width:100%; max-height:75vh; }
 .q-video-dialog video[hidden] { display:none; }
 .q-video-error { background:var(--q-white); color:var(--q-ink); padding:70px 35px 45px; text-align:center; }
+.q-panel--dark .q-video-error h3 { color:var(--q-ink); }
 .q-video-error p { margin:20px auto; }
 .q-video-close { position:absolute; top:12px; right:12px; background:var(--q-white); z-index:1; }
 @keyframes rotate { to { transform:rotate(360deg); } }
