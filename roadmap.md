@@ -1,25 +1,4 @@
-# Qomversie homepage
-- [x] Requested refinement: thinner outlines, trust row before couch, four SmileCircles, Sand contact footer and styleguide; verified at 1280/886/390/320px plus FAQ and footer advice/contact links.
-- [x] Apply unified smile-corner panels, outlined H2s, 1360px layout and redesigned success stories; preserve hero and section order.
-- [x] Update Elementor styleguide and verify desktop/mobile plus carousel, FAQ and advice flow.
-- [x] Build all supplied sections with exact copy and supplied identity.
-- [x] Add working FAQ, sliders, video and advice anchors; honest placeholders for missing material.
-- [x] Verify desktop, tablet and mobile rendering and interactions.
-- [x] Apply revision list: wide couch photo under hero with overlapping benefit cards, contour-line background pattern (4 spots), bento "Succesverhalen", generated case photos, vertical timeline werkwijze, smile-arc labels, remove slanted bands and "Hoi!" sticker, update /styleguide.
-- [ ] Client logos — waiting for owner (row shows pending placeholders).
-- [ ] Conversion-chart screenshot for the Cowboy Magic Europe card — waiting for owner.
-- [ ] Play supplied video — supplied URL returns HTML instead of a video; waiting for a working URL or uploaded video.
+# Roadmap
 
-## Ronde 4 (klaar)
-- [x] SmileMark (logo-segment) in labels en stickertje
-- [x] Golvend patroon weg; lijnensysteem q-section/q-container/q-cross
-- [x] Koppen Lora 500 Zwartig, geen oranje behalve "mooie"
-- [x] Cases 480×600, track tot schermrand, 4e case Joke Bleijerveld
-- [x] Styleguide bijgewerkt
-
-## Ronde 5 (klaar)
-- [x] CornerMark weg; LineAccent (q-lines) in hero, over ons, werkwijze, donkere CTA
-- [x] Blauw vlak weg; Sand/wit afwisseling, kaarten volgen achtergrond, footer wit met lijn
-- [x] Succesverhalen opnieuw: bento met browserkader, donkere videokaart, voorheen/nu-balk
-- [x] Styleguide bijgewerkt
-- [ ] Videostill voor Joke — wacht op aanlevering
+- [x] Remove smile-circle patterns everywhere; filled headings only (incl. footer); build OK.
+- [x] New pattern chosen by user: SmileDots (repeated small ginger smile arcs as corner fill).
