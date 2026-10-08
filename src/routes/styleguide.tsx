@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { designVariables, designClasses, faqs, aboutChecks, steps } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, DotSmile, Label } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, CornerMark, Label } from '@/components/qomversie';
 
 export const Route = createFileRoute('/styleguide')({
   head: () => ({ meta: [
@@ -41,11 +41,15 @@ function Styleguide() {
        <h3 className="q-h3">Smile-hoek voor foto's</h3><div className="q-guide-photo"/>
        <p className="q-note">Foto's, portret, casekaarten en video: hoeken 20px; rechtsonder 96px / mobiel 56px. Knoppen en kleine elementen behouden hun vorm. Contentbreedte maximaal 1360px; tekst maximaal 65ch.</p>
        <SectionHeader title="Succesverhalen"/>
-       <h3 className="q-h3">DotSmile / q-matrix</h3>
-       <div className="q-panel q-guide-panel q-matrix-host" style={{ minHeight:260 }}><DotSmile className="q-matrix q-matrix--about"/><div className="q-container"><SectionHeader title="Even sparren?"/></div></div>
-       <p className="q-note">Groot transparant stippenraster (520–560px, raster 26px, stip 2px) in Zwartig op ca. 6–16% dekking; dichter bij de smile worden de stippen iets duidelijker. De smile van Qomversie is uitgetekend met Ginger stippen (4,6px) langs een boog (straal 268px); enkele kleine kruisjes (+) geven een tech-detail. Plaatsing: hero rechtsboven (deels achter de portretfoto), Over ons rechtsonder, Wat wil je bereiken? linksboven (gespiegeld), donkere CTA rechtsonder op 85%. q-matrix-host: overflow hidden en isolation isolate; content boven het patroon, pointer-events none. Op mobiel alleen hero (300px). Niet in de footer.</p>
+       <h3 className="q-h3">CornerMark / q-corner</h3>
+       <div className="q-panel q-guide-panel q-corner-host" style={{ minHeight:380 }}><CornerMark/><div className="q-container"><SectionHeader label="VOORBEELD" title="Veelgestelde vragen"/></div></div>
+       <p className="q-note">L-vorm linksboven, 40px links en 40px boven het label: verticale lijn 1px × 320px en horizontale lijn 1px × 160px, beide vervagend; vierkantje 10×10px Ginger op het hoekpunt. Lijnkleur Zwartig 30% (donker: Sand 30%). Plaatsing: hero, Cases, Wat wil je bereiken?, Veelgestelde vragen. Mobiel 60% (192 × 96px, vierkantje 6px), 12px van de schermrand.</p>
+       <h3 className="q-h3">Over ons / q-about-split</h3>
+       <p className="q-note">Eén q-panel over de volle breedte met smile-hoek rechtsonder. Links q-about-text (Sand) met label, kop, tekst, q-check-list--badge (Ginger 15% rondje met Ginger vinkje) en knop; rechts q-about-media, foto tot de rand. Het tekstvlak loopt in een grote ronde boog (kwartcirkelvorm van de smile) over de foto. Mobiel: foto boven, tekstvlak eronder met ronde bovenrand.</p>
+       <h3 className="q-h3">Afsluitende CTA / q-contact + q-planner</h3>
+       <p className="q-note">Sand q-panel met smile-hoek. Desktop twee kolommen: links label, kop, tekst, drie geruststellingen (q-check-list--badge) en belregel; rechts q-planner: wit vlak ca. 880 × 680px, zachte schaduw, afgeronde hoeken, met [shortcode: hubspot-agenda]. Mobiel: tekst boven, planner eronder op volle breedte.</p>
        <h3 className="q-h3">Kleurschema per sectie</h3>
-       <table className="q-guide-scheme"><tbody>{[['Hero → cijfers/logo’s → foto met kaarten','Eén Sand-vlak (q-panel)'],['Succesverhalen','Wit (q-section--white)'],['Vertrouwd door onze klanten','Sand'],['Cases','Wit'],['Over ons','Sand'],['Wat wil je bereiken?','Wit'],['Groeien zonder risico','Sand'],['Werkwijze','Wit'],['Veelgestelde vragen','Sand'],['Afsluitende CTA','q-panel q-panel--dark op wit'],['Footer','Sand q-panel met smile-hoek; Even / sparren?, grote contactlinks, kolommen en ronde socialknoppen']].map(([a, b]) => <tr key={a}><td>{a}</td><td>{b}</td></tr>)}</tbody></table>
+       <table className="q-guide-scheme"><tbody>{[['Hero → cijfers/logo’s → foto met kaarten','Eén Sand-vlak (q-panel)'],['Succesverhalen','Wit (q-section--white)'],['Vertrouwd door onze klanten','Sand'],['Cases','Wit'],['Over ons','Sand'],['Wat wil je bereiken?','Wit'],['Groeien zonder risico','Sand'],['Werkwijze','Wit'],['Veelgestelde vragen','Sand'],['Afsluitende CTA','Sand q-panel, twee kolommen met HubSpot-planner'],['Footer','Sand q-panel met smile-hoek; kolommen en ronde socialknoppen']].map(([a, b]) => <tr key={a}><td>{a}</td><td>{b}</td></tr>)}</tbody></table>
       <p className="q-note">Kaarten volgen de achtergrond: op Sand wit, op wit Sand. Blauw alleen voor tekstlinks.</p>
     </section>
   </main>;
