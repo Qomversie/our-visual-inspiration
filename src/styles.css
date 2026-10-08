@@ -420,7 +420,7 @@ strong { font-weight:600; }
 .q-results-heading { display:grid; gap:18px; }
 .q-results-heading .q-label { color:var(--q-ink-70); }
 .q-results-title { margin:0; color:var(--q-ink); }
-.q-results-title>span { color:transparent; -webkit-text-stroke:var(--q-outline-width) var(--q-ink); }
+
 .q-results-side { display:grid; gap:20px; max-width:420px; }
 .q-results-side .q-intro { margin:0; font-size:16px; color:var(--q-ink-75); }
 .q-results-nav { display:flex; align-items:center; gap:12px; }

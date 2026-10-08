@@ -138,7 +138,7 @@ export function ResultCards() {
     <div className="q-results-head">
       <div className="q-results-heading">
         <Label>WAT ONZE KLANTEN BEREIKEN</Label>
-        <h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2>
+        <h2 className="q-h2 q-results-title">Succesverhalen</h2>
       </div>
       <div className="q-results-side">
         <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
