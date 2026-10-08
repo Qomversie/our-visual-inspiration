@@ -72,7 +72,7 @@ export function SuccessTabs({ onPlay }: { onPlay?: () => void }) {
   const pick = (i: number, focus = false) => { setActive(i); setStopped(true); if (focus) refs.current[i]?.focus(); };
   const onKey = (e: KeyboardEvent) => {
     const n = results.length; const map: Record<string, number> = { ArrowDown: active + 1, ArrowRight: active + 1, ArrowUp: active - 1, ArrowLeft: active - 1, Home: 0, End: n - 1 };
-    if (e.key in map) { e.preventDefault(); pick((map[e.key] + n) % n, true); }
+    if (e.key in map) { e.preventDefault(); pick(((map[e.key] ?? 0) + n) % n, true); }
   };
   const r = results[active] ?? results[0]!;
   return <div className={`q-tabs${hover ? ' is-paused' : ''}${stopped ? ' is-stopped' : ''}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
