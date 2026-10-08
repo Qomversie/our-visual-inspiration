@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { designVariables, designClasses, faqs, aboutChecks, steps } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, CornerMark, Label } from '@/components/qomversie';
+import { designVariables, designClasses, faqs, aboutChecks } from '@/lib/homepage-content';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, SmileOutline, Workflow, Label } from '@/components/qomversie';
 
 export const Route = createFileRoute('/styleguide')({
   head: () => ({ meta: [
@@ -28,8 +28,6 @@ function Styleguide() {
       <h3 className="q-h3">ShortcodeBlock</h3><ShortcodeBlock code="reviews" note="Hier komt de reviews-widget"/>
       <h3 className="q-h3">CaseCard</h3><div className="q-case-track"><CaseCard name="Voorbeeldcase" line="Resultaatregel"/></div>
       <h3 className="q-h3">FaqItem</h3><div className="q-faq-list">{faqs[0] && <FaqItem {...faqs[0]}/>}</div>
-      <h3 className="q-h3">Tijdlijn (q-steps)</h3>
-      <div className="q-steps">{steps.map((s, i) => <article className="q-step" key={s.title}><span className="q-step-dot" aria-hidden="true">{i + 1}</span><div className="q-step-body"><div className="q-step-head"><h3 className="q-h3">{s.title}</h3><span className="q-step-pill">{s.meta}</span></div>{'blocks' in s && s.blocks ? <div className="q-step-blocks">{s.blocks.map(b => <div key={b.word}><strong>{b.word}</strong><span>{b.line}</span></div>)}</div> : <p className="q-text">{s.text}</p>}</div></article>)}</div>
       <h3 className="q-h3">SmileMark</h3>
       <div className="q-actions"><SmileMark/><SmileMark className="q-smile q-guide-smile"/></div>
       <pre className="q-card q-guide-code">{'<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="#FF6700"/></svg>'}</pre>
@@ -41,16 +39,17 @@ function Styleguide() {
        <h3 className="q-h3">Smile-hoek voor foto's</h3><div className="q-guide-photo"/>
        <p className="q-note">Foto's, portret, casekaarten en video: hoeken 20px; rechtsonder 96px / mobiel 56px. Knoppen en kleine elementen behouden hun vorm. Contentbreedte maximaal 1360px; tekst maximaal 65ch.</p>
        <SectionHeader title="Succesverhalen"/>
-       <h3 className="q-h3">CornerMark / q-corner</h3>
-       <div className="q-panel q-guide-panel q-corner-host" style={{ minHeight:380 }}><CornerMark/><div className="q-container"><SectionHeader label="VOORBEELD" title="Veelgestelde vragen"/></div></div>
-       <p className="q-note">L-vorm linksboven, 40px links en 40px boven het label: verticale lijn 1px × 320px en horizontale lijn 1px × 160px, beide vervagend; vierkantje 10×10px Ginger op het hoekpunt. Lijnkleur Zwartig 30% (donker: Sand 30%). Plaatsing: hero, Cases, Wat wil je bereiken?, Veelgestelde vragen. Mobiel 60% (192 × 96px, vierkantje 6px), 12px van de schermrand.</p>
+       <h3 className="q-h3">SmileOutline / q-smile-outline</h3>
+       <div className="q-guide-outline-demo q-smile-outline-host"><SmileOutline/><div className="q-guide-photo"/><SmileOutline front/></div>
+       <p className="q-note">Exacte smile-vorm uit het logo, zonder vulling, met een Ginger omtrek van constant 3px en ronde lijnhoeken. Eén identieke vorm in twee lagen: achter de foto en een gedeeltelijk vrijgegeven voorlaag, zodat de smile vóór en achter de foto langs loopt. Geen parallellogram. Formaat circa 120% van de foto. Plaatsing: hero (linksonder en rechtsboven uitstekend), Over ons (over de grens met het tekstvlak), afsluitende CTA achter de planner. Niet klikbaar. Mobiel alleen hero, 70% van het desktopformaat. Tokens: --q-smile-outline-stroke en --q-about-bulge.</p>
        <h3 className="q-h3">Over ons / q-about-split</h3>
-       <p className="q-note">Eén q-panel over de volle breedte met smile-hoek rechtsonder. Links q-about-text (Sand) met label, kop, tekst, q-check-list--badge (Ginger 15% rondje met Ginger vinkje) en knop; rechts q-about-media, foto tot de rand. Het tekstvlak loopt in een grote ronde boog (kwartcirkelvorm van de smile) over de foto. Mobiel: foto boven, tekstvlak eronder met ronde bovenrand.</p>
+       <p className="q-note">Eén Sand q-panel. Links q-about-text met label, kop, tekst, q-check-list--badge en knop; rechts q-about-media met de bestaande foto en SmileOutline. De scheiding is één doorlopende halve ellips van de bovenrand tot de onderrand, met de grootste bolling halverwege, zonder rechte stukken aan de uiteinden. De ellips staat achter de tekst en is niet klikbaar. Mobiel: foto boven, tekstvlak eronder met ronde bovenrand, zonder SmileOutline.</p>
        <h3 className="q-h3">Afsluitende CTA / q-contact + q-planner</h3>
        <p className="q-note">Sand q-panel met smile-hoek. Desktop twee kolommen: links label, kop, tekst, drie geruststellingen (q-check-list--badge) en belregel; rechts q-planner: wit vlak ca. 880 × 680px, zachte schaduw, afgeronde hoeken, met [shortcode: hubspot-agenda]. Mobiel: tekst boven, planner eronder op volle breedte.</p>
        <h3 className="q-h3">Kleurschema per sectie</h3>
-       <table className="q-guide-scheme"><tbody>{[['Hero → cijfers/logo’s → foto met kaarten','Eén Sand-vlak (q-panel)'],['Succesverhalen','Wit (q-section--white)'],['Vertrouwd door onze klanten','Sand'],['Cases','Wit'],['Over ons','Sand'],['Wat wil je bereiken?','Wit'],['Groeien zonder risico','Sand'],['Werkwijze','Wit'],['Veelgestelde vragen','Sand'],['Afsluitende CTA','Sand q-panel, twee kolommen met HubSpot-planner'],['Footer','Sand q-panel met smile-hoek; kolommen en ronde socialknoppen']].map(([a, b]) => <tr key={a}><td>{a}</td><td>{b}</td></tr>)}</tbody></table>
+       <table className="q-guide-scheme"><tbody>{[['Hero → cijfers/logo’s → foto met kaarten','Eén Sand-vlak (q-panel)'],['Succesverhalen','Wit (q-section--white)'],['Vertrouwd door onze klanten','Sand'],['Cases','Wit'],['Over ons','Sand'],['Wat wil je bereiken?','Wit'],['Groeien zonder risico','Sand'],['Veelgestelde vragen','Wit'],['Afsluitende CTA','Sand q-panel, twee kolommen met HubSpot-planner'],['Footer','Wit met dunne bovenlijn Zwartig 10%; kolommen en ronde socialknoppen']].map(([a, b]) => <tr key={a}><td>{a}</td><td>{b}</td></tr>)}</tbody></table>
       <p className="q-note">Kaarten volgen de achtergrond: op Sand wit, op wit Sand. Blauw alleen voor tekstlinks.</p>
     </section>
+    <section><h2 className="q-h2">Niet in gebruik</h2><h3 className="q-h3">Workflow / q-workflow</h3><p className="q-note">De volledige werkwijze met adviesknop is tijdelijk van de homepage verwijderd en hier bewaard om later terug te zetten.</p><Workflow/></section>
   </main>;
 }
