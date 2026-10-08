@@ -13,10 +13,10 @@
 - Keep the homepage as a single semantic route with reusable section controls and content data in a browser-safe module, so the design remains simple to reproduce in Elementor.
 - Keep all visual values in the central stylesheet and use Button variants for controls, so brand styling is consistent.
 - Missing booking/review content must be visibly pending rather than simulated, so visitors are never shown false confirmations or invented endorsements.
-- Homepage building blocks, including LogoStrip and ResultsPanel, live in one shared components module and reuse the fixed q-* class set, so they map 1:1 to Elementor Components and global Classes.
+- Homepage building blocks, including LogoStrip and ResultsCarousel, live in one shared components module and reuse the fixed q-* class set, so they map 1:1 to Elementor Components and global Classes.
 - Design values are exposed as --q-* CSS variables and documented on the unlinked /styleguide route, which serves as the Elementor build blueprint.
 
-- Headings render via SectionHeader using content-data line splits; ResultsPanel owns its isolated two-line heading exception, so its treatment cannot affect other sections.
-- Apply section surfaces with q-panel wrappers and shared radius tokens; keep hero benefits, LogoStrip and ResultsPanel separate, and split SmileOutline into identical rear and clipped front SVG layers around photos, so it weaves without changing the logo path or blocking controls.
+- Headings render via SectionHeader using content-data line splits; ResultsCarousel owns its isolated two-line heading exception, so its treatment cannot affect other sections.
+- Apply section surfaces with q-panel wrappers and shared radius tokens; keep hero benefits, LogoStrip and ResultsCarousel separate, and split SmileArc into identical rear and clipped front SVG layers around photos, so it weaves without changing the logo path or blocking controls.
 - Count-up figures render final values for SSR and accessible labels, then animate once through IntersectionObserver with reduced-motion opt-out, so values remain readable without animation.
 - Keep the inactive Workflow component available only in the styleguide, so it can be restored without duplicating its content or layout.
