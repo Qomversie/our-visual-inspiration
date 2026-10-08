@@ -13,7 +13,7 @@
  --q-muted:color-mix(in oklab,var(--q-ink) 62%,var(--q-sand));
  --q-shadow:0 12px 35px color-mix(in oklab,var(--q-ink) 5%,transparent);
  --q-pill:999px;
- --q-result-surface:color-mix(in oklab,var(--q-ink) 95%,var(--q-white)); --q-result-muted:color-mix(in oklab,var(--q-sand) 75%,transparent); --q-outline-width:1px; --q-smile-outline-stroke:3px; --q-about-bulge:120px;
+ --q-result-surface:color-mix(in oklab,var(--q-ink) 95%,var(--q-white)); --q-result-bar:#2C3542; --q-result-muted:color-mix(in oklab,var(--q-sand) 75%,transparent); --q-outline-width:1px; --q-smile-outline-stroke:3px; --q-about-bulge:120px;
 
 
  /* shadcn mapping */
@@ -411,7 +411,7 @@ strong { font-weight:600; }
 /* The smile line slips behind the media at both ends: a conic mask fades the two flat caps instead of cutting them off. */
 .q-photo-cta .q-smile-outline,.q-cases-carousel .q-smile-outline,.q-reviews-block .q-smile-outline { clip-path:none; -webkit-mask-image:conic-gradient(from 0deg at 0% 0%,transparent 0 104deg,#000 120deg,#000 150deg,transparent 166deg 360deg); mask-image:conic-gradient(from 0deg at 0% 0%,transparent 0 104deg,#000 120deg,#000 150deg,transparent 166deg 360deg); }
 /* The line only reads as intentional on the reviews block; kept out of the cases row and photo panel until there is a reference for how it should sit there. */
-.q-photo-cta .q-smile-outline,.q-cases-carousel .q-smile-outline { display:none; }
+
 
 
 .q-photo-cta .q-smile-outline { width:760px; height:760px; top:auto; left:auto; bottom:-220px; right:-220px; }
@@ -423,45 +423,40 @@ strong { font-weight:600; }
 @media(max-width:760px) { .q-photo-cta-frame { height:480px; align-items:flex-end; padding-bottom:36px; } .q-photo-cta-shade { background:linear-gradient(0deg,color-mix(in oklab,var(--q-ink) 85%,transparent) 0%,color-mix(in oklab,var(--q-ink) 50%,transparent) 55%,transparent 85%); } .q-photo-cta-copy { padding-inline:20px; } .q-photo-cta .q-smile-outline { display:block; width:340px; height:340px; bottom:-110px; right:-40px; } }
 
 /* ResultsSlider: one wide block at a time, slid with the arrows, the keyboard or a swipe. */
-.q-results { display:grid; gap:48px; }
-.q-results-head { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto; align-items:end; gap:48px; }
-.q-results-heading .q-label { color:var(--q-sand); }
-.q-results-title { margin-top:14px; }
+.q-results { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:64px; align-items:start; }
+.q-results-side { position:sticky; top:120px; display:grid; gap:20px; justify-items:start; }
+.q-results-side .q-label { color:var(--q-sand); }
+.q-results-title { margin:0; color:var(--q-sand); }
 .q-results-title>span { color:transparent; -webkit-text-stroke:var(--q-outline-width) var(--q-sand); }
-.q-results-head .q-intro { margin:0; max-width:52ch; font-size:16px; color:var(--q-result-muted); }
-.q-results-nav { display:flex; align-items:center; gap:16px; }
-.q-results-count { font-size:14px; font-weight:600; font-variant-numeric:tabular-nums; color:var(--q-sand); }
+.q-results-side .q-intro { margin:0; max-width:40ch; font-size:16px; color:var(--q-result-muted); }
+.q-results-nav { display:flex; flex-direction:column; gap:12px; }
 .q-results-nav button { border:1px solid var(--q-sand); background:transparent; color:var(--q-sand); }
 .q-results-nav button:hover:not(:disabled) { background:var(--q-sand); color:var(--q-ink); }
-.q-results-viewport { overflow:hidden; outline:none; }
-.q-results-track { display:grid; gap:24px; transition:transform .6s cubic-bezier(.22,.61,.36,1); }
-.q-result-block { display:grid; grid-template-columns:minmax(0,45fr) minmax(0,55fr); align-items:center; gap:48px; min-height:440px; padding:40px; background:var(--q-result-surface); border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-card) var(--q-radius); }
-.q-result-block--text { grid-template-columns:minmax(0,1fr); }
-.q-result-media { display:block; width:100%; aspect-ratio:16/10; border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-card) var(--q-radius); overflow:hidden; background:var(--q-ink); }
-.q-result-media img { width:100%; height:100%; object-fit:contain; }
+.q-results-viewport { overflow:hidden; outline:none; padding-right:24px; margin-right:-24px; }
+.q-results-track { display:grid; gap:16px; transition:transform .6s cubic-bezier(.22,.61,.36,1); }
+.q-result-bar { position:relative; display:grid; grid-template-columns:35% minmax(0,1fr); gap:32px; align-items:center; min-height:220px; padding:12px 48px 12px 12px; background:var(--q-result-bar); color:var(--q-sand); border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-card) var(--q-radius); }
+.q-result-bar--text { grid-template-columns:minmax(0,1fr); padding:32px 48px 32px 36px; }
+.q-result-media { display:block; width:100%; height:100%; min-height:196px; border-radius:var(--q-radius); overflow:hidden; background:var(--q-ink); }
+.q-result-media img { width:100%; height:100%; object-fit:cover; }
 .q-result-video { position:relative; padding:0; cursor:pointer; }
 .q-result-video:hover { background:var(--q-ink); }
-.q-result-video img { object-fit:cover; object-position:center 20%; }
-.q-result-video .q-video-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:72px; height:72px; }
-.q-result-body { min-width:0; }
+.q-result-video img { object-position:center 20%; }
+.q-result-video .q-video-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:64px; height:64px; }
+.q-result-body { min-width:0; padding:16px 0; }
 .q-result-client { font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--q-result-muted); }
-.q-result-number { font-family:var(--q-font-heading); font-size:96px; line-height:1.05; margin:10px 0 14px; font-variant-numeric:tabular-nums; }
-.q-result-description { font-size:18px; line-height:1.5; max-width:40ch; }
-.q-result-quote { margin-top:20px; padding-left:18px; border-left:2px solid var(--q-ginger); font-size:15px; line-height:1.6; color:var(--q-result-muted); max-width:46ch; }
-.q-result-block--text .q-result-body { display:grid; grid-template-columns:minmax(0,auto) minmax(0,1fr); column-gap:56px; row-gap:6px; align-items:center; }
-.q-result-block--text .q-result-client { grid-column:1/-1; }
-.q-result-block--text .q-result-figure { grid-column:1; }
-.q-result-block--text .q-result-copy { grid-column:2; }
-.q-result-block--text .q-result-number { margin:0; }
-@media(max-width:1000px) { .q-results-head { grid-template-columns:1fr; gap:28px; } .q-results-nav { justify-self:start; } .q-result-block { grid-template-columns:1fr; gap:28px; min-height:0; } .q-result-block--text .q-result-body { grid-template-columns:1fr; } .q-result-block--text .q-result-figure,.q-result-block--text .q-result-copy { grid-column:1; } .q-result-number { font-size:72px; } }
-@media(max-width:760px) { .q-results { gap:32px; } .q-results-track { gap:16px; } .q-result-block { padding:18px; gap:22px; } .q-result-number { font-size:56px; } .q-result-description { font-size:16px; } .q-result-quote { font-size:14px; } }
+.q-result-number { font-family:var(--q-font-heading); font-size:40px; line-height:1.1; margin:8px 0 10px; font-variant-numeric:tabular-nums; color:var(--q-sand); }
+.q-result-description { font-size:16px; line-height:1.55; max-width:46ch; color:var(--q-result-muted); }
+.q-result-featured { position:absolute; top:50%; right:0; transform:translate(50%,-50%); writing-mode:vertical-rl; display:inline-flex; align-items:center; gap:8px; padding:16px 9px; background:var(--q-ginger); color:var(--q-white); border-radius:var(--q-radius); font-size:13px; font-weight:600; letter-spacing:.04em; }
+.q-result-featured>span { writing-mode:horizontal-tb; font-size:12px; }
+@media(max-width:1000px) { .q-results { grid-template-columns:1fr; gap:40px; } .q-results-side { position:static; } .q-results-nav { display:none; } .q-results-track { transform:none !important; } }
+@media(max-width:760px) { .q-result-bar { grid-template-columns:1fr; gap:4px; padding:12px 40px 12px 12px; } .q-result-bar--text { padding:24px 40px 24px 20px; } .q-result-media { aspect-ratio:16/10; min-height:0; } .q-result-body { padding:12px 8px 8px; } .q-result-number { font-size:34px; } }
 
 /* The same smile line wraps the cases carousel and the reviews block, each in its own orientation. */
-.q-cases-carousel .q-smile-outline { width:640px; height:640px; top:auto; left:auto; bottom:-190px; right:60px; }
+
 
 
 .q-reviews-block { padding:24px 0; }
-.q-reviews-block .q-smile-outline { width:460px; height:460px; top:auto; left:auto; bottom:-150px; right:-60px; }
+
 
 
 
