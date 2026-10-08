@@ -297,7 +297,7 @@ strong { font-weight:600; }
 .q-guide-smile { width:48px; height:48px; }
 .q-guide-code { white-space:pre-wrap; word-break:break-all; font-size:13px; width:100%; }
 
-/* ===== Styleguide ===== */
+@media(max-width:1000px) {
  .q-hero { gap:40px; } .q-benefits { gap:15px; } .q-benefits .q-card { padding:24px; }
  .q-trust { gap:35px; } .q-about,.q-promises { gap:45px; } .q-footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; }
  .q-faq-section { gap:40px; } .q-results { grid-template-columns:1fr; } .q-res--main,.q-res--video,.q-res--time { grid-column:auto; grid-row:auto; } .q-res-number { font-size:72px; }
