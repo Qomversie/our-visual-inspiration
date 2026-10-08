@@ -487,3 +487,5 @@ strong { font-weight:600; }
 .q-section.q-results-section { padding-block:80px; }
 @media(max-width:760px) { .q-section.q-results-section { padding-block:56px; } }
 .q-result-card>.q-result-media { height:auto; align-self:stretch; }
+.q-result-card>.q-result-media { position:relative; min-height:0; }
+.q-result-card>.q-result-media img { position:absolute; inset:0; }
