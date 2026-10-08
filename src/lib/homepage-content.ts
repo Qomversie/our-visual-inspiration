@@ -1,5 +1,3 @@
-import graph from '@/assets/conversiegrafiek.png.asset.json';
-import still from '@/assets/videostill-joke.jpg.asset.json';
 import caseCowboy from '@/assets/case-cowboy-magic.png.asset.json';
 import caseGroeicollectief from '@/assets/case-groeicollectief.png.asset.json';
 import caseHoogterp from '@/assets/case-hoogterp.png.asset.json';
@@ -14,19 +12,12 @@ export const faqs = [
   { question: 'Kan ik ook alleen een website of aanvraagtool kiezen?', answer: 'Ja apart is ook mogelijk. Dan maken we alleen je website conversiegericht. Of bouwen we alleen een slimme aanvraagtool op je bestaande website.' },
 ];
 
-/* One slide per project in the ResultsCarousel; adding an item here is enough for a new slide (0-2 media, 1-2 badges). */
-export type ResultMedia = { type: 'image'; src?: string; alt: string } | { type: 'video'; src: string; poster: string; alt: string };
-export type Result = { id: string; client: string; title: string; text: string; tags: string[]; media: ResultMedia[]; badges: { value: string; label: string }[] };
-export const results: Result[] = [
-  { id: 'cowboy', client: 'Cowboy Magic Europe', title: 'Een webshop die meer bezoekers omzet in kopers', text: 'We hebben de Shopify webshop stap voor stap geoptimaliseerd op conversie.', tags: ['Shopify', 'Conversie-optimalisatie'],
-    media: [{ type: 'image', src: graph.url, alt: 'Shopify conversiegrafiek van Cowboy Magic Europe' }, { type: 'image', alt: 'Projectfoto Cowboy Magic Europe volgt' }],
-    badges: [{ value: '40%', label: 'meer conversie' }, { value: '2 mnd', label: 'tot zichtbaar resultaat' }] },
-  { id: 'joke', client: 'Joke Bleijerveld', title: 'Uren aan mails en rapportages, nu automatisch', text: 'Met AI hebben we haar terugkerende e-mails en rapportages geautomatiseerd.', tags: ['AI-automatisering'],
-    media: [{ type: 'video', src: 'https://www.qomv.nl/wp-content/uploads/2026/05/Videoreview-Joke-Bleijerveld.mp4', poster: still.url, alt: 'Videoreview van Joke Bleijerveld' }],
-    badges: [{ value: '33 uur', label: 'per maand bespaard' }] },
-  { id: 'hoogterp', client: 'Hoogterp Verf', title: 'Van twee weken uitzoekwerk naar één dag', text: 'Een AI-assistent die het voorwerk doet, zodat het team zich op klanten richt.', tags: ['AI-assistent'],
-    media: [], badges: [{ value: '83%', label: 'tijdsbesparing' }, { value: '1 dag', label: 'in plaats van 2 weken' }] },
-];
+/* One wide block per customer in the ResultsGrid; adding an item here is enough to show a new block (kind = label, media optional). */
+export const results = [
+  { id: 'cowboy', name: 'Cowboy Magic Europe', kind: 'Webshop', media: 'graph', value: 40, suffix: '%', description: 'Meer conversie in de Shopify webshop binnen 2 maanden.' },
+  { id: 'joke', name: 'Joke Bleijerveld', kind: 'AI-automatisering', media: 'video', value: 33, suffix: '\u00a0uur', description: 'Per maand bespaard door e-mails en rapportages te automatiseren met AI.' },
+  { id: 'hoogterp', name: 'Hoogterp Verf', kind: 'AI-assistent', media: 'none', value: 83, suffix: '%', description: 'Tijdsbesparing: 2 weken werk teruggebracht naar 1 dag.' },
+] as const;
 
 
 export const services = [
@@ -72,7 +63,7 @@ export const designVariables = [
   ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '64px / mobiel 38px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
 ] as const;
 
-export const designClasses = ['q-section', 'q-section--white', 'q-section--sand', 'q-container', 'q-panel', 'q-panel--dark', 'q-about-split', 'q-planner', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-workflow', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-logo-strip', 'q-results', 'q-results-head', 'q-results-nav', 'q-results-count', 'q-results-head', 'q-results-nav', 'q-results-viewport', 'q-results-track', 'q-result-slide', 'q-result-copy', 'q-result-client', 'q-result-tags', 'q-result-stage', 'q-result-media', 'q-result-media--duo', 'q-result-brand', 'q-result-badges', 'q-result-badge', 'q-arc', 'q-arc--front', 'q-arc-host', 'q-photo-cta', 'q-photo-cta-frame', 'q-photo-cta-copy', 'q-cases-carousel', 'q-reviews-block', 'q-case-tag', 'q-about', 'q-faq'];
+export const designClasses = ['q-section', 'q-section--white', 'q-section--sand', 'q-container', 'q-panel', 'q-panel--dark', 'q-smile-outline', 'q-smile-outline-host', 'q-about-split', 'q-planner', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-workflow', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-logo-strip', 'q-results', 'q-results-head', 'q-results-nav', 'q-results-count', 'q-results-head', 'q-results-nav', 'q-results-grid', 'q-result-block', 'q-result-block--text', 'q-result-featured', 'q-result-media', 'q-result-body', 'q-result-client', 'q-result-number', 'q-result-description', 'q-photo-cta', 'q-photo-cta-frame', 'q-photo-cta-copy', 'q-cases-carousel', 'q-reviews-block', 'q-case-tag', 'q-about', 'q-faq'];
 
 
 export const headingLines: Record<string, readonly [string, string]> = {

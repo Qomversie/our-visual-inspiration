@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, X, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { faqs, services, aboutChecks, cases } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileArc, LogoStrip, ResultsCarousel, HeroStats, PhotoCta } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultsGrid, HeroStats, PhotoCta } from '@/components/qomversie';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import team from '@/assets/Ons_team_2.jpeg.asset.json';
@@ -52,7 +52,7 @@ function Index() {
   const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.06});document.querySelectorAll('.q-reveal').forEach(el=>observer.observe(el));
   return()=>{window.removeEventListener('scroll',onScroll);observer.disconnect();};
  },[]);
- const openVideo=(src:string)=>{setVideoError(false);const v=videoRef.current;if(v&&v.getAttribute('src')!==src)v.src=src;dialogRef.current?.showModal();v?.play().catch(()=>{});};
+ const openVideo=()=>{dialogRef.current?.showModal();videoRef.current?.play().catch(()=>{});};
  const closeVideo=()=>{videoRef.current?.pause();dialogRef.current?.close();};
  const structuredData = {'@context':'https://schema.org','@graph':[
   {'@type':'LocalBusiness',name:'Qomversie',url:'https://www.qomv.nl',telephone:'+31653509763',email:'info@qomv.nl',areaServed:{'@type':'AdministrativeArea',name:'Friesland'},address:{'@type':'PostalAddress',addressRegion:'Friesland',addressCountry:'NL'},aggregateRating:{'@type':'AggregateRating',ratingValue:'5.0',reviewCount:23,bestRating:'5'}},
@@ -74,7 +74,7 @@ function Index() {
      <div className="q-actions"><CtaBlock/><CtaBlock variant="secondary" href="#cases">Ons werk bekijken</CtaBlock></div>
      <HeroStats/>
     </div>
-    <div className="q-hero-photo q-arc-host"><SmileArc/><img className="q-portrait" src={portrait.url} alt="Bouke van Qomversie, website laten bouwen in Friesland" width="540" height="750"/><SmileArc front/><RotatingBadge id="hero-badge"/></div>
+    <div className="q-hero-photo q-smile-outline-host"><SmileOutline/><img className="q-portrait" src={portrait.url} alt="Bouke van Qomversie, website laten bouwen in Friesland" width="540" height="750"/><SmileOutline front/><RotatingBadge id="hero-badge"/></div>
    </section>
    <section className="q-section q-section--flush q-hero-follow" aria-label="Wat je eraan hebt">
     <div className="q-container q-hero-follow-inner">
@@ -84,10 +84,10 @@ function Index() {
 
    </div>
    <LogoStrip/>
-   <section id="succesverhalen" className="q-section q-panel q-panel--dark q-results-section"><ResultsCarousel onPlay={openVideo}/></section>
+   <section id="succesverhalen" className="q-section q-panel q-panel--dark q-results-section"><ResultsGrid onPlay={openVideo}/></section>
       <section id="over-ons" className="q-section q-panel"><div className="q-container q-about q-reveal">
     <div className="q-about-copy"><SectionHeader label="OVER ONS" title="Hoi! Wij zijn Qomversie"/><p className="q-text">Ik weet hoe het is om als ondernemer alles zelf te doen en toch het gevoel te hebben dat je langzaam groeit. Daarom bouw ik resultaatgerichte websites voor Friese bedrijven die daadwerkelijk klanten en tijdwinst opleveren.</p><p className="q-text">Geen groot bureau met lange wachttijden. Geen agency die alleen adviseert. Geen freelancer die alleen bouwt. Gewoon ik, met een vast team van specialisten. Korte lijntjes, snel schakelen, altijd bereikbaar.</p><p className="q-text">Sindsdien hebben we:</p><CheckList badge items={aboutChecks}/><CtaBlock variant="secondary">Laten we kennismaken</CtaBlock></div>
-    <div className="q-about-photo q-arc-host"><SmileArc/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="1000" loading="lazy"/><SmileArc front/></div>
+    <div className="q-about-photo q-smile-outline-host"><SmileOutline/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="1000" loading="lazy"/><SmileOutline front/></div>
    </div></section>
    <CaseCarousel/>
    <section id="diensten" className="q-section q-panel"><div className="q-container q-reveal"><SectionHeader label="START MET GROEIEN!" title="Wat wil je bereiken?"/><div className="q-services">{services.map((s,i)=><a className="q-card" href="#contact" key={s.title}><span className="q-service-number">0{i+1}</span><ArrowUpRight className="q-service-arrow" aria-hidden="true"/><h3 className="q-h3">{s.title}</h3><p className="q-service-subtitle">{s.subtitle}</p><p className="q-text">{s.text}</p><CheckList items={s.checks}/><span className="q-btn q-btn--secondary">Gratis advies<ArrowRight aria-hidden="true"/></span></a>)}</div></div></section>

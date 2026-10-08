@@ -16,4 +16,3 @@
 - [x] Briefing 8: ResultsSlider (verticaal, één verhaal), PhotoCta, hero-notitie weg; smile-lijn alleen rond het reviewsblok (cases en fotopanel lezen niet als geheel, lijnen daar verborgen).
 - [x] Briefing 9: ResultsList met balken + Uitgelicht, sfeerfoto boven Groeien zonder risico, smile-lijn alleen hero/Over ons/sfeerfoto
 - [x] Briefing 10: ResultsGrid masonry, PhotoCta tekst + smile-positie
-- [x] Briefing 11: ResultsCarousel (1 project per slide, badges, video-lightbox), SmileArc, PhotoCta, styleguide
