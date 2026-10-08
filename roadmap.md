@@ -17,4 +17,4 @@
 - [x] Briefing 9: ResultsList met balken + Uitgelicht, sfeerfoto boven Groeien zonder risico, smile-lijn alleen hero/Over ons/sfeerfoto
 - [x] Briefing 10: ResultsGrid masonry, PhotoCta tekst + smile-positie
 
-- [ ] Briefing 12: ResultCards met drie horizontale kaarten, videolightbox, mobiel swipen; PhotoCta-boog verwijderen; styleguide en controles.
+- [x] Briefing 12: ResultCards met drie horizontale kaarten, videolightbox, mobiel swipen; PhotoCta-boog verwijderen; styleguide en controles.
