@@ -78,6 +78,5 @@ export const headingLines: Record<string, readonly [string, string]> = {
  'Eerst begrijpen, dan bouwen': ['Eerst begrijpen,', 'dan bouwen'],
  'Veelgestelde vragen': ['Veelgestelde', 'vragen'],
  'Plan je gratis adviesgesprek!': ['Plan je gratis', 'adviesgesprek!'],
- 'Succesverhalen': ['Succes', 'verhalen'],
  'Even sparren?': ['Even', 'sparren?'],
 };
