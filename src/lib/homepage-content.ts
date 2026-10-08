@@ -51,8 +51,21 @@ export const clients = ['Cowboy Magic', 'Hoogterp Verf', 'Het Groeicollectief', 
 
 export const designVariables = [
   ['--q-sand', '#F3EDE5'], ['--q-white', '#FFFFFF'], ['--q-ink', '#212934'], ['--q-ginger', '#FF6700'], ['--q-blue', '#0D5EE4'], ['--q-sand-dark', '#E9E1D6'],
-  ['--q-font-heading', "'Lora', serif"], ['--q-font-body', "'Inter', sans-serif"], ['--q-radius', '20px'], ['--q-space-section', '120px / mobiel 72px'], ['--q-container', '1200px'],
-  ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '48px / mobiel 32px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
+  ['--q-font-heading', "'Lora', serif"], ['--q-font-body', "'Inter', sans-serif"], ['--q-radius', '20px'], ['--q-radius-panel', '40px / mobiel 32px'], ['--q-radius-smile-panel', '160px / mobiel 80px'], ['--q-radius-smile-photo', '96px / mobiel 56px'], ['--q-radius-smile-card', '56px'], ['--q-panel-inset', '24px / mobiel 12px'], ['--q-space-section', '120px / mobiel 72px'], ['--q-container', '1360px'],
+  ['--q-fs-h1', '72px / mobiel 42px'], ['--q-fs-h2', '64px / mobiel 38px'], ['--q-fs-h3', '24px / mobiel 21px'], ['--q-fs-body', '18px / mobiel 16px'], ['--q-fs-label', '13px / mobiel 11px'],
 ] as const;
 
-export const designClasses = ['q-section', 'q-section--white', 'q-section--sand', 'q-section--dark', 'q-container', 'q-lines', 'q-has-lines', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-results', 'q-res', 'q-browser', 'q-time', 'q-bento-video', 'q-faq'];
+export const designClasses = ['q-section', 'q-section--white', 'q-section--sand', 'q-section--dark', 'q-container', 'q-panel', 'q-panel--dark', 'q-outline', 'q-section--flush', 'q-smile', 'q-label', 'q-h1', 'q-h2', 'q-h3', 'q-text', 'q-btn', 'q-btn--primary', 'q-btn--secondary', 'q-card', 'q-card--sand', 'q-badge-rotate', 'q-case-card', 'q-check-list', 'q-steps', 'q-step', 'q-step-dot', 'q-step-pill', 'q-results', 'q-res', 'q-browser', 'q-time', 'q-bento-video', 'q-faq'];
+
+
+export const headingLines: Record<string, readonly [string, string]> = {
+ 'Cases waar we trots op zijn': ['Cases waar we', 'trots op zijn'],
+ 'Vertrouwd door onze klanten': ['Vertrouwd door', 'onze klanten'],
+ 'Hoi! Wij zijn Qomversie': ['Hoi! Wij zijn', 'Qomversie'],
+ 'Wat wil je bereiken?': ['Wat wil je', 'bereiken?'],
+ 'Groeien zonder risico': ['Groeien', 'zonder risico'],
+ 'Eerst begrijpen, dan bouwen': ['Eerst begrijpen,', 'dan bouwen'],
+ 'Veelgestelde vragen': ['Veelgestelde', 'vragen'],
+ 'Plan je gratis adviesgesprek!': ['Plan je gratis', 'adviesgesprek!'],
+ 'Succesverhalen': ['Succes', 'verhalen'],
+};

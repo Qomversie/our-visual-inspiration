@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { ArrowRight, ArrowUp, Check, Plus, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { headingLines } from '@/lib/homepage-content';
 
 export function Stars() {
   return <span className="q-stars" aria-label="5 van 5 sterren">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" />)}</span>;
@@ -10,11 +11,11 @@ export function Google() { return <span className="q-google" aria-label="Google"
 export function SmileMark({ className = 'q-smile' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 20 20" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" /></svg>;
 }
-export function LineAccent({ low = false, sand = false }: { low?: boolean; sand?: boolean }) { return <span className={`q-lines${low ? ' q-lines--low' : ''}${sand ? ' q-lines--sand' : ''}`} aria-hidden="true" />; }
 export function Label({ children }: { children: ReactNode }) { return <p className="q-label"><SmileMark />{children}</p>; }
 
 export function SectionHeader({ label, title, children }: { label?: string; title: string; children?: ReactNode }) {
-  return <div className="q-section-header">{label && <Label>{label}</Label>}<h2 className="q-h2">{title}</h2>{children}</div>;
+  const lines = headingLines[title];
+  return <div className="q-section-header">{label && <Label>{label}</Label>}<h2 className={`q-h2${title === 'Succesverhalen' ? ' q-h2--joined' : ''}`}>{lines ? <><span className="q-outline">{lines[0]}</span>{title !== 'Succesverhalen' && <br/>}<span>{lines[1]}</span></> : title}</h2>{children}</div>;
 }
 
 export function CtaBlock({ children = 'Gratis adviesgesprek', variant = 'primary', href = '#contact', note }: { children?: ReactNode; variant?: 'primary' | 'secondary'; href?: string; note?: string }) {
