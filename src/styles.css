@@ -408,7 +408,10 @@ strong { font-weight:600; }
 .q-photo-cta-copy .q-h2 { color:var(--q-sand); margin:14px 0 18px; }
 .q-photo-cta-copy .q-text { color:var(--q-sand); margin-bottom:28px; max-width:42ch; }
 .q-h2-outline { color:transparent; -webkit-text-stroke:var(--q-outline-width) var(--q-sand); }
+/* Fade the outline's two flat ends so the line reads as slipping behind the media instead of stopping in mid-air. */
+.q-photo-cta .q-smile-outline,.q-cases-carousel .q-smile-outline,.q-reviews-block .q-smile-outline { -webkit-mask-image:conic-gradient(from 0deg at 0% 0%,transparent 0 96deg,#000 112deg,#000 158deg,transparent 174deg 360deg); mask-image:conic-gradient(from 0deg at 0% 0%,transparent 0 96deg,#000 112deg,#000 158deg,transparent 174deg 360deg); }
 .q-photo-cta .q-smile-outline { width:calc(100% + 2 * var(--q-panel-inset)); height:calc(100% + 280px); top:-140px; left:calc(-1 * var(--q-panel-inset)); right:auto; clip-path:polygon(0% 0%,70% 0%,100% 30%,100% 100%,30% 100%,0% 70%); }
+
 .q-photo-cta .q-smile-outline--front { clip-path:inset(50% 0 0 50%); }
 
 
