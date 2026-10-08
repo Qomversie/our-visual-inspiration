@@ -456,7 +456,7 @@ strong { font-weight:600; }
 .q-hero-stats { display:flex; align-items:stretch; gap:28px; margin:28px 0 18px; }
 .q-hero-stat + .q-hero-stat { border-left:1px solid var(--q-ink-15); padding-left:28px; }
 .q-hero .q-hero-stat p { font-family:var(--q-font-heading); font-size:36px; line-height:1.1; font-weight:600; color:var(--q-ink); font-variant-numeric:tabular-nums; }
-.q-hero .q-hero-stat span { display:block; font-size:13px; color:var(--q-muted); margin-top:4px; }
+.q-hero .q-hero-stat>span { display:block; font-size:13px; color:var(--q-muted); margin-top:4px; }
 .q-hero-follow { position:relative; z-index:20; }
 .q-hero-follow .q-benefits { margin-bottom:-96px; }
 .q-hero-follow .q-card { box-shadow:0 24px 48px -24px color-mix(in oklab,var(--q-ink) 28%,transparent); }
