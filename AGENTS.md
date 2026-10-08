@@ -13,8 +13,9 @@
 - Keep the homepage as a single semantic route with reusable section controls and content data in a browser-safe module, so the design remains simple to reproduce in Elementor.
 - Keep all visual values in the central stylesheet and use Button variants for controls, so brand styling is consistent.
 - Missing booking/review content must be visibly pending rather than simulated, so visitors are never shown false confirmations or invented endorsements.
-- Homepage building blocks (SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, CornerMark) live in one shared components module and reuse the fixed q-* class set, so they map 1:1 to Elementor Components and global Classes.
+- Homepage building blocks (SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, SmileOutline, Workflow) live in one shared components module and reuse the fixed q-* class set, so they map 1:1 to Elementor Components and global Classes.
 - Design values are exposed as --q-* CSS variables and documented on the unlinked /styleguide route, which serves as the Elementor build blueprint.
 
 - Headings render as filled ink text via SectionHeader (line splits from content data); no outline/stroke effect anywhere, including the footer.
-- Apply section surfaces with q-panel wrappers and shared radius tokens, grouping the hero, benefits and statistics into one panel; keep CornerMark decorations behind content and non-interactive, so the signature shape and decorations stay contained.
+- Apply section surfaces with q-panel wrappers and shared radius tokens, grouping the hero, benefits and statistics into one panel; split SmileOutline into identical rear and clipped front SVG layers around media with non-scaling strokes and no pointer events, so it weaves around photos without changing the logo path or blocking controls.
+- Keep the inactive Workflow component available only in the styleguide, so it can be restored without duplicating its content or layout.
