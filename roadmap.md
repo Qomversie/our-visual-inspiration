@@ -28,3 +28,10 @@
 - [x] Witte sectie, donkere kop/bediening en Sand kaarten met rand.
 - [x] Caselink per kaart; video via afspeelknop behouden.
 - [x] Logo-afstand en stijlgids bijwerken; desktop/mobiel controleren.
+
+## Briefing 16
+- [x] PhotoCta donker vlak, tekst links, foto rechts met smile-boog
+- [x] Logostrook zonder tekst, volle breedte met vervaging
+- [x] Succesverhalen-kop op één regel, 48px ruimte
+- [x] Responsive check 375-1440
+- [x] Stijlgids bijgewerkt
