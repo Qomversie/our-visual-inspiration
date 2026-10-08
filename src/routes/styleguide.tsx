@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { designVariables, designClasses, faqs, aboutChecks, sectionOrder } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, SmileOutline, Workflow, Label, LogoStrip, ResultCards, HeroStats, PhotoCta } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, SmileOutline, Workflow, Label, LogoStrip, ResultCards, HeroStats, PhotoCta, SiteFooter } from '@/components/qomversie';
 
 export const Route = createFileRoute('/styleguide')({
   head: () => ({ meta: [
@@ -50,5 +50,5 @@ function Styleguide() {
       <p className="q-note">Kaarten volgen de achtergrond: op Sand wit, op wit Sand. Resultaatkaarten Sand op donker. Footer: wit afgerond vlak (bovenhoeken 40px, rand 1px Zwartig 12%), zie SiteFooter. Blauw alleen voor tekstlinks.</p>
     </section>
     <section><h2 className="q-h2">Niet in gebruik</h2><h3 className="q-h3">Workflow / q-workflow</h3><p className="q-note">De volledige werkwijze met adviesknop is tijdelijk van de homepage verwijderd en hier bewaard om later terug te zetten.</p><Workflow/></section>
-  </main>;
+  <h3 className="q-h3">SiteFooter / q-footer</h3><p className="q-note">Wit vlak 24px van de rand (mobiel 12px), bovenhoeken 40px, rand 1px Zwartig 12% boven en zijkanten, 72px binnenruimte boven. Merkkolom breder: logo, tagline Inter 16px Zwartig 75%, Google 5.0, kleine primaire knop. Kolomkoppen Lora 600 18px, links hover Ginger, iconen bij telefoon/e-mail; socials hover Ginger met wit icoon. Onderbalk 14px Zwartig 60%: copyright links, Privacybeleid · Cookiebeleid rechts.</p><SiteFooter/></main>;
 }
