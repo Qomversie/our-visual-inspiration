@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { designVariables, designClasses, faqs, aboutChecks, steps } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, Label } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, SmileDots, Label } from '@/components/qomversie';
 
 export const Route = createFileRoute('/styleguide')({
   head: () => ({ meta: [
@@ -41,6 +41,9 @@ function Styleguide() {
        <h3 className="q-h3">Smile-hoek voor foto's</h3><div className="q-guide-photo"/>
        <p className="q-note">Foto's, portret, casekaarten en video: hoeken 20px; rechtsonder 96px / mobiel 56px. Knoppen en kleine elementen behouden hun vorm. Contentbreedte maximaal 1360px; tekst maximaal 65ch.</p>
        <SectionHeader title="Succesverhalen"/>
+       <h3 className="q-h3">SmileDots / q-dots</h3>
+       <div className="q-panel q-guide-panel q-dots-host" style={{ minHeight:220 }}><SmileDots id="dots-guide" className="q-dots q-dots--hero"/><div className="q-container"><SectionHeader title="Even sparren?"/></div></div>
+       <p className="q-note">Herhaalde smile-boogjes (14px, tegel 30px) in Ginger, als hoekvulling. Hero rechtsboven 230×150, Wat wil je bereiken? linksonder 200×140, donkere CTA rechtsboven op 55% dekking. Op mobiel alleen hero, 150×100. q-dots-host: overflow hidden en isolation isolate; content boven de stipjes, pointer-events none. Niet in de footer.</p>
        <h3 className="q-h3">Kleurschema per sectie</h3>
        <table className="q-guide-scheme"><tbody>{[['Hero → cijfers/logo’s → foto met kaarten','Eén Sand-vlak (q-panel)'],['Succesverhalen','Wit (q-section--white)'],['Vertrouwd door onze klanten','Sand'],['Cases','Wit'],['Over ons','Sand'],['Wat wil je bereiken?','Wit'],['Groeien zonder risico','Sand'],['Werkwijze','Wit'],['Veelgestelde vragen','Sand'],['Afsluitende CTA','q-panel q-panel--dark op wit'],['Footer','Sand q-panel met smile-hoek; Even / sparren?, grote contactlinks, kolommen en ronde socialknoppen']].map(([a, b]) => <tr key={a}><td>{a}</td><td>{b}</td></tr>)}</tbody></table>
       <p className="q-note">Kaarten volgen de achtergrond: op Sand wit, op wit Sand. Blauw alleen voor tekstlinks.</p>
