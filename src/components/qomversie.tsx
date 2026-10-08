@@ -158,7 +158,7 @@ export function ResultCards() {
             <p className="q-result-client">{result.name}</p>
             <h3 className="q-result-title" aria-label={`${result.value}${result.unit} ${result.description}`}><ArrowUp className="q-result-arrow" aria-hidden="true"/><span className="q-result-figure"><CountUp value={result.value}/>{result.unit}</span></h3>
             <p className="q-result-description">{result.description}</p>
-            {'video' in result && result.video && <Button variant="ghost" className="q-result-video-link" tabIndex={i < index || i >= index + visible ? -1 : undefined} onClick={() => openVideo(result)}>Bekijk de video <ArrowRight aria-hidden="true"/></Button>}
+            <Button asChild variant="ghost" className="q-result-case-link"><a href={result.caseUrl} tabIndex={i < index || i >= index + visible ? -1 : undefined}>Bekijk de case <ArrowRight aria-hidden="true"/></a></Button>
           </div>
           <span className="q-result-featured"><span aria-hidden="true">✦</span>{result.kind}</span>
         </article>)}

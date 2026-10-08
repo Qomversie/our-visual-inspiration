@@ -23,3 +23,8 @@
 - [x] Succesverhalen: twee kaarten naast elkaar, slider per kaart
 - [x] Footer als afgerond wit vlak
 - [x] Styleguide bijgewerkt
+
+## Succesverhalen op wit
+- [x] Witte sectie, donkere kop/bediening en Sand kaarten met rand.
+- [x] Caselink per kaart; video via afspeelknop behouden.
+- [x] Logo-afstand en stijlgids bijwerken; desktop/mobiel controleren.
