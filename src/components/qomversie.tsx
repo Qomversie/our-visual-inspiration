@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode, type TouchEvent } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUp, Check, Play, Plus, Star, TrendingUp, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUp, Check, Play, Plus, Star, TrendingUp, X, Phone, Mail, Instagram, Linkedin, Facebook } from 'lucide-react';
+import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import { Button } from '@/components/ui/button';
 import { caseHoverNote, clients, experienceStats, headingLines, results, steps } from '@/lib/homepage-content';
 import bank from '@/assets/E-mail_header_2.png.asset.json';
@@ -101,67 +102,64 @@ export function PhotoCta() {
   </section>;
 }
 
-/* ResultCards owns pagination and the shared video lightbox for homepage and styleguide. */
+/* ResultCards owns the one-card-step slider and the shared video lightbox for homepage and styleguide. */
 export function ResultCards() {
-  const perPage = 3;
-  const pages = Math.max(1, Math.ceil(results.length / perPage));
-  const [page, setPage] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [visible, setVisible] = useState(2);
+  const [index, setIndex] = useState(0);
   const [video, setVideo] = useState<{ url: string; poster: string | undefined; name: string }>();
   const [videoError, setVideoError] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const touch = useRef<{ x: number; y: number } | undefined>(undefined);
-  const changePage = (next: number) => {
-    const target = Math.max(0, Math.min(pages - 1, next));
-    if (target === page) return;
-    setDirection(target > page ? 1 : -1);
-    setPage(target);
-  };
+  const maxIndex = Math.max(0, results.length - visible);
+  useEffect(() => {
+    const query = window.matchMedia('(max-width:760px)');
+    const update = () => setVisible(query.matches ? 1 : 2);
+    update(); query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+  useEffect(() => { setIndex(current => Math.min(current, maxIndex)); }, [maxIndex]);
+  const go = (next: number) => setIndex(Math.max(0, Math.min(maxIndex, next)));
   const openVideo = (item: { video: string; poster?: string; name: string }) => {
     setVideoError(false);
     setVideo({ url: item.video, poster: item.poster, name: item.name });
     dialogRef.current?.showModal();
   };
-  useEffect(() => {
-    if (video) videoRef.current?.play().catch(() => {});
-  }, [video]);
-  const closeVideo = () => {
-    videoRef.current?.pause();
-    dialogRef.current?.close();
-    setVideo(undefined);
-  };
+  useEffect(() => { if (video) videoRef.current?.play().catch(() => {}); }, [video]);
+  const closeVideo = () => { videoRef.current?.pause(); dialogRef.current?.close(); setVideo(undefined); };
   const swipe = (event: TouchEvent<HTMLDivElement>) => {
-    const start = touch.current;
-    const end = event.changedTouches[0];
-    if (start && end && Math.abs(start.x - end.clientX) > 50 && Math.abs(start.x - end.clientX) > Math.abs(start.y - end.clientY)) changePage(page + (start.x > end.clientX ? 1 : -1));
+    const start = touch.current; const end = event.changedTouches[0];
+    if (start && end && Math.abs(start.x - end.clientX) > 50 && Math.abs(start.x - end.clientX) > Math.abs(start.y - end.clientY)) go(index + (start.x > end.clientX ? 1 : -1));
     touch.current = undefined;
   };
   const keyPage = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-      event.preventDefault();
-      changePage(page + (event.key === 'ArrowRight' ? 1 : -1));
-    }
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); go(index + (event.key === 'ArrowRight' ? 1 : -1)); }
   };
   return <div className="q-container q-results">
     <div className="q-results-head">
       <div className="q-results-heading">
         <Label>WAT ONZE KLANTEN BEREIKEN</Label>
         <h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2>
-        <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
       </div>
-      <div className="q-results-nav">
-        <Button variant="round" onClick={() => changePage(page - 1)} disabled={page === 0} aria-label="Vorige pagina resultaten"><ArrowLeft aria-hidden="true"/></Button>
-        <span className="q-results-count" aria-live="polite">{page + 1} / {pages}</span>
-        <Button variant="round" onClick={() => changePage(page + 1)} disabled={page >= pages - 1} aria-label="Volgende pagina resultaten"><ArrowRight aria-hidden="true"/></Button>
+      <div className="q-results-side">
+        <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
+        <div className="q-results-nav">
+          <Button variant="round" onClick={() => go(index - 1)} disabled={index === 0} aria-label="Vorig resultaat"><ArrowLeft aria-hidden="true"/></Button>
+          <Button variant="round" onClick={() => go(index + 1)} disabled={index >= maxIndex} aria-label="Volgend resultaat"><ArrowRight aria-hidden="true"/></Button>
+          <span className="q-results-count" aria-live="polite">{index + 1} / {results.length}</span>
+        </div>
       </div>
     </div>
     <div className="q-result-cards" tabIndex={0} aria-label="Klantresultaten" onKeyDown={keyPage} onTouchStart={event => { const point = event.touches[0]; if (point) touch.current = { x: point.clientX, y: point.clientY }; }} onTouchEnd={swipe}>
-      <div className={`q-result-page${direction < 0 ? ' q-result-page--back' : ''}`} key={page}>
-        {results.slice(page * perPage, page * perPage + perPage).map(result => <article className="q-result-card" key={result.id}>
-          {'video' in result && result.video ? <Button variant="ghost" className="q-result-media q-result-video" onClick={() => openVideo(result)} aria-label={`Videoreview van ${result.name} afspelen`}><img src={result.poster} alt={result.name} loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button> : 'image' in result && result.image ? <div className="q-result-media"><img src={result.image} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div> : <div className="q-result-media q-result-icon"><TrendingUp size={48} strokeWidth={2} aria-hidden="true"/></div>}
-          <div className="q-result-body"><h3 className="q-result-title" aria-label={result.title}><CountUp value={result.value}/>{result.title.slice(String(result.value).length)}</h3><p className="q-result-description">{result.description}</p></div>
-          <div className="q-result-customer"><p className="q-result-client">{result.name}</p>{'video' in result && result.video && <Button variant="ghost" className="q-result-video-link" onClick={() => openVideo(result)}>Bekijk de video <ArrowRight aria-hidden="true"/></Button>}</div>
+      <div className="q-result-track" style={{ ['--q-result-visible' as string]: visible, ['--q-result-index' as string]: index }}>
+        {results.map((result, i) => <article className="q-result-card" key={result.id} aria-hidden={i < index || i >= index + visible ? true : undefined}>
+          {'video' in result && result.video ? <Button variant="ghost" className="q-result-media q-result-video" tabIndex={i < index || i >= index + visible ? -1 : undefined} onClick={() => openVideo(result)} aria-label={`Videoreview van ${result.name} afspelen`}><img src={result.poster} alt={result.name} loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button> : 'image' in result && result.image ? <div className="q-result-media"><img src={result.image} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div> : <div className="q-result-media q-result-icon"><TrendingUp size={56} strokeWidth={2} aria-hidden="true"/></div>}
+          <div className="q-result-body">
+            <p className="q-result-client">{result.name}</p>
+            <h3 className="q-result-title" aria-label={`${result.value}${result.unit} ${result.description}`}><ArrowUp className="q-result-arrow" aria-hidden="true"/><CountUp value={result.value}/>{result.unit}</h3>
+            <p className="q-result-description">{result.description}</p>
+            {'video' in result && result.video && <Button variant="ghost" className="q-result-video-link" tabIndex={i < index || i >= index + visible ? -1 : undefined} onClick={() => openVideo(result)}>Bekijk de video <ArrowRight aria-hidden="true"/></Button>}
+          </div>
           <span className="q-result-featured"><span aria-hidden="true">✦</span>{result.kind}</span>
         </article>)}
       </div>
@@ -172,4 +170,18 @@ export function ResultCards() {
       {video && <video key={video.url} ref={videoRef} hidden={videoError} onError={() => setVideoError(true)} controls playsInline autoPlay preload="none" src={video.url} poster={video.poster} aria-label={`Videoreview van ${video.name}`}/>}
     </dialog>
   </div>;
+}
+
+/* SiteFooter: rounded white footer panel shared by homepage and styleguide. */
+export function SiteFooter() {
+  return <footer className="q-footer"><div className="q-container">
+    <div className="q-footer-grid">
+      <div className="q-footer-brand"><a href="#hero" aria-label="Qomversie, naar boven"><img className="q-logo" src={logo.url} alt="Qomversie logo" width="1920" height="528" loading="lazy"/></a><p>Digitale tools die jouw bedrijf laten groeien. Meer klanten, minder werkdruk.</p><div className="q-rating"><Google/><Stars/><span>5.0 op Google</span></div><Button asChild variant="advice" className="q-footer-cta"><a href="#contact">Gratis adviesgesprek</a></Button></div>
+      <div><h3>Contact</h3><div className="q-footer-links"><a href="tel:+31653509763"><Phone aria-hidden="true"/>06-53509763</a><a href="mailto:info@qomv.nl"><Mail aria-hidden="true"/>info@qomv.nl</a><span>KvK 82383081</span></div></div>
+      <div><h3>Onze partners</h3><div className="q-footer-links"><a href="https://wijmakendronebeelden.nl" target="_blank" rel="noreferrer">wijmakendronebeelden.nl</a><a href="https://websitebouwerfriesland.nl" target="_blank" rel="noreferrer">websitebouwerfriesland.nl</a></div></div>
+      <div><h3>Info</h3><div className="q-footer-links"><a href="https://www.qomv.nl/privacybeleid/" target="_blank" rel="noreferrer">Privacybeleid</a><a href="https://www.qomv.nl/cookiebeleid/" target="_blank" rel="noreferrer">Cookiebeleid</a><a href="#faq">Veelgestelde vragen</a></div></div>
+      <div className="q-socials"><Button asChild variant="round"><a href="https://www.instagram.com/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op Instagram" title="Instagram"><Instagram/></a></Button><Button asChild variant="round"><a href="https://www.linkedin.com/company/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op LinkedIn" title="LinkedIn"><Linkedin/></a></Button><Button asChild variant="round"><a href="https://www.facebook.com/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op Facebook" title="Facebook"><Facebook/></a></Button></div>
+    </div>
+    <div className="q-footer-bottom"><span>© Qomversie · Website laten bouwen in Friesland</span><span><a href="https://www.qomv.nl/privacybeleid/" target="_blank" rel="noreferrer">Privacybeleid</a> · <a href="https://www.qomv.nl/cookiebeleid/" target="_blank" rel="noreferrer">Cookiebeleid</a></span></div>
+  </div></footer>;
 }

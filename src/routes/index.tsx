@@ -1,9 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { faqs, services, aboutChecks, cases } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultCards, HeroStats, PhotoCta } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultCards, HeroStats, PhotoCta, SiteFooter } from '@/components/qomversie';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import team from '@/assets/Ons_team_2.jpeg.asset.json';
@@ -97,15 +97,7 @@ function Index() {
      <div className="q-container q-contact"><div className="q-contact-copy"><SectionHeader label="KLAAR OM TE GROEIEN?" title="Plan je gratis adviesgesprek!"/><p className="q-text">Ontdek in 30 minuten hoeveel het jou kan opleveren.</p><CheckList badge items={['Gratis en vrijblijvend','30 minuten, op locatie of via video','Eerlijk advies, ook als je ons nu niet nodig hebt']}/><p className="q-call">Liever even bellen? <a href="tel:+31653509763">06-53509763</a></p></div><div className="q-planner-wrap"><div className="q-planner"><ShortcodeBlock code="hubspot-agenda" note="Hier komt de HubSpot-afspraakplanner"/></div></div></div>
     </section>
   </main>
-  <footer className="q-section q-section--white q-section--flush q-footer"><div className="q-container">
-   <div className="q-footer-grid">
-    <div><a href="#hero" aria-label="Qomversie, naar boven"><img className="q-logo" src={logo.url} alt="Qomversie logo" width="1920" height="528" loading="lazy"/></a><div className="q-rating"><Google/><Stars/><span>5.0 op Google</span></div></div>
-    <div><h3>Contact</h3><div className="q-footer-links"><a href="tel:+31653509763">06-53509763</a><a href="mailto:info@qomv.nl">info@qomv.nl</a><span>KvK 82383081</span></div></div>
-    <div><h3>Onze partners</h3><div className="q-footer-links"><a href="https://wijmakendronebeelden.nl" target="_blank" rel="noreferrer">wijmakendronebeelden.nl</a><a href="https://websitebouwerfriesland.nl" target="_blank" rel="noreferrer">websitebouwerfriesland.nl</a></div></div>
-    <div><h3>Info</h3><div className="q-footer-links"><a href="https://www.qomv.nl/privacybeleid/" target="_blank" rel="noreferrer">Privacybeleid</a><a href="https://www.qomv.nl/cookiebeleid/" target="_blank" rel="noreferrer">Cookiebeleid</a><a href="#faq">Veelgestelde vragen</a></div></div>
-    <div className="q-socials"><Button asChild variant="round"><a href="https://www.instagram.com/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op Instagram" title="Instagram"><Instagram/></a></Button><Button asChild variant="round"><a href="https://www.linkedin.com/company/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op LinkedIn" title="LinkedIn"><Linkedin/></a></Button><Button asChild variant="round"><a href="https://www.facebook.com/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op Facebook" title="Facebook"><Facebook/></a></Button></div>
-   </div><div className="q-footer-bottom">© Qomversie · Website laten bouwen in Friesland</div>
-  </div></footer>
+  <SiteFooter/>
   <div className={`q-mobile-cta ${pastHero?'active':''}`}><CtaBlock/></div>
 
  </>;
