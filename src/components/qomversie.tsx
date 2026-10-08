@@ -11,17 +11,11 @@ export function Google() { return <span className="q-google" aria-label="Google"
 export function SmileMark({ className = 'q-smile' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 20 20" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" /></svg>;
 }
-export function SmileCircles({ placement = 'hero' }: { placement?: 'hero' | 'about' | 'services' | 'contact' }) {
-  return <svg className={`q-circles q-circles--${placement}`} viewBox="0 0 640 640" aria-hidden="true" focusable="false">
-    <g className="q-circles-rings">{[76, 128, 180, 232, 284].map(radius => <circle key={radius} cx="320" cy="320" r={radius} />)}</g>
-    <path className="q-circles-smile" d="M552 320A232 232 0 0 1 320 552" />
-  </svg>;
-}
 export function Label({ children }: { children: ReactNode }) { return <p className="q-label"><SmileMark />{children}</p>; }
 
 export function SectionHeader({ label, title, children }: { label?: string; title: string; children?: ReactNode }) {
   const lines = headingLines[title];
-  return <div className="q-section-header">{label && <Label>{label}</Label>}<h2 aria-label={title} className={`q-h2${title === 'Succesverhalen' ? ' q-h2--joined' : ''}`}>{lines ? <><span className="q-outline">{lines[0]}</span>{title !== 'Succesverhalen' && <br/>}<span>{lines[1]}</span></> : title}</h2>{children}</div>;
+  return <div className="q-section-header">{label && <Label>{label}</Label>}<h2 aria-label={title} className={`q-h2${title === 'Succesverhalen' ? ' q-h2--joined' : ''}`}>{lines ? <>{lines[0]}{title !== 'Succesverhalen' && <br/>}{lines[1]}</> : title}</h2>{children}</div>;
 }
 
 export function CtaBlock({ children = 'Gratis adviesgesprek', variant = 'primary', href = '#contact', note }: { children?: ReactNode; variant?: 'primary' | 'secondary'; href?: string; note?: string }) {
