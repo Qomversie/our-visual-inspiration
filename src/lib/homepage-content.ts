@@ -17,10 +17,10 @@ export const faqs = [
 
 /* Add one item to expose a new card; missing media uses the shared trending-up icon. */
 export const results = [
-  { id: 'cowboy', name: 'Cowboy Magic Europe', kind: 'Webshop', title: '40% meer conversie', value: 40, unit: '%', description: 'meer conversie in de Shopify webshop, binnen 2 maanden.', image: graph.url, imageType: 'screenshot' },
-  { id: 'joke', name: 'Joke Bleijerveld', kind: 'AI-automatisering', title: '33 uur per maand bespaard', value: 33, unit: ' uur', description: 'per maand bespaard door e-mails en rapportages te automatiseren met AI.', video: reviewVideo.url, poster: still.url, imageType: 'foto' },
-  { id: 'hoogterp', name: 'Hoogterp Verf', kind: 'AI-assistent', title: '83% tijdsbesparing', value: 83, unit: '%', description: 'tijdsbesparing: 2 weken werk teruggebracht naar 1 dag.' },
-] satisfies Array<{ id: string; name: string; kind: string; title: string; value: number; unit: string; description: string; image?: string; imageType?: 'foto' | 'screenshot'; video?: string; poster?: string }>;
+  { id: 'cowboy', caseUrl: '#cases', name: 'Cowboy Magic Europe', kind: 'Webshop', title: '40% meer conversie', value: 40, unit: '%', description: 'meer conversie in de Shopify webshop, binnen 2 maanden.', image: graph.url, imageType: 'screenshot' },
+  { id: 'joke', caseUrl: '#cases', name: 'Joke Bleijerveld', kind: 'AI-automatisering', title: '33 uur per maand bespaard', value: 33, unit: ' uur', description: 'per maand bespaard door e-mails en rapportages te automatiseren met AI.', video: reviewVideo.url, poster: still.url, imageType: 'foto' },
+  { id: 'hoogterp', caseUrl: '#cases', name: 'Hoogterp Verf', kind: 'AI-assistent', title: '83% tijdsbesparing', value: 83, unit: '%', description: 'tijdsbesparing: 2 weken werk teruggebracht naar 1 dag.' },
+] satisfies Array<{ id: string; caseUrl: string; name: string; kind: string; title: string; value: number; unit: string; description: string; image?: string; imageType?: 'foto' | 'screenshot'; video?: string; poster?: string }>;
 
 
 export const services = [
@@ -54,7 +54,7 @@ export const cases = [
 
 export const caseHoverNote = 'Korte omschrijving van het project volgt.';
 
-export const sectionOrder = ['Hero met drie kaarten · Sand', 'Klantlogo-strook · wit', 'Succesverhalen + cijfers · Zwartig (enige donkere vlak)', 'Wat wil je bereiken? · Sand', 'Cases · wit, zonder vlak', 'Over ons · Sand', 'Vertrouwd door onze klanten · wit', 'Brede sfeerfoto met CTA', 'Groeien zonder risico · Sand', 'Veelgestelde vragen · wit', 'Afsluitende CTA met planner · Sand', 'Footer · wit, zonder lijnen'];
+export const sectionOrder = ['Hero met drie kaarten · Sand', 'Klantlogo-strook · wit', 'Succesverhalen · wit, zonder vlak', 'Wat wil je bereiken? · Sand', 'Cases · wit, zonder vlak', 'Over ons · Sand', 'Vertrouwd door onze klanten · wit', 'Brede sfeerfoto met CTA', 'Groeien zonder risico · Sand', 'Veelgestelde vragen · wit', 'Afsluitende CTA met planner · Sand', 'Footer · wit, zonder lijnen'];
 
 export const experienceStats = [{ value: 12, label: 'JAAR ERVARING IN HET VAK' }, { value: 50, label: 'PROJECTEN OPGELEVERD' }];
 
