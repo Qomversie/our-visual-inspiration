@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, X, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { faqs, services, aboutChecks, cases } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultsList, HeroStats, PhotoCta } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultsGrid, HeroStats, PhotoCta } from '@/components/qomversie';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import team from '@/assets/Ons_team_2.jpeg.asset.json';
@@ -84,7 +84,7 @@ function Index() {
 
    </div>
    <LogoStrip/>
-   <section id="succesverhalen" className="q-section q-panel q-panel--dark q-results-section"><ResultsList onPlay={openVideo}/></section>
+   <section id="succesverhalen" className="q-section q-panel q-panel--dark q-results-section"><ResultsGrid onPlay={openVideo}/></section>
       <section id="over-ons" className="q-section q-panel"><div className="q-container q-about q-reveal">
     <div className="q-about-copy"><SectionHeader label="OVER ONS" title="Hoi! Wij zijn Qomversie"/><p className="q-text">Ik weet hoe het is om als ondernemer alles zelf te doen en toch het gevoel te hebben dat je langzaam groeit. Daarom bouw ik resultaatgerichte websites voor Friese bedrijven die daadwerkelijk klanten en tijdwinst opleveren.</p><p className="q-text">Geen groot bureau met lange wachttijden. Geen agency die alleen adviseert. Geen freelancer die alleen bouwt. Gewoon ik, met een vast team van specialisten. Korte lijntjes, snel schakelen, altijd bereikbaar.</p><p className="q-text">Sindsdien hebben we:</p><CheckList badge items={aboutChecks}/><CtaBlock variant="secondary">Laten we kennismaken</CtaBlock></div>
     <div className="q-about-photo q-smile-outline-host"><SmileOutline/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="1000" loading="lazy"/><SmileOutline front/></div>

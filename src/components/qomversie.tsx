@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode, type TouchEvent } from 'react';
-import { ArrowDown, ArrowRight, ArrowUp, Check, Play, Plus, Star } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUp, Check, Play, Plus, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { caseHoverNote, clients, experienceStats, headingLines, results, steps } from '@/lib/homepage-content';
 import graph from '@/assets/conversiegrafiek.png.asset.json';
@@ -105,59 +105,36 @@ export function PhotoCta() {
   </section>;
 }
 
-/* Results list: text column left, wide project bars right; three visible, arrows/keys/swipe scroll when more are added. */
-export function ResultsList({ onPlay }: { onPlay?: () => void }) {
-  const track = useRef<HTMLDivElement>(null);
-  const [index, setIndex] = useState(0);
-  const [offsets, setOffsets] = useState<number[]>([]);
-  const touchStart = useRef<number | null>(null);
-  const visible = 3;
-  const maxIndex = Math.max(0, results.length - visible);
-  useEffect(() => {
-    const element = track.current;
-    if (!element) return;
-    const measure = () => setOffsets(([...element.children] as HTMLElement[]).map(block => block.offsetTop));
-    measure();
-    const observer = new ResizeObserver(measure);
-    [...element.children].forEach(child => observer.observe(child));
-    return () => { observer.disconnect(); };
-  }, []);
-  const go = (direction: number) => setIndex(current => Math.max(0, Math.min(maxIndex, current + direction)));
-  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'ArrowUp') { event.preventDefault(); go(-1); }
-    if (event.key === 'ArrowDown') { event.preventDefault(); go(1); }
-  };
-  const onTouchStart = (event: TouchEvent<HTMLDivElement>) => { touchStart.current = event.touches[0]?.clientY ?? null; };
-  const onTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
-    const start = touchStart.current; touchStart.current = null;
-    const end = event.changedTouches[0]?.clientY;
-    if (start === null || end === undefined) return;
-    if (Math.abs(start - end) > 40) go(start - end > 0 ? 1 : -1);
-  };
-  const offset = (offsets[index] ?? 0) - (offsets[0] ?? 0);
+/* Results grid: header with page arrows, masonry of result blocks loaded from the results list; 6 per page. */
+export function ResultsGrid({ onPlay }: { onPlay?: () => void }) {
+  const perPage = 6;
+  const pages = Math.max(1, Math.ceil(results.length / perPage));
+  const [page, setPage] = useState(0);
+  const items = results.slice(page * perPage, page * perPage + perPage);
   return <div className="q-container q-results">
-    <div className="q-results-side">
-      <Label>WAT ONZE KLANTEN BEREIKEN</Label>
-      <h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2>
-      <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
+    <div className="q-results-head">
+      <div className="q-results-heading">
+        <Label>WAT ONZE KLANTEN BEREIKEN</Label>
+        <h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2>
+        <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
+      </div>
       <div className="q-results-nav">
-        <Button variant="round" onClick={() => go(-1)} disabled={index === 0} aria-label="Vorig succesverhaal"><ArrowUp aria-hidden="true"/></Button>
-        <Button variant="round" onClick={() => go(1)} disabled={index >= maxIndex} aria-label="Volgend succesverhaal"><ArrowDown aria-hidden="true"/></Button>
+        <Button variant="round" onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0} aria-label="Vorige pagina resultaten"><ArrowLeft aria-hidden="true"/></Button>
+        <span className="q-results-count" aria-live="polite">{page + 1} / {pages}</span>
+        <Button variant="round" onClick={() => setPage(p => Math.min(pages - 1, p + 1))} disabled={page >= pages - 1} aria-label="Volgende pagina resultaten"><ArrowRight aria-hidden="true"/></Button>
       </div>
     </div>
-    <div className="q-results-viewport" tabIndex={0} role="group" aria-label="Succesverhalen" onKeyDown={onKeyDown} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-      <div className="q-results-track" ref={track} style={{ transform: `translateY(${-offset}px)` }}>
-        {results.map(result => <article className={`q-result-bar${result.media === 'none' ? ' q-result-bar--text' : ''}`} key={result.id}>
-          {result.media === 'video' && <Button variant="ghost" className="q-result-media q-result-video" onClick={onPlay} disabled={!onPlay} aria-label="Videoreview van Joke Bleijerveld afspelen"><img src={still.url} alt="Joke Bleijerveld" loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button>}
-          {result.media === 'graph' && <div className="q-result-media"><img src={graph.url} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div>}
-          <div className="q-result-body">
-            <p className="q-result-client">{result.name} · {result.kind}</p>
-            <p className="q-result-number"><CountUp value={result.value} suffix={result.suffix}/></p>
-            <p className="q-result-description">{result.description}</p>
-          </div>
-          {result.featured && <span className="q-result-featured"><span aria-hidden="true">✦</span>Uitgelicht</span>}
-        </article>)}
-      </div>
+    <div className="q-results-grid">
+      {items.map(result => <article className={`q-result-block${result.media === 'none' ? ' q-result-block--text' : ''}`} key={result.id}>
+        {result.media === 'video' && <Button variant="ghost" className="q-result-media q-result-video" onClick={onPlay} disabled={!onPlay} aria-label={`Videoreview van ${result.name} afspelen`}><img src={still.url} alt={result.name} loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button>}
+        {result.media === 'graph' && <div className="q-result-media"><img src={graph.url} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div>}
+        <div className="q-result-body">
+          <p className="q-result-client">{result.name}</p>
+          <p className="q-result-number"><ArrowUp aria-hidden="true"/><CountUp value={result.value} suffix={result.suffix}/></p>
+          <p className="q-result-description">{result.description}</p>
+        </div>
+        <span className="q-result-featured"><span aria-hidden="true">✦</span>{result.kind}</span>
+      </article>)}
     </div>
   </div>;
 }
