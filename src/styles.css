@@ -391,7 +391,7 @@ strong { font-weight:600; }
 @media(max-width:760px) { .q-hero-follow .q-benefits { margin-bottom:0; padding-bottom:28px; } .q-section.q-logo-strip { padding-top:36px; } .q-hero-stats { gap:20px; } .q-hero-stat + .q-hero-stat { padding-left:20px; } }
 
 /* The dark results panel keeps its outline from bleeding sideways. */
-.q-results-section { overflow:hidden; }
+.q-results-section { overflow:clip; }
 
 
 /* Cases: equal cards, compact counter beside arrows. */
