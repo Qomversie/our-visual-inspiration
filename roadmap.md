@@ -10,3 +10,4 @@
 - [x] Hero vereenvoudigen, LogoStrip toevoegen en secties opnieuw ordenen.
 - [x] SuccessTabs vervangen door donker ResultsPanel met eenmalig optellende cijfers.
 - [x] Plannerlijnen en footerlijnen verwijderen; stijlgids en controles bijwerken.
+- [x] Briefing 7: hero-kaarten op de rand + cijferrij, succesverhalen-carrousel, nieuwe volgorde, cases zonder voortgangslijn, PhotoCta, styleguide.
