@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { faqs, services, aboutChecks, cases } from '@/lib/homepage-content';
 import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultCards, HeroStats, PhotoCta, SiteFooter } from '@/components/qomversie';
