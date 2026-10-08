@@ -107,7 +107,7 @@ export function ResultCards() {
   const pages = Math.max(1, Math.ceil(results.length / perPage));
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [video, setVideo] = useState<{ url: string; poster?: string; name: string }>();
+  const [video, setVideo] = useState<{ url: string; poster: string | undefined; name: string }>();
   const [videoError, setVideoError] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
