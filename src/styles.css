@@ -360,11 +360,10 @@ strong { font-weight:600; }
 /* One exact logo outline, split into rear and front layers around media. */
 .q-smile-outline-host { position:relative; isolation:isolate; }
 .q-smile-outline { position:absolute; width:120%; aspect-ratio:1; height:auto; max-width:none; top:5%; right:-12%; z-index:-1; pointer-events:none; overflow:visible; fill:none; stroke:var(--q-ginger); stroke-width:var(--q-smile-outline-stroke); stroke-linejoin:round; }
-.q-smile-outline--front { z-index:2; clip-path:polygon(46% 48%,100% 48%,100% 100%,46% 100%); }
+.q-smile-outline--front { z-index:2; clip-path:polygon(0% 100%,100% 0%,100% 100%); }
 .q-portrait,.q-planner { position:relative; z-index:1; }
 .q-planner-wrap { min-width:0; }
 .q-planner-wrap .q-smile-outline { top:8%; right:-10%; }
-.q-planner-wrap .q-smile-outline--front { clip-path:polygon(88% 45%,100% 45%,100% 100%,45% 100%,45% 92%,88% 92%); }
 .q-contact-wrap { overflow:hidden; }
 .q-contact-copy { position:relative; z-index:3; }
 .q-guide-outline-demo { width:min(420px,80%); margin:48px auto; }
