@@ -13,9 +13,7 @@
  --q-muted:color-mix(in oklab,var(--q-ink) 62%,var(--q-sand));
  --q-shadow:0 12px 35px color-mix(in oklab,var(--q-ink) 5%,transparent);
  --q-pill:999px;
- --q-outline-color:color-mix(in oklab,var(--q-ink) 85%,transparent); --q-outline-width:1px;
- --q-circles-line:color-mix(in oklab,var(--q-ink) 6%,transparent); --q-circles-dark-line:color-mix(in oklab,var(--q-sand) 8%,transparent);
- --q-circles-size:640px; --q-circles-ring-width:1.5px; --q-circles-smile-width:8px;
+
 
  /* shadcn mapping */
  --background:var(--q-white); --foreground:var(--q-ink); --card:var(--q-white); --primary:var(--q-ginger); --blue:var(--q-blue); --white:var(--q-white);
@@ -69,7 +67,6 @@ strong { font-weight:600; }
 .q-h1 em { font-style:italic; color:var(--q-ginger); }
 .q-smile { width:14px; height:14px; flex-shrink:0; color:var(--q-ginger); fill:currentColor; }
 .q-h2 { font-family:var(--q-font-heading); font-weight:600; font-style:normal; font-size:var(--q-fs-h2); color:var(--q-ink); line-height:1.05; }
-.q-outline { color:transparent; -webkit-text-stroke:var(--q-outline-width) var(--q-outline-color); }
 .q-panel--dark .q-outline { color:transparent; -webkit-text-stroke:1px var(--q-sand); }
 .q-h3 { font-family:var(--q-font-heading); font-weight:500; font-style:normal; font-size:var(--q-fs-h3); }
 .q-text { font-size:var(--q-fs-body); }
