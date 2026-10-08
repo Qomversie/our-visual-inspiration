@@ -11,6 +11,12 @@ export function Google() { return <span className="q-google" aria-label="Google"
 export function SmileMark({ className = 'q-smile' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 20 20" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" /></svg>;
 }
+export function SmileDots({ id = 'dots-a', className = 'q-dots' }: { id?: string; className?: string }) {
+  return <svg className={className} aria-hidden="true" focusable="false">
+    <defs><pattern id={id} width="30" height="30" patternUnits="userSpaceOnUse"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" transform="scale(.7)" /></pattern></defs>
+    <rect width="100%" height="100%" fill={`url(#${id})`} />
+  </svg>;
+}
 export function Label({ children }: { children: ReactNode }) { return <p className="q-label"><SmileMark />{children}</p>; }
 
 export function SectionHeader({ label, title, children }: { label?: string; title: string; children?: ReactNode }) {
