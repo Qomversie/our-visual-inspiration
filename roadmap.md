@@ -25,6 +25,6 @@
 - [x] Styleguide bijgewerkt
 
 ## Succesverhalen op wit
-- [ ] Witte sectie, donkere kop/bediening en Sand kaarten met rand.
-- [ ] Caselink per kaart; video via afspeelknop behouden.
-- [ ] Logo-afstand en stijlgids bijwerken; desktop/mobiel controleren.
+- [x] Witte sectie, donkere kop/bediening en Sand kaarten met rand.
+- [x] Caselink per kaart; video via afspeelknop behouden.
+- [x] Logo-afstand en stijlgids bijwerken; desktop/mobiel controleren.
