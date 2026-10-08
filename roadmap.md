@@ -6,3 +6,7 @@
 - [x] Verify desktop/mobile appearance, FAQ and advice links.
 
 - [x] Nieuwe sectievolgorde, Over ons twee kolommen, SuccessTabs, levendigere cases, styleguide
+
+- [x] Hero vereenvoudigen, LogoStrip toevoegen en secties opnieuw ordenen.
+- [x] SuccessTabs vervangen door donker ResultsPanel met eenmalig optellende cijfers.
+- [x] Plannerlijnen en footerlijnen verwijderen; stijlgids en controles bijwerken.

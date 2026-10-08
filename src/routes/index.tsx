@@ -2,10 +2,9 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, X, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { faqs, results, services, aboutChecks, cases, clients } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, SuccessTabs } from '@/components/qomversie';
+import { faqs, services, aboutChecks, cases } from '@/lib/homepage-content';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultsPanel } from '@/components/qomversie';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
-import couch from '@/assets/E-mail_header_2.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import team from '@/assets/Ons_team_2.jpeg.asset.json';
 
@@ -17,7 +16,6 @@ export const Route = createFileRoute('/')({
   { title: TITLE }, { name: 'description', content: DESCRIPTION },
   { property: 'og:title', content: TITLE }, { property: 'og:description', content: DESCRIPTION },
   { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' },
-  { property: 'og:image', content: portrait.url }, { name: 'twitter:image', content: portrait.url },
  ] }), component: Index,
 });
 
@@ -41,8 +39,8 @@ function CaseCarousel() {
  const update=()=>{const el=ref.current;if(!el)return;const kids=[...el.children] as HTMLElement[];const base=kids[0]?.offsetLeft??0;let index=0;kids.forEach((k,i)=>{if(k.offsetLeft-base<=el.scrollLeft+8)index=i;});const end=el.scrollLeft+el.clientWidth>=el.scrollWidth-5;setPos({start:el.scrollLeft<5,end,index:end?kids.length-1:index});};
  useEffect(()=>{update();window.addEventListener('resize',update);return()=>window.removeEventListener('resize',update);},[]);
  const scroll=(d:number)=>{const el=ref.current;if(!el)return;const kids=[...el.children] as HTMLElement[];const target=kids[Math.max(0,Math.min(kids.length-1,pos.index+d))];el.scrollTo({left:(target?.offsetLeft??0)-(kids[0]?.offsetLeft??0),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
- return <section id="cases" className="q-section q-panel q-cases">
-  <div className="q-container q-heading-row"><SectionHeader title="Cases waar we trots op zijn"/><div className="q-cases-aside"><p className="q-text">Een greep uit ons werk voor Friese ondernemers.</p><div className="q-cases-actions"><CtaBlock variant="secondary" href="#cases">Bekijk alle cases</CtaBlock><div className="q-slider-controls"><Button variant="round" disabled={pos.start} onClick={()=>scroll(-1)} aria-label="Vorige case"><ArrowLeft/></Button><Button variant="round" disabled={pos.end} onClick={()=>scroll(1)} aria-label="Volgende case"><ArrowRight/></Button></div></div></div></div>
+ return <section id="cases" className="q-section q-section--white q-cases">
+  <div className="q-container q-heading-row"><SectionHeader label="ONS WERK" title="Cases waar we trots op zijn"/><div className="q-cases-aside"><p className="q-text">Een greep uit ons werk voor Friese ondernemers.</p><div className="q-cases-actions"><CtaBlock variant="secondary" href="#cases">Bekijk alle cases</CtaBlock><div className="q-slider-controls"><Button variant="round" disabled={pos.start} onClick={()=>scroll(-1)} aria-label="Vorige case"><ArrowLeft/></Button><Button variant="round" disabled={pos.end} onClick={()=>scroll(1)} aria-label="Volgende case"><ArrowRight/></Button></div></div></div></div>
   <div className="q-case-track" ref={ref} onScroll={update}>{cases.map((c,i)=><CaseCard key={c.name} {...c} featured={i===0}/>)}</div>
   <div className="q-container q-case-progress"><span className="q-case-progress-bar"><span style={{width:`${(pos.index+1)/cases.length*100}%`}}/></span><span className="q-case-count" aria-live="polite">{String(pos.index+1).padStart(2,'0')} / {String(cases.length).padStart(2,'0')}</span></div>
  </section>;
@@ -79,32 +77,26 @@ function Index() {
     </div>
     <div className="q-hero-photo q-smile-outline-host"><SmileOutline/><img className="q-portrait" src={portrait.url} alt="Bouke van Qomversie, website laten bouwen in Friesland" width="540" height="750"/><SmileOutline front/><RotatingBadge id="hero-badge"/></div>
    </section>
-   <section id="vertrouwen" className="q-section q-section--flush q-container q-trust" aria-label="Ervaring en klanten"><h2 className="sr-only">Ervaring en klanten</h2><div className="q-stats"><div className="q-stat"><strong>12+</strong><span>Jaar ervaring in het vak</span></div><div className="q-stat"><strong>50+</strong><span>Projecten opgeleverd</span></div></div><div className="q-client-window" aria-label="Klantlogo’s volgen"><div className="q-client-track">{[...clients,...clients,...clients,...clients].map((name,i)=><div className="q-client" key={i} aria-hidden={i>=4}>{name}<small>KLANTLOGO VOLGT</small></div>)}</div></div></section>
    <section className="q-section q-section--flush q-hero-follow" aria-label="Wat je eraan hebt">
     <div className="q-container q-hero-follow-inner">
-     <img className="q-follow-photo" src={couch.url} alt="Bouke en zijn collega van Qomversie bespreken een website op de bank" width="800" height="533" loading="lazy"/>
      <div className="q-benefits">{benefits.map(({Icon,title,text})=><article className="q-card" key={title}><Icon aria-hidden="true"/><h3 className="q-h3">{title}</h3><p className="q-text">{text}</p></article>)}</div>
     </div>
    </section>
 
    </div>
-   <section id="succesverhalen" className="q-section q-section--white">
-    <div className="q-container q-reveal">
-     <div className="q-tabs-head"><SectionHeader label="WAT ONZE KLANTEN BEREIKEN" title="Succesverhalen"/><p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p></div>
-     <SuccessTabs onPlay={openVideo}/>
-    </div>
-   </section>
+   <LogoStrip/>
+   <section id="succesverhalen" className="q-section q-panel q-panel--dark"><div className="q-container"><ResultsPanel onPlay={openVideo}/></div></section>
+   <section id="diensten" className="q-section q-panel"><div className="q-container q-reveal"><SectionHeader label="START MET GROEIEN!" title="Wat wil je bereiken?"/><div className="q-services">{services.map((s,i)=><a className="q-card" href="#contact" key={s.title}><span className="q-service-number">0{i+1}</span><ArrowUpRight className="q-service-arrow" aria-hidden="true"/><h3 className="q-h3">{s.title}</h3><p className="q-service-subtitle">{s.subtitle}</p><p className="q-text">{s.text}</p><CheckList items={s.checks}/><span className="q-btn q-btn--secondary">Gratis advies<ArrowRight aria-hidden="true"/></span></a>)}</div></div></section>
    <CaseCarousel/>
-   <section id="over-ons" className="q-section q-section--white"><div className="q-container q-about q-reveal">
+   <section id="over-ons" className="q-section q-panel"><div className="q-container q-about q-reveal">
     <div className="q-about-copy"><SectionHeader label="OVER ONS" title="Hoi! Wij zijn Qomversie"/><p className="q-text">Ik weet hoe het is om als ondernemer alles zelf te doen en toch het gevoel te hebben dat je langzaam groeit. Daarom bouw ik resultaatgerichte websites voor Friese bedrijven die daadwerkelijk klanten en tijdwinst opleveren.</p><p className="q-text">Geen groot bureau met lange wachttijden. Geen agency die alleen adviseert. Geen freelancer die alleen bouwt. Gewoon ik, met een vast team van specialisten. Korte lijntjes, snel schakelen, altijd bereikbaar.</p><p className="q-text">Sindsdien hebben we:</p><CheckList badge items={aboutChecks}/><CtaBlock variant="secondary">Laten we kennismaken</CtaBlock></div>
     <div className="q-about-photo q-smile-outline-host"><SmileOutline/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="1000" loading="lazy"/><SmileOutline front/></div>
    </div></section>
-   <section id="diensten" className="q-section q-panel"><div className="q-container q-reveal"><SectionHeader label="START MET GROEIEN!" title="Wat wil je bereiken?"/><div className="q-services">{services.map((s,i)=><a className="q-card" href="#contact" key={s.title}><span className="q-service-number">0{i+1}</span><ArrowUpRight className="q-service-arrow" aria-hidden="true"/><h3 className="q-h3">{s.title}</h3><p className="q-service-subtitle">{s.subtitle}</p><p className="q-text">{s.text}</p><CheckList items={s.checks}/><span className="q-btn q-btn--secondary">Gratis advies<ArrowRight aria-hidden="true"/></span></a>)}</div></div></section>
    <section id="reviews" className="q-section q-section--white"><div className="q-container q-reveal"><SectionHeader label="RECENSIES" title="Vertrouwd door onze klanten"/><ShortcodeBlock code="reviews" note="Hier komt de reviews-widget"/></div></section>
    <section id="beloftes" className="q-section q-panel"><div className="q-container q-promises q-reveal"><div className="q-promises-intro"><SectionHeader label="ONZE BELOFTES" title="Groeien zonder risico"><p className="q-text">Geen gedoe, geen verrassingen. Dit kun je van ons verwachten.</p></SectionHeader><CtaBlock/></div><div className="q-promise-grid">{promises.map(({Icon,title,text})=><article className="q-promise" key={title}><Icon aria-hidden="true"/><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
    <section id="faq" className="q-section q-section--white"><div className="q-container q-faq-section q-reveal"><SectionHeader label="FAQ" title="Veelgestelde vragen"/><div className="q-faq-list">{faqs.map(f=><FaqItem key={f.question} {...f}/>)}</div></div></section>
    <section id="contact" className="q-section q-panel q-contact-wrap q-reveal">
-     <div className="q-container q-contact"><div className="q-contact-copy"><SectionHeader label="KLAAR OM TE GROEIEN?" title="Plan je gratis adviesgesprek!"/><p className="q-text">Ontdek in 30 minuten hoeveel het jou kan opleveren.</p><CheckList badge items={['Gratis en vrijblijvend','30 minuten, op locatie of via video','Eerlijk advies, ook als je ons nu niet nodig hebt']}/><p className="q-call">Liever even bellen? <a href="tel:+31653509763">06-53509763</a></p></div><div className="q-planner-wrap q-smile-outline-host"><SmileOutline/><div className="q-planner"><ShortcodeBlock code="hubspot-agenda" note="Hier komt de HubSpot-afspraakplanner"/></div><SmileOutline front/></div></div>
+     <div className="q-container q-contact"><div className="q-contact-copy"><SectionHeader label="KLAAR OM TE GROEIEN?" title="Plan je gratis adviesgesprek!"/><p className="q-text">Ontdek in 30 minuten hoeveel het jou kan opleveren.</p><CheckList badge items={['Gratis en vrijblijvend','30 minuten, op locatie of via video','Eerlijk advies, ook als je ons nu niet nodig hebt']}/><p className="q-call">Liever even bellen? <a href="tel:+31653509763">06-53509763</a></p></div><div className="q-planner-wrap"><div className="q-planner"><ShortcodeBlock code="hubspot-agenda" note="Hier komt de HubSpot-afspraakplanner"/></div></div></div>
     </section>
   </main>
   <footer className="q-section q-section--white q-section--flush q-footer"><div className="q-container">
