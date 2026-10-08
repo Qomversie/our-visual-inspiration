@@ -1,4 +1,4 @@
-import reviewVideo from '@/assets/videoreview-joke.mp4.asset.json';
+import reviewVideo from '@/assets/videoreview-joke.webm.asset.json';
 import graph from '@/assets/conversiegrafiek.png.asset.json';
 import still from '@/assets/videostill-joke.jpg.asset.json';
 import caseCowboy from '@/assets/case-cowboy-magic.png.asset.json';
