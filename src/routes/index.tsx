@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, X, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { faqs, results, services, aboutChecks, cases, clients } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, SuccessTabs } from '@/components/qomversie';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import couch from '@/assets/E-mail_header_2.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';

@@ -58,7 +58,7 @@ export function CaseCard({ name, line, image, tag, featured = false }: { name: s
   </article>;
 }
 
-function Podium({ id, onPlay }: { id: string; onPlay?: () => void }) {
+function Podium({ id, onPlay }: { id: string; onPlay: (() => void) | undefined }) {
   if (id === 'cowboy') return <div className="q-browser-frame"><div className="q-browser-bar"><i/><i/><i/><span>Conversiepercentage · Shopify</span></div><img className="q-browser-img" src={graph.url} alt="Shopify-grafiek: conversiepercentage 2,79%, 40% hoger dan de vorige periode" loading="lazy" /></div>;
   if (id === 'joke') return <button type="button" className="q-podium-video" onClick={onPlay} aria-label="Videoreview van Joke Bleijerveld afspelen"><img src={still.url} alt="" loading="lazy" /><span className="q-video-play"><Play aria-hidden="true"/></span></button>;
   return <div className="q-podium-compare"><div className="q-time" role="img" aria-label="Voorheen 2 weken werk, nu 1 dag"><div className="q-time-row"><b>Voorheen</b><span className="q-time-bar"/><span>2 weken</span></div><div className="q-time-row q-time-row--now"><b>Nu</b><span className="q-time-bar"/><span>1 dag</span></div></div><div className="q-case-media q-podium-photo" role="img" aria-label="Projectfoto Hoogterp Verf volgt">Foto volgt</div></div>;
@@ -74,7 +74,7 @@ export function SuccessTabs({ onPlay }: { onPlay?: () => void }) {
     const n = results.length; const map: Record<string, number> = { ArrowDown: active + 1, ArrowRight: active + 1, ArrowUp: active - 1, ArrowLeft: active - 1, Home: 0, End: n - 1 };
     if (e.key in map) { e.preventDefault(); pick((map[e.key] + n) % n, true); }
   };
-  const r = results[active];
+  const r = results[active] ?? results[0]!;
   return <div className={`q-tabs${hover ? ' is-paused' : ''}${stopped ? ' is-stopped' : ''}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
     <div className="q-tab-list" role="tablist" aria-label="Succesverhalen" aria-orientation="vertical" onKeyDown={onKey}>
       {results.map((x, i) => <button key={x.id} ref={el => { refs.current[i] = el; }} role="tab" id={`tab-${x.id}`} aria-controls={`panel-${x.id}`} aria-selected={i === active} tabIndex={i === active ? 0 : -1} className="q-tab" onClick={() => pick(i)}>
