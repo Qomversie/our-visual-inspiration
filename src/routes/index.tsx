@@ -37,13 +37,14 @@ const promises = [
 
 function CaseCarousel() {
  const ref=useRef<HTMLDivElement>(null);
- const [pos,setPos]=useState({start:true,end:false});
- const update=()=>{const el=ref.current;if(el)setPos({start:el.scrollLeft<5,end:el.scrollLeft+el.clientWidth>=el.scrollWidth-5});};
+ const [pos,setPos]=useState({start:true,end:false,index:0});
+ const update=()=>{const el=ref.current;if(!el)return;const kids=[...el.children] as HTMLElement[];const base=kids[0]?.offsetLeft??0;let index=0;kids.forEach((k,i)=>{if(k.offsetLeft-base<=el.scrollLeft+8)index=i;});const end=el.scrollLeft+el.clientWidth>=el.scrollWidth-5;setPos({start:el.scrollLeft<5,end,index:end?kids.length-1:index});};
  useEffect(()=>{update();window.addEventListener('resize',update);return()=>window.removeEventListener('resize',update);},[]);
- const scroll=(d:number)=>{const el=ref.current;if(!el)return;const card=el.firstElementChild;el.scrollBy({left:d*((card?.getBoundingClientRect().width??400)+24),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
- return <section id="cases" className="q-section q-section--white q-cases">
-  <div className="q-container q-heading-row"><SectionHeader title="Cases waar we trots op zijn"/><div className="q-slider-controls"><Button variant="round" disabled={pos.start} onClick={()=>scroll(-1)} aria-label="Vorige case"><ArrowLeft/></Button><Button variant="round" disabled={pos.end} onClick={()=>scroll(1)} aria-label="Volgende case"><ArrowRight/></Button></div></div>
-  <div className="q-case-track" ref={ref} onScroll={update}>{cases.map(c=><CaseCard key={c.name} {...c}/>)}</div>
+ const scroll=(d:number)=>{const el=ref.current;if(!el)return;const kids=[...el.children] as HTMLElement[];const target=kids[Math.max(0,Math.min(kids.length-1,pos.index+d))];el.scrollTo({left:(target?.offsetLeft??0)-(kids[0]?.offsetLeft??0),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
+ return <section id="cases" className="q-section q-panel q-cases">
+  <div className="q-container q-heading-row"><SectionHeader title="Cases waar we trots op zijn"/><div className="q-cases-aside"><p className="q-text">Een greep uit ons werk voor Friese ondernemers.</p><div className="q-cases-actions"><CtaBlock variant="secondary" href="#cases">Bekijk alle cases</CtaBlock><div className="q-slider-controls"><Button variant="round" disabled={pos.start} onClick={()=>scroll(-1)} aria-label="Vorige case"><ArrowLeft/></Button><Button variant="round" disabled={pos.end} onClick={()=>scroll(1)} aria-label="Volgende case"><ArrowRight/></Button></div></div></div></div>
+  <div className="q-case-track" ref={ref} onScroll={update}>{cases.map((c,i)=><CaseCard key={c.name} {...c} featured={i===0}/>)}</div>
+  <div className="q-container q-case-progress"><span className="q-case-progress-bar"><span style={{width:`${(pos.index+1)/cases.length*100}%`}}/></span><span className="q-case-count" aria-live="polite">{String(pos.index+1).padStart(2,'0')} / {String(cases.length).padStart(2,'0')}</span></div>
  </section>;
 }
 
@@ -89,37 +90,17 @@ function Index() {
    </div>
    <section id="succesverhalen" className="q-section q-section--white">
     <div className="q-container q-reveal">
-     <SectionHeader label="WAT ONZE KLANTEN BEREIKEN" title="Succesverhalen"><p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p></SectionHeader>
-     <div className="q-results">
-      <article className="q-card q-res q-res--main">
-       <h3 className="q-res-client">{results[0]?.name}</h3>
-       <p className="q-res-number">{results[0]?.number}</p>
-       <p className="q-res-text">{results[0]?.text}</p>
-       <div className="q-browser"><div className="q-browser-frame"><div className="q-browser-bar"><i/><i/><i/><span>Conversiepercentage · Shopify</span></div><div className="q-browser-screen" role="img" aria-label="Screenshot van de conversiegrafiek volgt">Screenshot conversiegrafiek volgt</div></div></div>
-      </article>
-      <article className="q-card q-res q-res--video">
-       <div className="q-res-body"><h3 className="q-res-client">{results[1]?.name}</h3><p className="q-res-number">{results[1]?.number}</p><p className="q-res-text">{results[1]?.text}</p></div>
-       <Button variant="ghost" type="button" className="q-bento-video" onClick={openVideo} aria-label="Videoreview van Joke Bleijerveld afspelen"><span className="q-video-play"><Play aria-hidden="true"/></span><small>Videostill volgt</small></Button>
-      </article>
-      <article className="q-card q-res q-res--time">
-       <h3 className="q-res-client">{results[2]?.name}</h3>
-       <p className="q-res-number">{results[2]?.number}</p>
-       <p className="q-res-text">{results[2]?.text}</p>
-       <div className="q-time" role="img" aria-label="Voorheen 2 weken werk, nu 1 dag">
-        <div className="q-time-row"><b>Voorheen</b><span className="q-time-bar"/><span>2 weken</span></div>
-        <div className="q-time-row q-time-row--now"><b>Nu</b><span className="q-time-bar"/><span>1 dag</span></div>
-       </div>
-      </article>
-     </div>
+     <div className="q-tabs-head"><SectionHeader label="WAT ONZE KLANTEN BEREIKEN" title="Succesverhalen"/><p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p></div>
+     <SuccessTabs onPlay={openVideo}/>
     </div>
    </section>
-   <section id="reviews" className="q-section q-panel"><div className="q-container q-reveal"><SectionHeader label="RECENSIES" title="Vertrouwd door onze klanten"/><ShortcodeBlock code="reviews" note="Hier komt de reviews-widget"/></div></section>
    <CaseCarousel/>
-   <section id="over-ons" className="q-panel q-about-split q-reveal">
-     <div className="q-about-text"><SectionHeader label="OVER ONS" title="Hoi! Wij zijn Qomversie"/><p className="q-text">Ik weet hoe het is om als ondernemer alles zelf te doen en toch het gevoel te hebben dat je langzaam groeit. Daarom bouw ik resultaatgerichte websites voor Friese bedrijven die daadwerkelijk klanten en tijdwinst opleveren.</p><p className="q-text">Geen groot bureau met lange wachttijden. Geen agency die alleen adviseert. Geen freelancer die alleen bouwt. Gewoon ik, met een vast team van specialisten. Korte lijntjes, snel schakelen, altijd bereikbaar.</p><p className="q-text">Sindsdien hebben we:</p><CheckList badge items={aboutChecks}/><CtaBlock variant="secondary">Laten we kennismaken</CtaBlock></div>
-     <div className="q-about-media q-smile-outline-host"><SmileOutline/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="800" loading="lazy"/><SmileOutline front/></div>
-    </section>
-   <section id="diensten" className="q-section q-section--white"><div className="q-container q-reveal"><SectionHeader label="START MET GROEIEN!" title="Wat wil je bereiken?"/><div className="q-services">{services.map((s,i)=><a className="q-card q-card--sand" href="#contact" key={s.title}><span className="q-service-number">0{i+1}</span><ArrowUpRight className="q-service-arrow" aria-hidden="true"/><h3 className="q-h3">{s.title}</h3><p className="q-service-subtitle">{s.subtitle}</p><p className="q-text">{s.text}</p><CheckList items={s.checks}/><span className="q-btn q-btn--secondary">Gratis advies<ArrowRight aria-hidden="true"/></span></a>)}</div></div></section>
+   <section id="over-ons" className="q-section q-section--white"><div className="q-container q-about q-reveal">
+    <div className="q-about-copy"><SectionHeader label="OVER ONS" title="Hoi! Wij zijn Qomversie"/><p className="q-text">Ik weet hoe het is om als ondernemer alles zelf te doen en toch het gevoel te hebben dat je langzaam groeit. Daarom bouw ik resultaatgerichte websites voor Friese bedrijven die daadwerkelijk klanten en tijdwinst opleveren.</p><p className="q-text">Geen groot bureau met lange wachttijden. Geen agency die alleen adviseert. Geen freelancer die alleen bouwt. Gewoon ik, met een vast team van specialisten. Korte lijntjes, snel schakelen, altijd bereikbaar.</p><p className="q-text">Sindsdien hebben we:</p><CheckList badge items={aboutChecks}/><CtaBlock variant="secondary">Laten we kennismaken</CtaBlock></div>
+    <div className="q-about-photo q-smile-outline-host"><SmileOutline/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="1000" loading="lazy"/><SmileOutline front/></div>
+   </div></section>
+   <section id="diensten" className="q-section q-panel"><div className="q-container q-reveal"><SectionHeader label="START MET GROEIEN!" title="Wat wil je bereiken?"/><div className="q-services">{services.map((s,i)=><a className="q-card" href="#contact" key={s.title}><span className="q-service-number">0{i+1}</span><ArrowUpRight className="q-service-arrow" aria-hidden="true"/><h3 className="q-h3">{s.title}</h3><p className="q-service-subtitle">{s.subtitle}</p><p className="q-text">{s.text}</p><CheckList items={s.checks}/><span className="q-btn q-btn--secondary">Gratis advies<ArrowRight aria-hidden="true"/></span></a>)}</div></div></section>
+   <section id="reviews" className="q-section q-section--white"><div className="q-container q-reveal"><SectionHeader label="RECENSIES" title="Vertrouwd door onze klanten"/><ShortcodeBlock code="reviews" note="Hier komt de reviews-widget"/></div></section>
    <section id="beloftes" className="q-section q-panel"><div className="q-container q-promises q-reveal"><div className="q-promises-intro"><SectionHeader label="ONZE BELOFTES" title="Groeien zonder risico"><p className="q-text">Geen gedoe, geen verrassingen. Dit kun je van ons verwachten.</p></SectionHeader><CtaBlock/></div><div className="q-promise-grid">{promises.map(({Icon,title,text})=><article className="q-promise" key={title}><Icon aria-hidden="true"/><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
    <section id="faq" className="q-section q-section--white"><div className="q-container q-faq-section q-reveal"><SectionHeader label="FAQ" title="Veelgestelde vragen"/><div className="q-faq-list">{faqs.map(f=><FaqItem key={f.question} {...f}/>)}</div></div></section>
    <section id="contact" className="q-section q-panel q-contact-wrap q-reveal">
