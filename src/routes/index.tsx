@@ -1,9 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, X, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ArrowLeft, Phone, MousePointer2, Clock3, Search, Layers, ShieldCheck, BadgeCheck, Handshake, Wallet, ChartNoAxesCombined, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { faqs, services, aboutChecks, cases } from '@/lib/homepage-content';
-import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultsGrid, HeroStats, PhotoCta } from '@/components/qomversie';
+import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, Stars, Google, Label, SmileOutline, LogoStrip, ResultCards, HeroStats, PhotoCta } from '@/components/qomversie';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import team from '@/assets/Ons_team_2.jpeg.asset.json';
@@ -46,14 +46,12 @@ function CaseCarousel() {
 }
 
 function Index() {
- const [scrolled,setScrolled]=useState(false);const [pastHero,setPastHero]=useState(false);const [videoError,setVideoError]=useState(false);const dialogRef=useRef<HTMLDialogElement>(null);const videoRef=useRef<HTMLVideoElement>(null);
+ const [scrolled,setScrolled]=useState(false);const [pastHero,setPastHero]=useState(false);
  useEffect(()=>{
   const onScroll=()=>{setScrolled(window.scrollY>30);const el=document.getElementById('hero');setPastHero((el?.getBoundingClientRect().bottom??1)<0);};onScroll();window.addEventListener('scroll',onScroll,{passive:true});
   const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.06});document.querySelectorAll('.q-reveal').forEach(el=>observer.observe(el));
   return()=>{window.removeEventListener('scroll',onScroll);observer.disconnect();};
  },[]);
- const openVideo=()=>{dialogRef.current?.showModal();videoRef.current?.play().catch(()=>{});};
- const closeVideo=()=>{videoRef.current?.pause();dialogRef.current?.close();};
  const structuredData = {'@context':'https://schema.org','@graph':[
   {'@type':'LocalBusiness',name:'Qomversie',url:'https://www.qomv.nl',telephone:'+31653509763',email:'info@qomv.nl',areaServed:{'@type':'AdministrativeArea',name:'Friesland'},address:{'@type':'PostalAddress',addressRegion:'Friesland',addressCountry:'NL'},aggregateRating:{'@type':'AggregateRating',ratingValue:'5.0',reviewCount:23,bestRating:'5'}},
   {'@type':'FAQPage',mainEntity:faqs.map(f=>({'@type':'Question',name:f.question,acceptedAnswer:{'@type':'Answer',text:f.answer}}))},
@@ -84,7 +82,7 @@ function Index() {
 
    </div>
    <LogoStrip/>
-   <section id="succesverhalen" className="q-section q-panel q-panel--dark q-results-section"><ResultsGrid onPlay={openVideo}/></section>
+   <section id="succesverhalen" className="q-section q-panel q-panel--dark q-results-section"><ResultCards/></section>
       <section id="over-ons" className="q-section q-panel"><div className="q-container q-about q-reveal">
     <div className="q-about-copy"><SectionHeader label="OVER ONS" title="Hoi! Wij zijn Qomversie"/><p className="q-text">Ik weet hoe het is om als ondernemer alles zelf te doen en toch het gevoel te hebben dat je langzaam groeit. Daarom bouw ik resultaatgerichte websites voor Friese bedrijven die daadwerkelijk klanten en tijdwinst opleveren.</p><p className="q-text">Geen groot bureau met lange wachttijden. Geen agency die alleen adviseert. Geen freelancer die alleen bouwt. Gewoon ik, met een vast team van specialisten. Korte lijntjes, snel schakelen, altijd bereikbaar.</p><p className="q-text">Sindsdien hebben we:</p><CheckList badge items={aboutChecks}/><CtaBlock variant="secondary">Laten we kennismaken</CtaBlock></div>
     <div className="q-about-photo q-smile-outline-host"><SmileOutline/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="1000" loading="lazy"/><SmileOutline front/></div>
@@ -109,6 +107,6 @@ function Index() {
    </div><div className="q-footer-bottom">© Qomversie · Website laten bouwen in Friesland</div>
   </div></footer>
   <div className={`q-mobile-cta ${pastHero?'active':''}`}><CtaBlock/></div>
-  <dialog className="q-video-dialog" ref={dialogRef} onCancel={()=>videoRef.current?.pause()} onClick={e=>{if(e.target===e.currentTarget)closeVideo();}}><Button variant="round" className="q-video-close" aria-label="Video sluiten" onClick={closeVideo}><X/></Button>{videoError&&<div className="q-video-error"><h3>De videoreview is tijdelijk niet beschikbaar.</h3><p>Probeer het later opnieuw.</p><Button asChild variant="quiet"><a href="https://www.qomv.nl/wp-content/uploads/2026/05/Videoreview-Joke-Bleijerveld.mp4" target="_blank" rel="noreferrer">Open de videolink<ArrowUpRight/></a></Button></div>}<video ref={videoRef} hidden={videoError} onError={()=>setVideoError(true)} controls playsInline preload="none" src="https://www.qomv.nl/wp-content/uploads/2026/05/Videoreview-Joke-Bleijerveld.mp4" aria-label="Videoreview van Joke Bleijerveld"/></dialog>
+
  </>;
 }

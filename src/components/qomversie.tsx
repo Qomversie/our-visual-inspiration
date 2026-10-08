@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode, type TouchEvent } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUp, Check, Play, Plus, Star } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUp, Check, Play, Plus, Star, TrendingUp, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { caseHoverNote, clients, experienceStats, headingLines, results, steps } from '@/lib/homepage-content';
-import graph from '@/assets/conversiegrafiek.png.asset.json';
-import still from '@/assets/videostill-joke.jpg.asset.json';
 import bank from '@/assets/E-mail_header_2.png.asset.json';
 
 export function Stars() {
@@ -94,23 +92,57 @@ export function HeroStats() {
 
 /* Wide photo panel: the smile outline wraps the whole block, behind at the top edge and in front at the bottom-right corner. */
 export function PhotoCta() {
-  return <section className="q-photo-cta q-smile-outline-host" aria-labelledby="photo-cta-title">
+  return <section className="q-photo-cta" aria-labelledby="photo-cta-title">
     <div className="q-photo-cta-frame">
       <img src={bank.url} alt="Bouke van Qomversie met een collega op de bank"/>
       <div className="q-photo-cta-shade" aria-hidden="true"/>
       <div className="q-photo-cta-copy"><Label>KLAAR VOOR DE VOLGENDE STAP?</Label><h2 id="photo-cta-title" className="q-h2" aria-label="Geen gedoe, gewoon resultaat."><span className="q-h2-outline">Geen gedoe,</span><br/>gewoon resultaat.</h2><p className="q-text">In 30 minuten weet je wat jouw website kan opleveren. Gratis en vrijblijvend.</p><CtaBlock/></div>
     </div>
-    <SmileOutline/>
-    <SmileOutline front/>
   </section>;
 }
 
-/* Results grid: header with page arrows, masonry of result blocks loaded from the results list; 6 per page. */
-export function ResultsGrid({ onPlay }: { onPlay?: () => void }) {
-  const perPage = 6;
+/* ResultCards owns pagination and the shared video lightbox for homepage and styleguide. */
+export function ResultCards() {
+  const perPage = 3;
   const pages = Math.max(1, Math.ceil(results.length / perPage));
   const [page, setPage] = useState(0);
-  const items = results.slice(page * perPage, page * perPage + perPage);
+  const [direction, setDirection] = useState(1);
+  const [video, setVideo] = useState<{ url: string; poster?: string; name: string }>();
+  const [videoError, setVideoError] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const touch = useRef<{ x: number; y: number } | undefined>(undefined);
+  const changePage = (next: number) => {
+    const target = Math.max(0, Math.min(pages - 1, next));
+    if (target === page) return;
+    setDirection(target > page ? 1 : -1);
+    setPage(target);
+  };
+  const openVideo = (item: { video: string; poster?: string; name: string }) => {
+    setVideoError(false);
+    setVideo({ url: item.video, poster: item.poster, name: item.name });
+    dialogRef.current?.showModal();
+  };
+  useEffect(() => {
+    if (video) videoRef.current?.play().catch(() => {});
+  }, [video]);
+  const closeVideo = () => {
+    videoRef.current?.pause();
+    dialogRef.current?.close();
+    setVideo(undefined);
+  };
+  const swipe = (event: TouchEvent<HTMLDivElement>) => {
+    const start = touch.current;
+    const end = event.changedTouches[0];
+    if (start && end && Math.abs(start.x - end.clientX) > 50 && Math.abs(start.x - end.clientX) > Math.abs(start.y - end.clientY)) changePage(page + (start.x > end.clientX ? 1 : -1));
+    touch.current = undefined;
+  };
+  const keyPage = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      changePage(page + (event.key === 'ArrowRight' ? 1 : -1));
+    }
+  };
   return <div className="q-container q-results">
     <div className="q-results-head">
       <div className="q-results-heading">
@@ -119,22 +151,25 @@ export function ResultsGrid({ onPlay }: { onPlay?: () => void }) {
         <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
       </div>
       <div className="q-results-nav">
-        <Button variant="round" onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0} aria-label="Vorige pagina resultaten"><ArrowLeft aria-hidden="true"/></Button>
+        <Button variant="round" onClick={() => changePage(page - 1)} disabled={page === 0} aria-label="Vorige pagina resultaten"><ArrowLeft aria-hidden="true"/></Button>
         <span className="q-results-count" aria-live="polite">{page + 1} / {pages}</span>
-        <Button variant="round" onClick={() => setPage(p => Math.min(pages - 1, p + 1))} disabled={page >= pages - 1} aria-label="Volgende pagina resultaten"><ArrowRight aria-hidden="true"/></Button>
+        <Button variant="round" onClick={() => changePage(page + 1)} disabled={page >= pages - 1} aria-label="Volgende pagina resultaten"><ArrowRight aria-hidden="true"/></Button>
       </div>
     </div>
-    <div className="q-results-grid">
-      {items.map(result => <article className={`q-result-block${result.media === 'none' ? ' q-result-block--text' : ''}`} key={result.id}>
-        {result.media === 'video' && <Button variant="ghost" className="q-result-media q-result-video" onClick={onPlay} disabled={!onPlay} aria-label={`Videoreview van ${result.name} afspelen`}><img src={still.url} alt={result.name} loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button>}
-        {result.media === 'graph' && <div className="q-result-media"><img src={graph.url} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div>}
-        <div className="q-result-body">
-          <p className="q-result-client">{result.name}</p>
-          <p className="q-result-number"><ArrowUp aria-hidden="true"/><CountUp value={result.value} suffix={result.suffix}/></p>
-          <p className="q-result-description">{result.description}</p>
-        </div>
-        <span className="q-result-featured"><span aria-hidden="true">✦</span>{result.kind}</span>
-      </article>)}
+    <div className="q-result-cards" tabIndex={0} aria-label="Klantresultaten" onKeyDown={keyPage} onTouchStart={event => { const point = event.touches[0]; if (point) touch.current = { x: point.clientX, y: point.clientY }; }} onTouchEnd={swipe}>
+      <div className={`q-result-page${direction < 0 ? ' q-result-page--back' : ''}`} key={page}>
+        {results.slice(page * perPage, page * perPage + perPage).map(result => <article className="q-result-card" key={result.id}>
+          {'video' in result && result.video ? <Button variant="ghost" className="q-result-media q-result-video" onClick={() => openVideo(result)} aria-label={`Videoreview van ${result.name} afspelen`}><img src={result.poster} alt={result.name} loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button> : 'image' in result && result.image ? <div className="q-result-media"><img src={result.image} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div> : <div className="q-result-media q-result-icon"><TrendingUp size={48} strokeWidth={2} aria-hidden="true"/></div>}
+          <div className="q-result-body"><h3 className="q-result-title" aria-label={result.title}><CountUp value={result.value}/>{result.title.slice(String(result.value).length)}</h3><p className="q-result-description">{result.description}</p></div>
+          <div className="q-result-customer"><p className="q-result-client">{result.name}</p>{'video' in result && result.video && <Button variant="ghost" className="q-result-video-link" onClick={() => openVideo(result)}>Bekijk de video <ArrowRight aria-hidden="true"/></Button>}</div>
+          <span className="q-result-featured"><span aria-hidden="true">✦</span>{result.kind}</span>
+        </article>)}
+      </div>
     </div>
+    <dialog className="q-video-dialog" ref={dialogRef} aria-label={video ? `Videoreview van ${video.name}` : 'Videoreview'} onCancel={closeVideo} onClick={event => { if (event.target === event.currentTarget) closeVideo(); }}>
+      <Button variant="round" className="q-video-close" aria-label="Video sluiten" onClick={closeVideo}><X/></Button>
+      {videoError && <div className="q-video-error"><h3>De videoreview is tijdelijk niet beschikbaar.</h3><p>Probeer het later opnieuw.</p></div>}
+      {video && <video key={video.url} ref={videoRef} hidden={videoError} onError={() => setVideoError(true)} controls playsInline autoPlay preload="none" src={video.url} poster={video.poster} aria-label={`Videoreview van ${video.name}`}/>}
+    </dialog>
   </div>;
 }
