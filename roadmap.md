@@ -1,4 +1,6 @@
 # Qomversie homepage
+- [x] Apply unified smile-corner panels, outlined H2s, 1360px layout and redesigned success stories; preserve hero and section order.
+- [x] Update Elementor styleguide and verify desktop/mobile plus carousel, FAQ and advice flow.
 - [x] Build all supplied sections with exact copy and supplied identity.
 - [x] Add working FAQ, sliders, video and advice anchors; honest placeholders for missing material.
 - [x] Verify desktop, tablet and mobile rendering and interactions.
