@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { ArrowRight, ArrowUp, Check, Plus, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { headingLines } from '@/lib/homepage-content';
+import { headingLines, steps } from '@/lib/homepage-content';
 
 export function Stars() {
   return <span className="q-stars" aria-label="5 van 5 sterren">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" />)}</span>;
@@ -11,8 +11,9 @@ export function Google() { return <span className="q-google" aria-label="Google"
 export function SmileMark({ className = 'q-smile' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 20 20" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" /></svg>;
 }
-/* CornerMark: L-vormige hoekmarkering linksboven in een sectie, met Ginger vierkantje op het hoekpunt. */
-export function CornerMark() { return <span className="q-corner" aria-hidden="true" />; }
+export function SmileOutline({ front = false }: { front?: boolean }) {
+  return <svg className={`q-smile-outline${front ? ' q-smile-outline--front' : ''}`} viewBox="-0.2 -0.2 20.4 20.4" preserveAspectRatio="none" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" vectorEffect="non-scaling-stroke" /></svg>;
+}
 export function Label({ children }: { children: ReactNode }) { return <p className="q-label"><SmileMark />{children}</p>; }
 
 export function SectionHeader({ label, title, children }: { label?: string; title: string; children?: ReactNode }) {
@@ -32,6 +33,10 @@ export function RotatingBadge({ text = 'GRATIS ADVIESGESPREK • 30 MINUTEN • 
 
 export function CheckList({ items, badge = false }: { items: string[]; badge?: boolean }) {
   return <ul className={`q-check-list${badge ? ' q-check-list--badge' : ''}`}>{items.map(item => <li key={item}><Check aria-hidden="true" /><span>{item}</span></li>)}</ul>;
+}
+
+export function Workflow() {
+  return <div className="q-workflow"><SectionHeader label="ONZE WERKWIJZE" title="Eerst begrijpen, dan bouwen"/><div className="q-steps">{steps.map((s,i)=><article className="q-step" key={s.title}><span className="q-step-dot" aria-hidden="true">{i+1}</span><div className="q-step-body"><div className="q-step-head"><h3 className="q-h3">{s.title}</h3><span className="q-step-pill">{s.meta}</span></div>{'blocks' in s&&s.blocks?<div className="q-step-blocks">{s.blocks.map(b=><div key={b.word}><strong>{b.word}</strong><span>{b.line}</span></div>)}</div>:<p className="q-text">{s.text}</p>}</div></article>)}</div><div className="q-center"><CtaBlock note="30 minuten · vrijblijvend · op locatie of videocall"/></div></div>;
 }
 
 export function FaqItem({ question, answer }: { question: string; answer: string }) {
