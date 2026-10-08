@@ -22,7 +22,7 @@
  --background:var(--q-white); --foreground:var(--q-ink); --card:var(--q-white); --primary:var(--q-ginger); --blue:var(--q-blue); --white:var(--q-white);
  --muted-foreground:var(--q-muted); --border:var(--q-ink-15); --radius:var(--q-radius);
 }
-@media(max-width:640px){ :root { --q-radius-panel:32px; --q-radius-smile-panel:80px; --q-radius-smile-photo:56px; --q-panel-inset:12px; --q-space-section:72px; --q-fs-h1:42px; --q-fs-h2:38px; --q-fs-h3:21px; --q-fs-statement:40px; --q-fs-body:16px; --q-fs-label:11px; } }
+@media(max-width:640px){ :root { --q-radius-panel:32px; --q-radius-smile-panel:80px; --q-radius-smile-photo:56px; --q-panel-inset:12px; --q-space-section:72px; --q-fs-h1:42px; --q-fs-h2:38px; --q-fs-h3:21px; --q-fs-statement:40px; --q-fs-body:16px; --q-fs-label:11px; --q-outline-width:0.75px; } }
 @theme inline {
  --font-sans:var(--q-font-body); --font-display:var(--q-font-heading);
  --color-background:var(--background); --color-foreground:var(--foreground);
