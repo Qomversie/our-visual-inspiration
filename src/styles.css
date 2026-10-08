@@ -508,3 +508,4 @@ strong { font-weight:600; }
 @media(max-width:760px) { .q-result-card { grid-template-columns:50% minmax(0,1fr); height:auto; min-height:240px; } .q-result-title { font-size:30px; } .q-result-body { padding:28px 16px 18px; } }
 .q-footer-bottom { border-top:0; margin-top:48px; }
 .q-footer-grid { padding-bottom:0; }
+@media(max-width:760px) { button,summary,.q-btn,[class*="inline-flex"] { min-height:44px; } button { min-width:44px; } .q-footer a,.q-result-case-link,.q-case-more { display:inline-flex; align-items:center; min-height:44px; } }
