@@ -285,6 +285,14 @@ strong { font-weight:600; }
 @keyframes rotate { to { transform:rotate(360deg); } }
 @keyframes slide-left { to { transform:translateX(-50%); } }
 
+/* Smile-dots: herhaalde kleine smile-boogjes in een hoek van de sectie. */
+.q-dots-host { isolation:isolate; overflow:hidden; }
+.q-dots-host>.q-container { position:relative; z-index:1; }
+.q-dots { position:absolute; width:230px; height:150px; color:var(--q-ginger); opacity:.9; pointer-events:none; z-index:0; }
+.q-dots--hero { top:44px; right:44px; }
+.q-dots--services { width:200px; height:140px; bottom:-34px; left:-26px; }
+.q-dots--contact { opacity:.55; right:44px; top:52px; }
+
 /* ===== Styleguide ===== */
 .q-guide>section { margin-top:60px; display:flex; flex-direction:column; gap:16px; align-items:flex-start; }
 .q-guide-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; width:100%; }
