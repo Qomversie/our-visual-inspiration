@@ -453,7 +453,7 @@ strong { font-weight:600; }
 .q-result-media,.q-result-brand { height:100%; border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-panel) var(--q-radius); overflow:hidden; }
 .q-result-media>img,.q-result-media>.q-result-video,.q-result-placeholder { width:100%; height:100%; object-fit:cover; display:block; }
 .q-result-media--duo { display:flex; gap:16px; overflow:visible; border-radius:0; }
-.q-result-media--duo>* { flex:1; min-width:0; height:calc(100% - 40px)!important; border-radius:var(--q-radius); overflow:hidden; }
+.q-result-media--duo>* { flex:1 1 0; width:auto!important; min-width:0; height:calc(100% - 40px)!important; border-radius:var(--q-radius); overflow:hidden; }
 .q-result-media--duo>:first-child { align-self:flex-end; }
 .q-result-media--duo>:last-child { border-bottom-right-radius:var(--q-radius-smile-panel); }
 .q-result-placeholder { display:grid; place-items:center; background:var(--q-result-bar); color:var(--q-result-muted); font-size:12px; font-weight:600; letter-spacing:.08em; }
