@@ -1,4 +1,5 @@
 # Qomversie homepage
+- [ ] Requested refinement: thinner outlines, trust row before couch, four SmileCircles, Sand contact footer and styleguide; verify layout and interactions.
 - [x] Apply unified smile-corner panels, outlined H2s, 1360px layout and redesigned success stories; preserve hero and section order.
 - [x] Update Elementor styleguide and verify desktop/mobile plus carousel, FAQ and advice flow.
 - [x] Build all supplied sections with exact copy and supplied identity.
