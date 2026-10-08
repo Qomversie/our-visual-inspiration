@@ -414,7 +414,7 @@ strong { font-weight:600; }
 
 
 
-.q-photo-cta .q-smile-outline { -webkit-mask-image:none; mask-image:none; clip-path:none; width:640px; height:640px; top:calc(50% - 320px); left:calc(70% - 320px); right:auto; bottom:auto; }
+.q-photo-cta .q-smile-outline { -webkit-mask-image:none; mask-image:none; clip-path:none; width:640px; height:640px; top:calc(50% - 320px); left:max(calc(70% - 320px),calc(100% - 580px)); right:auto; bottom:auto; }
 .q-photo-cta .q-smile-outline--front { clip-path:inset(50% 0 0 0); }
 
 
