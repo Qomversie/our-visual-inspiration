@@ -65,7 +65,7 @@ strong { font-weight:600; }
 .q-h1 { font-family:var(--q-font-heading); font-size:var(--q-fs-h1); font-weight:600; line-height:1.05; }
 .q-h1 em { font-style:italic; color:var(--q-ginger); }
 .q-smile { width:14px; height:14px; flex-shrink:0; color:var(--q-ginger); fill:currentColor; }
-.q-h2 { font-family:var(--q-font-heading); font-weight:600; font-style:normal; font-size:var(--q-fs-h2); color:var(--q-ink); line-height:1.05; }
+.q-h2 { color:transparent; -webkit-text-stroke:1.2px var(--q-ink); font-family:var(--q-font-heading); font-weight:600; font-style:normal; font-size:var(--q-fs-h2); color:var(--q-ink); line-height:1.05; }
 .q-outline { color:transparent; -webkit-text-stroke:1.5px var(--q-ink); }
 .q-panel--dark .q-outline { color:transparent; -webkit-text-stroke-color:var(--q-sand); }
 .q-h3 { font-family:var(--q-font-heading); font-weight:500; font-style:normal; font-size:var(--q-fs-h3); }
@@ -340,7 +340,7 @@ strong { font-weight:600; }
 .q-guide-panel { width:100%; margin-inline:0; padding:48px; }
 .q-guide-photo { width:100%; height:180px; background:var(--q-sand-dark); border-radius:var(--q-radius) var(--q-radius) var(--q-radius-smile-photo) var(--q-radius); }
 @media(max-width:760px) {
- .q-h2 { font-size:38px; }
+ .q-h2 { color:transparent; -webkit-text-stroke:1.2px var(--q-ink); font-size:38px; }
  .q-panel { --q-radius-panel:32px; --q-radius-smile-panel:80px; --q-radius-smile-photo:56px; --q-panel-inset:12px; }
  .q-hero-panel { padding-bottom:56px; }
  .q-res-number { font-size:88px; }
@@ -353,7 +353,7 @@ strong { font-weight:600; }
 }
 
 /* Responsive fixes for large outlined headings */
-.q-h2 { 
+.q-h2 { color:transparent; -webkit-text-stroke:1.2px var(--q-ink); 
   overflow-wrap: break-word; 
   hyphens: auto; 
   max-width: 100%;
@@ -361,4 +361,13 @@ strong { font-weight:600; }
 
 @media(min-width: 761px) and (max-width: 1200px) {
   :root { --q-fs-h2:64px; }
+}
+.q-section--dark :is(h2, .q-h2), .q-panel--dark :is(h2, .q-h2) { -webkit-text-stroke-color: var(--q-sand); }
+.q-card, .q-portrait, .q-follow-photo, .q-case-card, .q-about-photo img {
+  border-radius: 20px 20px 80px 20px !important;
+}
+@media(max-width: 640px) {
+  .q-card, .q-portrait, .q-follow-photo, .q-case-card, .q-about-photo img {
+    border-radius: 16px 16px 40px 16px !important;
+  }
 }
