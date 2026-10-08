@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { ArrowDownRight, ArrowRight, ArrowUp, Check, Play, Plus, Sparkle, Star } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUp, Check, Play, Plus, Sparkle, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { caseHoverNote, clients, experienceStats, headingLines, results, steps } from '@/lib/homepage-content';
 import graph from '@/assets/conversiegrafiek.png.asset.json';
 import still from '@/assets/videostill-joke.jpg.asset.json';
+import bank from '@/assets/E-mail_header_2.png.asset.json';
 
 export function Stars() {
   return <span className="q-stars" aria-label="5 van 5 sterren">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" />)}</span>;
@@ -62,7 +63,7 @@ export function LogoStrip() {
   return <section id="klantlogos" className="q-section q-section--white q-logo-strip" aria-label="Onze klanten"><div className="q-container q-logo-strip-inner"><Label>Vertrouwd door 50+ Friese ondernemers</Label><div className="q-client-window"><div className="q-client-track">{[0, 1].map(copy => <div className="q-client-group" key={copy} aria-hidden={copy === 1}>{clients.map(name => <div className="q-client" key={name}>{name}<small>KLANTLOGO VOLGT</small></div>)}</div>)}</div></div></div></section>;
 }
 
-function CountUp({ value, suffix = '' }: { value: number; suffix?: string }) {
+export function CountUp({ value, suffix = '' }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(value);
   useEffect(() => {
@@ -87,12 +88,30 @@ function CountUp({ value, suffix = '' }: { value: number; suffix?: string }) {
   return <span ref={ref} aria-label={`${value}${suffix}`} data-final={value}><span aria-hidden="true">{display}{suffix}</span></span>;
 }
 
+export function HeroStats() {
+  return <div className="q-hero-stats">{experienceStats.map(stat => <div className="q-hero-stat" key={stat.label}><p><CountUp value={stat.value} suffix="+"/></p><span>{stat.label.charAt(0) + stat.label.slice(1).toLowerCase()}</span></div>)}</div>;
+}
+
+export function PhotoCta() {
+  return <section className="q-photo-cta" aria-labelledby="photo-cta-title">
+    <img src={bank.url} alt="Bouke van Qomversie met een collega op de bank"/>
+    <div className="q-photo-cta-shade" aria-hidden="true"/>
+    <div className="q-photo-cta-copy"><Label>KLAAR VOOR DE VOLGENDE STAP?</Label><h2 id="photo-cta-title" className="q-h2" aria-label="Geen gedoe, gewoon resultaat."><span className="q-h2-outline">Geen gedoe,</span><br/>gewoon resultaat.</h2><p className="q-text">In 30 minuten weet je wat jouw website kan opleveren. Gratis en vrijblijvend.</p><CtaBlock/></div>
+    <SmileOutline front/>
+  </section>;
+}
+
 export function ResultsPanel({ onPlay }: { onPlay?: () => void }) {
+  const track = useRef<HTMLDivElement>(null);
+  const [edge, setEdge] = useState({ start: true, end: false });
+  const update = () => { const el = track.current; if (!el) return; setEdge({ start: el.scrollLeft < 5, end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 5 }); };
+  useEffect(() => { update(); window.addEventListener('resize', update); return () => window.removeEventListener('resize', update); }, []);
+  const scroll = (d: number) => { const el = track.current; const tile = el?.firstElementChild as HTMLElement | null; if (!el || !tile) return; el.scrollBy({ left: d * (tile.offsetWidth + 24), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); };
   return <div className="q-results-panel">
-    <div className="q-results-heading"><div><Label>WAT ONZE KLANTEN BEREIKEN</Label><h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2><p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p></div>
-      <div className="q-experience">{experienceStats.map((stat, index) => <div className="q-experience-stat" key={stat.label}>{index === 0 && <ArrowDownRight aria-hidden="true"/>}<p><CountUp value={stat.value} suffix="+"/></p><span>{stat.label}</span></div>)}</div>
+    <div className="q-results-heading"><Label>WAT ONZE KLANTEN BEREIKEN</Label><h2 className="q-h2 q-results-title" aria-label="Succesverhalen"><span>Succes</span><br/>verhalen</h2><p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
+      <div className="q-slider-controls q-results-controls"><Button variant="round" disabled={edge.start} onClick={() => scroll(-1)} aria-label="Vorig succesverhaal"><ArrowLeft/></Button><Button variant="round" disabled={edge.end} onClick={() => scroll(1)} aria-label="Volgend succesverhaal"><ArrowRight/></Button></div>
     </div>
-    <div className="q-result-tiles">{results.map(result => <article className="q-result-tile" key={result.id}>
+    <div className="q-result-tiles" ref={track} onScroll={update}>{results.map(result => <article className="q-result-tile" key={result.id}>
       <Sparkle className="q-result-spark" aria-hidden="true"/>
       {result.id === 'cowboy' ? <div className="q-result-media"><img src={graph.url} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div> : result.id === 'joke' ? <Button variant="ghost" className="q-result-media q-result-video" onClick={onPlay} disabled={!onPlay} aria-label="Videoreview van Joke Bleijerveld afspelen"><img src={still.url} alt="Joke Bleijerveld" loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button> : <div className="q-result-media q-result-placeholder" role="img" aria-label="Projectfoto Hoogterp Verf volgt">Foto volgt</div>}
       <p className="q-result-number"><CountUp value={result.value} suffix={result.suffix}/></p><p className="q-result-description">{result.description}</p>

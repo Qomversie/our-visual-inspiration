@@ -450,3 +450,47 @@ strong { font-weight:600; }
  .q-result-number { font-size:72px; }
  .q-result-description { min-height:0; }
 }
+
+/* Hero: stat row + benefit cards straddling the panel edge. */
+.q-hero-panel { overflow:visible; padding-bottom:0; }
+.q-hero-stats { display:flex; align-items:stretch; gap:28px; margin:28px 0 18px; }
+.q-hero-stat + .q-hero-stat { border-left:1px solid var(--q-ink-15); padding-left:28px; }
+.q-hero .q-hero-stat p { font-family:var(--q-font-heading); font-size:36px; line-height:1.1; font-weight:600; color:var(--q-ink); font-variant-numeric:tabular-nums; }
+.q-hero .q-hero-stat>span { display:block; font-size:13px; color:var(--q-muted); margin-top:4px; }
+.q-hero-follow { position:relative; z-index:20; }
+.q-hero-follow .q-benefits { margin-bottom:-96px; }
+.q-hero-follow .q-card { box-shadow:0 24px 48px -24px color-mix(in oklab,var(--q-ink) 28%,transparent); }
+.q-section.q-logo-strip { padding-top:150px; }
+@media(max-width:760px) { .q-hero-follow .q-benefits { margin-bottom:0; padding-bottom:28px; } .q-section.q-logo-strip { padding-top:36px; } .q-hero-stats { gap:20px; } .q-hero-stat + .q-hero-stat { padding-left:20px; } }
+
+/* ResultsPanel v2: copy left third, tile carousel bleeding to the right panel edge. */
+.q-results-section { overflow:hidden; }
+.q-results-panel { display:grid; grid-template-columns:minmax(260px,1fr) minmax(0,2fr); gap:56px; align-items:center; padding-left:max(40px,calc((100% - var(--q-container))/2)); }
+.q-results-heading { display:block; margin:0; }
+.q-results-heading .q-h2 { margin:14px 0 20px; }
+.q-results-controls { margin-top:32px; }
+.q-results-controls button { border:1px solid var(--q-sand); background:transparent; color:var(--q-sand); }
+.q-results-controls button:hover:not(:disabled) { background:var(--q-sand); color:var(--q-ink); }
+.q-result-tiles { display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; padding-right:40px; }
+.q-result-tiles::-webkit-scrollbar { display:none; }
+.q-result-tile { flex:0 0 380px; min-height:520px; scroll-snap-align:start; display:flex; flex-direction:column; }
+.q-result-tile .q-result-foot { margin-top:auto; padding-top:20px; }
+.q-result-number { font-size:60px; margin:20px auto 10px; }
+@media(max-width:1000px) { .q-results-panel { grid-template-columns:1fr; gap:36px; padding-right:0; } .q-results-heading { padding-right:40px; } }
+@media(max-width:760px) { .q-result-tiles { display:flex; padding-right:20px; gap:16px; } .q-result-tile { flex-basis:82vw; min-height:480px; } .q-results-panel { padding-left:20px; } .q-results-heading { padding-right:20px; } .q-result-number { font-size:56px; } }
+
+/* Cases: equal cards, compact counter beside arrows. */
+.q-slider-controls { align-items:center; }
+.q-slider-controls .q-case-count { margin-right:6px; }
+
+/* PhotoCta: full-width photo panel with gradient, copy and front smile line. */
+.q-photo-cta { position:relative; isolation:isolate; width:calc(100% - 2 * var(--q-panel-inset)); height:560px; margin:var(--q-panel-gap) auto; border-radius:var(--q-radius-panel) var(--q-radius-panel) var(--q-radius-smile-panel) var(--q-radius-panel); overflow:hidden; display:flex; align-items:center; }
+.q-photo-cta>img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; }
+.q-photo-cta-shade { position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,color-mix(in oklab,var(--q-ink) 80%,transparent) 0%,color-mix(in oklab,var(--q-ink) 55%,transparent) 35%,transparent 60%); }
+.q-photo-cta-copy { position:relative; z-index:3; max-width:560px; padding-left:max(40px,calc((100% - var(--q-container))/2)); color:var(--q-sand); }
+.q-photo-cta-copy .q-label { color:var(--q-sand); }
+.q-photo-cta-copy .q-h2 { color:var(--q-sand); margin:14px 0 18px; }
+.q-photo-cta-copy .q-text { color:var(--q-sand); margin-bottom:28px; max-width:42ch; }
+.q-h2-outline { color:transparent; -webkit-text-stroke:var(--q-outline-width) var(--q-sand); }
+.q-photo-cta .q-smile-outline { width:420px; top:auto; bottom:-150px; right:-120px; clip-path:none; z-index:2; }
+@media(max-width:760px) { .q-photo-cta { height:480px; align-items:flex-end; padding-bottom:36px; } .q-photo-cta-shade { background:linear-gradient(0deg,color-mix(in oklab,var(--q-ink) 85%,transparent) 0%,color-mix(in oklab,var(--q-ink) 50%,transparent) 55%,transparent 85%); } .q-photo-cta-copy { padding-inline:20px; } .q-photo-cta .q-smile-outline { display:block; width:220px; bottom:-80px; right:-70px; } }
