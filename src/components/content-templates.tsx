@@ -2,8 +2,8 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUp, Check, ChevronRight, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { CtaBlock, PhotoCta, SiteFooter, SmileOutline } from '@/components/qomversie';
-import { examplePost, relatedPosts } from '@/lib/template-content';
+import { CtaBlock, SiteFooter, SmileOutline } from '@/components/qomversie';
+import { examplePost } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import bank from '@/assets/E-mail_header_2.png.asset.json';
@@ -74,18 +74,6 @@ export function PostTemplate() {
         </aside>
       </div>
 
-      <PhotoCta />
-
-      <section className="paginabreedte bericht-gerelateerd" aria-labelledby="bericht-gerelateerd-titel">
-        <h2 id="bericht-gerelateerd-titel" className="kop-h2">Andere berichten</h2>
-        <div className="bericht-gerelateerd-rij">
-          {relatedPosts.map(r => <a className="bericht-kaart" href="#" key={r.title}>
-            <div className="bericht-kaart-beeld">{r.image ? <img src={r.image} alt="" loading="lazy" /> : <span>Afbeelding volgt</span>}</div>
-            <div className="bericht-kaart-tekst">{r.label && <p className="bericht-label">{r.label}</p>}<h3>{r.title}</h3><BerichtResultaat text={r.result} /></div>
-          </a>)}
-        </div>
-        <p className="tekst-klein">Voorbeeldkaarten — in WordPress gevuld met drie recente berichten.</p>
-      </section>
     </article>
   </TemplateShell>;
 }

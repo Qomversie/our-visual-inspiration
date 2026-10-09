@@ -23,8 +23,6 @@ export const templateFields = [
   ['bericht-kop', 'Container (donker) · Breadcrumbs · Post Terms/ACF · Post Title · Post Excerpt · ACF resultaat · Post Info · Button · Featured Image', 'Label en resultaatregel verbergen bij leeg veld (Dynamic visibility). Uitgelichte afbeelding 4:3 rechts, met smile-lijn; op mobiel onder de tekst.'],
   ['bericht-inhoud', 'Post Content', 'Stijlen voor h2–h4, alinea, vet, links, lijsten, citaat, afbeelding met bijschrift, tabel en lijn.'],
   ['bericht-zijbalk', 'Container (niet sticky) · Image · Heading · Icon List · Button', 'Alleen de hulpkaart; op mobiel onder het artikel.'],
-  ['Foto-CTA', 'Globaal Component "Geen gedoe, gewoon resultaat."', 'Zelfde blok als op de homepage.'],
-  ['bericht-gerelateerd', 'Loop Grid (3 berichten)', 'Kaart met uitgelichte afbeelding, label, titel en resultaatregel; mobiel horizontaal swipen.'],
 ];
 
 export const templateClasses = [
@@ -37,7 +35,5 @@ export const templateClasses = [
   ['bericht-inhoud', 'Opmaak voor alle WordPress-inhoud.'],
   ['bericht-zijbalk', 'Zijbalk, niet meebewegend.'],
   ['bericht-hulpkaart', 'Donkere kaart met portret, voordelen, adviesknop en telefoon.'],
-  ['bericht-gerelateerd', 'Drie berichtkaarten in een rij; mobiel swipen.'],
-  ['bericht-kaart', 'Zandkleurige kaart in de stijl van de casekaarten.'],
   ['kruimelpad', 'Home › Categorie › Titel.'],
 ];
