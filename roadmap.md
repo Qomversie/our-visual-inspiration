@@ -1,5 +1,10 @@
 # Roadmap
 
+## Elementor-sjablonen
+- [ ] Berichtstijl en losse paginastijl als aparte voorbeeldpagina's, zonder nieuwe homepage-navigatie.
+- [ ] Gedeelde Nederlandse classes en Elementor-opbouw toevoegen aan de stijlgids.
+- [ ] Voorbeelden, inhoudslinks, adviesknoppen en weergave op desktop/mobiel controleren.
+
 - [x] Replace corner marks with the exact outlined logo smile, layered before/behind hero photo, about photo and planner.
 - [x] Smooth the about boundary, hide the workflow from the homepage and retain it in the styleguide.
 - [x] Restore alternating section surfaces and a white footer; update the Elementor blueprint.
