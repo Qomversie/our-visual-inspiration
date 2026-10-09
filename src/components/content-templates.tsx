@@ -1,3 +1,5 @@
+// ============= Full file contents =============
+
 import type { ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, Check, ChevronRight, Clock3, Phone } from 'lucide-react';
@@ -5,9 +7,7 @@ import { Button } from '@/components/ui/button';
 import { CtaBlock, Label, SectionHeader, SiteFooter } from '@/components/qomversie';
 import { articleSections } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
-import bank from '@/assets/E-mail_header_2.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
-import team from '@/assets/Ons_team_2.jpeg.asset.json';
 
 function TemplateShell({ children }: { children: ReactNode }) {
   return <><header className="paginakop"><div className="paginabreedte paginakop-binnen"><Link to="/" aria-label="Qomversie, naar de homepage"><img className="logo" src={logo.url} alt="Qomversie" width="1920" height="528" /></Link><div className="paginakop-acties"><a className="telefoon" href="tel:+31653509763"><Phone aria-hidden="true"/>06-53509763</a><CtaBlock href="/#contact"/></div></div></header><main className="inhoudssjabloon">{children}</main><SiteFooter homeHref="/"/></>;
@@ -17,21 +17,10 @@ function Breadcrumb({ title }: { title: string }) {
   return <nav className="kruimelpad" aria-label="Kruimelpad"><Link to="/">Home</Link><ChevronRight aria-hidden="true"/><span>{title}</span></nav>;
 }
 
-function TemplateCta() {
-  return <section className="sectie vlak-zand vlak-donker sjabloon-cta"><div className="paginabreedte"><div><Label>LATEN WE KENNISMAKEN</Label><h2 className="kop-h2">Jouw volgende stap?</h2><p className="tekst">Plan je gratis adviesgesprek. Eerlijk advies, zonder verplichtingen.</p></div><CtaBlock href="/#contact"/></div></section>;
-}
-
-const moreExamples = [
-  { title: 'Voorbeeldbericht over je website', meta: 'Websites · titel volgt', image: team.url },
-  { title: 'Voorbeeldbericht over aanvragen', meta: 'Conversie · titel volgt', image: portrait.url },
-  { title: 'Voorbeeldbericht over vindbaarheid', meta: 'Vindbaarheid · titel volgt', image: bank.url },
-];
-
 export function PostTemplate() {
   return <TemplateShell>
     <article>
       <header className="vlak-zand vlak-donker berichtkop">
-        <img className="berichtkop-foto" src={bank.url} alt="" width="1600" height="900"/>
         <div className="paginabreedte"><div className="berichtkop-binnen">
           <Breadcrumb title="Bericht"/>
           <Label>WEBSITES · VOORBEELDBERICHT</Label>
@@ -59,11 +48,6 @@ export function PostTemplate() {
         </div></aside>
       </div>
     </article>
-    <section className="sectie vlak-zand meer-berichten"><div className="paginabreedte" style={{paddingBlock:'var(--ruimte-sectie)'}}>
-      <div className="sectie-kop-rij"><SectionHeader label="MEER LEZEN" title="Andere berichten"/></div>
-      <div className="berichtkaarten">{moreExamples.map(b=><a className="berichtkaart" href="#" key={b.title}><img src={b.image} alt="" loading="lazy"/><div><span>{b.meta}</span><h3>{b.title}</h3></div></a>)}</div>
-    </div></section>
-    <TemplateCta/>
   </TemplateShell>;
 }
 
