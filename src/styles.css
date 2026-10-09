@@ -8,21 +8,20 @@
  --kleur-zand:#F3EDE5; --kleur-wit:#FFFFFF; --kleur-donker:#212934; --kleur-oranje:#FF6700; --kleur-blauw:#0D5EE4; --kleur-zand-donker:#E9E1D6;
  --font-kop:'Lora', serif; --font-tekst:'Inter', sans-serif;
  --afronding:20px; --afronding-vlak:40px; --afronding-smile-vlak:160px; --afronding-smile-foto:96px; --afronding-smile-kaart:56px; --ruimte-vlak-rand:24px; --ruimte-tussen-vlakken:24px; --ruimte-sectie:120px; --breedte-container:1360px;
- --tekst-h1:72px; --tekst-h2:64px; --tekst-h3:24px; --tekst-statement:56px; --tekst-basis:18px; --tekst-label:13px;
+ --tekst-h1:72px; --tekst-h2:64px; --tekst-h3:24px; --tekst-basis:18px; --tekst-label:13px;
  --kleur-donker-6:color-mix(in oklab,var(--kleur-donker) 6%,transparent); --kleur-donker-30:color-mix(in oklab,var(--kleur-donker) 30%,transparent); --kleur-donker-70:color-mix(in oklab,var(--kleur-donker) 70%,transparent); --ruimte-succes-boven:48px;
- --kleur-donker-75:color-mix(in oklab,var(--kleur-donker) 75%,transparent); --succes-hoogte:168px; --succes-klant-breedte:220px;
+ --kleur-donker-75:color-mix(in oklab,var(--kleur-donker) 75%,transparent);
  --kleur-donker-10:color-mix(in oklab,var(--kleur-donker) 10%,transparent); --kleur-donker-15:color-mix(in oklab,var(--kleur-donker) 15%,transparent);
  --kleur-tekst-zacht:color-mix(in oklab,var(--kleur-donker) 62%,var(--kleur-zand));
  --schaduw:0 12px 35px color-mix(in oklab,var(--kleur-donker) 5%,transparent);
- --afronding-pil:999px;
- --succes-vlak:color-mix(in oklab,var(--kleur-donker) 95%,var(--kleur-wit)); --succes-balk:#2C3542; --succes-tekst-zacht:color-mix(in oklab,var(--kleur-zand) 75%,transparent); --lijn-outline:1px; --lijn-smile:3px; --over-ons-bolling:120px;
+ --afronding-pil:999px; --lijn-outline:1px; --lijn-smile:3px;
 
 
  /* shadcn mapping */
  --background:var(--kleur-wit); --foreground:var(--kleur-donker); --card:var(--kleur-wit); --primary:var(--kleur-oranje); --blue:var(--kleur-blauw); --white:var(--kleur-wit);
  --muted-foreground:var(--kleur-tekst-zacht); --border:var(--kleur-donker-15); --radius:var(--afronding);
 }
-@media(max-width:640px){ :root { --afronding-vlak:32px; --afronding-smile-vlak:80px; --afronding-smile-foto:56px; --ruimte-vlak-rand:12px; --ruimte-sectie:72px; --tekst-h1:42px; --tekst-h2:38px; --tekst-h3:21px; --tekst-statement:40px; --tekst-basis:16px; --tekst-label:11px; --lijn-outline:0.75px; } }
+@media(max-width:640px){ :root { --afronding-vlak:32px; --afronding-smile-vlak:80px; --afronding-smile-foto:56px; --ruimte-vlak-rand:12px; --ruimte-sectie:72px; --tekst-h1:42px; --tekst-h2:38px; --tekst-h3:21px; --tekst-basis:16px; --tekst-label:11px; --lijn-outline:0.75px; } }
 @theme inline {
  --font-sans:var(--font-tekst); --font-display:var(--font-kop);
  --color-background:var(--background); --color-foreground:var(--foreground);
@@ -56,7 +55,6 @@ strong { font-weight:600; }
 .sectie:not(.sectie-zonder-ruimte) { padding-block:var(--ruimte-sectie); }
 /* Rounded section surfaces; the bottom-right corner follows the logo smile. */
 .sectie-wit { background:var(--kleur-wit); }
-.sectie-zand { background:var(--kleur-zand); }
 .vlak-zand { position:relative; width:calc(100% - 2 * var(--ruimte-vlak-rand)); margin:var(--ruimte-tussen-vlakken) auto; background:var(--kleur-zand); border-radius:var(--afronding-vlak) var(--afronding-vlak) var(--afronding-smile-vlak) var(--afronding-vlak); }
 .vlak-donker { background:var(--kleur-donker); color:var(--kleur-zand); }
 .vlak-donker :is(h2,h3,.kop-h2,.kop-h3) { color:var(--kleur-zand); }
@@ -85,7 +83,6 @@ strong { font-weight:600; }
 .knop-rond:hover { background:var(--kleur-donker); color:var(--kleur-wit); }
 .knop-rond:disabled { opacity:.25; }
 .kaart { background:var(--kleur-wit); border-radius:var(--afronding) var(--afronding) var(--afronding-smile-kaart) var(--afronding); padding:32px; box-shadow:var(--schaduw); }
-.kaart-zand { background:var(--kleur-zand); box-shadow:none; }
 .checklijst { padding:0; list-style:none; margin:22px 0 30px; }
 .checklijst li { display:flex; align-items:flex-start; gap:12px; margin-block:12px; font-size:16px; }
 .checklijst svg { width:18px; height:18px; color:var(--kleur-oranje); margin-top:4px; flex-shrink:0; }
@@ -123,12 +120,7 @@ strong { font-weight:600; }
 .voordelen .kop-h3 { font-family:var(--font-kop); font-weight:500; font-size:20px; margin-bottom:10px; }
 .voordelen .tekst { font-size:15px; line-height:1.65; }
 .hero-vervolg-binnen { position:relative; }
-.volg-foto { width:100%; height:480px; object-fit:cover; border-radius:var(--afronding) var(--afronding) var(--afronding-smile-foto) var(--afronding); }
 .hero-vervolg .voordelen { margin-top:0; position:relative; z-index:1; }
-
-/* ===== Trust ===== */
-.vertrouwen { display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:center; padding-block:12px 64px; }
-.cijfers { display:flex; gap:55px; }
 .cijfer strong { font-family:var(--font-kop); font-size:54px; font-weight:500; line-height:1.2; display:block; }
 .cijfer span { font-size:13px; display:block; margin-top:10px; }
 .logostrook-venster { overflow:hidden; mask-image:linear-gradient(to right,transparent,var(--kleur-donker) 8%,var(--kleur-donker) 92%,transparent); }
@@ -263,8 +255,7 @@ strong { font-weight:600; }
 .stijlgids-code { white-space:pre-wrap; word-break:break-all; font-size:13px; width:100%; }
 
 @media(max-width:1000px) {
- .hero { gap:40px; } .voordelen { gap:15px; } .voordelen .kaart { padding:24px; }
- .vertrouwen { gap:35px; } .over-ons,.beloftes { gap:45px; } .paginavoet-kolommen { grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; }
+ .hero { gap:40px; } .voordelen { gap:15px; } .voordelen .kaart { padding:24px; } .over-ons,.beloftes { gap:45px; } .paginavoet-kolommen { grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; }
  .faq-sectie { gap:40px; }
  .hero-foto .badge-draaiend { left:-20px; }
  .over-ons,.beloftes,.faq-sectie { grid-template-columns:1fr; }
@@ -279,9 +270,7 @@ strong { font-weight:600; }
  .hero-foto { width:calc(100% - 30px); margin-left:auto; } .hero-foto .badge-draaiend { left:-24px; bottom:-28px; width:96px; height:96px; }
  .badge-draaiend>svg:first-child { width:82px; height:82px; inset:7px; } 
  .knoppenrij .knop { font-size:14px; padding:0 18px; height:50px; }
- .voordelen { grid-template-columns:1fr; gap:13px; }
-  .vertrouwen { grid-template-columns:1fr; padding-block:12px 48px; gap:35px; } .cijfer strong { font-size:48px; }
-  .volg-foto { height:300px; }
+ .voordelen { grid-template-columns:1fr; gap:13px; } .cijfer strong { font-size:48px; }
   .video-afspelen { width:64px; height:64px; }
   .kop-rij { flex-direction:column; align-items:flex-start; } .slider-knoppen { align-self:flex-end; }
   .case-rij { padding-left:20px; scroll-padding-left:20px; padding-right:20px; } .case-kaart { flex-basis:85vw; height:460px; }
@@ -350,13 +339,10 @@ strong { font-weight:600; }
 .case-label { position:absolute; top:20px; left:20px; z-index:3; background:var(--kleur-wit); color:var(--kleur-donker); border-radius:var(--afronding-pil); padding:6px 14px; font-size:13px; font-weight:500; }
 .case-onderschrift .case-meer { display:block; max-height:0; opacity:0; overflow:hidden; transform:translateY(10px); transition:max-height .4s,opacity .4s,transform .4s; font-size:15px; margin-top:0; }
 .case-kaart:hover .case-meer,.case-kaart:focus-within .case-meer { max-height:60px; opacity:.85; transform:none; margin-top:10px; }
-.case-voortgang { display:flex; align-items:center; gap:20px; margin-top:32px; }
-.case-voortgang-balk { flex:1; height:2px; background:var(--kleur-donker-10); border-radius:var(--afronding-pil); overflow:hidden; }
-.case-voortgang-balk>span { display:block; height:100%; background:var(--kleur-oranje); transition:width .4s; }
 .case-teller { font-size:14px; font-weight:600; font-variant-numeric:tabular-nums; }
 
 @media(max-width:1000px) { .over-ons-foto { justify-self:start; } }
-@media(max-width:760px) { .podium { padding:28px 22px; } .podium-nummer { font-size:72px; } .podium-tekst { font-size:16px; } .case-kaart-uitgelicht { flex-basis:85vw; } .cases-acties .slider-knoppen { margin-left:auto; } }
+@media(max-width:760px) { .case-kaart-uitgelicht { flex-basis:85vw; } .cases-acties .slider-knoppen { margin-left:auto; } }
 
 /* LogoStrip: identical groups for a seamless placeholder marquee. */
 .sectie.logostrook { padding-block:36px; }
