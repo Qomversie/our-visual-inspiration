@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         advice: "knop knop-primair",
         quiet: "knop knop-secundair",
+        light: "knop knop-licht",
         round: "knop-rond",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",

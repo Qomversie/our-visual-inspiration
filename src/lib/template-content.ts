@@ -6,26 +6,25 @@ export const articleSections = [
 ];
 
 export const templateFields = [
+  ['Berichtkop', 'Container (achtergrondfoto) · Breadcrumbs · Post Terms · Post Title · Post Info · Button', 'Vaste brede foto voor álle berichten met donkere verloop; titel, auteur, datum en twee knoppen.'],
+  ['Uitgelicht beeld', 'Featured Image', 'Staand of vierkant, rechts naast de eerste alinea (46%); mobiel volle breedte.'],
+  ['Zijkolom', 'Container (sticky) · Image · Heading · Icon List · Button · Table of Contents', 'Donkere advieskaart met telefoon en daaronder de inhoudsopgave van de H2-koppen.'],
+  ['Meer berichten', 'Posts / Loop Grid (3)', 'Drie recente berichten met vierkant beeld op Sand-vlak.'],
   ['Paginakop', 'Container · logo · telefoon · knop', 'Hergebruik de globale Header; adviesknop linkt naar /#contact.'],
-  ['Berichtkop', 'Post Terms · Post Title · Post Excerpt · Post Info', 'Categorie, H1, introductie, auteur, publicatiedatum en leestijd uit het bericht.'],
-  ['Berichtbeeld', 'Featured Image', 'Volle breedte onder de kop; alt-tekst uit de mediabibliotheek.'],
   ['Berichtinhoud', 'Post Content · Table of Contents', 'Leeskolom met H2/H3, alinea’s, lijsten en citaat; inhoudsopgave volgt H2.'],
-  ['Auteur', 'Author Box', 'Naam, portret en biografie dynamisch uit het WordPress-auteursprofiel.'],
-  ['Paginakopvlak', 'Post Title · Post Excerpt', 'H1 en optionele introductie op het Sand-vlak, zonder berichtmetadata.'],
-  ['Pagina-inhoud', 'Post Content · Image · Icon List · Accordion', 'Vrije tekstsecties, optioneel beeld en FAQ; beheer de inhoud per pagina.'],
   ['Afsluiting', 'Container · Heading · Button', 'Donker vlak met adviesknop naar /#contact; hergebruik globale Footer.'],
 ];
 
 export const templateClasses = [
-  ['sjabloon-kop', 'Sand titelvlak met ruime boven- en ondermarge.'],
+  ['berichtkop', 'Donker afgerond vlak met vaste achtergrondfoto (berichtkop-foto) en verloop.'],
+  ['bericht-indeling', 'Leeskolom links, zijkolom rechts; onder 1000px onder elkaar.'],
+  ['bericht-beeld', 'Uitgelichte afbeelding in eigen verhouding, rechts in de tekst.'],
+  ['zijkolom-plak', 'Sticky zijkolom met advieskaart en inhoudsopgave.'],
+  ['advieskaart', 'Donkere kaart met portret, voordelen, adviesknop en telefoon.'],
+  ['inhoudsopgave', 'Ankerlijst naar de H2-koppen.'],
+  ['berichtkaarten', 'Raster van drie berichtkaart-elementen.'],
   ['kruimelpad', 'Home-link en huidige titel; klein, zonder capsule.'],
   ['bericht-meta', 'Flexibele rij met auteur, datum en leestijd.'],
-  ['bericht-beeld', 'Brede uitgelichte afbeelding met de bestaande smile-hoek.'],
-  ['bericht-indeling', 'Desktop inhoudsopgave naast leeskolom; mobiel onder elkaar.'],
-  ['inhoudsopgave', 'Sticky lijst met ankers naar H2-koppen.'],
   ['leesinhoud', 'Leesbare tekstkolom; opmaak voor H2, H3, lijsten, links en citaten.'],
-  ['auteurregel', 'Auteursportret en korte biografie onder het bericht.'],
-  ['pagina-inleiding', 'Smalle introductiekolom boven de vrije pagina-inhoud.'],
-  ['pagina-inhoud', 'Tekst en afbeelding naast elkaar; mobiel gestapeld.'],
   ['sjabloon-cta', 'Donker afsluitvlak met kop en oranje adviesknop.'],
 ];
