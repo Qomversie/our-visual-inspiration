@@ -6,13 +6,11 @@ export const articleSections = [
 ];
 
 export const templateFields = [
-  ['Berichtkop', 'Container (achtergrondfoto) · Breadcrumbs · Post Terms · Post Title · Post Info · Button', 'Vaste brede foto voor álle berichten met donkere verloop; titel, auteur, datum en twee knoppen.'],
+  ['Berichtkop', 'Container (achtergrondkleur) · Breadcrumbs · Post Terms · Post Title · Post Info · Button', 'Vast donker gekleurd vlak zonder foto; titel, auteur, datum en twee knoppen.'],
   ['Uitgelicht beeld', 'Featured Image', 'Staand of vierkant, rechts naast de eerste alinea (46%); mobiel volle breedte.'],
   ['Zijkolom', 'Container (sticky) · Image · Heading · Icon List · Button · Table of Contents', 'Donkere advieskaart met telefoon en daaronder de inhoudsopgave van de H2-koppen.'],
-  ['Meer berichten', 'Posts / Loop Grid (3)', 'Drie recente berichten met vierkant beeld op Sand-vlak.'],
   ['Paginakop', 'Container · logo · telefoon · knop', 'Hergebruik de globale Header; adviesknop linkt naar /#contact.'],
   ['Berichtinhoud', 'Post Content · Table of Contents', 'Leeskolom met H2/H3, alinea’s, lijsten en citaat; inhoudsopgave volgt H2.'],
-  ['Afsluiting', 'Container · Heading · Button', 'Donker vlak met adviesknop naar /#contact; hergebruik globale Footer.'],
 ];
 
 export const templateClasses = [
