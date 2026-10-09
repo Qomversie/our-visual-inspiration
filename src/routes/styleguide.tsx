@@ -17,8 +17,8 @@ export const Route = createFileRoute('/styleguide')({
 function Styleguide() {
   return <main className="paginabreedte sectie stijlgids">
     <h1 className="kop-h1">Styleguide</h1>
-    <section><h2 className="kop-h2">Variabelen</h2><div className="stijlgids-raster">{designVariables.map(([name, value]) => <div className="kaart" key={name}>{name.startsWith('--q-') && value.startsWith('#') && <span className="kleurstaal" style={{ background: `var(${name})` }} />}<code>{name}</code><p className="tekst-klein">{value}</p></div>)}</div></section>
-    <section><h2 className="kop-h2">Classes</h2><div className="stijlgids-raster">{designClasses.map(c => <code className="kaart" key={c}>.{c}</code>)}</div></section>
+    <section><h2 className="kop-h2">Variabelen</h2><div className="stijlgids-raster">{designVariables.map(([name, value, mobile]) => <div className="kaart" key={name}>{name.startsWith('--kleur-') && <span className="kleurstaal" style={{ background: `var(${name})` }} />}<code>{name}</code><p className="tekst-klein">{value}{mobile && ` · mobiel ${mobile}`}</p></div>)}</div></section>
+    <section><h2 className="kop-h2">Classes</h2><div className="stijlgids-raster">{designClasses.map(([c, uitleg]) => <div className="kaart" key={c}><code>.{c}</code><p className="tekst-klein">{uitleg}</p></div>)}</div></section>
     <section><h2 className="kop-h2">Typografie</h2><Label>LABEL</Label><p className="kop-h1">H1 Meer dan een <em>mooie</em> website.</p><SectionHeader title="Cases waar we trots op zijn"/><p className="kop-h3">H3 kop</p><p className="tekst-klein">H2: Lora 600, 64px / mobiel 38px, regelhoogte 1.05, gevuld in Zwartig. Succesverhalen staat op één regel, volledig gevuld in Zwartig (geen omlijnd deel). Omlijnde regels (1px, mobiel 0.75px) alleen bij de PhotoCta-kop. Regelafbrekingen staan in de contentdata (homepage-content.ts). H3: Lora 500. Alleen "mooie" in de H1 is Lora Italic Ginger.</p><p className="tekst">Bodytekst in Inter.</p></section>
     <section><h2 className="kop-h2">Componenten</h2>
       <h3 className="kop-h3">SectionHeader</h3><SectionHeader label="LABEL" title="Sectiekop"/>
