@@ -99,8 +99,8 @@ strong { font-weight:600; }
 .paginakop-binnen { display:flex; justify-content:space-between; align-items:center; gap:30px; height:100px; }
 .logo { width:185px; height:auto; }
 .paginakop-acties { display:flex; align-items:center; gap:32px; }
-.telefoon { display:flex; align-items:center; gap:10px; font-size:15px; font-weight:500; white-space:nowrap; }
-.telefoon svg { width:17px; }
+.telefoon { display:inline-flex; align-items:center; gap:10px; height:44px; padding:0 18px; border-radius:var(--afronding-pil); background:var(--kleur-donker); color:var(--kleur-wit); font-size:15px; font-weight:600; white-space:nowrap; transition:background .2s,color .2s; }
+.telefoon:hover { background:var(--kleur-oranje); color:var(--kleur-wit); }
 .paginakop .knop { height:44px; font-size:14px; padding:0 20px; }
 
 /* ===== Hero ===== */
@@ -501,10 +501,9 @@ strong { font-weight:600; }
 /* ===== Elementor Single Post / Single Page ===== */
 :root { --breedte-leesinhoud:760px; --breedte-zijkolom:340px; --ruimte-leesblok:48px; --tekst-artikelkop:36px; --hoogte-berichtkop:520px; }
 .inhoudssjabloon { overflow-wrap:break-word; }
-/* Vaste berichtkop: altijd dezelfde brede foto, los van het uitgelichte berichtbeeld */
+/* Vaste berichtkop: gekleurd donker vlak, zonder foto */
 .berichtkop { position:relative; overflow:hidden; min-height:var(--hoogte-berichtkop); display:flex; align-items:flex-end; margin-top:0; }
-.berichtkop-foto { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 35%; }
-.berichtkop::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,color-mix(in oklab,var(--kleur-donker) 92%,transparent) 0%,color-mix(in oklab,var(--kleur-donker) 70%,transparent) 50%,color-mix(in oklab,var(--kleur-donker) 25%,transparent) 100%); }
+.berichtkop::after { content:''; position:absolute; inset:0; background:radial-gradient(720px 460px at 88% 0%, color-mix(in oklab,var(--kleur-oranje) 16%,transparent), transparent 70%); pointer-events:none; }
 .berichtkop-binnen { position:relative; z-index:1; padding-block:56px 72px; max-width:820px; }
 .berichtkop .kop-h1 { color:var(--kleur-zand); font-size:64px; line-height:1.08; }
 .kruimelpad { display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-size:13px; color:color-mix(in oklab,var(--kleur-zand) 75%,transparent); margin-bottom:32px; }
