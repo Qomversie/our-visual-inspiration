@@ -11,7 +11,7 @@ export const examplePost = {
   date: 'Publicatiedatum volgt',
 };
 
-export const relatedPosts: Array<{ title: string; label?: string; result?: string; image?: string }> = results.map(r => ({
+export const relatedPosts: Array<{ title: string; label?: string | undefined; result?: string | undefined; image?: string | undefined }> = results.map(r => ({
   title: `Voorbeeldbericht: ${r.name}`,
   label: r.kind,
   result: r.title,

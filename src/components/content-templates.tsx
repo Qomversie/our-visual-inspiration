@@ -23,7 +23,7 @@ function TemplateShell({ children }: { children: ReactNode }) {
   </>;
 }
 
-function BerichtResultaat({ text }: { text?: string }) {
+function BerichtResultaat({ text }: { text?: string | undefined }) {
   if (!text) return null;
   return <p className="bericht-resultaat"><ArrowUp aria-hidden="true" />{text}</p>;
 }
