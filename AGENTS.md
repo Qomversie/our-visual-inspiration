@@ -23,3 +23,5 @@
 
 - ResultCards owns its video lightbox and one-card-step slider, deriving each media variant from the shared results data, so homepage and styleguide behave identically.
 - SiteFooter lives in the shared components module, so homepage and styleguide render the same footer.
+- Single Post and Single Page examples use shared browser-safe template content and a dedicated shared presentation module, with Elementor widget/class mappings in the styleguide; this keeps examples reusable without changing the homepage.
+- SiteFooter accepts an optional homepage link base for standalone content pages, so its contact and FAQ anchors always reach the homepage.
