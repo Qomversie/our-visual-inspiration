@@ -14,15 +14,13 @@ export const templateFields = [
 ];
 
 export const templateClasses = [
-  ['berichtkop', 'Donker afgerond vlak met vaste achtergrondfoto (berichtkop-foto) en verloop.'],
+  ['berichtkop', 'Donker afgerond vlak met subtiele oranje gloed, zonder foto.'],
   ['bericht-indeling', 'Leeskolom links, zijkolom rechts; onder 1000px onder elkaar.'],
   ['bericht-beeld', 'Uitgelichte afbeelding in eigen verhouding, rechts in de tekst.'],
   ['zijkolom-plak', 'Sticky zijkolom met advieskaart en inhoudsopgave.'],
   ['advieskaart', 'Donkere kaart met portret, voordelen, adviesknop en telefoon.'],
   ['inhoudsopgave', 'Ankerlijst naar de H2-koppen.'],
-  ['berichtkaarten', 'Raster van drie berichtkaart-elementen.'],
   ['kruimelpad', 'Home-link en huidige titel; klein, zonder capsule.'],
   ['bericht-meta', 'Flexibele rij met auteur, datum en leestijd.'],
   ['leesinhoud', 'Leesbare tekstkolom; opmaak voor H2, H3, lijsten, links en citaten.'],
-  ['sjabloon-cta', 'Donker afsluitvlak met kop en oranje adviesknop.'],
 ];
