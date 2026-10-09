@@ -30,7 +30,7 @@ export const templateClasses = [
   ['bericht-label', 'Witte pil boven de titel; optioneel.'],
   ['bericht-resultaat', 'Resultaatregel met oranje pijl omhoog; optioneel.'],
   ['bericht-meta', 'Auteur met foto en publicatiedatum.'],
-  ['bericht-uitgelicht', 'Uitgelichte afbeelding in eigen verhouding met smile-hoek en smile-lijn; op mobiel gecentreerd en 16px naar links geschoven.'],
+  ['bericht-uitgelicht', 'Uitgelichte afbeelding in eigen verhouding (max 300px, mobiel 260px) met smile-hoek en smile-lijn; op tablet en mobiel links uitgelijnd op de tekst.'],
   ['bericht-indeling', 'Artikel links, zijbalk rechts; onder 1000px onder elkaar.'],
   ['bericht-inhoud', 'Opmaak voor alle WordPress-inhoud.'],
   ['bericht-zijbalk', 'Zijbalk, niet meebewegend.'],
