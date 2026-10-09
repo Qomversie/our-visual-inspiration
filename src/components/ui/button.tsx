@@ -9,9 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        advice: "q-btn q-btn--primary",
-        quiet: "q-btn q-btn--secondary",
-        round: "q-btn-round",
+        advice: "knop knop-primair",
+        quiet: "knop knop-secundair",
+        round: "knop-rond",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
