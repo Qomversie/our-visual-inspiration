@@ -578,6 +578,6 @@ strong { font-weight:600; }
  .berichtkaarten { grid-template-columns:1fr; }
  .inhoudssjabloon .knop { white-space:normal; height:auto; min-height:48px; padding-block:12px; }
 }
-.knop-licht { background:transparent; color:var(--kleur-zand); border:1px solid color-mix(in oklab,var(--kleur-zand) 50%,transparent); }
-.knop-licht:hover { background:var(--kleur-zand); color:var(--kleur-donker); }
+.knop.knop-licht { padding:0 26px; border-style:solid; background:transparent; color:var(--kleur-zand); border:1px solid color-mix(in oklab,var(--kleur-zand) 50%,transparent); }
+.knop.knop-licht:hover { background:var(--kleur-zand); color:var(--kleur-donker); }
 .leesinhoud blockquote { clear:both; }
