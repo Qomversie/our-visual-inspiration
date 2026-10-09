@@ -578,3 +578,6 @@ strong { font-weight:600; }
  .berichtkaarten { grid-template-columns:1fr; }
  .inhoudssjabloon .knop { white-space:normal; height:auto; min-height:48px; padding-block:12px; }
 }
+.berichtkop .berichtkop-bel { height:54px; background:transparent; color:var(--kleur-zand); border:1px solid color-mix(in oklab,var(--kleur-zand) 50%,transparent); }
+.berichtkop .berichtkop-bel:hover { background:var(--kleur-zand); color:var(--kleur-donker); }
+.leesinhoud blockquote { clear:both; }
