@@ -37,7 +37,7 @@ export function PostTemplate() {
           <Label>WEBSITES · VOORBEELDBERICHT</Label>
           <h1 className="kop-h1">Een website die voor je werkt.</h1>
           <div className="bericht-meta"><span className="bericht-auteur"><img src={portrait.url} alt="" width="40" height="40"/>Bouke · Qomversie</span><span>Publicatiedatum volgt</span><span><Clock3 aria-hidden="true"/>3 minuten leestijd</span></div>
-          <div className="knoppenrij"><CtaBlock href="/#contact"/><Button asChild variant="secondary"><a className="berichtkop-bel" href="tel:+31653509763"><Phone aria-hidden="true"/>Bel direct</a></Button></div>
+          <div className="knoppenrij"><CtaBlock href="/#contact"/><Button asChild variant="light" size={null}><a href="tel:+31653509763"><Phone aria-hidden="true"/>Bel direct</a></Button></div>
         </div></div>
       </header>
       <div className="paginabreedte bericht-indeling">
