@@ -7,6 +7,8 @@ import { examplePost, relatedPosts } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import bank from '@/assets/E-mail_header_2.png.asset.json';
+import staand from '@/assets/case-joke-bleijerveld.jpg.asset.json';
+import vierkant from '@/assets/Ons_team_2.jpeg.asset.json';
 
 /* Header and footer mirror the homepage exactly; only the logo link points to "/". */
 function TemplateShell({ children }: { children: ReactNode }) {
@@ -28,24 +30,31 @@ function BerichtResultaat({ text }: { text?: string | undefined }) {
   return <p className="bericht-resultaat"><ArrowUp aria-hidden="true" />{text}</p>;
 }
 
-export function PostTemplate() {
+/* Featured image is a small uncropped mockup: portrait (4:5) and square (1:1) both stay fully visible. */
+function BerichtKop({ image, width, height }: { image: string; width: number; height: number }) {
   const p = examplePost;
+  return <header className="vlak-zand bericht-kop">
+    <div className="paginabreedte bericht-kop-raster">
+      <div className="bericht-kop-tekst">
+        <nav className="kruimelpad" aria-label="Kruimelpad"><Link to="/">Home</Link><ChevronRight aria-hidden="true" /><a href="#">{p.category}</a><ChevronRight aria-hidden="true" /><span aria-current="page">{p.title}</span></nav>
+        {p.label && <p className="bericht-label">{p.label}</p>}
+        <h1 className="kop-h1">{p.title}</h1>
+        <p className="bericht-samenvatting">{p.excerpt}</p>
+        <BerichtResultaat text={p.result} />
+        <div className="bericht-meta"><span className="bericht-auteur"><img src={portrait.url} alt="" width="40" height="40" />{p.author}</span><span>{p.date}</span></div>
+        <div className="knoppenrij"><CtaBlock href="/#contact" /><CtaBlock variant="secondary" href="tel:+31653509763">Bel direct</CtaBlock></div>
+      </div>
+      <div className="bericht-uitgelicht foto-smile"><SmileOutline /><img src={image} alt="Uitgelichte afbeelding van het bericht" width={width} height={height} /><SmileOutline front /></div>
+    </div>
+  </header>;
+}
+
+export function PostTemplate() {
   return <TemplateShell>
     <article>
-      <header className="vlak-zand vlak-donker bericht-kop">
-        <div className="paginabreedte bericht-kop-raster">
-          <div className="bericht-kop-tekst">
-            <nav className="kruimelpad" aria-label="Kruimelpad"><Link to="/">Home</Link><ChevronRight aria-hidden="true" /><a href="#">{p.category}</a><ChevronRight aria-hidden="true" /><span aria-current="page">{p.title}</span></nav>
-            {p.label && <p className="bericht-label">{p.label}</p>}
-            <h1 className="kop-h1">{p.title}</h1>
-            <p className="bericht-samenvatting">{p.excerpt}</p>
-            <BerichtResultaat text={p.result} />
-            <div className="bericht-meta"><span className="bericht-auteur"><img src={portrait.url} alt="" width="40" height="40" />{p.author}</span><span>{p.date}</span></div>
-            <div className="knoppenrij"><CtaBlock href="/#contact" /><Button asChild variant="light" size={null}><a href="tel:+31653509763"><Phone aria-hidden="true" />Bel direct</a></Button></div>
-          </div>
-          <div className="bericht-uitgelicht foto-smile"><SmileOutline /><img src={bank.url} alt="Uitgelichte afbeelding van het bericht" width="1200" height="900" /><SmileOutline front /></div>
-        </div>
-      </header>
+      <BerichtKop image={staand.url} width={960} height={1200} />
+      <p className="paginabreedte bericht-voorbeeld-label">Voorbeeld met vierkante uitgelichte afbeelding (1:1):</p>
+      <BerichtKop image={vierkant.url} width={800} height={800} />
 
       <div className="paginabreedte bericht-indeling">
         {/* Inhoud komt in WordPress uit Post Content; dit is voorbeeldopmaak van alle elementen. */}
