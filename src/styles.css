@@ -590,7 +590,7 @@ strong { font-weight:600; }
  .bericht-kop-raster { padding-block:32px 56px; }
  .bericht-kop .kop-h1 { font-size:38px; }
  .bericht-auteur { flex-basis:100%; }
- .bericht-uitgelicht { max-width:260px; }
+ .bericht-uitgelicht { max-width:260px; transform:translateX(-16px); }
  .bericht-uitgelicht .smile-lijn { display:block; width:120%; top:5%; right:-12%; }
  .bericht-inhoud blockquote { font-size:22px; padding:22px; }
  .inhoudssjabloon .knop { white-space:normal; height:auto; min-height:48px; padding-block:12px; }
