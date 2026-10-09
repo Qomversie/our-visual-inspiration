@@ -1,34 +1,43 @@
-/* Example copy only: replace through Elementor dynamic tags before publication. */
-export const articleSections = [
-  { id: 'duidelijke-boodschap', title: 'Begin met een duidelijke boodschap', paragraphs: ['Een bezoeker wil snel weten of hij bij jou aan het juiste adres is. Vertel daarom direct wat je doet, voor wie je dat doet en wat het oplevert. Een heldere boodschap helpt mensen om de volgende stap te zetten.', 'Je hoeft niet alles tegelijk te vertellen. Geef de belangrijkste informatie eerst en laat de rest van je pagina daarop aansluiten.'] },
-  { id: 'volgende-stap', title: 'Maak de volgende stap eenvoudig', paragraphs: ['Een goede website geeft richting. Of iemand nu een vraag wil stellen, een afspraak wil maken of een offerte wil aanvragen: de weg ernaartoe moet logisch voelen.'], list: ['Eén duidelijke actie per onderdeel.', 'Een formulier dat alleen vraagt wat nodig is.', 'Heldere verwachtingen over wat er daarna gebeurt.'] },
-  { id: 'blijf-verbeteren', title: 'Blijf kijken wat werkt', paragraphs: ['Een website is niet af zodra hij online staat. Kijk welke pagina’s worden bezocht, waar mensen afhaken en welke aanvragen binnenkomen. Zo ontdek je waar je kunt verbeteren.', 'Kleine veranderingen kunnen een verschil maken. Begin bij de vraag die je klanten het vaakst stellen en maak het antwoord makkelijk te vinden.'] },
-];
+import { results } from '@/lib/homepage-content';
 
-export const otherPosts = [
-  { title: 'Voorbeeldtitel van een ander bericht', meta: 'Websites · 4 min' },
-  { title: 'Nog een voorbeeldbericht over vindbaarheid', meta: 'SEO · 3 min' },
-  { title: 'Voorbeeld: zo meet je wat werkt', meta: 'Analyse · 5 min' },
-];
+/* Example copy only: in WordPress every field comes from the post itself. label and result are optional. */
+export const examplePost = {
+  category: 'Cases',
+  title: 'Een website die voor je werkt.',
+  label: 'Webshop + CRO',
+  excerpt: 'Korte samenvatting van het bericht: in één of twee zinnen waarom dit de moeite waard is om te lezen.',
+  result: '40% meer conversie in 2 maanden',
+  author: 'Bouke · Qomversie',
+  date: 'Publicatiedatum volgt',
+};
+
+export const relatedPosts: Array<{ title: string; label?: string | undefined; result?: string | undefined; image?: string | undefined }> = results.map(r => ({
+  title: `Voorbeeldbericht: ${r.name}`,
+  label: r.kind,
+  result: r.title,
+  image: 'image' in r ? r.image : 'poster' in r ? r.poster : undefined,
+}));
 
 export const templateFields = [
-  ['Berichtkop', 'Container (achtergrondkleur) · Breadcrumbs · Post Title · Post Info · Button', 'Vast donker gekleurd vlak zonder foto; titel, samenvatting, auteur, datum en twee knoppen.'],
-  ['Uitgelicht beeld', 'Featured Image', 'Staand of vierkant, onder de eerste alinea (max 520px breed).'],
-  ['Zijkolom', 'Container (sticky) · Image · Heading · Icon List · Button · Table of Contents', 'Donkere advieskaart met zandkleurige telefoonknop, inhoudsopgave en blok Andere berichten (Posts-widget, 3 recente).'],
-  ['Paginakop', 'Container · logo · telefoon · knop', 'Hergebruik de globale Header; adviesknop linkt naar /#contact.'],
-  ['Berichtinhoud', 'Post Content · Table of Contents', 'Leeskolom met H2/H3, alinea’s, lijsten en citaat; inhoudsopgave volgt H2.'],
+  ['Header en Footer', 'Globale Header · Globale Footer', 'Exact gelijk aan de homepage.'],
+  ['bericht-kop', 'Container (donker) · Breadcrumbs · Post Terms/ACF · Post Title · Post Excerpt · ACF resultaat · Post Info · Button · Featured Image', 'Label en resultaatregel verbergen bij leeg veld (Dynamic visibility). Uitgelichte afbeelding 4:3 rechts, met smile-lijn; op mobiel onder de tekst.'],
+  ['bericht-inhoud', 'Post Content', 'Stijlen voor h2–h4, alinea, vet, links, lijsten, citaat, afbeelding met bijschrift, tabel en lijn.'],
+  ['bericht-zijbalk', 'Container (niet sticky) · Image · Heading · Icon List · Button', 'Alleen de hulpkaart; op mobiel onder het artikel.'],
+  ['Foto-CTA', 'Globaal Component "Geen gedoe, gewoon resultaat."', 'Zelfde blok als op de homepage.'],
+  ['bericht-gerelateerd', 'Loop Grid (3 berichten)', 'Kaart met uitgelichte afbeelding, label, titel en resultaatregel; mobiel horizontaal swipen.'],
 ];
 
 export const templateClasses = [
-  ['berichtkop', 'Donker afgerond vlak met oranje gloed, zonder foto en zonder cirkelaccent.'],
-  ['bericht-indeling', 'Leeskolom links, zijkolom rechts; onder 1000px onder elkaar.'],
-  ['bericht-beeld', 'Uitgelichte afbeelding in eigen verhouding, onder de tekst.'],
-  ['andere-berichten', 'Zandkleurig blok met drie recente berichten.'],
-
-  ['zijkolom-plak', 'Sticky zijkolom met advieskaart en inhoudsopgave.'],
-  ['advieskaart', 'Donkere kaart met portret, voordelen, adviesknop en telefoon.'],
-  ['inhoudsopgave', 'Ankerlijst naar de H2-koppen.'],
-  ['kruimelpad', 'Home-link en huidige titel; klein, zonder capsule.'],
-  ['bericht-meta', 'Flexibele rij met auteur, datum en leestijd.'],
-  ['leesinhoud', 'Leesbare tekstkolom; opmaak voor H2, H3, lijsten, links en citaten.'],
+  ['bericht-kop', 'Donker afgerond vlak met tekst links en uitgelichte foto rechts.'],
+  ['bericht-label', 'Witte pil boven de titel; optioneel.'],
+  ['bericht-resultaat', 'Resultaatregel met oranje pijl omhoog; optioneel.'],
+  ['bericht-meta', 'Auteur met foto en publicatiedatum.'],
+  ['bericht-uitgelicht', 'Uitgelichte afbeelding 4:3 met smile-hoek en smile-lijn.'],
+  ['bericht-indeling', 'Artikel links, zijbalk rechts; onder 1000px onder elkaar.'],
+  ['bericht-inhoud', 'Opmaak voor alle WordPress-inhoud.'],
+  ['bericht-zijbalk', 'Zijbalk, niet meebewegend.'],
+  ['bericht-hulpkaart', 'Donkere kaart met portret, voordelen, adviesknop en telefoon.'],
+  ['bericht-gerelateerd', 'Drie berichtkaarten in een rij; mobiel swipen.'],
+  ['bericht-kaart', 'Zandkleurige kaart in de stijl van de casekaarten.'],
+  ['kruimelpad', 'Home › Categorie › Titel.'],
 ];
