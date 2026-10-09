@@ -40,3 +40,8 @@
 - [x] Succesverhalen-kop op één regel, 48px ruimte
 - [x] Responsive check 375-1440
 - [x] Stijlgids bijgewerkt
+
+## Sjablonen vinden
+- [x] Bericht- en paginasjabloon laden correct (/bericht-sjabloon, /pagina-sjabloon).
+- [x] Voettekstlink "Sjablonen & stijlgids" naar /styleguide toegevoegd, zodat beide sjablonen klikbaar bereikbaar zijn.
+- [x] Stijlgidsvoettekst naar de homepage laten wijzen (homeHref="/"); klikroute gecontroleerd.
