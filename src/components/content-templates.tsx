@@ -3,7 +3,7 @@ import { Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUp, Check, ChevronRight, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CtaBlock, SiteFooter, SmileOutline } from '@/components/qomversie';
-import { examplePost } from '@/lib/template-content';
+import { examplePost, relatedPosts } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import bank from '@/assets/E-mail_header_2.png.asset.json';
@@ -71,6 +71,7 @@ export function PostTemplate() {
             <CtaBlock href="/#contact" />
             <a className="bericht-hulpkaart-tel" href="tel:+31653509763"><Phone aria-hidden="true" />06-53509763</a>
           </div>
+          <nav className="bericht-andere" aria-label="Andere berichten"><p>ANDERE BERICHTEN</p>{relatedPosts.map(r => <a href="#" key={r.title}><strong>{r.title}</strong>{r.label && <span>{r.label}</span>}</a>)}<small>Voorbeeldtitels — in WordPress gevuld met recente berichten.</small></nav>
         </aside>
       </div>
 

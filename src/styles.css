@@ -542,7 +542,16 @@ strong { font-weight:600; }
 .bericht-inhoud th, .bericht-inhoud td { padding:12px 16px; text-align:left; border-bottom:1px solid var(--kleur-donker-10); }
 .bericht-inhoud thead th { background:var(--kleur-zand); font-weight:600; }
 .bericht-inhoud hr { border:0; border-top:1px solid var(--kleur-donker-10); margin-block:var(--ruimte-leesblok); }
-.bericht-zijbalk { min-width:0; }
+.bericht-zijbalk { min-width:0; display:flex; flex-direction:column; gap:32px; }
+.bericht-indeling { position:relative; }
+@media(min-width:1001px) { .bericht-zijbalk { border-left:1px solid var(--kleur-donker-10); padding-left:40px; margin-left:-40px; align-self:stretch; } }
+.bericht-andere>p { font-size:12px; font-weight:600; letter-spacing:.08em; color:var(--kleur-oranje); margin-bottom:8px; }
+.bericht-andere a { display:flex; flex-direction:column; gap:4px; padding-block:14px; border-bottom:1px solid var(--kleur-donker-10); min-height:44px; }
+.bericht-andere a:last-of-type { border-bottom:0; }
+.bericht-andere strong { font-family:var(--font-kop); font-size:17px; line-height:1.35; }
+.bericht-andere a span { font-size:13px; color:var(--kleur-donker-70); }
+.bericht-andere a:hover strong { color:var(--kleur-oranje); }
+.bericht-andere small { display:block; margin-top:8px; font-size:12px; color:var(--kleur-donker-70); }
 .bericht-hulpkaart { background:var(--kleur-donker); color:var(--kleur-zand); border-radius:var(--afronding) var(--afronding) var(--afronding-smile-kaart) var(--afronding); padding:28px; }
 .bericht-hulpkaart-kop { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
 .bericht-hulpkaart-kop img { width:52px; height:52px; border-radius:50%; object-fit:cover; }
