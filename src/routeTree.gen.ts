@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BerichtSjabloonRouteImport } from './routes/bericht-sjabloon'
-import { Route as PaginaSjabloonRouteImport } from './routes/pagina-sjabloon'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,11 +23,6 @@ const BerichtSjabloonRoute = BerichtSjabloonRouteImport.update({
   path: '/bericht-sjabloon',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PaginaSjabloonRoute = PaginaSjabloonRouteImport.update({
-  id: '/pagina-sjabloon',
-  path: '/pagina-sjabloon',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
   path: '/styleguide',
@@ -38,35 +32,30 @@ const StyleguideRoute = StyleguideRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bericht-sjabloon': typeof BerichtSjabloonRoute
-  '/pagina-sjabloon': typeof PaginaSjabloonRoute
   '/styleguide': typeof StyleguideRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bericht-sjabloon': typeof BerichtSjabloonRoute
-  '/pagina-sjabloon': typeof PaginaSjabloonRoute
   '/styleguide': typeof StyleguideRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bericht-sjabloon': typeof BerichtSjabloonRoute
-  '/pagina-sjabloon': typeof PaginaSjabloonRoute
   '/styleguide': typeof StyleguideRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bericht-sjabloon' | '/pagina-sjabloon' | '/styleguide'
+  fullPaths: '/' | '/bericht-sjabloon' | '/styleguide'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bericht-sjabloon' | '/pagina-sjabloon' | '/styleguide'
-  id:
-    '__root__' | '/' | '/bericht-sjabloon' | '/pagina-sjabloon' | '/styleguide'
+  to: '/' | '/bericht-sjabloon' | '/styleguide'
+  id: '__root__' | '/' | '/bericht-sjabloon' | '/styleguide'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BerichtSjabloonRoute: typeof BerichtSjabloonRoute
-  PaginaSjabloonRoute: typeof PaginaSjabloonRoute
   StyleguideRoute: typeof StyleguideRoute
 }
 
@@ -86,13 +75,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BerichtSjabloonRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pagina-sjabloon': {
-      id: '/pagina-sjabloon'
-      path: '/pagina-sjabloon'
-      fullPath: '/pagina-sjabloon'
-      preLoaderRoute: typeof PaginaSjabloonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/styleguide': {
       id: '/styleguide'
       path: '/styleguide'
@@ -106,7 +88,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BerichtSjabloonRoute: BerichtSjabloonRoute,
-  PaginaSjabloonRoute: PaginaSjabloonRoute,
   StyleguideRoute: StyleguideRoute,
 }
 export const routeTree = rootRouteImport
