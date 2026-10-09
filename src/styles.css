@@ -544,7 +544,8 @@ strong { font-weight:600; }
 .bericht-inhoud hr { border:0; border-top:1px solid var(--kleur-donker-10); margin-block:var(--ruimte-leesblok); }
 .bericht-zijbalk { min-width:0; display:flex; flex-direction:column; gap:32px; }
 .bericht-indeling { position:relative; }
-@media(min-width:1001px) { .bericht-zijbalk { border-left:1px solid var(--kleur-donker-10); padding-left:40px; margin-left:-40px; align-self:stretch; } }
+.bericht-zijbalk { background:var(--kleur-zand); border-radius:var(--afronding) var(--afronding) var(--afronding-smile-kaart) var(--afronding); padding:24px; }
+@media(min-width:1001px) { .bericht-inhoud { border-right:1px solid var(--kleur-donker-10); padding-right:40px; margin-right:-40px; } }
 .bericht-andere>p { font-size:12px; font-weight:600; letter-spacing:.08em; color:var(--kleur-oranje); margin-bottom:8px; }
 .bericht-andere a { display:flex; flex-direction:column; gap:4px; padding-block:14px; border-bottom:1px solid var(--kleur-donker-10); min-height:44px; }
 .bericht-andere a:last-of-type { border-bottom:0; }
