@@ -4,8 +4,8 @@ import type { ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, Check, ChevronRight, Clock3, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { CtaBlock, Label, SectionHeader, SiteFooter } from '@/components/qomversie';
-import { articleSections } from '@/lib/template-content';
+import { CtaBlock, SiteFooter } from '@/components/qomversie';
+import { articleSections, otherPosts } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 
@@ -23,8 +23,9 @@ export function PostTemplate() {
       <header className="vlak-zand vlak-donker berichtkop">
         <div className="paginabreedte"><div className="berichtkop-binnen">
           <Breadcrumb title="Bericht"/>
-          <Label>WEBSITES · VOORBEELDBERICHT</Label>
+          <div className="berichtkop-tags"><span>WEBSITES</span><span>VOORBEELDBERICHT</span></div>
           <h1 className="kop-h1">Een website die voor je werkt.</h1>
+          <p className="berichtkop-intro">Korte samenvatting van het bericht: in één of twee zinnen waarom dit de moeite waard is om te lezen.</p>
           <div className="bericht-meta"><span className="bericht-auteur"><img src={portrait.url} alt="" width="40" height="40"/>Bouke · Qomversie</span><span>Publicatiedatum volgt</span><span><Clock3 aria-hidden="true"/>3 minuten leestijd</span></div>
           <div className="knoppenrij"><CtaBlock href="/#contact"/><Button asChild variant="light" size={null}><a href="tel:+31653509763"><Phone aria-hidden="true"/>Bel direct</a></Button></div>
         </div></div>
@@ -33,8 +34,8 @@ export function PostTemplate() {
         <div className="leesinhoud">
           <p className="leesintro">Je website is vaak het eerste contact met een mogelijke klant. Juist daarom verdient hij meer aandacht dan alleen een mooi ontwerp.</p>
           {articleSections.map((s,i)=><section id={s.id} key={s.id}>
-            {i===0&&<figure className="bericht-beeld"><img src={portrait.url} alt="Bouke van Qomversie" width="800" height="1000"/><figcaption>Uitgelichte afbeelding van het bericht: staand of vierkant.</figcaption></figure>}
-            <h2>{s.title}</h2>{s.paragraphs.map(p=><p key={p}>{p}</p>)}{s.list&&<ul>{s.list.map(item=><li key={item}>{item}</li>)}</ul>}{i===0&&<blockquote>Niet méér vertellen, maar duidelijker vertellen.</blockquote>}
+            <h2>{s.title}</h2>{s.paragraphs.map(p=><p key={p}>{p}</p>)}
+            {i===0&&<figure className="bericht-beeld"><img src={portrait.url} alt="Bouke van Qomversie" width="800" height="1000"/><figcaption>Uitgelichte afbeelding van het bericht: staand of vierkant, onder de tekst.</figcaption></figure>}{s.list&&<ul>{s.list.map(item=><li key={item}>{item}</li>)}</ul>}{i===0&&<blockquote>Niet méér vertellen, maar duidelijker vertellen.</blockquote>}
           </section>)}
         </div>
         <aside className="zijkolom"><div className="zijkolom-plak">
@@ -45,6 +46,7 @@ export function PostTemplate() {
             <a className="advieskaart-tel" href="tel:+31653509763"><Phone aria-hidden="true"/>06-53509763</a>
           </div>
           <nav className="inhoudsopgave" aria-label="Op deze pagina"><p>OP DEZE PAGINA</p>{articleSections.map(s=><a href={`#${s.id}`} key={s.id}>{s.title}<ArrowRight aria-hidden="true"/></a>)}</nav>
+          <nav className="andere-berichten" aria-label="Andere berichten"><p>ANDERE BERICHTEN</p>{otherPosts.map(o=><a href="#" key={o.title}><strong>{o.title}</strong><span>{o.meta}</span></a>)}<small>Voorbeeldtitels — in Elementor gevuld met recente berichten.</small></nav>
         </div></aside>
       </div>
     </article>

@@ -5,18 +5,26 @@ export const articleSections = [
   { id: 'blijf-verbeteren', title: 'Blijf kijken wat werkt', paragraphs: ['Een website is niet af zodra hij online staat. Kijk welke pagina’s worden bezocht, waar mensen afhaken en welke aanvragen binnenkomen. Zo ontdek je waar je kunt verbeteren.', 'Kleine veranderingen kunnen een verschil maken. Begin bij de vraag die je klanten het vaakst stellen en maak het antwoord makkelijk te vinden.'] },
 ];
 
+export const otherPosts = [
+  { title: 'Voorbeeldtitel van een ander bericht', meta: 'Websites · 4 min' },
+  { title: 'Nog een voorbeeldbericht over vindbaarheid', meta: 'SEO · 3 min' },
+  { title: 'Voorbeeld: zo meet je wat werkt', meta: 'Analyse · 5 min' },
+];
+
 export const templateFields = [
   ['Berichtkop', 'Container (achtergrondkleur) · Breadcrumbs · Post Terms · Post Title · Post Info · Button', 'Vast donker gekleurd vlak zonder foto; titel, auteur, datum en twee knoppen.'],
-  ['Uitgelicht beeld', 'Featured Image', 'Staand of vierkant, rechts naast de eerste alinea (46%); mobiel volle breedte.'],
-  ['Zijkolom', 'Container (sticky) · Image · Heading · Icon List · Button · Table of Contents', 'Donkere advieskaart met telefoon en daaronder de inhoudsopgave van de H2-koppen.'],
+  ['Uitgelicht beeld', 'Featured Image', 'Staand of vierkant, onder de eerste alinea (max 520px breed).'],
+  ['Zijkolom', 'Container (sticky) · Image · Heading · Icon List · Button · Table of Contents', 'Donkere advieskaart met zandkleurige telefoonknop, inhoudsopgave en blok Andere berichten (Posts-widget, 3 recente).'],
   ['Paginakop', 'Container · logo · telefoon · knop', 'Hergebruik de globale Header; adviesknop linkt naar /#contact.'],
   ['Berichtinhoud', 'Post Content · Table of Contents', 'Leeskolom met H2/H3, alinea’s, lijsten en citaat; inhoudsopgave volgt H2.'],
 ];
 
 export const templateClasses = [
-  ['berichtkop', 'Donker afgerond vlak met subtiele oranje gloed, zonder foto.'],
+  ['berichtkop', 'Donker afgerond vlak met oranje gloed en cirkelaccent, zonder foto.'],
   ['bericht-indeling', 'Leeskolom links, zijkolom rechts; onder 1000px onder elkaar.'],
-  ['bericht-beeld', 'Uitgelichte afbeelding in eigen verhouding, rechts in de tekst.'],
+  ['bericht-beeld', 'Uitgelichte afbeelding in eigen verhouding, onder de tekst.'],
+  ['andere-berichten', 'Zandkleurig blok met drie recente berichten.'],
+  ['berichtkop-tags', 'Pills voor categorie (oranje) en type.'],
   ['zijkolom-plak', 'Sticky zijkolom met advieskaart en inhoudsopgave.'],
   ['advieskaart', 'Donkere kaart met portret, voordelen, adviesknop en telefoon.'],
   ['inhoudsopgave', 'Ankerlijst naar de H2-koppen.'],
