@@ -6,60 +6,60 @@ import { caseHoverNote, clients, experienceStats, headingLines, results, steps }
 import bank from '@/assets/E-mail_header_2.png.asset.json';
 
 export function Stars() {
-  return <span className="q-stars" aria-label="5 van 5 sterren">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" />)}</span>;
+  return <span className="sterren" aria-label="5 van 5 sterren">{Array.from({ length: 5 }, (_, i) => <Star key={i} aria-hidden="true" />)}</span>;
 }
-export function Google() { return <span className="q-google" aria-label="Google">G</span>; }
+export function Google() { return <span className="google-score" aria-label="Google">G</span>; }
 
-export function SmileMark({ className = 'q-smile' }: { className?: string }) {
+export function SmileMark({ className = 'smile-icoon' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 20 20" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" fill="currentColor" /></svg>;
 }
 export function SmileOutline({ front = false }: { front?: boolean }) {
-  return <svg className={`q-smile-outline${front ? ' q-smile-outline--front' : ''}`} viewBox="-0.2 -0.2 20.4 20.4" preserveAspectRatio="none" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" vectorEffect="non-scaling-stroke" /></svg>;
+  return <svg className={`smile-lijn${front ? ' smile-lijn-voor' : ''}`} viewBox="-0.2 -0.2 20.4 20.4" preserveAspectRatio="none" aria-hidden="true"><path d="M20 0A20 20 0 0 1 0 20V14A14 14 0 0 0 14 0Z" vectorEffect="non-scaling-stroke" /></svg>;
 }
-export function Label({ children }: { children: ReactNode }) { return <p className="q-label"><SmileMark />{children}</p>; }
+export function Label({ children }: { children: ReactNode }) { return <p className="kop-label"><SmileMark />{children}</p>; }
 
 export function SectionHeader({ label, title, children }: { label?: string; title: string; children?: ReactNode }) {
   const lines = headingLines[title];
-  return <div className="q-section-header">{label && <Label>{label}</Label>}<h2 aria-label={title} className="q-h2">{lines ? <>{lines[0]}<br/>{lines[1]}</> : title}</h2>{children}</div>;
+  return <div className="sectie-kop">{label && <Label>{label}</Label>}<h2 aria-label={title} className="kop-h2">{lines ? <>{lines[0]}<br/>{lines[1]}</> : title}</h2>{children}</div>;
 }
 
 export function CtaBlock({ children = 'Gratis adviesgesprek', variant = 'primary', href = '#contact', note }: { children?: ReactNode; variant?: 'primary' | 'secondary'; href?: string; note?: string }) {
   const button = <Button asChild variant={variant === 'primary' ? 'advice' : 'quiet'}><a href={href}>{children}<ArrowRight aria-hidden="true" /></a></Button>;
   if (!note) return button;
-  return <div className="q-cta">{button}<p className="q-note">{note}</p></div>;
+  return <div className="cta-blok">{button}<p className="tekst-klein">{note}</p></div>;
 }
 
 export function RotatingBadge({ text = 'GRATIS ADVIESGESPREK • 30 MINUTEN • ', href = '#contact', id = 'badge-circle' }: { text?: string; href?: string; id?: string }) {
-  return <a className="q-badge-rotate" href={href} aria-label="Gratis adviesgesprek van 30 minuten"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id={id} d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs><text><textPath href={`#${id}`} textLength="237">{text}</textPath></text></svg><SmileMark className="q-smile-badge" /></a>;
+  return <a className="badge-draaiend" href={href} aria-label="Gratis adviesgesprek van 30 minuten"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id={id} d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs><text><textPath href={`#${id}`} textLength="237">{text}</textPath></text></svg><SmileMark className="smile-badge" /></a>;
 }
 
 export function CheckList({ items, badge = false }: { items: string[]; badge?: boolean }) {
-  return <ul className={`q-check-list${badge ? ' q-check-list--badge' : ''}`}>{items.map(item => <li key={item}><Check aria-hidden="true" /><span>{item}</span></li>)}</ul>;
+  return <ul className={`checklijst${badge ? ' checklijst-badge' : ''}`}>{items.map(item => <li key={item}><Check aria-hidden="true" /><span>{item}</span></li>)}</ul>;
 }
 
 export function Workflow() {
-  return <div className="q-workflow"><SectionHeader label="ONZE WERKWIJZE" title="Eerst begrijpen, dan bouwen"/><div className="q-steps">{steps.map((s,i)=><article className="q-step" key={s.title}><span className="q-step-dot" aria-hidden="true">{i+1}</span><div className="q-step-body"><div className="q-step-head"><h3 className="q-h3">{s.title}</h3><span className="q-step-pill">{s.meta}</span></div>{'blocks' in s&&s.blocks?<div className="q-step-blocks">{s.blocks.map(b=><div key={b.word}><strong>{b.word}</strong><span>{b.line}</span></div>)}</div>:<p className="q-text">{s.text}</p>}</div></article>)}</div><div className="q-center"><CtaBlock note="30 minuten · vrijblijvend · op locatie of videocall"/></div></div>;
+  return <div className="werkwijze"><SectionHeader label="ONZE WERKWIJZE" title="Eerst begrijpen, dan bouwen"/><div className="stappen">{steps.map((s,i)=><article className="stap" key={s.title}><span className="stap-punt" aria-hidden="true">{i+1}</span><div className="stap-inhoud"><div className="stap-kop"><h3 className="kop-h3">{s.title}</h3><span className="stap-pil">{s.meta}</span></div>{'blocks' in s&&s.blocks?<div className="stap-blokken">{s.blocks.map(b=><div key={b.word}><strong>{b.word}</strong><span>{b.line}</span></div>)}</div>:<p className="tekst">{s.text}</p>}</div></article>)}</div><div className="gecentreerd"><CtaBlock note="30 minuten · vrijblijvend · op locatie of videocall"/></div></div>;
 }
 
 export function FaqItem({ question, answer }: { question: string; answer: string }) {
-  return <details className="q-faq"><summary>{question}<Plus aria-hidden="true" /></summary><p className="q-text">{answer}</p></details>;
+  return <details className="faq"><summary>{question}<Plus aria-hidden="true" /></summary><p className="tekst">{answer}</p></details>;
 }
 
 export function ShortcodeBlock({ code, note }: { code: string; note: string }) {
-  return <div className="q-shortcode"><code>[shortcode: {code}]</code><p className="q-note">{note}</p></div>;
+  return <div className="shortcode-blok"><code>[shortcode: {code}]</code><p className="tekst-klein">{note}</p></div>;
 }
 
 export function CaseCard({ name, line, image, tag, featured = false }: { name: string; line: string; image?: string; tag?: string; featured?: boolean }) {
-  return <article className={`q-case-card${featured ? ' q-case-card--featured' : ''}`}>
-    {image ? <img src={image} alt={`Project voor ${name}, website gebouwd door Qomversie in Friesland`} loading="lazy" /> : <div className="q-case-media" role="img" aria-label={`Projectfoto ${name} volgt`} />}
-    {tag && <span className="q-case-tag">{tag}</span>}
-    <a className="q-case-corner" href="#contact" aria-label={`Meer over ${name}`}><ArrowRight aria-hidden="true" /></a>
-    <div className="q-case-caption"><h3>{name}</h3><p><ArrowUp aria-hidden="true" />{line}</p><p className="q-case-more">{caseHoverNote}</p></div>
+  return <article className={`case-kaart${featured ? ' case-kaart-uitgelicht' : ''}`}>
+    {image ? <img src={image} alt={`Project voor ${name}, website gebouwd door Qomversie in Friesland`} loading="lazy" /> : <div className="case-beeld" role="img" aria-label={`Projectfoto ${name} volgt`} />}
+    {tag && <span className="case-label">{tag}</span>}
+    <a className="case-hoek" href="#contact" aria-label={`Meer over ${name}`}><ArrowRight aria-hidden="true" /></a>
+    <div className="case-onderschrift"><h3>{name}</h3><p><ArrowUp aria-hidden="true" />{line}</p><p className="case-meer">{caseHoverNote}</p></div>
   </article>;
 }
 
 export function LogoStrip() {
-  return <section id="klantlogos" className="q-section q-section--white q-logo-strip" aria-label="Onze klanten"><div className="q-logo-strip-inner"><div className="q-client-window"><div className="q-client-track">{[0, 1].map(copy => <div className="q-client-group" key={copy} aria-hidden={copy === 1}>{clients.map(name => <div className="q-client" key={name}>{name}<small>KLANTLOGO VOLGT</small></div>)}</div>)}</div></div></div></section>;
+  return <section id="klantlogos" className="sectie sectie-wit logostrook" aria-label="Onze klanten"><div className="logostrook-binnen"><div className="logostrook-venster"><div className="logostrook-baan">{[0, 1].map(copy => <div className="logostrook-groep" key={copy} aria-hidden={copy === 1}>{clients.map(name => <div className="logostrook-logo" key={name}>{name}<small>KLANTLOGO VOLGT</small></div>)}</div>)}</div></div></div></section>;
 }
 
 export function CountUp({ value, suffix = '' }: { value: number; suffix?: string }) {
@@ -88,15 +88,15 @@ export function CountUp({ value, suffix = '' }: { value: number; suffix?: string
 }
 
 export function HeroStats() {
-  return <div className="q-hero-stats">{experienceStats.map(stat => <div className="q-hero-stat" key={stat.label}><p><CountUp value={stat.value} suffix="+"/></p><span>{stat.label.charAt(0) + stat.label.slice(1).toLowerCase()}</span></div>)}</div>;
+  return <div className="hero-cijfers">{experienceStats.map(stat => <div className="hero-cijfer" key={stat.label}><p><CountUp value={stat.value} suffix="+"/></p><span>{stat.label.charAt(0) + stat.label.slice(1).toLowerCase()}</span></div>)}</div>;
 }
 
 /* Wide photo panel: the smile outline wraps the whole block, behind at the top edge and in front at the bottom-right corner. */
 export function PhotoCta() {
-  return <section className="q-photo-cta" aria-labelledby="photo-cta-title">
-    <div className="q-photo-cta-frame">
-      <div className="q-photo-cta-copy"><Label>KLAAR VOOR DE VOLGENDE STAP?</Label><h2 id="photo-cta-title" className="q-h2" aria-label="Geen gedoe, gewoon resultaat."><span className="q-h2-outline">Geen gedoe,</span><br/>gewoon resultaat.</h2><p className="q-text">In 30 minuten weet je wat jouw website kan opleveren. Gratis en vrijblijvend.</p><CtaBlock/></div>
-      <div className="q-photo-cta-photo q-smile-outline-host"><SmileOutline/><img src={bank.url} alt="Bouke van Qomversie met een collega op de bank" loading="lazy"/><SmileOutline front/></div>
+  return <section className="foto-cta" aria-labelledby="photo-cta-title">
+    <div className="foto-cta-kader">
+      <div className="foto-cta-tekst"><Label>KLAAR VOOR DE VOLGENDE STAP?</Label><h2 id="photo-cta-title" className="kop-h2" aria-label="Geen gedoe, gewoon resultaat."><span className="kop-outline">Geen gedoe,</span><br/>gewoon resultaat.</h2><p className="tekst">In 30 minuten weet je wat jouw website kan opleveren. Gratis en vrijblijvend.</p><CtaBlock/></div>
+      <div className="foto-cta-foto foto-smile"><SmileOutline/><img src={bank.url} alt="Bouke van Qomversie met een collega op de bank" loading="lazy"/><SmileOutline front/></div>
     </div>
   </section>;
 }
@@ -134,38 +134,38 @@ export function ResultCards() {
   const keyPage = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); go(index + (event.key === 'ArrowRight' ? 1 : -1)); }
   };
-  return <div className="q-container q-results">
-    <div className="q-results-head">
-      <div className="q-results-heading">
+  return <div className="paginabreedte succes">
+    <div className="succes-kop">
+      <div className="succes-koptekst">
         <Label>WAT ONZE KLANTEN BEREIKEN</Label>
-        <h2 className="q-h2 q-results-title">Succesverhalen</h2>
+        <h2 className="kop-h2 succes-kop-titel">Succesverhalen</h2>
       </div>
-      <div className="q-results-side">
-        <p className="q-text q-intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
-        <div className="q-results-nav">
+      <div className="succes-zijkant">
+        <p className="tekst intro">Geen loze beloftes, maar meetbare resultaten. Dit is wat ambitieuze ondernemers die met ons samenwerken écht bereiken.</p>
+        <div className="succes-navigatie">
           <Button variant="round" onClick={() => go(index - 1)} disabled={index === 0} aria-label="Vorig resultaat"><ArrowLeft aria-hidden="true"/></Button>
           <Button variant="round" onClick={() => go(index + 1)} disabled={index >= maxIndex} aria-label="Volgend resultaat"><ArrowRight aria-hidden="true"/></Button>
-          <span className="q-results-count" aria-live="polite">{index + 1} / {results.length}</span>
+          <span className="succes-teller" aria-live="polite">{index + 1} / {results.length}</span>
         </div>
       </div>
     </div>
-    <div className="q-result-cards" tabIndex={0} aria-label="Klantresultaten" onKeyDown={keyPage} onTouchStart={event => { const point = event.touches[0]; if (point) touch.current = { x: point.clientX, y: point.clientY }; }} onTouchEnd={swipe}>
-      <div className="q-result-track" style={{ ['--q-result-visible' as string]: visible, ['--q-result-index' as string]: index }}>
-        {results.map((result, i) => <article className="q-result-card" key={result.id} aria-hidden={i < index || i >= index + visible ? true : undefined}>
-          {'video' in result && result.video ? <Button variant="ghost" className="q-result-media q-result-video" tabIndex={i < index || i >= index + visible ? -1 : undefined} onClick={() => openVideo(result)} aria-label={`Videoreview van ${result.name} afspelen`}><img src={result.poster} alt={result.name} loading="lazy"/><span className="q-video-play"><Play aria-hidden="true"/></span></Button> : 'image' in result && result.image ? <div className={`q-result-media${result.imageType === 'screenshot' ? ' q-result-media--screenshot' : ''}`}><img src={result.image} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div> : <div className="q-result-media q-result-icon"><TrendingUp size={56} strokeWidth={2} aria-hidden="true"/></div>}
-          <div className="q-result-body">
-            <p className="q-result-client">{result.name}</p>
-            <h3 className="q-result-title" aria-label={`${result.value}${result.unit} ${result.description}`}><ArrowUp className="q-result-arrow" aria-hidden="true"/><span className="q-result-figure"><CountUp value={result.value}/>{result.unit}</span></h3>
-            <p className="q-result-description">{result.description}</p>
-            <Button asChild variant="ghost" className="q-result-case-link"><a href={result.caseUrl} tabIndex={i < index || i >= index + visible ? -1 : undefined}>Bekijk de case <ArrowRight aria-hidden="true"/></a></Button>
+    <div className="succes-kaarten" tabIndex={0} aria-label="Klantresultaten" onKeyDown={keyPage} onTouchStart={event => { const point = event.touches[0]; if (point) touch.current = { x: point.clientX, y: point.clientY }; }} onTouchEnd={swipe}>
+      <div className="succes-baan" style={{ ['--succes-zichtbaar' as string]: visible, ['--succes-index' as string]: index }}>
+        {results.map((result, i) => <article className="succes-kaart" key={result.id} aria-hidden={i < index || i >= index + visible ? true : undefined}>
+          {'video' in result && result.video ? <Button variant="ghost" className="succes-beeld succes-video" tabIndex={i < index || i >= index + visible ? -1 : undefined} onClick={() => openVideo(result)} aria-label={`Videoreview van ${result.name} afspelen`}><img src={result.poster} alt={result.name} loading="lazy"/><span className="video-afspelen"><Play aria-hidden="true"/></span></Button> : 'image' in result && result.image ? <div className={`succes-beeld${result.imageType === 'screenshot' ? ' succes-beeld-screenshot' : ''}`}><img src={result.image} alt="Shopify conversiegrafiek: 2,79%, 40% hoger dan de vorige periode" loading="lazy"/></div> : <div className="succes-beeld succes-icoon"><TrendingUp size={56} strokeWidth={2} aria-hidden="true"/></div>}
+          <div className="succes-tekstvak">
+            <p className="succes-klant">{result.name}</p>
+            <h3 className="succes-titel" aria-label={`${result.value}${result.unit} ${result.description}`}><ArrowUp className="succes-pijl" aria-hidden="true"/><span className="succes-cijferwaarde"><CountUp value={result.value}/>{result.unit}</span></h3>
+            <p className="succes-uitleg">{result.description}</p>
+            <Button asChild variant="ghost" className="succes-caselink"><a href={result.caseUrl} tabIndex={i < index || i >= index + visible ? -1 : undefined}>Bekijk de case <ArrowRight aria-hidden="true"/></a></Button>
           </div>
-          <span className="q-result-featured"><span aria-hidden="true">✦</span>{result.kind}</span>
+          <span className="succes-uitgelicht"><span aria-hidden="true">✦</span>{result.kind}</span>
         </article>)}
       </div>
     </div>
-    <dialog className="q-video-dialog" ref={dialogRef} aria-label={video ? `Videoreview van ${video.name}` : 'Videoreview'} onCancel={closeVideo} onClick={event => { if (event.target === event.currentTarget) closeVideo(); }}>
-      <Button variant="round" className="q-video-close" aria-label="Video sluiten" onClick={closeVideo}><X/></Button>
-      {videoError && <div className="q-video-error"><h3>De videoreview is tijdelijk niet beschikbaar.</h3><p>Probeer het later opnieuw.</p></div>}
+    <dialog className="video-venster" ref={dialogRef} aria-label={video ? `Videoreview van ${video.name}` : 'Videoreview'} onCancel={closeVideo} onClick={event => { if (event.target === event.currentTarget) closeVideo(); }}>
+      <Button variant="round" className="video-sluiten" aria-label="Video sluiten" onClick={closeVideo}><X/></Button>
+      {videoError && <div className="video-fout"><h3>De videoreview is tijdelijk niet beschikbaar.</h3><p>Probeer het later opnieuw.</p></div>}
       {video && <video key={video.url} ref={videoRef} hidden={videoError} onError={() => setVideoError(true)} controls playsInline autoPlay preload="none" src={video.url} poster={video.poster} aria-label={`Videoreview van ${video.name}`}/>}
     </dialog>
   </div>;
@@ -173,14 +173,14 @@ export function ResultCards() {
 
 /* SiteFooter: rounded white footer panel shared by homepage and styleguide. */
 export function SiteFooter() {
-  return <footer className="q-footer"><div className="q-container">
-    <div className="q-footer-grid">
-      <div className="q-footer-brand"><a href="#hero" aria-label="Qomversie, naar boven"><img className="q-logo" src={logo.url} alt="Qomversie logo" width="1920" height="528" loading="lazy"/></a><p>Digitale tools die jouw bedrijf laten groeien. Meer klanten, minder werkdruk.</p><div className="q-rating"><Google/><Stars/><span>5.0 op Google</span></div><Button asChild variant="advice" className="q-footer-cta"><a href="#contact">Gratis adviesgesprek</a></Button></div>
-      <div><h3>Contact</h3><div className="q-footer-links"><a href="tel:+31653509763"><Phone aria-hidden="true"/>06-53509763</a><a href="mailto:info@qomv.nl"><Mail aria-hidden="true"/>info@qomv.nl</a><span>KvK 82383081</span></div></div>
-      <div><h3>Onze partners</h3><div className="q-footer-links"><a href="https://wijmakendronebeelden.nl" target="_blank" rel="noreferrer">wijmakendronebeelden.nl</a><a href="https://websitebouwerfriesland.nl" target="_blank" rel="noreferrer">websitebouwerfriesland.nl</a></div></div>
-      <div><h3>Info</h3><div className="q-footer-links"><a href="https://www.qomv.nl/privacybeleid/" target="_blank" rel="noreferrer">Privacybeleid</a><a href="https://www.qomv.nl/cookiebeleid/" target="_blank" rel="noreferrer">Cookiebeleid</a><a href="#faq">Veelgestelde vragen</a></div></div>
-      <div className="q-socials"><Button asChild variant="round"><a href="https://www.instagram.com/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op Instagram" title="Instagram"><Instagram/></a></Button><Button asChild variant="round"><a href="https://www.linkedin.com/company/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op LinkedIn" title="LinkedIn"><Linkedin/></a></Button><Button asChild variant="round"><a href="https://www.facebook.com/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op Facebook" title="Facebook"><Facebook/></a></Button></div>
+  return <footer className="paginavoet"><div className="paginabreedte">
+    <div className="paginavoet-kolommen">
+      <div className="paginavoet-merk"><a href="#hero" aria-label="Qomversie, naar boven"><img className="logo" src={logo.url} alt="Qomversie logo" width="1920" height="528" loading="lazy"/></a><p>Digitale tools die jouw bedrijf laten groeien. Meer klanten, minder werkdruk.</p><div className="beoordeling"><Google/><Stars/><span>5.0 op Google</span></div><Button asChild variant="advice" className="paginavoet-knop"><a href="#contact">Gratis adviesgesprek</a></Button></div>
+      <div><h3>Contact</h3><div className="paginavoet-links"><a href="tel:+31653509763"><Phone aria-hidden="true"/>06-53509763</a><a href="mailto:info@qomv.nl"><Mail aria-hidden="true"/>info@qomv.nl</a><span>KvK 82383081</span></div></div>
+      <div><h3>Onze partners</h3><div className="paginavoet-links"><a href="https://wijmakendronebeelden.nl" target="_blank" rel="noreferrer">wijmakendronebeelden.nl</a><a href="https://websitebouwerfriesland.nl" target="_blank" rel="noreferrer">websitebouwerfriesland.nl</a></div></div>
+      <div><h3>Info</h3><div className="paginavoet-links"><a href="https://www.qomv.nl/privacybeleid/" target="_blank" rel="noreferrer">Privacybeleid</a><a href="https://www.qomv.nl/cookiebeleid/" target="_blank" rel="noreferrer">Cookiebeleid</a><a href="#faq">Veelgestelde vragen</a></div></div>
+      <div className="socials"><Button asChild variant="round"><a href="https://www.instagram.com/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op Instagram" title="Instagram"><Instagram/></a></Button><Button asChild variant="round"><a href="https://www.linkedin.com/company/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op LinkedIn" title="LinkedIn"><Linkedin/></a></Button><Button asChild variant="round"><a href="https://www.facebook.com/qomversie/" target="_blank" rel="noreferrer" aria-label="Qomversie op Facebook" title="Facebook"><Facebook/></a></Button></div>
     </div>
-    <div className="q-footer-bottom"><span>© Qomversie · Website laten bouwen in Friesland</span><span><a href="https://www.qomv.nl/privacybeleid/" target="_blank" rel="noreferrer">Privacybeleid</a> · <a href="https://www.qomv.nl/cookiebeleid/" target="_blank" rel="noreferrer">Cookiebeleid</a></span></div>
+    <div className="paginavoet-onderbalk"><span>© Qomversie · Website laten bouwen in Friesland</span><span><a href="https://www.qomv.nl/privacybeleid/" target="_blank" rel="noreferrer">Privacybeleid</a> · <a href="https://www.qomv.nl/cookiebeleid/" target="_blank" rel="noreferrer">Cookiebeleid</a></span></div>
   </div></footer>;
 }

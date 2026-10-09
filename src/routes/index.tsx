@@ -39,9 +39,9 @@ function CaseCarousel() {
  const update=()=>{const el=ref.current;if(!el)return;const kids=[...el.children] as HTMLElement[];const base=kids[0]?.offsetLeft??0;let index=0;kids.forEach((k,i)=>{if(k.offsetLeft-base<=el.scrollLeft+8)index=i;});const end=el.scrollLeft+el.clientWidth>=el.scrollWidth-5;setPos({start:el.scrollLeft<5,end,index:end?kids.length-1:index});};
  useEffect(()=>{update();window.addEventListener('resize',update);return()=>window.removeEventListener('resize',update);},[]);
  const scroll=(d:number)=>{const el=ref.current;if(!el)return;const kids=[...el.children] as HTMLElement[];const target=kids[Math.max(0,Math.min(kids.length-1,pos.index+d))];el.scrollTo({left:(target?.offsetLeft??0)-(kids[0]?.offsetLeft??0),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
- return <section id="cases" className="q-section q-section--white q-cases">
-  <div className="q-container q-heading-row"><SectionHeader label="ONS WERK" title="Cases waar we trots op zijn"/><div className="q-cases-aside"><p className="q-text">Een greep uit ons werk voor Friese ondernemers.</p><div className="q-cases-actions"><CtaBlock variant="secondary" href="#cases">Bekijk alle cases</CtaBlock><div className="q-slider-controls"><span className="q-case-count" aria-live="polite">{String(pos.index+1).padStart(2,'0')} / {String(cases.length).padStart(2,'0')}</span><Button variant="round" disabled={pos.start} onClick={()=>scroll(-1)} aria-label="Vorige case"><ArrowLeft/></Button><Button variant="round" disabled={pos.end} onClick={()=>scroll(1)} aria-label="Volgende case"><ArrowRight/></Button></div></div></div></div>
-  <div className="q-cases-carousel"><div className="q-case-track" ref={ref} onScroll={update}>{cases.map(c=><CaseCard key={c.name} {...c} />)}</div></div>
+ return <section id="cases" className="sectie sectie-wit cases">
+  <div className="paginabreedte kop-rij"><SectionHeader label="ONS WERK" title="Cases waar we trots op zijn"/><div className="cases-zijkant"><p className="tekst">Een greep uit ons werk voor Friese ondernemers.</p><div className="cases-acties"><CtaBlock variant="secondary" href="#cases">Bekijk alle cases</CtaBlock><div className="slider-knoppen"><span className="case-teller" aria-live="polite">{String(pos.index+1).padStart(2,'0')} / {String(cases.length).padStart(2,'0')}</span><Button variant="round" disabled={pos.start} onClick={()=>scroll(-1)} aria-label="Vorige case"><ArrowLeft/></Button><Button variant="round" disabled={pos.end} onClick={()=>scroll(1)} aria-label="Volgende case"><ArrowRight/></Button></div></div></div></div>
+  <div className="cases-carrousel"><div className="case-rij" ref={ref} onScroll={update}>{cases.map(c=><CaseCard key={c.name} {...c} />)}</div></div>
  </section>;
 }
 
@@ -49,7 +49,7 @@ function Index() {
  const [scrolled,setScrolled]=useState(false);const [pastHero,setPastHero]=useState(false);
  useEffect(()=>{
   const onScroll=()=>{setScrolled(window.scrollY>30);const el=document.getElementById('hero');setPastHero((el?.getBoundingClientRect().bottom??1)<0);};onScroll();window.addEventListener('scroll',onScroll,{passive:true});
-  const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.06});document.querySelectorAll('.q-reveal').forEach(el=>observer.observe(el));
+  const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.06});document.querySelectorAll('.inschuiven').forEach(el=>observer.observe(el));
   return()=>{window.removeEventListener('scroll',onScroll);observer.disconnect();};
  },[]);
  const structuredData = {'@context':'https://schema.org','@graph':[
@@ -58,47 +58,47 @@ function Index() {
  ]};
  return <>
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/>
-  <header className={`q-header ${scrolled?'scrolled':''}`}><div className="q-container q-header-inner"><a href="#hero" aria-label="Qomversie, naar boven"><img className="q-logo" src={logo.url} alt="Qomversie logo, websites bouwen in Friesland" width="1920" height="528"/></a><div className="q-header-actions"><a className="q-phone" href="tel:+31653509763"><Phone aria-hidden="true"/>06-53509763</a><CtaBlock/></div></div></header>
+  <header className={`paginakop ${scrolled?'scrolled':''}`}><div className="paginabreedte paginakop-binnen"><a href="#hero" aria-label="Qomversie, naar boven"><img className="logo" src={logo.url} alt="Qomversie logo, websites bouwen in Friesland" width="1920" height="528"/></a><div className="paginakop-acties"><a className="telefoon" href="tel:+31653509763"><Phone aria-hidden="true"/>06-53509763</a><CtaBlock/></div></div></header>
   <main>
-   <div className="q-panel q-hero-panel">
-   <section id="hero" className="q-section q-section--flush q-container q-hero">
+   <div className="vlak-zand hero-vlak">
+   <section id="hero" className="sectie sectie-zonder-ruimte paginabreedte hero">
     
-    <div className="q-hero-copy">
-     <p className="q-pill"><Google/><Stars/><span>5.0 · 23 Google reviews</span></p>
+    <div className="hero-tekst">
+     <p className="pil"><Google/><Stars/><span>5.0 · 23 Google reviews</span></p>
      <Label>WEBSITE LATEN BOUWEN IN FRIESLAND</Label>
-     <h1 className="q-h1">Meer dan een <em>mooie</em> website.</h1>
-     <p className="q-text">Wij bouwen <strong>conversiegerichte websites</strong> met op maat gemaakte <strong>aanvraagtools.</strong></p>
-     <p className="q-text">Zo ontvang je niet alleen sneller, maar vooral betere aanvragen en bel jij alleen nog met serieuze mensen. Dat scheelt je uren aan offertes die niks opleveren.</p>
-     <div className="q-actions"><CtaBlock/><CtaBlock variant="secondary" href="#cases">Ons werk bekijken</CtaBlock></div>
+     <h1 className="kop-h1">Meer dan een <em>mooie</em> website.</h1>
+     <p className="tekst">Wij bouwen <strong>conversiegerichte websites</strong> met op maat gemaakte <strong>aanvraagtools.</strong></p>
+     <p className="tekst">Zo ontvang je niet alleen sneller, maar vooral betere aanvragen en bel jij alleen nog met serieuze mensen. Dat scheelt je uren aan offertes die niks opleveren.</p>
+     <div className="knoppenrij"><CtaBlock/><CtaBlock variant="secondary" href="#cases">Ons werk bekijken</CtaBlock></div>
      <HeroStats/>
     </div>
-    <div className="q-hero-photo q-smile-outline-host"><SmileOutline/><img className="q-portrait" src={portrait.url} alt="Bouke van Qomversie, website laten bouwen in Friesland" width="540" height="750"/><SmileOutline front/><RotatingBadge id="hero-badge"/></div>
+    <div className="hero-foto foto-smile"><SmileOutline/><img className="portret" src={portrait.url} alt="Bouke van Qomversie, website laten bouwen in Friesland" width="540" height="750"/><SmileOutline front/><RotatingBadge id="hero-badge"/></div>
    </section>
-   <section className="q-section q-section--flush q-hero-follow" aria-label="Wat je eraan hebt">
-    <div className="q-container q-hero-follow-inner">
-     <div className="q-benefits">{benefits.map(({Icon,title,text})=><article className="q-card" key={title}><Icon aria-hidden="true"/><h3 className="q-h3">{title}</h3><p className="q-text">{text}</p></article>)}</div>
+   <section className="sectie sectie-zonder-ruimte hero-vervolg" aria-label="Wat je eraan hebt">
+    <div className="paginabreedte hero-vervolg-binnen">
+     <div className="voordelen">{benefits.map(({Icon,title,text})=><article className="kaart" key={title}><Icon aria-hidden="true"/><h3 className="kop-h3">{title}</h3><p className="tekst">{text}</p></article>)}</div>
     </div>
    </section>
 
    </div>
    <LogoStrip/>
-   <section id="succesverhalen" className="q-section q-section--white q-results-section"><ResultCards/></section>
-      <section id="over-ons" className="q-section q-panel"><div className="q-container q-about q-reveal">
-    <div className="q-about-copy"><SectionHeader label="OVER ONS" title="Hoi! Wij zijn Qomversie"/><p className="q-text">Ik weet hoe het is om als ondernemer alles zelf te doen en toch het gevoel te hebben dat je langzaam groeit. Daarom bouw ik resultaatgerichte websites voor Friese bedrijven die daadwerkelijk klanten en tijdwinst opleveren.</p><p className="q-text">Geen groot bureau met lange wachttijden. Geen agency die alleen adviseert. Geen freelancer die alleen bouwt. Gewoon ik, met een vast team van specialisten. Korte lijntjes, snel schakelen, altijd bereikbaar.</p><p className="q-text">Sindsdien hebben we:</p><CheckList badge items={aboutChecks}/><CtaBlock variant="secondary">Laten we kennismaken</CtaBlock></div>
-    <div className="q-about-photo q-smile-outline-host"><SmileOutline/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="1000" loading="lazy"/><SmileOutline front/></div>
+   <section id="succesverhalen" className="sectie sectie-wit succes-sectie"><ResultCards/></section>
+      <section id="over-ons" className="sectie vlak-zand"><div className="paginabreedte over-ons inschuiven">
+    <div className="over-ons-tekst"><SectionHeader label="OVER ONS" title="Hoi! Wij zijn Qomversie"/><p className="tekst">Ik weet hoe het is om als ondernemer alles zelf te doen en toch het gevoel te hebben dat je langzaam groeit. Daarom bouw ik resultaatgerichte websites voor Friese bedrijven die daadwerkelijk klanten en tijdwinst opleveren.</p><p className="tekst">Geen groot bureau met lange wachttijden. Geen agency die alleen adviseert. Geen freelancer die alleen bouwt. Gewoon ik, met een vast team van specialisten. Korte lijntjes, snel schakelen, altijd bereikbaar.</p><p className="tekst">Sindsdien hebben we:</p><CheckList badge items={aboutChecks}/><CtaBlock variant="secondary">Laten we kennismaken</CtaBlock></div>
+    <div className="over-ons-foto foto-smile"><SmileOutline/><img src={team.url} alt="Bouke van Qomversie, websites bouwen in Friesland" width="800" height="1000" loading="lazy"/><SmileOutline front/></div>
    </div></section>
    <CaseCarousel/>
-   <section id="diensten" className="q-section q-panel"><div className="q-container q-reveal"><SectionHeader label="START MET GROEIEN!" title="Wat wil je bereiken?"/><div className="q-services">{services.map((s,i)=><a className="q-card" href="#contact" key={s.title}><span className="q-service-number">0{i+1}</span><ArrowUpRight className="q-service-arrow" aria-hidden="true"/><h3 className="q-h3">{s.title}</h3><p className="q-service-subtitle">{s.subtitle}</p><p className="q-text">{s.text}</p><CheckList items={s.checks}/><span className="q-btn q-btn--secondary">Gratis advies<ArrowRight aria-hidden="true"/></span></a>)}</div></div></section>
-      <section id="reviews" className="q-section q-section--white"><div className="q-container q-reveal"><SectionHeader label="RECENSIES" title="Vertrouwd door onze klanten"/><div className="q-reviews-block"><ShortcodeBlock code="reviews" note="Hier komt de reviews-widget"/></div></div></section>
+   <section id="diensten" className="sectie vlak-zand"><div className="paginabreedte inschuiven"><SectionHeader label="START MET GROEIEN!" title="Wat wil je bereiken?"/><div className="diensten">{services.map((s,i)=><a className="kaart" href="#contact" key={s.title}><span className="diensten-nummer">0{i+1}</span><ArrowUpRight className="diensten-pijl" aria-hidden="true"/><h3 className="kop-h3">{s.title}</h3><p className="diensten-subtitel">{s.subtitle}</p><p className="tekst">{s.text}</p><CheckList items={s.checks}/><span className="knop knop-secundair">Gratis advies<ArrowRight aria-hidden="true"/></span></a>)}</div></div></section>
+      <section id="reviews" className="sectie sectie-wit"><div className="paginabreedte inschuiven"><SectionHeader label="RECENSIES" title="Vertrouwd door onze klanten"/><div className="reviews-blok"><ShortcodeBlock code="reviews" note="Hier komt de reviews-widget"/></div></div></section>
    <PhotoCta/>
-   <section id="beloftes" className="q-section q-panel"><div className="q-container q-promises q-reveal"><div className="q-promises-intro"><SectionHeader label="ONZE BELOFTES" title="Groeien zonder risico"><p className="q-text">Geen gedoe, geen verrassingen. Dit kun je van ons verwachten.</p></SectionHeader><CtaBlock/></div><div className="q-promise-grid">{promises.map(({Icon,title,text})=><article className="q-promise" key={title}><Icon aria-hidden="true"/><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
-   <section id="faq" className="q-section q-section--white"><div className="q-container q-faq-section q-reveal"><SectionHeader label="FAQ" title="Veelgestelde vragen"/><div className="q-faq-list">{faqs.map(f=><FaqItem key={f.question} {...f}/>)}</div></div></section>
-   <section id="contact" className="q-section q-panel q-contact-wrap q-reveal">
-     <div className="q-container q-contact"><div className="q-contact-copy"><SectionHeader label="KLAAR OM TE GROEIEN?" title="Plan je gratis adviesgesprek!"/><p className="q-text">Ontdek in 30 minuten hoeveel het jou kan opleveren.</p><CheckList badge items={['Gratis en vrijblijvend','30 minuten, op locatie of via video','Eerlijk advies, ook als je ons nu niet nodig hebt']}/><p className="q-call">Liever even bellen? <a href="tel:+31653509763">06-53509763</a></p></div><div className="q-planner-wrap"><div className="q-planner"><ShortcodeBlock code="hubspot-agenda" note="Hier komt de HubSpot-afspraakplanner"/></div></div></div>
+   <section id="beloftes" className="sectie vlak-zand"><div className="paginabreedte beloftes inschuiven"><div className="beloftes-intro"><SectionHeader label="ONZE BELOFTES" title="Groeien zonder risico"><p className="tekst">Geen gedoe, geen verrassingen. Dit kun je van ons verwachten.</p></SectionHeader><CtaBlock/></div><div className="beloftes-raster">{promises.map(({Icon,title,text})=><article className="beloftes-kaart" key={title}><Icon aria-hidden="true"/><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+   <section id="faq" className="sectie sectie-wit"><div className="paginabreedte faq-sectie inschuiven"><SectionHeader label="FAQ" title="Veelgestelde vragen"/><div className="faq-lijst">{faqs.map(f=><FaqItem key={f.question} {...f}/>)}</div></div></section>
+   <section id="contact" className="sectie vlak-zand contact-kolommen inschuiven">
+     <div className="paginabreedte contact"><div className="contact-tekst"><SectionHeader label="KLAAR OM TE GROEIEN?" title="Plan je gratis adviesgesprek!"/><p className="tekst">Ontdek in 30 minuten hoeveel het jou kan opleveren.</p><CheckList badge items={['Gratis en vrijblijvend','30 minuten, op locatie of via video','Eerlijk advies, ook als je ons nu niet nodig hebt']}/><p className="belregel">Liever even bellen? <a href="tel:+31653509763">06-53509763</a></p></div><div className="planner-kader"><div className="planner"><ShortcodeBlock code="hubspot-agenda" note="Hier komt de HubSpot-afspraakplanner"/></div></div></div>
     </section>
   </main>
   <SiteFooter/>
-  <div className={`q-mobile-cta ${pastHero?'active':''}`}><CtaBlock/></div>
+  <div className={`mobiele-knop ${pastHero?'active':''}`}><CtaBlock/></div>
 
  </>;
 }
