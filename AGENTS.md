@@ -17,7 +17,7 @@
 - Design values are exposed as Dutch-named CSS variables (--kleur-*, --tekst-*, --afronding-*, --ruimte-*) and documented on the unlinked /styleguide route, which serves as the Elementor build blueprint.
 
 - Headings render via SectionHeader using content-data line splits; ResultCards owns its isolated two-line heading exception, so its treatment cannot affect other sections.
-- Apply section surfaces with q-panel wrappers and shared radius tokens; keep hero benefits, LogoStrip and ResultCards separate, and split SmileOutline into identical rear and clipped front SVG layers around photos, so it weaves without changing the logo path or blocking controls.
+- Apply section surfaces with vlak-zand/vlak-donker wrappers and shared radius tokens; keep hero benefits, LogoStrip and ResultCards separate, and split SmileOutline into identical rear and clipped front SVG layers around photos, so it weaves without changing the logo path or blocking controls.
 - Count-up figures render final values for SSR and accessible labels, then animate once through IntersectionObserver with reduced-motion opt-out, so values remain readable without animation.
 - Keep the inactive Workflow component available only in the styleguide, so it can be restored without duplicating its content or layout.
 
