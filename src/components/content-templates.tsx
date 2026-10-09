@@ -23,7 +23,6 @@ export function PostTemplate() {
       <header className="vlak-zand vlak-donker berichtkop">
         <div className="paginabreedte"><div className="berichtkop-binnen">
           <Breadcrumb title="Bericht"/>
-          <div className="berichtkop-tags"><span>WEBSITES</span><span>VOORBEELDBERICHT</span></div>
           <h1 className="kop-h1">Een website die voor je werkt.</h1>
           <p className="berichtkop-intro">Korte samenvatting van het bericht: in één of twee zinnen waarom dit de moeite waard is om te lezen.</p>
           <div className="bericht-meta"><span className="bericht-auteur"><img src={portrait.url} alt="" width="40" height="40"/>Bouke · Qomversie</span><span>Publicatiedatum volgt</span><span><Clock3 aria-hidden="true"/>3 minuten leestijd</span></div>

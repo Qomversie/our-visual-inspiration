@@ -12,7 +12,7 @@ export const otherPosts = [
 ];
 
 export const templateFields = [
-  ['Berichtkop', 'Container (achtergrondkleur) · Breadcrumbs · Post Terms · Post Title · Post Info · Button', 'Vast donker gekleurd vlak zonder foto; titel, auteur, datum en twee knoppen.'],
+  ['Berichtkop', 'Container (achtergrondkleur) · Breadcrumbs · Post Title · Post Info · Button', 'Vast donker gekleurd vlak zonder foto; titel, samenvatting, auteur, datum en twee knoppen.'],
   ['Uitgelicht beeld', 'Featured Image', 'Staand of vierkant, onder de eerste alinea (max 520px breed).'],
   ['Zijkolom', 'Container (sticky) · Image · Heading · Icon List · Button · Table of Contents', 'Donkere advieskaart met zandkleurige telefoonknop, inhoudsopgave en blok Andere berichten (Posts-widget, 3 recente).'],
   ['Paginakop', 'Container · logo · telefoon · knop', 'Hergebruik de globale Header; adviesknop linkt naar /#contact.'],
@@ -20,11 +20,11 @@ export const templateFields = [
 ];
 
 export const templateClasses = [
-  ['berichtkop', 'Donker afgerond vlak met oranje gloed en cirkelaccent, zonder foto.'],
+  ['berichtkop', 'Donker afgerond vlak met oranje gloed, zonder foto en zonder cirkelaccent.'],
   ['bericht-indeling', 'Leeskolom links, zijkolom rechts; onder 1000px onder elkaar.'],
   ['bericht-beeld', 'Uitgelichte afbeelding in eigen verhouding, onder de tekst.'],
   ['andere-berichten', 'Zandkleurig blok met drie recente berichten.'],
-  ['berichtkop-tags', 'Pills voor categorie (oranje) en type.'],
+
   ['zijkolom-plak', 'Sticky zijkolom met advieskaart en inhoudsopgave.'],
   ['advieskaart', 'Donkere kaart met portret, voordelen, adviesknop en telefoon.'],
   ['inhoudsopgave', 'Ankerlijst naar de H2-koppen.'],
