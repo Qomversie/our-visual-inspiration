@@ -108,7 +108,7 @@ export const contactPagina = {
 };
 
 export const paginaFields = [
-  ['Paginakop', 'Container · Breadcrumbs · Page Title · Text', 'Eenvoudige witte kop met kruimelpad, titel, optionele intro en een lichte lijn; dezelfde --breedte-container als alle pagina-inhoud, zonder foto of Sand-vlak.'],
+  ['Paginakop', 'Container · Breadcrumbs · Icon + Text (kop-label) · Page Title · Text', 'Eenvoudige witte kop met kruimelpad, klein label met oranje smile boven de titel, optionele intro en een lichte lijn; dezelfde --breedte-container als alle pagina-inhoud, zonder foto of Sand-vlak.'],
   ['Tekstpagina', 'Container · Post Info (Laatst bijgewerkt) · Post Content · Container (contact)', 'Dezelfde --breedte-container als de overige pagina’s, met de bericht-inhoud-stijlen; klein contactblok onderaan, geen verkoop-CTA.'],
   ['FAQ-pagina', 'Container · Text (ankerkolom) · Heading · Accordion (details/summary)', 'Vragen in groepen met groepskop; ankerkolom alleen desktop (1000px+); geen afsluitend advies- of plannerblok.'],
   ['Bevestiging', 'Container (gecentreerd) · Icon · Heading · Text · Icon List · Image · Buttons', 'Zonder paginakop; na het plannen van een gesprek. Stappen, foto van Bouke en twee rustige links.'],
@@ -118,7 +118,7 @@ export const paginaFields = [
 ];
 
 export const paginaClasses = [
-  ['pagina-kop', 'Eenvoudige witte kop met kruimelpad, titel (44px, mobiel 30px), optionele intro en een lichte lijn; geen afgerond achtergrondvlak.'],
+  ['pagina-kop', 'Eenvoudige witte kop met kruimelpad, kop-label met oranje smile, titel (44px, mobiel 30px), optionele intro en een lichte lijn; geen afgerond achtergrondvlak.'],
   ['pagina-kop-titel', 'Kop in de paginakop, Lora 600.'],
   ['pagina-intro', 'Korte intro onder de paginakop-titel.'],
   ['pagina-leesblok', 'Tekstpagina op dezelfde --breedte-container en zijmarges als de andere vijf pagina’s.'],
