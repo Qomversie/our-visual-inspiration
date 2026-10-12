@@ -63,3 +63,7 @@
 - [x] Contactpagina (/contact-sjabloon) met gegevens, foto, verwachtingen en planner-placeholder.
 - [x] Classes in sectie "Elementor Inhoudspagina's (pagina-)" en bouwtekening in de stijlgids.
 - [x] TemplateLinks met alle zeven sjablonen; controles op desktop, tablet en mobiel.
+
+## Smile bij paginatitels
+- [x] Label boven de paginatitel zonder smile; oranje smile alleen direct vóór de titel (pagina-kop-smile).
+- [x] Bouwtekening en stijlgids bijgewerkt; gecontroleerd op 1280, 886 en 390px, homepage en berichtsjabloon ongewijzigd.
