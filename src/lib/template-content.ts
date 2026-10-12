@@ -1,4 +1,10 @@
 import { results } from '@/lib/homepage-content';
+import caseCowboy from '@/assets/case-cowboy-magic.png.asset.json';
+import caseGroeicollectief from '@/assets/case-groeicollectief.png.asset.json';
+import caseHoogterp from '@/assets/case-hoogterp.png.asset.json';
+import caseJoke from '@/assets/case-joke-bleijerveld.jpg.asset.json';
+import team from '@/assets/Ons_team_2.jpeg.asset.json';
+import bank from '@/assets/E-mail_header_2.png.asset.json';
 
 /* Example copy only: in WordPress every field comes from the post itself. label and result are optional. */
 export const examplePost = {
@@ -37,4 +43,99 @@ export const templateClasses = [
   ['bericht-andere', 'Tekstlijst met drie recente berichten onder de hulpkaart.'],
   ['bericht-hulpkaart', 'Donkere kaart met portret, voordelen, adviesknop en telefoon.'],
   ['kruimelpad', 'Home › Categorie › Titel.'],
+];
+
+/* ===== Inhoudspagina's (pagina-) ===== */
+
+export const tekstpagina = { title: 'Privacybeleid', updated: 'Laatst bijgewerkt: [datum]' };
+
+export const faqPaginaIntro = 'Antwoorden op de vragen die Friese ondernemers ons het vaakst stellen.';
+const voorbeeldAntwoord = 'Voorbeeldantwoord — in WordPress staat hier het echte antwoord van Qomversie op deze vraag.';
+
+export const faqGroups = [
+  { id: 'algemeen', name: 'Algemeen', items: ['Werken jullie alleen in Friesland?'].map(question => ({ question, answer: voorbeeldAntwoord })) },
+  { id: 'losse-websites', name: 'Losse websites', items: [
+    'Zorgen jullie ook voor mijn online zichtbaarheid (seo)?',
+    'Is mijn website mobielvriendelijk?',
+    'Kunnen jullie ook bestaande websites herontwerpen?',
+    'Maken jullie ook webshops?',
+    'Kan ik mijn website zelf bijwerken na oplevering?',
+    'Kunnen jullie ook een logo of huisstijl maken?',
+    'Bieden jullie hostingdiensten aan?',
+    'Zit ik aan een abonnement vast?',
+    'Hanteren jullie een pagina-limiet?',
+    'Kan mijn oude website eerst online blijven?',
+    'Moet ik de tekst zelf schrijven?',
+    'Wat heb ik nodig om te beginnen met een website?',
+    'Wat als ik geen bedrijfsbeelden heb?',
+    'Wat als ik problemen heb met mijn website?',
+    'Wat gebeurt er als ik niet tevreden ben met het ontwerp?',
+  ].map(question => ({ question, answer: voorbeeldAntwoord })) },
+  { id: 'klantenservice', name: 'Klantenservice', items: [
+    'Kan ik Qomv in het Fries benaderen?',
+    'Hebben jullie ook een kantoor in Friesland?',
+  ].map(question => ({ question, answer: voorbeeldAntwoord })) },
+];
+
+export const blogPaginaIntro = 'Tips voor ondernemers die meer klanten en tijdwinst willen.';
+const blogSamenvatting = 'Korte samenvatting van het bericht: in maximaal twee regels waarom dit de moeite waard is om te lezen.';
+
+export const blogPosts = [
+  { title: 'Voorbeeldbericht: meer aanvragen uit je website', excerpt: blogSamenvatting, date: 'Datum volgt', image: caseCowboy.url },
+  { title: 'Voorbeeldbericht: beter gevonden worden op Google', excerpt: blogSamenvatting, date: 'Datum volgt', image: caseGroeicollectief.url },
+  { title: 'Voorbeeldbericht: tijd winnen met een aanvraagtool', excerpt: blogSamenvatting, date: 'Datum volgt', image: caseHoogterp.url },
+  { title: 'Voorbeeldbericht: een webshop starten in Friesland', excerpt: blogSamenvatting, date: 'Datum volgt', image: caseJoke.url },
+  { title: 'Voorbeeldbericht: je website zelf bijhouden', excerpt: blogSamenvatting, date: 'Datum volgt', image: team.url },
+  { title: 'Voorbeeldbericht: wat een website oplevert', excerpt: blogSamenvatting, date: 'Datum volgt', image: bank.url },
+];
+
+export const portfolioPaginaIntro = 'Een overzicht van alle projecten, oud en nieuw.';
+
+export const eerdereProjecten = [
+  { name: 'Cowboy Magic Europe', line: 'Nieuwe webshop', image: caseCowboy.url },
+  { name: 'Joke Bleijerveld', line: 'AI-automatisering', image: caseJoke.url },
+  { name: 'Hoogterp Verf', line: 'AI-aanvraagassistent', image: caseHoogterp.url },
+  { name: 'Het Groeicollectief', line: 'Nieuwe webshop', image: caseGroeicollectief.url },
+  { name: 'Studio Noeske', line: 'Nieuwe website', image: undefined },
+  { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
+  { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
+  { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
+];
+
+export const contactPagina = {
+  intro: 'Geen tussenpersonen of wachttijden: je spreekt altijd direct met mij.',
+  points: ['Reactie binnen 1 werkdag', 'Eerlijk advies', 'Geen verplichtingen'],
+};
+
+export const paginaFields = [
+  ['Paginakop', 'Container (vlak-zand) · Breadcrumbs · Page Title · Text', 'Lage Sand-kop met kruimelpad, titel en optionele intro; herbruikbaar op alle inhoudspagina\'s, zonder foto.'],
+  ['Tekstpagina', 'Container · Post Info (Laatst bijgewerkt) · Post Content · Container (contact)', 'Leestekst op --breedte-leesinhoud met de bericht-inhoud-stijlen; klein contactblok onderaan, geen verkoop-CTA.'],
+  ['FAQ-pagina', 'Container · Text (ankerkolom) · Heading · Accordion (details/summary) · Contactblok', 'Vragen in groepen met groepskop; ankerkolom alleen desktop (1000px+); onderaan het contactblok van de homepage.'],
+  ['Bevestiging', 'Container (gecentreerd) · Icon · Heading · Text · Icon List · Image · Buttons', 'Zonder paginakop; na het plannen van een gesprek. Stappen, foto van Bouke en twee rustige links.'],
+  ['Blogoverzicht', 'Container · Posts-widget (3 kolommen) · Pagination · Contactblok', 'Kaart met afbeelding 16:10, titel, samenvatting (2 regels), datum en Lees verder; paginanummering eronder.'],
+  ['Portfolio', 'Container · Posts/Case-raster (3 kolommen) · Compact raster (4 kolommen) · Contactblok', 'Uitgelichte cases als de case-kaarten van de homepage; daaronder compacte, volledig klikbare projectkaarten.'],
+  ['Contactpagina', 'Container · Icon List · Image · Icon List (verwachtingen) · Shortcode', 'Links gegevens, foto en verwachtingen; rechts de HubSpot-afsprakenplanner via shortcode (net als op de homepage).'],
+];
+
+export const paginaClasses = [
+  ['pagina-kop', 'Lage Sand-vlak-kop met kruimelpad, titel (44px, mobiel 30px) en optionele intro.'],
+  ['pagina-kop-titel', 'Kop in de paginakop, Lora 600.'],
+  ['pagina-intro', 'Korte intro onder de paginakop-titel.'],
+  ['pagina-leesblok', 'Eén leeskolom op --breedte-leesinhoud voor de tekstpagina.'],
+  ['pagina-bijgewerkt', 'Regel "Laatst bijgewerkt" boven de leestekst.'],
+  ['pagina-vragen', 'Klein contactblok onder een tekstpagina, met lijn erboven.'],
+  ['pagina-faq', 'Twee kolommen: ankerkolom (220px) links, faq-groepen rechts; onder 1000px één kolom zonder ankers.'],
+  ['pagina-faq-ankers', 'Sticky lijst met groepsnamen als ankerlinks.'],
+  ['faq-groep', 'Groepskop + faq-lijst (details/summary, zelfde stijl als de homepage).'],
+  ['bevestiging', 'Gecentreerde bevestigingspagina zonder paginakop.'],
+  ['bevestiging-stappen', 'Drie kleine stapkaarten naast elkaar (mobiel onder elkaar).'],
+  ['pagina-lijst', 'Bovenruimte en kolom voor blog- en portfoliorasters.'],
+  ['blog-raster', 'Raster van blogkaarten: 3 kolommen desktop, 2 tablet, 1 mobiel.'],
+  ['blog-kaart', 'Kaart met afbeelding 16:10 (bijgesneden), titel, samenvatting en metarij.'],
+  ['blog-paginering', 'Paginanummering 1 2 3 › in pilvorm.'],
+  ['pagina-cases', 'Raster met de case-kaarten van de homepage: 3 kolommen (2 tablet, 1 mobiel), zonder hover-effecten.'],
+  ['pagina-eerder', 'Compact raster: 4 kolommen desktop, 2 tablet en mobiel.'],
+  ['pagina-oud', 'Volledig klikbare projectkaart met beeldvlak of initial, naam en korte regel.'],
+  ['pagina-contactraster', 'Twee kolommen op de contactpagina; onder 1000px onder elkaar.'],
+  ['pagina-gegevens', 'Lijst met contactgegevens en lijn-iconen.'],
 ];

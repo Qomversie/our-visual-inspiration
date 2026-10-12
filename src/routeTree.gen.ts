@@ -11,7 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BerichtSjabloonRouteImport } from './routes/bericht-sjabloon'
+import { Route as BevestigingSjabloonRouteImport } from './routes/bevestiging-sjabloon'
+import { Route as BlogSjabloonRouteImport } from './routes/blog-sjabloon'
+import { Route as ContactSjabloonRouteImport } from './routes/contact-sjabloon'
+import { Route as FaqSjabloonRouteImport } from './routes/faq-sjabloon'
+import { Route as PortfolioSjabloonRouteImport } from './routes/portfolio-sjabloon'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
+import { Route as TekstpaginaSjabloonRouteImport } from './routes/tekstpagina-sjabloon'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +29,122 @@ const BerichtSjabloonRoute = BerichtSjabloonRouteImport.update({
   path: '/bericht-sjabloon',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BevestigingSjabloonRoute = BevestigingSjabloonRouteImport.update({
+  id: '/bevestiging-sjabloon',
+  path: '/bevestiging-sjabloon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSjabloonRoute = BlogSjabloonRouteImport.update({
+  id: '/blog-sjabloon',
+  path: '/blog-sjabloon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactSjabloonRoute = ContactSjabloonRouteImport.update({
+  id: '/contact-sjabloon',
+  path: '/contact-sjabloon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqSjabloonRoute = FaqSjabloonRouteImport.update({
+  id: '/faq-sjabloon',
+  path: '/faq-sjabloon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioSjabloonRoute = PortfolioSjabloonRouteImport.update({
+  id: '/portfolio-sjabloon',
+  path: '/portfolio-sjabloon',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
   path: '/styleguide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TekstpaginaSjabloonRoute = TekstpaginaSjabloonRouteImport.update({
+  id: '/tekstpagina-sjabloon',
+  path: '/tekstpagina-sjabloon',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bericht-sjabloon': typeof BerichtSjabloonRoute
+  '/bevestiging-sjabloon': typeof BevestigingSjabloonRoute
+  '/blog-sjabloon': typeof BlogSjabloonRoute
+  '/contact-sjabloon': typeof ContactSjabloonRoute
+  '/faq-sjabloon': typeof FaqSjabloonRoute
+  '/portfolio-sjabloon': typeof PortfolioSjabloonRoute
   '/styleguide': typeof StyleguideRoute
+  '/tekstpagina-sjabloon': typeof TekstpaginaSjabloonRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bericht-sjabloon': typeof BerichtSjabloonRoute
+  '/bevestiging-sjabloon': typeof BevestigingSjabloonRoute
+  '/blog-sjabloon': typeof BlogSjabloonRoute
+  '/contact-sjabloon': typeof ContactSjabloonRoute
+  '/faq-sjabloon': typeof FaqSjabloonRoute
+  '/portfolio-sjabloon': typeof PortfolioSjabloonRoute
   '/styleguide': typeof StyleguideRoute
+  '/tekstpagina-sjabloon': typeof TekstpaginaSjabloonRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bericht-sjabloon': typeof BerichtSjabloonRoute
+  '/bevestiging-sjabloon': typeof BevestigingSjabloonRoute
+  '/blog-sjabloon': typeof BlogSjabloonRoute
+  '/contact-sjabloon': typeof ContactSjabloonRoute
+  '/faq-sjabloon': typeof FaqSjabloonRoute
+  '/portfolio-sjabloon': typeof PortfolioSjabloonRoute
   '/styleguide': typeof StyleguideRoute
+  '/tekstpagina-sjabloon': typeof TekstpaginaSjabloonRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bericht-sjabloon' | '/styleguide'
+  fullPaths:
+    | '/'
+    | '/bericht-sjabloon'
+    | '/bevestiging-sjabloon'
+    | '/blog-sjabloon'
+    | '/contact-sjabloon'
+    | '/faq-sjabloon'
+    | '/portfolio-sjabloon'
+    | '/styleguide'
+    | '/tekstpagina-sjabloon'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bericht-sjabloon' | '/styleguide'
-  id: '__root__' | '/' | '/bericht-sjabloon' | '/styleguide'
+  to:
+    | '/'
+    | '/bericht-sjabloon'
+    | '/bevestiging-sjabloon'
+    | '/blog-sjabloon'
+    | '/contact-sjabloon'
+    | '/faq-sjabloon'
+    | '/portfolio-sjabloon'
+    | '/styleguide'
+    | '/tekstpagina-sjabloon'
+  id:
+    | '__root__'
+    | '/'
+    | '/bericht-sjabloon'
+    | '/bevestiging-sjabloon'
+    | '/blog-sjabloon'
+    | '/contact-sjabloon'
+    | '/faq-sjabloon'
+    | '/portfolio-sjabloon'
+    | '/styleguide'
+    | '/tekstpagina-sjabloon'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BerichtSjabloonRoute: typeof BerichtSjabloonRoute
+  BevestigingSjabloonRoute: typeof BevestigingSjabloonRoute
+  BlogSjabloonRoute: typeof BlogSjabloonRoute
+  ContactSjabloonRoute: typeof ContactSjabloonRoute
+  FaqSjabloonRoute: typeof FaqSjabloonRoute
+  PortfolioSjabloonRoute: typeof PortfolioSjabloonRoute
   StyleguideRoute: typeof StyleguideRoute
+  TekstpaginaSjabloonRoute: typeof TekstpaginaSjabloonRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +163,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BerichtSjabloonRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bevestiging-sjabloon': {
+      id: '/bevestiging-sjabloon'
+      path: '/bevestiging-sjabloon'
+      fullPath: '/bevestiging-sjabloon'
+      preLoaderRoute: typeof BevestigingSjabloonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog-sjabloon': {
+      id: '/blog-sjabloon'
+      path: '/blog-sjabloon'
+      fullPath: '/blog-sjabloon'
+      preLoaderRoute: typeof BlogSjabloonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-sjabloon': {
+      id: '/contact-sjabloon'
+      path: '/contact-sjabloon'
+      fullPath: '/contact-sjabloon'
+      preLoaderRoute: typeof ContactSjabloonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq-sjabloon': {
+      id: '/faq-sjabloon'
+      path: '/faq-sjabloon'
+      fullPath: '/faq-sjabloon'
+      preLoaderRoute: typeof FaqSjabloonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio-sjabloon': {
+      id: '/portfolio-sjabloon'
+      path: '/portfolio-sjabloon'
+      fullPath: '/portfolio-sjabloon'
+      preLoaderRoute: typeof PortfolioSjabloonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/styleguide': {
       id: '/styleguide'
       path: '/styleguide'
       fullPath: '/styleguide'
       preLoaderRoute: typeof StyleguideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tekstpagina-sjabloon': {
+      id: '/tekstpagina-sjabloon'
+      path: '/tekstpagina-sjabloon'
+      fullPath: '/tekstpagina-sjabloon'
+      preLoaderRoute: typeof TekstpaginaSjabloonRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +218,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BerichtSjabloonRoute: BerichtSjabloonRoute,
+  BevestigingSjabloonRoute: BevestigingSjabloonRoute,
+  BlogSjabloonRoute: BlogSjabloonRoute,
+  ContactSjabloonRoute: ContactSjabloonRoute,
+  FaqSjabloonRoute: FaqSjabloonRoute,
+  PortfolioSjabloonRoute: PortfolioSjabloonRoute,
   StyleguideRoute: StyleguideRoute,
+  TekstpaginaSjabloonRoute: TekstpaginaSjabloonRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
