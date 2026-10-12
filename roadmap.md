@@ -48,7 +48,7 @@
 
 ## Eenvoudige paginakoppen en gelijke breedte
 - [x] Afsluitende advies/plannerblokken uit FAQ, blog en portfolio verwijderen; contactpagina behouden.
-- [ ] Verwijderde blokken en behouden contactpagina controleren.
+- [x] Verwijderde blokken gecontroleerd; contactplanner behouden, homepage en berichtsjabloon ongewijzigd.
 - [x] Sand-achtergrond van de nieuwe paginakoppen verwijderen en koppen eenvoudig houden.
 - [x] Alle zes nieuwe pagina’s dezelfde inhoudsbreedte geven, zonder homepage of berichtsjabloon te wijzigen.
 - [x] Nieuwe pagina’s op 1280, 886 en 390px gecontroleerd; homepage en berichtsjabloon ongewijzigd.
