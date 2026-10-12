@@ -49,7 +49,7 @@
 ## Eenvoudige paginakoppen en gelijke breedte
 - [x] Sand-achtergrond van de nieuwe paginakoppen verwijderen en koppen eenvoudig houden.
 - [x] Alle zes nieuwe pagina’s dezelfde inhoudsbreedte geven, zonder homepage of berichtsjabloon te wijzigen.
-- [ ] Nieuwe pagina’s en ongewijzigde homepage/bericht controleren.
+- [x] Nieuwe pagina’s op 1280, 886 en 390px gecontroleerd; homepage en berichtsjabloon ongewijzigd.
 
 ## Zes inhoudspagina-sjablonen
 - [x] Herbruikbare paginakop (vlak-zand, laag, kruimelpad + titel + intro) en contactblok van de homepage.
