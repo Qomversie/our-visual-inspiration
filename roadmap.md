@@ -67,3 +67,7 @@
 ## Smile bij paginatitels
 - [x] Label boven de paginatitel zonder smile; oranje smile alleen direct vóór de titel (pagina-kop-smile).
 - [x] Bouwtekening en stijlgids bijgewerkt; gecontroleerd op 1280, 886 en 390px, homepage en berichtsjabloon ongewijzigd.
+
+## Tekstlabel boven paginatitels weg
+- [x] Kop-label uit PaginaKop gehaald; kruimelpad en titel met oranje smile blijven over.
+- [x] Bouwtekening en stijlgids bijgewerkt; gecontroleerd op 1280, 886 en 390px, homepage en berichtsjabloon ongewijzigd.
