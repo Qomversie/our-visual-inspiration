@@ -1,8 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUp, Building2, Check, ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { CaseCard, CheckList, CtaBlock, FaqItem, ShortcodeBlock, SiteFooter, SmileMark, SmileOutline } from '@/components/qomversie';
+import { CheckList, CtaBlock, FaqItem, ShortcodeBlock, SiteFooter, SmileMark, SmileOutline } from '@/components/qomversie';
 import { alleProjecten, blogPaginaIntro, blogPosts, contactPagina, examplePost, faqGroups, faqPaginaIntro, portfolioPaginaIntro, relatedPosts, tekstpagina } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
@@ -173,14 +172,19 @@ export function BlogPaginaTemplate() {
   </TemplateShell>;
 }
 
-/* Portfolio: alle projecten in één raster, nieuwste eerst, zonder onderscheid tussen uitgelicht en ouder. */
+/* Portfolio: alle projecten in één compact raster, nieuwste eerst; projecten zonder foto tonen een klein vlak. */
 export function PortfolioTemplate() {
   return <TemplateShell>
     <PaginaKop title="Portfolio" intro={portfolioPaginaIntro} />
     <div className="paginabreedte pagina-lijst">
       <section className="pagina-sectie" aria-labelledby="portfolio-projecten"><h2 className="kop-h2" id="portfolio-projecten">Alle projecten</h2>
-        <div className="pagina-cases">{alleProjecten.map((p, i) => <CaseCard key={`${p.name}-${i}`} {...p} />)}</div>
-        <p className="tekst-klein">Nieuwste projecten staan bovenaan; zolang een foto nog niet is aangeleverd, tonen we een leeg beeldvlak.</p>
+        <div className="pagina-cases">{alleProjecten.map((p, i) => <article className="pagina-case" key={`${p.name}-${i}`}>
+          {p.image
+            ? <img src={p.image} alt={`Project voor ${p.name}, website gebouwd door Qomversie in Friesland`} loading="lazy" />
+            : <div className="pagina-case-beeld" role="img" aria-label={`Projectfoto ${p.name} volgt`}><span>Projectfoto volgt</span></div>}
+          <h3>{p.name}</h3><p>{p.line}</p>
+        </article>)}</div>
+        <p className="tekst-klein">Nieuwste projecten staan bovenaan; zolang een foto nog niet is aangeleverd, tonen we een klein leeg vlak.</p>
       </section>
     </div>
   </TemplateShell>;
