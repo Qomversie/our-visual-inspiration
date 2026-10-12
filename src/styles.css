@@ -609,7 +609,8 @@ strong { font-weight:600; }
 .pagina-kop { background:var(--kleur-wit); }
 .pagina-kop-binnen { padding-block:40px 32px; border-bottom:1px solid var(--kleur-donker-10); }
 .pagina-kop .kruimelpad { margin-bottom:18px; color:var(--kleur-donker-70); }
-.pagina-kop-titel { display:flex; align-items:center; gap:0.3em; font-family:var(--font-kop); font-weight:600; font-size:var(--tekst-paginakop); line-height:1.1; }
+.pagina-kop-titel { font-family:var(--font-kop); font-weight:600; font-size:var(--tekst-paginakop); line-height:1.1; }
+.pagina-kop .pagina-kop-titel { display:flex; align-items:center; gap:0.3em; }
 .pagina-kop-smile { width:0.62em; height:0.62em; }
 .pagina-intro { margin-top:16px; max-width:600px; color:var(--kleur-donker-75); }
 
