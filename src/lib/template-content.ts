@@ -110,10 +110,10 @@ export const contactPagina = {
 export const paginaFields = [
   ['Paginakop', 'Container · Breadcrumbs · Page Title · Text', 'Eenvoudige witte kop met kruimelpad, titel, optionele intro en een lichte lijn; dezelfde --breedte-container als alle pagina-inhoud, zonder foto of Sand-vlak.'],
   ['Tekstpagina', 'Container · Post Info (Laatst bijgewerkt) · Post Content · Container (contact)', 'Dezelfde --breedte-container als de overige pagina’s, met de bericht-inhoud-stijlen; klein contactblok onderaan, geen verkoop-CTA.'],
-  ['FAQ-pagina', 'Container · Text (ankerkolom) · Heading · Accordion (details/summary) · Contactblok', 'Vragen in groepen met groepskop; ankerkolom alleen desktop (1000px+); onderaan het contactblok van de homepage.'],
+  ['FAQ-pagina', 'Container · Text (ankerkolom) · Heading · Accordion (details/summary)', 'Vragen in groepen met groepskop; ankerkolom alleen desktop (1000px+); geen afsluitend advies- of plannerblok.'],
   ['Bevestiging', 'Container (gecentreerd) · Icon · Heading · Text · Icon List · Image · Buttons', 'Zonder paginakop; na het plannen van een gesprek. Stappen, foto van Bouke en twee rustige links.'],
-  ['Blogoverzicht', 'Container · Posts-widget (3 kolommen) · Pagination · Contactblok', 'Kaart met afbeelding 16:10, titel, samenvatting (2 regels), datum en Lees verder; paginanummering eronder.'],
-  ['Portfolio', 'Container · Posts/Case-raster (3 kolommen) · Compact raster (4 kolommen) · Contactblok', 'Uitgelichte cases als de case-kaarten van de homepage; daaronder compacte, volledig klikbare projectkaarten.'],
+  ['Blogoverzicht', 'Container · Posts-widget (3 kolommen) · Pagination', 'Kaart met afbeelding 16:10, titel, samenvatting (2 regels), datum en Lees verder; paginanummering eronder, geen afsluitend advies- of plannerblok.'],
+  ['Portfolio', 'Container · Posts/Case-raster (3 kolommen) · Compact raster (4 kolommen)', 'Uitgelichte cases als de case-kaarten van de homepage; daaronder compacte, volledig klikbare projectkaarten, geen afsluitend advies- of plannerblok.'],
   ['Contactpagina', 'Container · Icon List · Image · Icon List (verwachtingen) · Shortcode', 'Links gegevens, foto en verwachtingen; rechts de HubSpot-afsprakenplanner via shortcode (net als op de homepage).'],
 ];
 

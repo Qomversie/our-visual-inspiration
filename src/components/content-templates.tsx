@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUp, Building2, Check, ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { CaseCard, CheckList, CtaBlock, FaqItem, SectionHeader, ShortcodeBlock, SiteFooter, SmileMark, SmileOutline } from '@/components/qomversie';
+import { CaseCard, CheckList, CtaBlock, FaqItem, ShortcodeBlock, SiteFooter, SmileMark, SmileOutline } from '@/components/qomversie';
 import { cases } from '@/lib/homepage-content';
 import { blogPaginaIntro, blogPosts, contactPagina, eerdereProjecten, examplePost, faqGroups, faqPaginaIntro, portfolioPaginaIntro, relatedPosts, tekstpagina } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
@@ -100,14 +100,6 @@ function PaginaKop({ title, intro }: { title: string; intro?: string }) {
   </div></div>;
 }
 
-/* Het contactblok van de homepage, opnieuw gebruikt onder FAQ-, blog- en portfoliopagina's. */
-function ContactBlok() {
-  return <section className="sectie vlak-zand contact-kolommen"><div className="paginabreedte contact">
-    <div className="contact-tekst"><SectionHeader label="KLAAR OM TE GROEIEN?" title="Staat je vraag er niet tussen?" /><p className="tekst">Plan een gratis adviesgesprek van 30 minuten. Vrijblijvend en met eerlijk advies.</p><CtaBlock href="/#contact" /><p className="belregel">Liever even bellen? <a href="tel:+31653509763">06-53509763</a></p></div>
-    <div className="planner-kader"><div className="planner"><ShortcodeBlock code="hubspot-agenda" note="Hier komt de HubSpot-afspraakplanner" /></div></div>
-  </div></section>;
-}
-
 /* 1. Tekstpagina: alleen leestekst, in WordPress uit de pagina zelf. */
 export function TekstPaginaTemplate() {
   return <TemplateShell>
@@ -142,7 +134,6 @@ export function FaqPaginaTemplate() {
         <p className="tekst-klein">De vragen zijn echt; de antwoorden zijn voorbeelden en worden in WordPress per vraag gevuld.</p>
       </div>
     </div>
-    <ContactBlok />
   </TemplateShell>;
 }
 
@@ -185,7 +176,6 @@ export function BlogPaginaTemplate() {
       <p className="tekst-klein">Voorbeeldkaarten; in WordPress gevuld met berichten uit de categorie Blogs.</p>
       <nav className="blog-paginering" aria-label="Paginanummering"><span aria-current="page">1</span><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Volgende pagina">›</a></nav>
     </div>
-    <ContactBlok />
   </TemplateShell>;
 }
 
@@ -208,7 +198,6 @@ export function PortfolioTemplate() {
         <p className="tekst-klein">Klantlogo's volgen; zolang ze niet zijn aangeleverd, tonen we de initial.</p>
       </section>
     </div>
-    <ContactBlok />
   </TemplateShell>;
 }
 
