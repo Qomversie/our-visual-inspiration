@@ -183,7 +183,7 @@ export function PortfolioTemplate() {
           {p.image
             ? <img src={p.image} alt={`Project voor ${p.name}, website gebouwd door Qomversie in Friesland`} loading="lazy" />
             : <div className="pagina-case-beeld" role="img" aria-label={`Projectfoto ${p.name} volgt`}><span>Projectfoto volgt</span></div>}
-          <h3>{p.name}</h3><p>{p.line}</p>
+          <div className="pagina-case-tekst"><h3>{p.name}</h3><p>{p.line}</p></div>
         </article>)}</div>
         <p className="tekst-klein">Nieuwste projecten staan bovenaan; zolang een foto nog niet is aangeleverd, tonen we een klein leeg vlak.</p>
       </section>

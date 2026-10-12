@@ -638,12 +638,11 @@ strong { font-weight:600; }
 .pagina-sectie .kop-h2 { font-size:min(44px,var(--tekst-h2)); margin-bottom:32px; }
 .pagina-sectie + .pagina-sectie { margin-top:72px; }
 
-/* Blogoverzicht: kaarten 3/2/1 kolommen, afbeelding 16:10 bijgesneden. */
-/* Blog: rustige kaarten zonder kaartvlak, met klein beeld. */
-.blog-raster { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:36px 24px; }
-.blog-kaart { display:flex; flex-direction:column; gap:12px; }
-.blog-beeldhouder { display:block; height:150px; border-radius:var(--afronding); overflow:hidden; background:var(--kleur-zand-donker); }
-.blog-beeldhouder img { width:100%; height:100%; object-fit:cover; }
+/* Blog en portfolio: tekstlijsten met gelijke, niet-bijgesneden thumbnails. */
+.blog-raster { display:grid; grid-template-columns:minmax(0,1fr); }
+.blog-kaart { display:grid; grid-template-columns:160px minmax(0,1fr); align-items:start; gap:24px; padding-block:24px; border-bottom:1px solid var(--kleur-donker-10); }
+.blog-beeldhouder { display:block; width:160px; height:110px; border-radius:8px; overflow:hidden; background:var(--kleur-zand); }
+.blog-beeldhouder img { width:100%; height:100%; object-fit:contain; }
 .blog-tekst { display:flex; flex-direction:column; gap:8px; flex:1; }
 .blog-tekst h3 { font:600 19px/1.3 var(--font-kop); }
 .blog-tekst h3 a:hover { color:var(--kleur-oranje); }
@@ -651,19 +650,19 @@ strong { font-weight:600; }
 .blog-meta { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:10px; font-size:13px; color:var(--kleur-donker-70); }
 .blog-meer { display:inline-flex; align-items:center; gap:6px; min-height:44px; font-weight:600; color:var(--kleur-oranje); }
 .blog-meer svg { width:16px; height:16px; }
-@media(max-width:1000px){ .blog-raster { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media(max-width:760px){ .blog-raster { grid-template-columns:1fr; } .blog-beeldhouder { height:130px; } }
-
-/* Portfolio: compact raster met kleine beelden, zonder hover-effecten. */
-.pagina-cases { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:36px 24px; }
-.pagina-case { display:flex; flex-direction:column; gap:10px; }
-.pagina-case img, .pagina-case-beeld { width:100%; height:150px; object-fit:cover; border-radius:var(--afronding); background:var(--kleur-zand-donker); }
+.pagina-cases { display:grid; grid-template-columns:minmax(0,1fr); }
+.pagina-case { display:grid; grid-template-columns:160px minmax(0,1fr); align-items:center; gap:24px; padding-block:24px; border-bottom:1px solid var(--kleur-donker-10); }
+.pagina-case img, .pagina-case-beeld { width:160px; height:110px; object-fit:contain; border-radius:8px; background:var(--kleur-zand); }
 .pagina-case-beeld { display:grid; place-items:center; }
-.pagina-case-beeld span { font-size:13px; color:var(--kleur-donker-70); }
+.pagina-case-beeld span { font-size:13px; color:var(--kleur-donker-70); text-align:center; padding:8px; }
+.pagina-case-tekst { display:grid; gap:8px; min-width:0; }
 .pagina-case h3 { font:600 18px/1.3 var(--font-kop); }
 .pagina-case p { font-size:14px; color:var(--kleur-donker-75); }
-@media(max-width:1000px){ .pagina-cases { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-@media(max-width:760px){ .pagina-cases { grid-template-columns:1fr; } .pagina-case img, .pagina-case-beeld { height:130px; } }
+@media(max-width:760px){
+ .blog-kaart, .pagina-case { grid-template-columns:96px minmax(0,1fr); gap:16px; }
+ .blog-beeldhouder, .pagina-case img, .pagina-case-beeld { width:96px; height:80px; }
+ .blog-meta { flex-wrap:wrap; gap:0 12px; }
+}
 
 /* Contactpagina: gegevens links, planner rechts. */
 .pagina-contactraster { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:56px; align-items:start; padding-block:56px 96px; }

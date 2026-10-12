@@ -25,4 +25,5 @@
 - SiteFooter lives in the shared components module, so homepage and styleguide render the same footer.
 - Single Post and Single Page examples use shared browser-safe template content and a dedicated shared presentation module, with Elementor widget/class mappings in the styleguide; this keeps examples reusable without changing the homepage.
 - SiteFooter accepts an optional homepage link base for standalone content pages, so its contact and FAQ anchors always reach the homepage.
+- Blog and portfolio templates use isolated horizontal list styles with equal-size contain-fit thumbnails, so different source ratios remain fully visible without changing homepage cards.
 - Content-page headers share PaginaKop with the orange smile only in front of the title itself and no text label above it; the confirmation page uses the same PaginaKop with a plain reading block, planner markup is isolated to ContactPaginaTemplate and page styles use the pagina- class family, so templates remain independently reproducible in Elementor without affecting the homepage or post template.
