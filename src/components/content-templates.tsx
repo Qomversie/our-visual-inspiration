@@ -92,10 +92,9 @@ export function PostTemplate() {
 /* ===== Inhoudspagina's (pagina-) ===== */
 
 /* Lage paginakop, herbruikbaar op alle inhoudspagina's. Duidelijk lager dan de berichtkop, zonder foto. */
-function PaginaKop({ title, label, intro }: { title: string; label: string; intro?: string }) {
+function PaginaKop({ title, intro }: { title: string; intro?: string }) {
   return <div className="pagina-kop"><div className="paginabreedte pagina-kop-binnen">
     <nav className="kruimelpad" aria-label="Kruimelpad"><Link to="/">Home</Link><ChevronRight aria-hidden="true" /><span aria-current="page">{title}</span></nav>
-    <p className="kop-label">{label}</p>
     <h1 className="pagina-kop-titel"><SmileMark className="smile-icoon pagina-kop-smile" />{title}</h1>
     {intro && <p className="pagina-intro">{intro}</p>}
   </div></div>;
