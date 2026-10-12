@@ -1,4 +1,4 @@
-import { results } from '@/lib/homepage-content';
+import { cases, results } from '@/lib/homepage-content';
 import caseCowboy from '@/assets/case-cowboy-magic.png.asset.json';
 import caseGroeicollectief from '@/assets/case-groeicollectief.png.asset.json';
 import caseHoogterp from '@/assets/case-hoogterp.png.asset.json';
@@ -91,16 +91,14 @@ export const blogPosts = [
 
 export const portfolioPaginaIntro = 'Een overzicht van alle projecten, oud en nieuw.';
 
-export const eerdereProjecten = [
-  { name: 'Cowboy Magic Europe', line: 'Nieuwe webshop', image: caseCowboy.url },
-  { name: 'Joke Bleijerveld', line: 'AI-automatisering', image: caseJoke.url },
-  { name: 'Hoogterp Verf', line: 'AI-aanvraagassistent', image: caseHoogterp.url },
-  { name: 'Het Groeicollectief', line: 'Nieuwe webshop', image: caseGroeicollectief.url },
+/* Alle projecten in één raster, nieuwste eerst: de recente cases bovenaan, daarna de oudere projecten. Zolang een foto niet is aangeleverd, tonen we een leeg beeldvlak. */
+export const alleProjecten = [
+  ...cases,
   { name: 'Studio Noeske', line: 'Nieuwe website', image: undefined },
   { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
   { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
   { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
-];
+] satisfies Array<{ name: string; line: string; image?: string | undefined }>;
 
 export const contactPagina = {
   intro: 'Geen tussenpersonen of wachttijden: je spreekt altijd direct met mij.',
@@ -112,8 +110,8 @@ export const paginaFields = [
   ['Tekstpagina', 'Container · Post Info (Laatst bijgewerkt) · Post Content · Container (contact)', 'Dezelfde --breedte-container als de overige pagina’s, met de bericht-inhoud-stijlen; klein contactblok onderaan, geen verkoop-CTA.'],
   ['FAQ-pagina', 'Container · Text (ankerkolom) · Heading · Accordion (details/summary)', 'Vragen in groepen met groepskop; ankerkolom alleen desktop (1000px+); geen afsluitend advies- of plannerblok.'],
   ['Bevestiging', 'Container · Heading · Text · Ordered List · Buttons', 'Zelfde paginakop als de overige pagina’s; korte leestekst met de drie stappen, contactregel en één rustige link terug.'],
-  ['Blogoverzicht', 'Container · Posts-widget (3 kolommen) · Pagination', 'Kaart met afbeelding 16:10, titel, samenvatting (2 regels), datum en Lees verder; paginanummering eronder, geen afsluitend advies- of plannerblok.'],
-  ['Portfolio', 'Container · Posts/Case-raster (3 kolommen) · Compact raster (4 kolommen)', 'Uitgelichte cases als de case-kaarten van de homepage; daaronder compacte, volledig klikbare projectkaarten, geen afsluitend advies- of plannerblok.'],
+  ['Blogoverzicht', 'Container · Posts-widget (3 kolommen)', 'Kaart met afbeelding 16:10, titel, samenvatting (2 regels), datum en Lees verder; alles op één pagina, geen paginanummering en geen afsluitend advies- of plannerblok.'],
+  ['Portfolio', 'Container · Posts/Case-raster (3 kolommen)', 'Alle projecten in één raster als de case-kaarten van de homepage, nieuwste eerst, zonder onderscheid tussen uitgelicht en ouder; geen afsluitend advies- of plannerblok.'],
   ['Contactpagina', 'Container · Icon List · Image · Icon List (verwachtingen) · Shortcode', 'Links gegevens, foto en verwachtingen; rechts de HubSpot-afsprakenplanner via shortcode (net als op de homepage).'],
 ];
 
@@ -131,10 +129,7 @@ export const paginaClasses = [
   ['pagina-lijst', 'Bovenruimte en kolom voor blog- en portfoliorasters.'],
   ['blog-raster', 'Raster van blogkaarten: 3 kolommen desktop, 2 tablet, 1 mobiel.'],
   ['blog-kaart', 'Kaart met afbeelding 16:10 (bijgesneden), titel, samenvatting en metarij.'],
-  ['blog-paginering', 'Paginanummering 1 2 3 › in pilvorm.'],
-  ['pagina-cases', 'Raster met de case-kaarten van de homepage: 3 kolommen (2 tablet, 1 mobiel), zonder hover-effecten.'],
-  ['pagina-eerder', 'Compact raster: 4 kolommen desktop, 2 tablet en mobiel.'],
-  ['pagina-oud', 'Volledig klikbare projectkaart met beeldvlak of initial, naam en korte regel.'],
+  ['pagina-cases', 'Raster met alle projecten als case-kaarten van de homepage: 3 kolommen (2 tablet, 1 mobiel), nieuwste eerst, zonder hover-effecten.'],
   ['pagina-contactraster', 'Twee kolommen op de contactpagina; onder 1000px onder elkaar.'],
   ['pagina-gegevens', 'Lijst met contactgegevens en lijn-iconen.'],
 ];
