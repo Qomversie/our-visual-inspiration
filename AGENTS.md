@@ -25,3 +25,4 @@
 - SiteFooter lives in the shared components module, so homepage and styleguide render the same footer.
 - Single Post and Single Page examples use shared browser-safe template content and a dedicated shared presentation module, with Elementor widget/class mappings in the styleguide; this keeps examples reusable without changing the homepage.
 - SiteFooter accepts an optional homepage link base for standalone content pages, so its contact and FAQ anchors always reach the homepage.
+- Six content-page templates (tekstpagina, FAQ, bevestiging, blog, portfolio, contact) share one PaginaKop and the homepage contact block and only reuse existing classes with a pagina- prefix, so every qomv.nl page type stays reproducible in Elementor without new colours, fonts or animations.

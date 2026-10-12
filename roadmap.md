@@ -45,3 +45,14 @@
 - [x] Bericht- en paginasjabloon laden correct (/bericht-sjabloon, /pagina-sjabloon).
 - [x] Voettekstlink "Sjablonen & stijlgids" naar /styleguide toegevoegd, zodat beide sjablonen klikbaar bereikbaar zijn.
 - [x] Stijlgidsvoettekst naar de homepage laten wijzen (homeHref="/"); klikroute gecontroleerd.
+
+## Zes inhoudspagina-sjablonen
+- [x] Herbruikbare paginakop (vlak-zand, laag, kruimelpad + titel + intro) en contactblok van de homepage.
+- [x] Tekstpagina (/tekstpagina-sjabloon) met leeskolom, "Laatst bijgewerkt" en klein contactblok.
+- [x] FAQ-pagina (/faq-sjabloon) met echte vragen in groepen, details/summary, ankerkolom op desktop.
+- [x] Bevestiging (/bevestiging-sjabloon) gecentreerd, zonder paginakop, met stappen, foto en twee links.
+- [x] Blogoverzicht (/blog-sjabloon) met kaarten 3/2/1, 16:10-afbeelding, samenvatting, datum, paginanummering.
+- [x] Portfolio (/portfolio-sjabloon) met case-kaarten (3/2/1) en compact raster eerdere projecten (4/2/2).
+- [x] Contactpagina (/contact-sjabloon) met gegevens, foto, verwachtingen en planner-placeholder.
+- [x] Classes in sectie "Elementor Inhoudspagina's (pagina-)" en bouwtekening in de stijlgids.
+- [x] TemplateLinks met alle zeven sjablonen; controles op desktop, tablet en mobiel.
