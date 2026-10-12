@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUp, Building2, Check, ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { CaseCard, CheckList, CtaBlock, FaqItem, Label, ShortcodeBlock, SiteFooter, SmileMark, SmileOutline } from '@/components/qomversie';
+import { CaseCard, CheckList, CtaBlock, FaqItem, ShortcodeBlock, SiteFooter, SmileMark, SmileOutline } from '@/components/qomversie';
 import { cases } from '@/lib/homepage-content';
 import { blogPaginaIntro, blogPosts, contactPagina, eerdereProjecten, examplePost, faqGroups, faqPaginaIntro, portfolioPaginaIntro, relatedPosts, tekstpagina } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
@@ -95,8 +95,8 @@ export function PostTemplate() {
 function PaginaKop({ title, label, intro }: { title: string; label: string; intro?: string }) {
   return <div className="pagina-kop"><div className="paginabreedte pagina-kop-binnen">
     <nav className="kruimelpad" aria-label="Kruimelpad"><Link to="/">Home</Link><ChevronRight aria-hidden="true" /><span aria-current="page">{title}</span></nav>
-    <Label>{label}</Label>
-    <h1 className="pagina-kop-titel">{title}</h1>
+    <p className="kop-label">{label}</p>
+    <h1 className="pagina-kop-titel"><SmileMark className="smile-icoon pagina-kop-smile" />{title}</h1>
     {intro && <p className="pagina-intro">{intro}</p>}
   </div></div>;
 }
