@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { designVariables, designClasses, faqs, aboutChecks, sectionOrder } from '@/lib/homepage-content';
 import { SectionHeader, CtaBlock, CaseCard, RotatingBadge, ShortcodeBlock, FaqItem, CheckList, SmileMark, SmileOutline, Workflow, Label, LogoStrip, ResultCards, HeroStats, PhotoCta, SiteFooter } from '@/components/qomversie';
 import { TemplateLinks } from '@/components/content-templates';
-import { templateFields, templateClasses } from '@/lib/template-content';
+import { templateFields, templateClasses, paginaFields, paginaClasses } from '@/lib/template-content';
 
 export const Route = createFileRoute('/styleguide')({
   head: () => ({ meta: [
