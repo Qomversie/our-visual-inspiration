@@ -632,18 +632,6 @@ strong { font-weight:600; }
 @media(max-width:1000px){ .pagina-faq { grid-template-columns:minmax(0,1fr); gap:32px; padding-block:48px 64px; } .pagina-faq-ankers { display:none; } }
 
 /* Bevestiging: gecentreerd, zonder paginakop. */
-.bevestiging { display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px; padding-block:96px; }
-.bevestiging-smile { width:56px; height:56px; }
-.bevestiging .tekst { max-width:44ch; }
-.bevestiging-stappen { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin-top:8px; width:100%; max-width:860px; }
-.bevestiging-stap { display:flex; flex-direction:column; align-items:center; gap:10px; padding:24px; background:var(--kleur-zand); border-radius:var(--afronding) var(--afronding) var(--afronding-smile-kaart) var(--afronding); }
-.bevestiging-nummer { width:32px; height:32px; border-radius:50%; background:var(--kleur-oranje); color:var(--kleur-wit); display:grid; place-items:center; font:600 14px var(--font-tekst); }
-.bevestiging-stap strong { font-family:var(--font-kop); font-weight:500; font-size:18px; line-height:1.35; }
-.bevestiging-foto { margin:16px 0 0; }
-.bevestiging-foto img { width:min(220px,60%); margin-inline:auto; border-radius:var(--afronding) var(--afronding) var(--afronding-smile-foto) var(--afronding); }
-.bevestiging-foto figcaption { margin-top:12px; font-size:15px; color:var(--kleur-donker-75); }
-.bevestiging-links { justify-content:center; margin-top:8px; }
-@media(max-width:760px){ .bevestiging { padding-block:64px; } .bevestiging-stappen { grid-template-columns:1fr; } }
 
 /* Blog- en portfoliopagina's: gedeelde bovenruimte. */
 .pagina-lijst { display:flex; flex-direction:column; gap:32px; padding-block:56px 80px; }
