@@ -605,15 +605,15 @@ strong { font-weight:600; }
 :root { --tekst-paginakop:44px; }
 @media(max-width:760px){ :root { --tekst-paginakop:30px; } }
 
-/* Lage paginakop: vlak-zand met kruimelpad, titel en optionele intro. */
-.pagina-kop { margin-top:var(--ruimte-tussen-vlakken); }
-.pagina-kop-binnen { padding-block:40px 48px; }
+/* Eenvoudige witte paginakop, op dezelfde breedte als de pagina-inhoud. */
+.pagina-kop { background:var(--kleur-wit); }
+.pagina-kop-binnen { padding-block:40px 32px; border-bottom:1px solid var(--kleur-donker-10); }
 .pagina-kop .kruimelpad { margin-bottom:18px; color:var(--kleur-donker-70); }
 .pagina-kop-titel { font-family:var(--font-kop); font-weight:600; font-size:var(--tekst-paginakop); line-height:1.1; }
 .pagina-intro { margin-top:16px; max-width:600px; color:var(--kleur-donker-75); }
 
 /* Tekstpagina: één leeskolom met bericht-inhoud-stijlen en een klein contactblok. */
-.pagina-leesblok { width:min(var(--breedte-leesinhoud),100%); margin-inline:auto; padding-block:56px 80px; }
+.pagina-leesblok { padding-block:56px 80px; }
 .pagina-bijgewerkt { font-size:13px; color:var(--kleur-donker-70); margin-bottom:32px; }
 .pagina-vragen { margin-top:56px; padding-top:24px; border-top:1px solid var(--kleur-donker-10); }
 .pagina-vragen a { color:var(--kleur-blauw); text-decoration:underline; text-underline-offset:4px; }
