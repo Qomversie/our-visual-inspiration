@@ -3,8 +3,7 @@ import { Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUp, Building2, Check, ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CaseCard, CheckList, CtaBlock, FaqItem, ShortcodeBlock, SiteFooter, SmileMark, SmileOutline } from '@/components/qomversie';
-import { cases } from '@/lib/homepage-content';
-import { blogPaginaIntro, blogPosts, contactPagina, eerdereProjecten, examplePost, faqGroups, faqPaginaIntro, portfolioPaginaIntro, relatedPosts, tekstpagina } from '@/lib/template-content';
+import { alleProjecten, blogPaginaIntro, blogPosts, contactPagina, examplePost, faqGroups, faqPaginaIntro, portfolioPaginaIntro, relatedPosts, tekstpagina } from '@/lib/template-content';
 import logo from '@/assets/QOMV_Nieuwe_logo_2026-02.png.asset.json';
 import portrait from '@/assets/Bouke-portret.webp.asset.json';
 import bank from '@/assets/E-mail_header_2.png.asset.json';
@@ -169,29 +168,19 @@ export function BlogPaginaTemplate() {
           </div>
         </article>)}
       </div>
-      <p className="tekst-klein">Voorbeeldkaarten; in WordPress gevuld met berichten uit de categorie Blogs.</p>
-      <nav className="blog-paginering" aria-label="Paginanummering"><span aria-current="page">1</span><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Volgende pagina">›</a></nav>
+      <p className="tekst-klein">Voorbeeldkaarten; in WordPress gevuld met berichten uit de categorie Blogs, allemaal op één pagina.</p>
     </div>
   </TemplateShell>;
 }
 
-/* 5. Portfolio: uitgelichte cases als op de homepage, daaronder compacte projectkaarten. */
+/* Portfolio: alle projecten in één raster, nieuwste eerst, zonder onderscheid tussen uitgelicht en ouder. */
 export function PortfolioTemplate() {
   return <TemplateShell>
     <PaginaKop title="Portfolio" intro={portfolioPaginaIntro} />
     <div className="paginabreedte pagina-lijst">
-      <section className="pagina-sectie" aria-labelledby="portfolio-uitgelicht"><h2 className="kop-h2" id="portfolio-uitgelicht">Uitgelichte cases</h2>
-        <div className="pagina-cases">{cases.map(c => <CaseCard key={c.name} {...c} />)}</div>
-      </section>
-      <section className="pagina-sectie" aria-labelledby="portfolio-eerder"><h2 className="kop-h2" id="portfolio-eerder">Eerdere projecten</h2>
-        <div className="pagina-eerder">
-          {eerdereProjecten.map((p, i) => <a className="pagina-oud" href="#" key={`${p.name}-${i}`}>
-            <span className="pagina-oud-merk">{p.image ? <img src={p.image} alt="" loading="lazy" /> : <span aria-hidden="true">{p.name.charAt(0)}</span>}</span>
-            <strong>{p.name}</strong>
-            <span className="pagina-oud-regel">{p.line}</span>
-          </a>)}
-        </div>
-        <p className="tekst-klein">Klantlogo's volgen; zolang ze niet zijn aangeleverd, tonen we de initial.</p>
+      <section className="pagina-sectie" aria-labelledby="portfolio-projecten"><h2 className="kop-h2" id="portfolio-projecten">Alle projecten</h2>
+        <div className="pagina-cases">{alleProjecten.map((p, i) => <CaseCard key={`${p.name}-${i}`} {...p} />)}</div>
+        <p className="tekst-klein">Nieuwste projecten staan bovenaan; zolang een foto nog niet is aangeleverd, tonen we een leeg beeldvlak.</p>
       </section>
     </div>
   </TemplateShell>;
