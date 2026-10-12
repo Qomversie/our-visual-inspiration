@@ -94,11 +94,11 @@ export const portfolioPaginaIntro = 'Een overzicht van alle projecten, oud en ni
 /* Alle projecten in één raster, nieuwste eerst: de recente cases bovenaan, daarna de oudere projecten. Zolang een foto niet is aangeleverd, tonen we een leeg beeldvlak. */
 export const alleProjecten = [
   ...cases,
-  { name: 'Studio Noeske', line: 'Nieuwe website', image: undefined },
-  { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
-  { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
-  { name: 'Klantnaam volgt', line: 'Project volgt', image: undefined },
-] satisfies Array<{ name: string; line: string; image?: string | undefined }>;
+  { name: 'Studio Noeske', line: 'Nieuwe website' },
+  { name: 'Klantnaam volgt', line: 'Project volgt' },
+  { name: 'Klantnaam volgt', line: 'Project volgt' },
+  { name: 'Klantnaam volgt', line: 'Project volgt' },
+] satisfies Array<{ name: string; line: string; image?: string }>;
 
 export const contactPagina = {
   intro: 'Geen tussenpersonen of wachttijden: je spreekt altijd direct met mij.',
