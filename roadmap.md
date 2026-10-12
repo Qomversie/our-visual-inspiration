@@ -81,3 +81,8 @@
 - [x] Blog: kaartvlak (Sand + rand) verwijderd; klein beeld van 150px (mobiel 130px) in plaats van 16:10.
 - [x] Portfolio: compacte pagina-case-kaart (klein beeld, naam, projectsoort) in plaats van de grote case-kaarten van de homepage; ontbrekende foto's tonen een klein vlak "Projectfoto volgt".
 - [x] Bouwtekening en stijlgids bijgewerkt; gecontroleerd op 1280, 886 en 390px zonder zijwaartse scroll; homepage en berichtsjabloon ongewijzigd.
+
+## Blog en portfolio met thumbnails
+- [x] Beide overzichten als tekstrijen met gelijke thumbnails links, volledige foto's zonder bijsnijden.
+- [x] Elementor-bouwtekening bijgewerkt; gecontroleerd op 1280, 886 en 390px, zonder runtimefouten of horizontale scroll.
+- [x] Homepage en bestaand berichtsjabloon ongewijzigd.

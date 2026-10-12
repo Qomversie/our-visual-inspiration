@@ -110,8 +110,8 @@ export const paginaFields = [
   ['Tekstpagina', 'Container · Post Info (Laatst bijgewerkt) · Post Content · Container (contact)', 'Dezelfde --breedte-container als de overige pagina’s, met de bericht-inhoud-stijlen; klein contactblok onderaan, geen verkoop-CTA.'],
   ['FAQ-pagina', 'Container · Text (ankerkolom) · Heading · Accordion (details/summary)', 'Vragen in groepen met groepskop; ankerkolom alleen desktop (1000px+); geen afsluitend advies- of plannerblok.'],
   ['Bevestiging', 'Container · Heading · Text · Ordered List · Buttons', 'Zelfde paginakop als de overige pagina’s; korte leestekst met de drie stappen, contactregel en één rustige link terug.'],
-  ['Blogoverzicht', 'Container · Posts-widget (3 kolommen)', 'Rustige kaart zonder kaartvlak: klein beeld (150px hoog, afgerond), titel, samenvatting (2 regels), datum en Lees verder; alles op één pagina, geen paginanummering en geen afsluitend advies- of plannerblok.'],
-  ['Portfolio', 'Container · Posts/Case-raster (3 kolommen)', 'Alle projecten in één compact raster met klein beeld, naam en projectsoort, nieuwste eerst; projecten zonder foto tonen een klein vlak "Projectfoto volgt"; geen afsluitend advies- of plannerblok.'],
+  ['Blogoverzicht', 'Container · Posts-widget (1 kolom, thumbnail links)', 'Tekstlijst met gelijke thumbnails van 160 × 110px (mobiel 96 × 80px), object-fit: contain zonder afsnijden; rechts titel, samenvatting, datum en Lees verder. Alle berichten op één pagina, geen paginanummering of afsluitende CTA.'],
+  ['Portfolio', 'Container · Posts/Case-lijst (1 kolom, thumbnail links)', 'Alle projecten in één lijst, nieuwste eerst: dezelfde thumbnails als de blog, rechts naam en projectsoort. Ontbrekende foto’s tonen "Projectfoto volgt"; geen afsluitende CTA.'],
   ['Contactpagina', 'Container · Icon List · Image · Icon List (verwachtingen) · Shortcode', 'Links gegevens, foto en verwachtingen; rechts de HubSpot-afsprakenplanner via shortcode (net als op de homepage).'],
 ];
 
@@ -127,10 +127,11 @@ export const paginaClasses = [
   ['pagina-faq-ankers', 'Sticky lijst met groepsnamen als ankerlinks.'],
   ['faq-groep', 'Groepskop + faq-lijst (details/summary, zelfde stijl als de homepage).'],
   ['pagina-lijst', 'Bovenruimte en kolom voor blog- en portfoliorasters.'],
-  ['blog-raster', 'Raster van blogkaarten: 3 kolommen desktop, 2 tablet, 1 mobiel.'],
-  ['blog-kaart', 'Rustige kaart zonder kaartvlak: klein beeld (150px hoog, mobiel 130px, afgerond), titel, samenvatting en metarij.'],
-  ['pagina-cases', 'Raster met alle projecten, nieuwste eerst: 3 kolommen (2 tablet, 1 mobiel).'],
-  ['pagina-case', 'Compacte projectkaart: klein beeld (of vlak "Projectfoto volgt"), naam en projectsoort; geen hover-effecten.'],
+  ['blog-raster', 'Eén kolom met alle berichten als horizontale tekstrijen.'],
+  ['blog-kaart', 'Thumbnail links (160 × 110px, mobiel 96 × 80px), tekst rechts, lichte scheidingslijn; afbeelding volledig zichtbaar via object-fit: contain.'],
+  ['pagina-cases', 'Eén kolom met alle projecten, nieuwste eerst.'],
+  ['pagina-case', 'Projectrij met dezelfde thumbnailmaat als de blog, naam en projectsoort rechts; geen hover-effecten.'],
+  ['pagina-case-tekst', 'Tekstkolom naast de projectthumbnail met naam en projectsoort.'],
   ['pagina-contactraster', 'Twee kolommen op de contactpagina; onder 1000px onder elkaar.'],
   ['pagina-gegevens', 'Lijst met contactgegevens en lijn-iconen.'],
 ];
