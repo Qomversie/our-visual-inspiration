@@ -46,6 +46,11 @@
 - [x] Voettekstlink "Sjablonen & stijlgids" naar /styleguide toegevoegd, zodat beide sjablonen klikbaar bereikbaar zijn.
 - [x] Stijlgidsvoettekst naar de homepage laten wijzen (homeHref="/"); klikroute gecontroleerd.
 
+## Eenvoudige paginakoppen en gelijke breedte
+- [x] Sand-achtergrond van de nieuwe paginakoppen verwijderen en koppen eenvoudig houden.
+- [x] Alle zes nieuwe pagina’s dezelfde inhoudsbreedte geven, zonder homepage of berichtsjabloon te wijzigen.
+- [x] Nieuwe pagina’s op 1280, 886 en 390px gecontroleerd; homepage en berichtsjabloon ongewijzigd.
+
 ## Zes inhoudspagina-sjablonen
 - [x] Herbruikbare paginakop (vlak-zand, laag, kruimelpad + titel + intro) en contactblok van de homepage.
 - [x] Tekstpagina (/tekstpagina-sjabloon) met leeskolom, "Laatst bijgewerkt" en klein contactblok.

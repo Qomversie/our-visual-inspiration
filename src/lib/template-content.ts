@@ -108,8 +108,8 @@ export const contactPagina = {
 };
 
 export const paginaFields = [
-  ['Paginakop', 'Container (vlak-zand) · Breadcrumbs · Page Title · Text', 'Lage Sand-kop met kruimelpad, titel en optionele intro; herbruikbaar op alle inhoudspagina\'s, zonder foto.'],
-  ['Tekstpagina', 'Container · Post Info (Laatst bijgewerkt) · Post Content · Container (contact)', 'Leestekst op --breedte-leesinhoud met de bericht-inhoud-stijlen; klein contactblok onderaan, geen verkoop-CTA.'],
+  ['Paginakop', 'Container · Breadcrumbs · Page Title · Text', 'Eenvoudige witte kop met kruimelpad, titel, optionele intro en een lichte lijn; dezelfde --breedte-container als alle pagina-inhoud, zonder foto of Sand-vlak.'],
+  ['Tekstpagina', 'Container · Post Info (Laatst bijgewerkt) · Post Content · Container (contact)', 'Dezelfde --breedte-container als de overige pagina’s, met de bericht-inhoud-stijlen; klein contactblok onderaan, geen verkoop-CTA.'],
   ['FAQ-pagina', 'Container · Text (ankerkolom) · Heading · Accordion (details/summary) · Contactblok', 'Vragen in groepen met groepskop; ankerkolom alleen desktop (1000px+); onderaan het contactblok van de homepage.'],
   ['Bevestiging', 'Container (gecentreerd) · Icon · Heading · Text · Icon List · Image · Buttons', 'Zonder paginakop; na het plannen van een gesprek. Stappen, foto van Bouke en twee rustige links.'],
   ['Blogoverzicht', 'Container · Posts-widget (3 kolommen) · Pagination · Contactblok', 'Kaart met afbeelding 16:10, titel, samenvatting (2 regels), datum en Lees verder; paginanummering eronder.'],
@@ -118,10 +118,10 @@ export const paginaFields = [
 ];
 
 export const paginaClasses = [
-  ['pagina-kop', 'Lage Sand-vlak-kop met kruimelpad, titel (44px, mobiel 30px) en optionele intro.'],
+  ['pagina-kop', 'Eenvoudige witte kop met kruimelpad, titel (44px, mobiel 30px), optionele intro en een lichte lijn; geen afgerond achtergrondvlak.'],
   ['pagina-kop-titel', 'Kop in de paginakop, Lora 600.'],
   ['pagina-intro', 'Korte intro onder de paginakop-titel.'],
-  ['pagina-leesblok', 'Eén leeskolom op --breedte-leesinhoud voor de tekstpagina.'],
+  ['pagina-leesblok', 'Tekstpagina op dezelfde --breedte-container en zijmarges als de andere vijf pagina’s.'],
   ['pagina-bijgewerkt', 'Regel "Laatst bijgewerkt" boven de leestekst.'],
   ['pagina-vragen', 'Klein contactblok onder een tekstpagina, met lijn erboven.'],
   ['pagina-faq', 'Twee kolommen: ankerkolom (220px) links, faq-groepen rechts; onder 1000px één kolom zonder ankers.'],
