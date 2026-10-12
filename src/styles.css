@@ -608,7 +608,7 @@ strong { font-weight:600; }
 /* Lage paginakop: vlak-zand met kruimelpad, titel en optionele intro. */
 .pagina-kop { margin-top:var(--ruimte-tussen-vlakken); }
 .pagina-kop-binnen { padding-block:40px 48px; }
-.pagina-kop .kruimelpad { margin-bottom:18px; }
+.pagina-kop .kruimelpad { margin-bottom:18px; color:var(--kleur-donker-70); }
 .pagina-kop-titel { font-family:var(--font-kop); font-weight:600; font-size:var(--tekst-paginakop); line-height:1.1; }
 .pagina-intro { margin-top:16px; max-width:600px; color:var(--kleur-donker-75); }
 
