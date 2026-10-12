@@ -103,7 +103,7 @@ function PaginaKop({ title, intro }: { title: string; intro?: string }) {
 /* 1. Tekstpagina: alleen leestekst, in WordPress uit de pagina zelf. */
 export function TekstPaginaTemplate() {
   return <TemplateShell>
-    <PaginaKop title={tekstpagina.title} label="GOED OM TE WETEN" />
+    <PaginaKop title={tekstpagina.title} />
     <div className="paginabreedte pagina-leesblok">
       <p className="pagina-bijgewerkt">{tekstpagina.updated}</p>
       <div className="bericht-inhoud">
@@ -126,7 +126,7 @@ export function TekstPaginaTemplate() {
 /* 2. FAQ-pagina: echte vragen in groepen, open en dicht met details/summary. */
 export function FaqPaginaTemplate() {
   return <TemplateShell>
-    <PaginaKop title="Veelgestelde vragen" label="VRAGEN & ANTWOORDEN" intro={faqPaginaIntro} />
+    <PaginaKop title="Veelgestelde vragen" intro={faqPaginaIntro} />
     <div className="paginabreedte pagina-faq">
       <nav className="pagina-faq-ankers" aria-label="FAQ-groepen">{faqGroups.map(g => <a href={`#${g.id}`} key={g.id}>{g.name}</a>)}</nav>
       <div className="pagina-faq-groepen">
@@ -161,7 +161,7 @@ export function BevestigingTemplate() {
 /* 4. Blogoverzicht: voorbeeldkaarten; in WordPress een lus over de categorie Blogs. */
 export function BlogPaginaTemplate() {
   return <TemplateShell>
-    <PaginaKop title="Blog" label="TIPS & INSPIRATIE" intro={blogPaginaIntro} />
+    <PaginaKop title="Blog" intro={blogPaginaIntro} />
     <div className="paginabreedte pagina-lijst">
       <div className="blog-raster">
         {blogPosts.map(p => <article className="blog-kaart" key={p.title}>
@@ -182,7 +182,7 @@ export function BlogPaginaTemplate() {
 /* 5. Portfolio: uitgelichte cases als op de homepage, daaronder compacte projectkaarten. */
 export function PortfolioTemplate() {
   return <TemplateShell>
-    <PaginaKop title="Portfolio" label="ONS WERK" intro={portfolioPaginaIntro} />
+    <PaginaKop title="Portfolio" intro={portfolioPaginaIntro} />
     <div className="paginabreedte pagina-lijst">
       <section className="pagina-sectie" aria-labelledby="portfolio-uitgelicht"><h2 className="kop-h2" id="portfolio-uitgelicht">Uitgelichte cases</h2>
         <div className="pagina-cases">{cases.map(c => <CaseCard key={c.name} {...c} />)}</div>
@@ -204,7 +204,7 @@ export function PortfolioTemplate() {
 /* 6. Contactpagina: gegevens links, afsprakenplanner rechts. */
 export function ContactPaginaTemplate() {
   return <TemplateShell>
-    <PaginaKop title="Contact" label="EVEN SPARREN" intro={contactPagina.intro} />
+    <PaginaKop title="Contact" intro={contactPagina.intro} />
     <div className="paginabreedte pagina-contactraster">
       <div className="pagina-contactgegevens">
         <ul className="pagina-gegevens">
