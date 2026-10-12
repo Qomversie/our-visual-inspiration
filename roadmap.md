@@ -71,3 +71,8 @@
 ## Tekstlabel boven paginatitels weg
 - [x] Kop-label uit PaginaKop gehaald; kruimelpad en titel met oranje smile blijven over.
 - [x] Bouwtekening en stijlgids bijgewerkt; gecontroleerd op 1280, 886 en 390px, homepage en berichtsjabloon ongewijzigd.
+
+## Portfolio en blog: alles tonen
+- [x] Portfolio (/portfolio-sjabloon): één raster met alle projecten, nieuwste eerst, zonder "Uitgelichte cases" en "Eerdere projecten"; compacte pagina-oud-kaarten en bijbehorende classes verwijderd.
+- [x] Blog (/blog-sjabloon): paginanummering verwijderd; alle kaarten op één pagina.
+- [x] Bouwtekening (paginaFields/paginaClasses), stijlgids en ongebruikte CSS opgeruimd.
