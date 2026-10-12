@@ -92,13 +92,13 @@ export const blogPosts = [
 export const portfolioPaginaIntro = 'Een overzicht van alle projecten, oud en nieuw.';
 
 /* Alle projecten in één raster, nieuwste eerst: de recente cases bovenaan, daarna de oudere projecten. Zolang een foto niet is aangeleverd, tonen we een leeg beeldvlak. */
-export const alleProjecten = [
+export const alleProjecten: Array<{ name: string; line: string; image?: string }> = [
   ...cases,
   { name: 'Studio Noeske', line: 'Nieuwe website' },
   { name: 'Klantnaam volgt', line: 'Project volgt' },
   { name: 'Klantnaam volgt', line: 'Project volgt' },
   { name: 'Klantnaam volgt', line: 'Project volgt' },
-] satisfies Array<{ name: string; line: string; image?: string }>;
+];
 
 export const contactPagina = {
   intro: 'Geen tussenpersonen of wachttijden: je spreekt altijd direct met mij.',
@@ -110,8 +110,8 @@ export const paginaFields = [
   ['Tekstpagina', 'Container · Post Info (Laatst bijgewerkt) · Post Content · Container (contact)', 'Dezelfde --breedte-container als de overige pagina’s, met de bericht-inhoud-stijlen; klein contactblok onderaan, geen verkoop-CTA.'],
   ['FAQ-pagina', 'Container · Text (ankerkolom) · Heading · Accordion (details/summary)', 'Vragen in groepen met groepskop; ankerkolom alleen desktop (1000px+); geen afsluitend advies- of plannerblok.'],
   ['Bevestiging', 'Container · Heading · Text · Ordered List · Buttons', 'Zelfde paginakop als de overige pagina’s; korte leestekst met de drie stappen, contactregel en één rustige link terug.'],
-  ['Blogoverzicht', 'Container · Posts-widget (3 kolommen)', 'Kaart met afbeelding 16:10, titel, samenvatting (2 regels), datum en Lees verder; alles op één pagina, geen paginanummering en geen afsluitend advies- of plannerblok.'],
-  ['Portfolio', 'Container · Posts/Case-raster (3 kolommen)', 'Alle projecten in één raster als de case-kaarten van de homepage, nieuwste eerst, zonder onderscheid tussen uitgelicht en ouder; geen afsluitend advies- of plannerblok.'],
+  ['Blogoverzicht', 'Container · Posts-widget (3 kolommen)', 'Rustige kaart zonder kaartvlak: klein beeld (150px hoog, afgerond), titel, samenvatting (2 regels), datum en Lees verder; alles op één pagina, geen paginanummering en geen afsluitend advies- of plannerblok.'],
+  ['Portfolio', 'Container · Posts/Case-raster (3 kolommen)', 'Alle projecten in één compact raster met klein beeld, naam en projectsoort, nieuwste eerst; projecten zonder foto tonen een klein vlak "Projectfoto volgt"; geen afsluitend advies- of plannerblok.'],
   ['Contactpagina', 'Container · Icon List · Image · Icon List (verwachtingen) · Shortcode', 'Links gegevens, foto en verwachtingen; rechts de HubSpot-afsprakenplanner via shortcode (net als op de homepage).'],
 ];
 
@@ -128,8 +128,9 @@ export const paginaClasses = [
   ['faq-groep', 'Groepskop + faq-lijst (details/summary, zelfde stijl als de homepage).'],
   ['pagina-lijst', 'Bovenruimte en kolom voor blog- en portfoliorasters.'],
   ['blog-raster', 'Raster van blogkaarten: 3 kolommen desktop, 2 tablet, 1 mobiel.'],
-  ['blog-kaart', 'Kaart met afbeelding 16:10 (bijgesneden), titel, samenvatting en metarij.'],
-  ['pagina-cases', 'Raster met alle projecten als case-kaarten van de homepage: 3 kolommen (2 tablet, 1 mobiel), nieuwste eerst, zonder hover-effecten.'],
+  ['blog-kaart', 'Rustige kaart zonder kaartvlak: klein beeld (150px hoog, mobiel 130px, afgerond), titel, samenvatting en metarij.'],
+  ['pagina-cases', 'Raster met alle projecten, nieuwste eerst: 3 kolommen (2 tablet, 1 mobiel).'],
+  ['pagina-case', 'Compacte projectkaart: klein beeld (of vlak "Projectfoto volgt"), naam en projectsoort; geen hover-effecten.'],
   ['pagina-contactraster', 'Twee kolommen op de contactpagina; onder 1000px onder elkaar.'],
   ['pagina-gegevens', 'Lijst met contactgegevens en lijn-iconen.'],
 ];
