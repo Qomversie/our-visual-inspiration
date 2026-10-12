@@ -137,22 +137,18 @@ export function FaqPaginaTemplate() {
   </TemplateShell>;
 }
 
-/* 3. Bevestiging: na het plannen van een gratis adviesgesprek, zonder paginakop. */
+/* 3. Bevestiging: na het plannen van een gratis adviesgesprek; zelfde paginakop als de andere sjablonen. */
 export function BevestigingTemplate() {
   return <TemplateShell>
-    <div className="paginabreedte bevestiging">
-      <SmileMark className="smile-icoon bevestiging-smile" />
-      <h1 className="pagina-kop-titel">Je adviesgesprek staat gepland</h1>
-      <p className="tekst">Je ontvangt zo een bevestiging per mail met alle gegevens van het gesprek.</p>
-      <div className="bevestiging-stappen">
-        {[['1', 'Je krijgt een bevestiging per mail'], ['2', 'Bouke bekijkt je website vooraf'], ['3', 'Het gesprek van 30 minuten']].map(([nummer, stapTekst]) => (
-          <div className="bevestiging-stap" key={nummer}><span className="bevestiging-nummer" aria-hidden="true">{nummer}</span><strong>{stapTekst}</strong></div>
-        ))}
+    <PaginaKop title="Je adviesgesprek staat gepland" intro="Je ontvangt zo een bevestiging per mail met alle gegevens van het gesprek." />
+    <div className="paginabreedte pagina-leesblok">
+      <div className="bericht-inhoud">
+        <p>Je hebt een gratis adviesgesprek van 30 minuten gepland met Bouke. Dit is wat je kunt verwachten:</p>
+        <ol><li>Je krijgt een bevestiging per mail.</li><li>Bouke bekijkt je website vooraf.</li><li>In het gesprek gaan we direct met je website aan de slag.</li></ol>
+        <p>Vragen of wil je het gesprek verzetten? Mail <a href="mailto:info@qomv.nl">info@qomv.nl</a> of bel <a href="tel:+31653509763">06-53509763</a>.</p>
       </div>
-      <figure className="bevestiging-foto"><img src={portrait.url} alt="Bouke van Qomversie" width="540" height="750" loading="lazy" /><figcaption>Tot snel, Bouke</figcaption></figure>
-      <div className="knoppenrij bevestiging-links">
+      <div className="knoppenrij">
         <Button asChild variant="quiet"><Link to="/">Terug naar de homepage</Link></Button>
-        <Button asChild variant="quiet"><Link to="/blog-sjabloon">Een blog lezen<ArrowRight aria-hidden="true" /></Link></Button>
       </div>
     </div>
   </TemplateShell>;
