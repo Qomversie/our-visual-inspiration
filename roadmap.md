@@ -57,7 +57,7 @@
 - [x] Herbruikbare paginakop (vlak-zand, laag, kruimelpad + titel + intro) en contactblok van de homepage.
 - [x] Tekstpagina (/tekstpagina-sjabloon) met leeskolom, "Laatst bijgewerkt" en klein contactblok.
 - [x] FAQ-pagina (/faq-sjabloon) met echte vragen in groepen, details/summary, ankerkolom op desktop.
-- [x] Bevestiging (/bevestiging-sjabloon) gecentreerd, zonder paginakop, met stappen, foto en twee links.
+- [x] Bevestiging (/bevestiging-sjabloon) eenvoudig: standaard paginakop, links uitgelijnd, zonder foto of stapkaarten.
 - [x] Blogoverzicht (/blog-sjabloon) met kaarten 3/2/1, 16:10-afbeelding, samenvatting, datum, paginanummering.
 - [x] Portfolio (/portfolio-sjabloon) met case-kaarten (3/2/1) en compact raster eerdere projecten (4/2/2).
 - [x] Contactpagina (/contact-sjabloon) met gegevens, foto, verwachtingen en planner-placeholder.
